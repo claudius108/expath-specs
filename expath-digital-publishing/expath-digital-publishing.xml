@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://expath.org/ns/xmlspec/xmlspec.rnc" type="compact"?>
+<spec xmlns:spec="http://expath.org/ns/xmlspec" role="editors-copy">
+    <header>
+        <title>Digital Publishing Module</title>
+        <w3c-designation>w3c-designation</w3c-designation>
+        <w3c-doctype>EXPath Candidate Module</w3c-doctype>
+        <pubdate>
+            <day>12</day>
+            <month>November</month>
+            <year>2011</year>
+        </pubdate>
+        <publoc>
+            <loc href="http://expath.org/spec/digi-pub/20111112"/>
+        </publoc>
+        <altlocs>
+		<loc href="http://expath.org/spec/digi-pub/20111112.xml">XML</loc>
+        </altlocs>
+        <latestloc>
+		<loc href="http://expath.org/spec/digi-pub"/>
+        </latestloc>
+        <authlist>
+            <author>
+                <name>Claudius Teodorescu</name>
+                <affiliation>XML Consultant</affiliation>
+            </author>
+        </authlist>
+        <copyright>
+            <p/>
+        </copyright>
+        <abstract>
+            <p>This proposal provides a Digital Publishing module for XPath 2.0.
+		It defines extension functions for converting from one digital format to another, to
+		execute various processing operations of digital documents, etc.
+		It has been designed to be compatible with XQuery 1.0 and XSLT 2.0, as well as any other standard based on XPath 2.0.</p>
+        </abstract>
+        <status>
+            <p>Must be ignored, but is required by the schema...</p>
+        </status>
+        <langusage>
+            <language>langusage</language>
+        </langusage>
+        <revisiondesc>
+            <p>revisiondesc</p>
+        </revisiondesc>
+    </header>
+    <body>
+        <div1>
+            <head>Introduction</head>
+	    <p>This Digital Publishing module allows publishing and processing of digital documents.</p>
+            <div2>
+                <head>Namespace conventions</head>
+                <p>The module defined by this document defines functions and elements in the namespace
+                  <code id="namespace-uri">http://expath.org/ns/digi-pub</code>. In this document, the
+		  <code>digi-pub</code> prefix, when used, is bound to this namespace URI.</p>
+                <p>Error codes are defined in the namespace <code>http://expath.org/ns/error</code>. In
+               this document, <code>err</code> prefix, when used, is bound to this namespace
+               URI.</p>
+            </div2>
+            <div2>
+                <head>Error management</head>
+                <p>Error conditions are identified by a code (a <code>QName</code>). When such an error
+               condition is reached during the execution of the function, a dynamic error is thrown,
+               with the corresponding error code (as if the standard XPath function
+                  <code>error</code> had been called).</p>
+            </div2>
+        </div1>
+	<div1>
+		<head>General Functions</head>
+		<p>These are general purpose functions, for general processing of documents, regardless their formats.</p>
+		<div2>
+			<head>The <code>digi-pub:get-module-metadata()</code> Function</head>
+			<p>This function is used for getting the metadata of this module. It returns the module metadata.</p>
+			<eg>
+<spec:function>digi-pub:get-module-metadata</spec:function>() as <spec:type>element(digi-pub:module-metadata)</spec:type>
+			</eg>
+			<div3>
+				<head>The <code>digi-pub:module-metadata</code> element</head>
+				<eg>
+&lt;digi-pub:module-metadata&gt;
+	(
+	digi-pub:description,
+	digi-pub:version,
+	digi-pub:namespace-uri,
+	digi-pub:prefix,
+	digi-pub:formats
+	)
+&lt;/digi-pub:module-metadata&gt;
+				</eg>
+				<ulist>
+					<item>
+					<p>
+						the <code>digi-pub:module-version</code> child element contains module's current version number.</p>
+					</item>
+				</ulist>
+			</div3>			
+			
+    		</div2>		
+		<div2>
+			<head>The <code>digi-pub:transform()</code> Function</head>
+			<p>This function is used to transform a document from one digital publishing format to another.</p>
+			<eg>
+<spec:function>digi-pub:transform</spec:function>($transformation-formula as <spec:type>xs:string</spec:type>,
+	$input-document as <spec:type>xs:anyAtomicType</spec:type>,
+	$options as <spec:type>element(digi-pub:options)?</spec:type>) as <spec:type>xs:anyAtomicType*</spec:type>
+			</eg>		
+			<ulist>
+				<item>
+				<p><code>$transformation-formula</code> is the formula used to specify the source format and the target format. These formulae
+					are detailed below. If the transformation formula is not supported,
+					this is an error <bibref ref="errDPUB001"/>.</p>
+				</item>
+				<item>
+					<p><code>$input-document</code> is the document to be transformed from source format to target format.</p>
+				</item>
+				<item>
+					<p><code>$options</code> are the options for the current operation.</p>
+				</item>		
+			</ulist>
+			<div3>
+				<head>The Formats</head>
+				<p>Below are the input/output formats:</p>
+				<p>pdf (Portable Document Format),
+					html (Hypertext Markup Language), txt (Plain Text), epub
+					(Open eBook), rtf (Rich Text Format),
+					docbook (DocBook), xslfo (Extensible Stylesheet Language 
+					Formatting Objects), pptx (PowerPoint Open XML Presentation),
+					svg (Scalable Vector Graphics).</p>
+			</div3>
+			<div3>
+				<head>The Syntax for <code>$transformation-formula</code> parameter</head>
+				<p>The syntax for <code>$transformation-formula</code> parameter is as follows:</p>				
+			</div3>
+			<eg>
+<code>$input-format</code>-to-<code>$output-format</code>
+			</eg>
+			<p>If the syntax of the transformation formula is wrong, this is an error <bibref ref="errDPUB004"/>.</p>
+			<p>If neither the input format, or output format is supported, this is an error <bibref ref="errDPUB001"/>.</p>
+			<div3>
+				<head>The <code>digi-pub:options</code> element</head>
+				<eg>
+&lt;digi-pub:options&gt;
+	(digi-pub:multiple-output?)
+&lt;/digi-pub:options&gt;
+				</eg>
+				<ulist>
+					<item>
+					<p>
+						the <code>digi-pub:multiple-output</code> child element controls if the output is as more
+						than one documents (for value true) or as one document (for value false). The default value is false.</p>
+					</item>
+				</ulist>
+			</div3>			
+    		</div2>
+		<div2>
+			<head>The <code>digi-pub:get-resource-metadata()</code> Function</head>
+			<p>This function is used for getting the metadata of a resource. It returns the resource metadata.</p>
+			<eg>
+<spec:function>digi-pub:get-resource-metadata</spec:function>($resource-path as <spec:type>xs:string</spec:type>) as <spec:type>element(digi-pub:resource-metadata)</spec:type>
+			</eg>		
+			<ulist>
+				<item>
+					<p><code>$resource-path</code> is the path of the resource. If the path is not correct,
+						this is an error <bibref ref="errDPUB002"/>. If the user has no rights
+						to access the path, this is an error <bibref ref="errDPUB003"/>.</p>
+				</item>
+			</ulist>
+    		</div2>
+		<div2>
+			<head>The <code>digi-pub:set-resource-metadata()</code> Function</head>
+			<p>This function is used for setting the metadata of a resource. It returns true if successfully completed, false if not.</p>
+			<eg>
+<spec:function>digi-pub:set-resource-metadata</spec:function>($resource-path as <spec:type>xs:string</spec:type>,
+	$new-resource-metadata as <spec:type>element(digi-pub:resource-metadata</spec:type>) as <spec:type>xs:boolean</spec:type>
+			</eg>		
+			<ulist>
+				<item>
+					<p><code>$resource-path</code> is the path of the resource. If the path is not correct,
+					this is an error <bibref ref="errDPUB002"/>. If the user has no rights
+					to access the path, this is an error <bibref ref="errDPUB003"/>.</p>
+				</item>
+				<item>
+					<p><code>$new-resource-metadata</code> is the new resource metadata.</p>
+				</item>		
+			</ulist>
+    		</div2>		
+        </div1>
+        <div1>
+            <head>Functions for Documents in PDF Format</head>
+	    <p>These functions are designated for processing the documents in PDF format.</p>
+		<div2>
+			<head>The <code>digi-pub:pdf-merge()</code> Function</head>
+			<p>This function is used for merging two or more (a collection of) PDF documents.</p>
+<!--			<eg>
+<spec:function>digi-pub:pdf-merge</spec:function>($document as <spec:type>xs:anyAtomicType</spec:type>,
+	$new-resource-metadata as <spec:type>element(digi-pub:resource-metadata</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+			</eg>-->		
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:pdf-split()</code> Function</head>
+			<p>This function is used for splitting a PDF document into a number of other PDF documents.</p>
+			<eg>
+<spec:function>digi-pub:pdf-split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>,
+	$options as <spec:type>element(digi-pub:options)</spec:type>) as <spec:type>xs:base64Binary+</spec:type>
+			</eg>
+			<ulist>
+				<item>
+					<p><code>$document</code> is the PDF document to be splitted.</p>
+				</item>
+				<item>
+					<p><code>$options</code> are the options for the current operation.</p>
+				</item>
+			</ulist>
+			<div3>
+				<head>The <code>digi-pub:options</code> element</head>
+				<eg>
+&lt;digi-pub:options&gt;
+	(digi-pub:split-delimiter+)
+&lt;/digi-pub:options&gt;
+				</eg>
+<!--				<eg>
+&lt;digi-pub:options&gt;
+	(digi-pub:split-delimiter,
+	digi-pub:output-filename?)
+&lt;/digi-pub:options&gt;
+				</eg>-->				
+				<ulist>
+					<item>
+						<p>the <code>digi-pub:split-delimiter</code> child element
+						specifies the delimiter used for splitting the input PDF
+						document.</p>
+					</item>					
+<!--					<item>
+						<p>the <code>ft-client:resource-type</code> child element is the type of the remote resource.</p>
+					</item>-->
+				</ulist>
+			</div3>	
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:pdf-to-image()</code> Function</head>
+			<p>This function is used for converting a PDF document to images.</p>
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:pdf-stamp()</code> Function</head>
+			<p>This function is used for adding a stamp to a PDF document.</p>
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:pdf-sign()</code> Function</head>
+			<p>This function is used for digitally sign a PDF document.</p>			
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:pdf-encrypt()</code> Function</head>
+			<p>This function is used for encrypting a PDF document by using a digital certificate.</p>
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:pdf-decrypt()</code> Function</head>
+			<p>This function is used for decrypting a PDF document.</p>
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:pdf-import-page()</code> Function</head>
+			<p>This function is used for importing to a PDF document a page or more pages from a PDF document.</p>
+		</div2>		
+		<div2>
+			<head>The <code>digi-pub:pdf-export-page()</code> Function</head>
+			<p>This function is used for removing a page or more pages from a PDF document.</p>
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:pdf-delete-page()</code> Function</head>
+			<p>This function is used for deleting a page or more pages from a PDF document.</p>
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:add-bookmark()</code> Function</head>
+			<p>This function is used to add bookmarks to a PDF document.</p>
+		</div2>		
+        </div1>
+        <div1>
+            <head>Functions for images in various formats</head>
+	    <p>These functions are designated for processing the images in various formats.</p>
+		<div2>
+			<head>The <code>digi-pub:get-image-thumbnail()</code> Function</head>
+			<p>This function is used to get a thumbnail image by scaling the main image.</p>
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:crop-image()</code> Function</head>
+			<p>This function is used to remove parts of an image, in order to improve
+				focus on certain detail(s), emphasize the subject or change aspect ratio.</p>
+		</div2>
+		<div2>
+			<head>The <code>digi-pub:scale-image()</code> Function</head>
+			<p>This function is used to scale (resize) an image.</p>
+		</div2>		
+        </div1>	
+    </body>
+    <back>
+        <div1>
+            <head>References</head>
+            <blist>
+                <bibl id="fo11" key="F&amp;O 1.1">
+                    <loc href="http://w3.org/TR/xpath-functions-11/">XPath and XQuery Functions and
+				Operators 1.1</loc>. Michael Kay, editor. W3C Working Draft. 15 January 2009. </bibl>
+            </blist>
+        </div1>
+        <div1>
+            <head>Summary of Error Conditions</head>
+            <blist>
+		    <bibl id="errDPUB001" key="err:DPUB001">err:DPUB001: The transformation formula is not supported.</bibl>
+		    <bibl id="errDPUB002" key="err:DPUB002">err:DPUB002: The remote resource does not exist.</bibl>
+		    <bibl id="errDPUB003" key="err:DPUB003">err:DPUB003: The user has no rights to access the remote resource.</bibl>
+		    <bibl id="errDPUB004" key="err:DPUB004">err:DPUB004: The syntax of the transformation formula is wrong.</bibl>
+            </blist>
+        </div1>
+    </back>
+</spec>
