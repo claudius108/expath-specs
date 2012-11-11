@@ -24,7 +24,7 @@
       </latestloc>
       <authlist>
          <author>
-            <name>Claudius Teodorescu</name>
+            <name id="cteodorescu">Claudius Teodorescu</name>
             <affiliation>XML Consultant</affiliation>
          </author>
          <author>
@@ -166,7 +166,7 @@
          <head>Integrity and Authentication of Data</head>
          <div2 id="hash-function">
             <head>The <code>crypto:hash</code> function</head>
-            <p>This function generates a "message digest" of the input, by using a cryptographic algorithm. It returns the hash value as hex string.</p>
+            <p>This function generates a "message digest" of the input, by using a cryptographic algorithm. It returns the hash value as base64 string.</p>
             <eg>
 <spec:function>crypto:hash</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
             $hashing-algorithm as <spec:type>xs:string</spec:type>,
@@ -194,7 +194,7 @@
             used between two parties that share a secret key in order to validate information transmitted
             between these parties.</p>            
             <p>This function generates a message authentication code, based on the input message, by
-               using a cryptographic algorithm and a secret key. It returns the hash-based message authentication code as hex string.</p>
+               using a cryptographic algorithm and a secret key. It returns the hash-based message authentication code as base64 string.</p>
             <eg>
 <spec:function>crypto:hmac</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
             $secret-key as <spec:type>xs:anyAtomicType</spec:type>,
@@ -772,6 +772,21 @@
       <div1>
          <head>References</head>
          <blist>
+            <bibl id="xpath-30" key="XML Path Language (XPath) 3.0">
+               <loc href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</loc>.
+               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
+            <bibl id="xslt-30" key="XSL Transformations (XSLT) Version 3.0">                        
+               <loc href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</loc>.
+               Michael Kay, editor. W3C Working Draft, 10 July 2012.</bibl>         
+            <bibl id="xquery-30" key="XQuery 3.0: An XML Query Language">                        
+               <loc href="http://w3.org/TR/xquery-30/">XQuery 3.0: An XML Query Language</loc>.
+               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
+            <bibl id="xpath-functions-30" key="XPath and XQuery Functions and Operators 3.0">
+               <loc href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</loc>.
+               Michael Kay, editor. W3C Working Draft, 13 December 2011.</bibl>                                
+            <bibl id="xpath-datamodel-30" key="XQuery and XPath Data Model 3.0">
+               <loc href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</loc>.
+               Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>         
             <bibl id="rfc1321" key="RFC 1321">
                <loc href="http://ietf.org/rfc/rfc1321.txt">RFC 1321: The MD5 Message-Digest Algorithm</loc>. 
                Ronald L. Rivest, editor. Network Working Group. April 1992.</bibl>
@@ -804,12 +819,6 @@
                <loc href="http://ietf.org/rfc/rfc2617.txt">RFC 2617: HTTP Authentication: Basic and
                   Digest Access Authentication</loc>. J. Franks, P. Hallam-Baker, J. Hostetler, S.
                Lawrence, P. Leach, A. Luotonen, L. Stewart. June, 1999.</bibl>
-            <bibl id="fo11" key="F&amp;O 1.1">
-               <loc href="http://w3.org/TR/xpath-functions-11/">XPath and XQuery Functions and
-                  Operators 1.1</loc>. Michael Kay, editor. W3C Working Draft. 15 January 2009.</bibl>
-            <bibl id="xslt20" key="XSLT 2.0">
-               <loc href="http://w3.org/TR/xslt20/">XSL Transformations (XSLT) Version 2.0</loc>.
-               Michael Kay, editor. W3C Recommendation. 23 January 2007.</bibl>
             <bibl id="xml-dig-sig-core" key="XML Signature">
                <loc href="http://w3.org/TR/xmldsig-core/">XML Signature Syntax and Processing
                   (Second Edition)</loc>. Donald Eastlake, Joseph Reagle, David Solo, Frederick
