@@ -393,21 +393,33 @@
         <div1>
             <head>References</head>
             <blist>
+	            <bibl id="xpath-30" key="XML Path Language (XPath) 3.0">
+	               <loc href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</loc>.
+	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
+	            <bibl id="xslt-30" key="XSL Transformations (XSLT) Version 3.0">                        
+	               <loc href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</loc>.
+	               Michael Kay, editor. W3C Working Draft, 10 July 2012.</bibl>         
+	            <bibl id="xquery-30" key="XQuery 3.0: An XML Query Language">                        
+	               <loc href="http://w3.org/TR/xquery-30/">XQuery 3.0: An XML Query Language</loc>.
+	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
+	            <bibl id="xpath-functions-30" key="XPath and XQuery Functions and Operators 3.0">
+	               <loc href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</loc>.
+	               Michael Kay, editor. W3C Working Draft, 13 December 2011.</bibl>                                
+	            <bibl id="xpath-datamodel-30" key="XQuery and XPath Data Model 3.0">
+	               <loc href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</loc>.
+	               Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>            
                 <bibl id="rfc959" key="RFC 959">
                     <loc href="http://ietf.org/rfc/rfc959.txt">RFC 959: FILE TRANSFER PROTOCOL (FTP)</loc>.
-			J. Postel, J. Reynolds editors. Network Working Group. October 1985. </bibl>
+					J. Postel, J. Reynolds editors. Network Working Group. October 1985. </bibl>
                 <bibl id="rfc2577" key="RFC 2577">
                     <loc href="http://ietf.org/rfc/rfc2577.txt">RFC 2577: FTP Security Considerations</loc>.
-			M. Allman, S. Ostermann editors. Network Working Group. May 1999. </bibl>
-		<bibl id="rfc1738" key="RFC 1738">
-			<loc href="http://ietf.org/rfc/rfc1738.txt">RFC 1738: Uniform Resource Locators (URL)</loc>.
-			T. Berners-Lee, L. Masinter, M. McCahill editors. Network Working Group. December 1994. </bibl>
-		<bibl id="draft-yevstifeyev-ftp-uri-scheme-08" key="draft-yevstifeyev-ftp-uri-scheme-08">
-			<loc href="http://tools.ietf.org/html/draft-yevstifeyev-ftp-uri-scheme-08">The 'ftp' URI Scheme</loc>.
-			M. Yevstifeyev editor. Internet Engineering Task Force. September 25, 20114. </bibl>		
-                <bibl id="fo11" key="F&amp;O 1.1">
-                    <loc href="http://w3.org/TR/xpath-functions-11/">XPath and XQuery Functions and
-				Operators 1.1</loc>. Michael Kay, editor. W3C Working Draft. 15 January 2009. </bibl>
+					M. Allman, S. Ostermann editors. Network Working Group. May 1999. </bibl>
+				<bibl id="rfc1738" key="RFC 1738">
+					<loc href="http://ietf.org/rfc/rfc1738.txt">RFC 1738: Uniform Resource Locators (URL)</loc>.
+					T. Berners-Lee, L. Masinter, M. McCahill editors. Network Working Group. December 1994. </bibl>
+				<bibl id="draft-yevstifeyev-ftp-uri-scheme-08" key="draft-yevstifeyev-ftp-uri-scheme-08">
+					<loc href="http://tools.ietf.org/html/draft-yevstifeyev-ftp-uri-scheme-08">The 'ftp' URI Scheme</loc>.
+					M. Yevstifeyev editor. Internet Engineering Task Force. September 25, 20114. </bibl>		
             </blist>
         </div1>
         <div1>
