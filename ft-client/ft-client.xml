@@ -29,9 +29,8 @@
             <p/>
         </copyright>
         <abstract>
-            <p>This proposal provides a File Transfer Client interface for XPath 2.0.
-		It defines extension functions for initialize a connection, listing resources, retrieve resources, store resources, etc.
-		It has been designed to be compatible with XQuery 1.0 and XSLT 2.0, as well as any other standard based on XPath 2.0.</p>
+            <p>This proposal provides a File Transfer Client interface for XPath 3.0. It defines functions covering the operations needed to
+            manage (remote) resources (files and directories). It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard based on XPath 3.0.</p>
         </abstract>
         <status>
             <p>Must be ignored, but is required by the schema...</p>
@@ -46,19 +45,12 @@
     <body>
         <div1>
             <head>Introduction</head>
-	    <p>This File Transfer Client interface allows using of major file transfer protocols, including
-		    FTP, SFTP (SSH File Transfer Protocol), FTPS (FTP over implicit SSL/TLS),
-		    FTPES (FTP over explicit SSL/TLS), WebDAV (Web-based Distributed Authoring and Versioning),
-		    and WebDAVS (WebDAV encrypted via SSL).</p>
-            <p>FTP is used for sharing of files, indirect or implicit (via programs) use of remote
-		    computers, protect a user from variations in file storage systems among hosts,
-		    and for transfering data reliably and efficiently .</p>
-            <p>FTP user can either connect anonymously, if server allows this, or by using a username
-		    and a password.</p>
-            <p>All data transfers are in clear text. For transferring files in a secure manner, one
-		    has to use encrypted FTP sessions.</p>
-	    <p>SFTP (SSH File Transfer Protocol) assumes that it is run over a SSH channel, which provides
-		    authentication and security.</p>
+		    <p>This File Transfer Client interface allows using of various file transfer protocols, including well-known ones, such as FTP, SFTP (SSH File Transfer Protocol),
+		    FTPS (FTP over implicit SSL/TLS), FTPES (FTP over explicit SSL/TLS), WebDAV (Web-based Distributed Authoring and Versioning), and WebDAVS (WebDAV encrypted via SSL),
+		    as well as custom defined protocols.</p>
+		    <p>The specification was made so that to cover the operations involved as to managing (remote) resources (files and directories).</p>
+		    <p>A custom protocol can make use of any number of the operations over files described below, in this manner assuring a very elastic approach of the (remote) resources
+		    (files and directories) management.</p>
             <div2>
                 <head>Namespace conventions</head>
                 <p>The module defined by this document defines functions and elements in the namespace
