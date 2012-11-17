@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="build-spec">
+<project name="ft-client" default="build-spec">
 	
 	<import file="/home/claudius/workspace-claudius/_commons/_workspace/build.xml" />
 	
