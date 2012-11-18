@@ -23,4 +23,145 @@
 		<module>ft-client</module>
 	</modules>
 
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>xml-maven-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<id>generate-xar-descriptors</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<forceCreation>true</forceCreation>
+							<transformationSets>
+								<transformationSet>
+									<dir>../../expath-specs/${expath-spec-id}</dir>
+									<includes>
+										<include>${expath-spec-id}.xml</include>
+									</includes>
+									<stylesheet>../utils/generate-xar-descriptors.xsl</stylesheet>
+									<parameters>
+										<parameter>
+											<name>cxan.org-id</name>
+											<value>cteodorescu</value>
+										</parameter>
+										<parameter>
+											<name>module-prefix</name>
+											<value>${module-prefix}</value>
+										</parameter>
+										<parameter>
+											<name>module-namespace</name>
+											<value>${module-namespace}</value>
+										</parameter>										
+										<parameter>
+											<name>package-version</name>
+											<value>${project.version}</value>
+										</parameter>
+										<parameter>
+											<name>target-dir</name>
+											<value>target/files</value>
+										</parameter>
+										<parameter>
+											<name>java-package-main-class</name>
+											<value>${java-package-main-class}</value>
+										</parameter>
+										<parameter>
+											<name>jar-name</name>
+											<value>${jar-name}</value>
+										</parameter>										
+									</parameters>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>net.sf.saxon</groupId>
+						<artifactId>Saxon-HE</artifactId>
+						<version>9.4</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/files/${project.artifactId}/</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+							<includeArtifactIds>${dependency-list}</includeArtifactIds>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<echo>Copy ${project.artifactId}-${project.version}.jar...</echo>
+								<copy file="${project.build.directory}/${project.build.finalName}.jar" todir="${project.build.directory}/files/${project.artifactId}/"
+									overwrite="true" />
+								<echo>Deploy module jar and its dependencies to local eXist server...</echo>
+								<!-- ${eXist.test.server.dir}/webapp/WEB-INF/expathrepo/${ant.project.name}-${module-version} -->
+								<copy todir="${eXist.test.server.dir}/lib/extensions" overwrite="true">
+									<fileset dir="${project.build.directory}/files/${project.artifactId}/">
+										<include name="**/*.jar" />
+									</fileset>
+								</copy>
+								<echo>Making ${project.artifactId}-${project.version}.xar...</echo>
+								<zip destfile="${project.build.directory}/${project.build.finalName}.xar">
+									<fileset dir="${project.build.directory}/files">
+										<include name="**/*.*" />
+										<exclude name="*-tests.jar" />
+									</fileset>
+								</zip>
+								<echo>Restarting eXist local instance...</echo>
+								<ant antfile="${local-eXist-management-build-file}" target="restart-exist-local-server" />
+								<echo>Deploying XQuery tests to eXist local instance...</echo>
+								<ant antfile="${local-eXist-management-build-file}" target="add-collection-to-db">
+									<property name="eXist.test.server.admin-username" value="${eXist.test.server.admin-username}" />
+									<property name="eXist.test.server.admin-password" value="${eXist.test.server.admin-password}" />
+									<property name="source-folder" value="${basedir}/src/test/java/org/expath/exist/${java-package-name}/xquery" />
+									<property name="target-collection" value="/web/tests/expath-${expath-spec-id}/unit-tests" />
+								</ant>
+								<echo>Deploying resources for XQuery tests to eXist local instance...</echo>
+								<ant antfile="${local-eXist-management-build-file}" target="add-collection-to-db">
+									<property name="eXist.test.server.admin-username" value="${eXist.test.server.admin-username}" />
+									<property name="eXist.test.server.admin-password" value="${eXist.test.server.admin-password}" />
+									<property name="source-folder" value="${basedir}/src/test/resources/org/expath/exist/${java-package-name}/tests/resources" />
+									<property name="target-collection" value="/web/tests/expath-${expath-spec-id}/resources" />
+								</ant>								
+								<echo>Making ${project.build.finalName}-tests.xar...</echo>
+								<echo>Making ${basedir}-tests.xar...</echo>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
 </project>
