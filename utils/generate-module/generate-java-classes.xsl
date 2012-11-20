@@ -3,7 +3,7 @@
 
   <xsl:output method="text" />
 
-  <xsl:variable name="java-end-of-line">
+  <xsl:variable name="java-end-of-instruction-line">
       <xsl:text>";
 </xsl:text>
   </xsl:variable>
@@ -58,13 +58,13 @@ import java.util.Properties;
     public final static String VERSION = moduleProperties.getProperty("module-version");
 </xsl:text>
       <xsl:text>      public final static String NAMESPACE_URI = "</xsl:text>
-      <xsl:value-of select="concat($module-namespace, $java-end-of-line)" />
+      <xsl:value-of select="concat($module-namespace, $java-end-of-instruction-line)" />
       <xsl:text>      public final static String PREFIX = "</xsl:text>
-      <xsl:value-of select="concat($module-prefix, $java-end-of-line)" />
+      <xsl:value-of select="concat($module-prefix, $java-end-of-instruction-line)" />
       <xsl:text>      public final static String MODULE_NAME = "</xsl:text>
-      <xsl:value-of select="concat('EXPath ', //element()[local-name() = 'title'], $java-end-of-line)" />
+      <xsl:value-of select="concat('EXPath ', //element()[local-name() = 'title'], $java-end-of-instruction-line)" />
       <xsl:text>      public final static String MODULE_DESCRIPTION = "</xsl:text>
-      <xsl:value-of select="concat('A ', //element()[@id = 'module-description'], $java-end-of-line)" />
+      <xsl:value-of select="concat('A ', //element()[@id = 'module-description'], $java-end-of-instruction-line)" />
       <xsl:for-each select="//element()[@id = 'summary-of-error-conditions']/*">
         <xsl:text>      public static String </xsl:text>
         <xsl:value-of select="replace(@key, ':', '_')" />
