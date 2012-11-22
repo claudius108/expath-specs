@@ -50,14 +50,23 @@ div.exampleHeader { font-weight: bold;
     1.1 <a href="#d2e55">Namespace conventions</a><br />
     1.2 <a href="#d2e74">Error management</a><br />
 2 <a href="#d2e85">xs:base64Binary to other datatypes</a><br />
-    2.1 <a href="#d2e92">The dt-conv:base64Binary-to-string function</a><br />
-3 <a href="#d2e135">xs:byte to other datatypes</a><br />
-    3.1 <a href="#d2e142">The dt-conv:byte-to-string function</a><br />
-4 <a href="#d2e150">xs:hexBinary to other datatypes</a><br />
-    4.1 <a href="#d2e157">The dt-conv:hexBinary-to-string function</a><br />
+    2.1 <a href="#d2e92">The dt-conv:base64Binary-to-byte function</a><br />
+    2.2 <a href="#d2e117">The dt-conv:base64Binary-to-string function</a><br />
+3 <a href="#d2e160">xs:byte to other datatypes</a><br />
+    3.1 <a href="#d2e167">The dt-conv:byte-to-base64Binary function</a><br />
+    3.2 <a href="#d2e192">The dt-conv:byte-to-hexBinary function</a><br />
+4 <a href="#d2e217">xs:hexBinary to other datatypes</a><br />
+    4.1 <a href="#d2e224">The dt-conv:hexBinary-to-byte function</a><br />
+    4.2 <a href="#d2e249">The dt-conv:hexBinary-to-string function</a><br />
+5 <a href="#d2e292">xs:string to other datatypes</a><br />
+    5.1 <a href="#d2e299">The dt-conv:string-to-base64Binary function</a><br />
+    5.2 <a href="#d2e342">The dt-conv:string-to-hexBinary function</a><br />
+    5.3 <a href="#d2e385">The dt-conv:string-to-integer function</a><br />
+6 <a href="#d2e418">xs:integer to other datatypes</a><br />
+    6.1 <a href="#d2e425">The dt-conv:integer-to-string function</a><br />
 </p>
-<h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d2e166">References</a><br />
-B <a href="#d2e210">Summary of Error Conditions</a><br />
+<h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d2e459">References</a><br />
+B <a href="#d2e503">Summary of Error Conditions</a><br />
 </p></div><hr /><div class="body"><div class="div1">
 <h2><a name="d2e48" id="d2e48"></a>1 Introduction</h2><p>This module is designed to help datatypes handling, providing conversions between datatypes that are not covered by casts mentioned in
          <a href="#xpath-functions-30">[XPath and XQuery Functions and Operators 3.0]</a>.</p><div class="div2">
@@ -70,19 +79,60 @@ B <a href="#d2e210">Summary of Error Conditions</a><br />
                condition is reached during the execution of the function, a dynamic error is thrown,
                with the corresponding error code (as if the standard XPath function
                   <code>error</code> had been called).</p></div></div><div class="div1">
-<h2><a name="d2e85" id="d2e85"></a>2 <code>xs:base64Binary</code> to other datatypes</h2><p>To be developed.</p><div class="div2">
-<h3><a name="d2e92" id="d2e92"></a>2.1 The <code>dt-conv:base64Binary-to-string</code> function</h3><p>This function converts from xs:base64Binary to xs:string.</p><div class="exampleInner"><pre>
+<h2><a name="d2e85" id="d2e85"></a>2 <code>xs:base64Binary</code> to other datatypes</h2><p>These functions provide conversion from xs:base64Binary datatype to other datatypes.</p><div class="div2">
+<h3><a name="d2e92" id="d2e92"></a>2.1 The <code>dt-conv:base64Binary-to-byte</code> function</h3><p>This function converts from xs:base64Binary to xs:byte.</p><div class="exampleInner"><pre>
+<code class="function">dt-conv:base64Binary-to-byte</code>($data as <code class="type">xs:base64Binary?</code>) as <code class="type">xs:byte*</code>
+</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li></ul></div><div class="div2">
+<h3><a name="d2e117" id="d2e117"></a>2.2 The <code>dt-conv:base64Binary-to-string</code> function</h3><p>This function converts from xs:base64Binary to xs:string.</p><div class="exampleInner"><pre>
 <code class="function">dt-conv:base64Binary-to-string</code>($data as <code class="type">xs:base64Binary?</code>) as <code class="type">xs:string?</code>
 </pre></div><div class="exampleInner"><pre>
 <code class="function">dt-conv:base64Binary-to-string</code>($data as <code class="type">xs:base64Binary?</code>,
 		$encoding as xs:string) as <code class="type">xs:string?</code>
 </pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li><li><p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
                   is an error <a href="#errDTCONV01">[err:DTCONV01]</a>.</p></li></ul></div></div><div class="div1">
-<h2><a name="d2e135" id="d2e135"></a>3 <code>xs:byte</code> to other datatypes</h2><p>To be developed.</p><div class="div2">
-<h3><a name="d2e142" id="d2e142"></a>3.1 The <code>dt-conv:byte-to-string</code> function</h3><p>This function converts from xs:byte to xs:string.</p></div></div><div class="div1">
-<h2><a name="d2e150" id="d2e150"></a>4 <code>xs:hexBinary</code> to other datatypes</h2><p>To be developed.</p><div class="div2">
-<h3><a name="d2e157" id="d2e157"></a>4.1 The <code>dt-conv:hexBinary-to-string</code> function</h3><p>This function converts from xs:hexBinary to xs:string.</p></div></div></div><div class="back"><div class="div1">
-<h2><a name="d2e166" id="d2e166"></a>A References</h2><dl><dt class="label"><a name="xpath-30" id="xpath-30"></a>XML Path Language (XPath) 3.0</dt><dd>
+<h2><a name="d2e160" id="d2e160"></a>3 <code>xs:byte</code> to other datatypes</h2><p>These functions provide conversion from xs:byte datatype to other datatypes.</p><div class="div2">
+<h3><a name="d2e167" id="d2e167"></a>3.1 The <code>dt-conv:byte-to-base64Binary</code> function</h3><p>This function converts from xs:byte to xs:base64Binary.</p><div class="exampleInner"><pre>
+<code class="function">dt-conv:byte-to-base64Binary</code>($data as <code class="type">xs:byte*</code>) as <code class="type">xs:base64Binary?</code>
+</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li></ul></div><div class="div2">
+<h3><a name="d2e192" id="d2e192"></a>3.2 The <code>dt-conv:byte-to-hexBinary</code> function</h3><p>This function converts from xs:byte to xs:hexBinary.</p><div class="exampleInner"><pre>
+<code class="function">dt-conv:byte-to-hexBinary</code>($data as <code class="type">xs:byte*</code>) as <code class="type">xs:hexBinary?</code>
+</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li></ul></div></div><div class="div1">
+<h2><a name="d2e217" id="d2e217"></a>4 <code>xs:hexBinary</code> to other datatypes</h2><p>These functions provide conversion from xs:hexBinary datatype to other datatypes.</p><div class="div2">
+<h3><a name="d2e224" id="d2e224"></a>4.1 The <code>dt-conv:hexBinary-to-byte</code> function</h3><p>This function converts from xs:hexBinary to xs:byte.</p><div class="exampleInner"><pre>
+<code class="function">dt-conv:hexBinary-to-byte</code>($data as <code class="type">xs:hexBinary?</code>) as <code class="type">xs:byte*</code>
+</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li></ul></div><div class="div2">
+<h3><a name="d2e249" id="d2e249"></a>4.2 The <code>dt-conv:hexBinary-to-string</code> function</h3><p>This function converts from xs:hexBinary to xs:string.</p><div class="exampleInner"><pre>
+<code class="function">dt-conv:hexBinary-to-string</code>($data as <code class="type">xs:hexBinary?</code>) as <code class="type">xs:string?</code>
+</pre></div><div class="exampleInner"><pre>
+<code class="function">dt-conv:hexBinary-to-string</code>($data as <code class="type">xs:hexBinary?</code>,
+		$encoding as xs:string) as <code class="type">xs:string?</code>
+</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li><li><p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
+                  is an error <a href="#errDTCONV01">[err:DTCONV01]</a>.</p></li></ul></div></div><div class="div1">
+<h2><a name="d2e292" id="d2e292"></a>5 <code>xs:string</code> to other datatypes</h2><p>These functions provide conversion from xs:string datatype to other datatypes.</p><div class="div2">
+<h3><a name="d2e299" id="d2e299"></a>5.1 The <code>dt-conv:string-to-base64Binary</code> function</h3><p>This function converts from xs:string to xs:base64Binary.</p><div class="exampleInner"><pre>
+<code class="function">dt-conv:string-to-base64Binary</code>($data as <code class="type">xs:string?</code>) as <code class="type">xs:base64Binary?</code>
+</pre></div><div class="exampleInner"><pre>
+<code class="function">dt-conv:string-to-base64Binary</code>($data as <code class="type">xs:string?</code>,
+		$encoding as xs:string) as <code class="type">xs:base64Binary?</code>
+</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li><li><p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
+                  is an error <a href="#errDTCONV01">[err:DTCONV01]</a>.</p></li></ul></div><div class="div2">
+<h3><a name="d2e342" id="d2e342"></a>5.2 The <code>dt-conv:string-to-hexBinary</code> function</h3><p>This function converts from xs:string to xs:hexBinary.</p><div class="exampleInner"><pre>
+<code class="function">dt-conv:string-to-hexBinary</code>($data as <code class="type">xs:string?</code>) as <code class="type">xs:hexBinary?</code>
+</pre></div><div class="exampleInner"><pre>
+<code class="function">dt-conv:string-to-hexBinary</code>($data as <code class="type">xs:string?</code>,
+		$encoding as xs:string) as <code class="type">xs:hexBinary?</code>
+</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li><li><p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
+                  is an error <a href="#errDTCONV01">[err:DTCONV01]</a>.</p></li></ul></div><div class="div2">
+<h3><a name="d2e385" id="d2e385"></a>5.3 The <code>dt-conv:string-to-integer</code> function</h3><p>This function converts from xs:string to xs:integer.</p><div class="exampleInner"><pre>
+<code class="function">dt-conv:string-to-integer</code>($data as <code class="type">xs:string?</code>,
+		$radix as <code class="type">xs:integer</code>) as <code class="type">xs:integer?</code>
+</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li><li><p><code>$radix</code> is the radix used to provide the conversion of $data ($data is considered being in radix $radix).</p></li></ul></div></div><div class="div1">
+<h2><a name="d2e418" id="d2e418"></a>6 <code>xs:integer</code> to other datatypes</h2><p>These functions provide conversion from xs:integer datatype to other datatypes.</p><div class="div2">
+<h3><a name="d2e425" id="d2e425"></a>6.1 The <code>dt-conv:integer-to-string</code> function</h3><p>This function converts from xs:integer to xs:string.</p><div class="exampleInner"><pre>
+<code class="function">dt-conv:integer-to-string</code>($data as <code class="type">xs:integer?</code>,
+		$radix as <code class="type">xs:integer</code>) as <code class="type">xs:string?</code>
+</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li><li><p><code>$radix</code> is the radix used to provide the conversion of $data.</p></li></ul></div></div></div><div class="back"><div class="div1">
+<h2><a name="d2e459" id="d2e459"></a>A References</h2><dl><dt class="label"><a name="xpath-30" id="xpath-30"></a>XML Path Language (XPath) 3.0</dt><dd>
                <a href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</a>.
                Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</dd><dt class="label"><a name="xslt-30" id="xslt-30"></a>XSL Transformations (XSLT) Version 3.0</dt><dd>                        
                <a href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</a>.
@@ -99,4 +149,4 @@ B <a href="#d2e210">Summary of Error Conditions</a><br />
                David Peterson, Shudi (Sandy) Gao 高殊镝, Ashok Malhotra, C. M. Sperberg-McQueen, Henry S. Thompson, editors. W3C Recommendation, 5 April 2012.</dd><dt class="label"><a name="rfc2045" id="rfc2045"></a>RFC 2045 - Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies</dt><dd>
                <a href="http://ietf.org/rfc/rfc2045/">Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies</a>.
                N. Freed, N. Borenstein, editors. Network Working Group, November 1996.</dd></dl></div><div class="div1">
-<h2><a name="d2e210" id="d2e210"></a>B Summary of Error Conditions</h2><dl><dt class="label"><a name="errDTCONV01" id="errDTCONV01"></a>err:DTCONV01</dt><dd>The encoding is not supported.</dd></dl></div></div></body></html>
+<h2><a name="d2e503" id="d2e503"></a>B Summary of Error Conditions</h2><dl><dt class="label"><a name="errDTCONV01" id="errDTCONV01"></a>err:DTCONV01</dt><dd>The encoding is not supported.</dd></dl></div></div></body></html>

@@ -63,7 +63,19 @@
       </div1>
       <div1>
          <head><code>xs:base64Binary</code> to other datatypes</head>
-         <p>To be developed.</p>
+         <p>These functions provide conversion from xs:base64Binary datatype to other datatypes.</p>
+         <div2>
+            <head>The <code>dt-conv:base64Binary-to-byte</code> function</head>
+            <p>This function converts from xs:base64Binary to xs:byte.</p>
+            <eg>
+<spec:function>dt-conv:base64Binary-to-byte</spec:function>($data as <spec:type>xs:base64Binary?</spec:type>) as <spec:type>xs:byte*</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$data</code> is the data to be converted.</p>
+               </item>
+            </ulist>            
+         </div2>          
          <div2>
             <head>The <code>dt-conv:base64Binary-to-string</code> function</head>
             <p>This function converts from xs:base64Binary to xs:string.</p>
@@ -87,20 +99,148 @@
       </div1>
       <div1>
          <head><code>xs:byte</code> to other datatypes</head>
-         <p>To be developed.</p>
+         <p>These functions provide conversion from xs:byte datatype to other datatypes.</p>
          <div2>
-            <head>The <code>dt-conv:byte-to-string</code> function</head>
-            <p>This function converts from xs:byte to xs:string.</p>
-         </div2> 
+            <head>The <code>dt-conv:byte-to-base64Binary</code> function</head>
+            <p>This function converts from xs:byte to xs:base64Binary.</p>
+            <eg>
+<spec:function>dt-conv:byte-to-base64Binary</spec:function>($data as <spec:type>xs:byte*</spec:type>) as <spec:type>xs:base64Binary?</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$data</code> is the data to be converted.</p>
+               </item>
+            </ulist>            
+         </div2>  
+         <div2>
+            <head>The <code>dt-conv:byte-to-hexBinary</code> function</head>
+            <p>This function converts from xs:byte to xs:hexBinary.</p>
+            <eg>
+<spec:function>dt-conv:byte-to-hexBinary</spec:function>($data as <spec:type>xs:byte*</spec:type>) as <spec:type>xs:hexBinary?</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$data</code> is the data to be converted.</p>
+               </item>
+            </ulist>            
+         </div2>                    
       </div1>   
       <div1>
          <head><code>xs:hexBinary</code> to other datatypes</head>
-         <p>To be developed.</p>
+         <p>These functions provide conversion from xs:hexBinary datatype to other datatypes.</p>
+         <div2>
+            <head>The <code>dt-conv:hexBinary-to-byte</code> function</head>
+            <p>This function converts from xs:hexBinary to xs:byte.</p>
+            <eg>
+<spec:function>dt-conv:hexBinary-to-byte</spec:function>($data as <spec:type>xs:hexBinary?</spec:type>) as <spec:type>xs:byte*</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$data</code> is the data to be converted.</p>
+               </item>
+            </ulist>            
+         </div2>          
          <div2>
             <head>The <code>dt-conv:hexBinary-to-string</code> function</head>
             <p>This function converts from xs:hexBinary to xs:string.</p>
-         </div2>
-      </div1>            
+            <eg>
+<spec:function>dt-conv:hexBinary-to-string</spec:function>($data as <spec:type>xs:hexBinary?</spec:type>) as <spec:type>xs:string?</spec:type>
+</eg>
+            <eg>
+<spec:function>dt-conv:hexBinary-to-string</spec:function>($data as <spec:type>xs:hexBinary?</spec:type>,
+		$encoding as xs:string) as <spec:type>xs:string?</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$data</code> is the data to be converted.</p>
+               </item>
+               <item>
+                  <p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
+                  is an error <bibref ref="errDTCONV01"/>.</p>
+               </item>
+            </ulist>            
+         </div2> 
+      </div1> 
+      <div1>
+         <head><code>xs:string</code> to other datatypes</head>
+         <p>These functions provide conversion from xs:string datatype to other datatypes.</p>
+         <div2>
+            <head>The <code>dt-conv:string-to-base64Binary</code> function</head>
+            <p>This function converts from xs:string to xs:base64Binary.</p>
+            <eg>
+<spec:function>dt-conv:string-to-base64Binary</spec:function>($data as <spec:type>xs:string?</spec:type>) as <spec:type>xs:base64Binary?</spec:type>
+</eg>
+            <eg>
+<spec:function>dt-conv:string-to-base64Binary</spec:function>($data as <spec:type>xs:string?</spec:type>,
+		$encoding as xs:string) as <spec:type>xs:base64Binary?</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$data</code> is the data to be converted.</p>
+               </item>
+               <item>
+                  <p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
+                  is an error <bibref ref="errDTCONV01"/>.</p>
+               </item>
+            </ulist>            
+         </div2> 
+         <div2>
+            <head>The <code>dt-conv:string-to-hexBinary</code> function</head>
+            <p>This function converts from xs:string to xs:hexBinary.</p>
+            <eg>
+<spec:function>dt-conv:string-to-hexBinary</spec:function>($data as <spec:type>xs:string?</spec:type>) as <spec:type>xs:hexBinary?</spec:type>
+</eg>
+            <eg>
+<spec:function>dt-conv:string-to-hexBinary</spec:function>($data as <spec:type>xs:string?</spec:type>,
+		$encoding as xs:string) as <spec:type>xs:hexBinary?</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$data</code> is the data to be converted.</p>
+               </item>
+               <item>
+                  <p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
+                  is an error <bibref ref="errDTCONV01"/>.</p>
+               </item>
+            </ulist>            
+         </div2>  
+         <div2>
+            <head>The <code>dt-conv:string-to-integer</code> function</head>
+            <p>This function converts from xs:string to xs:integer.</p>
+            <eg>
+<spec:function>dt-conv:string-to-integer</spec:function>($data as <spec:type>xs:string?</spec:type>,
+		$radix as <spec:type>xs:integer</spec:type>) as <spec:type>xs:integer?</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$data</code> is the data to be converted.</p>
+               </item>
+               <item>
+                  <p><code>$radix</code> is the radix used to provide the conversion of $data ($data is considered being in radix $radix).</p>
+               </item>               
+            </ulist>            
+         </div2>                 
+      </div1>
+      <div1>
+         <head><code>xs:integer</code> to other datatypes</head>
+         <p>These functions provide conversion from xs:integer datatype to other datatypes.</p>
+         <div2>
+            <head>The <code>dt-conv:integer-to-string</code> function</head>
+            <p>This function converts from xs:integer to xs:string.</p>
+            <eg>
+<spec:function>dt-conv:integer-to-string</spec:function>($data as <spec:type>xs:integer?</spec:type>,
+		$radix as <spec:type>xs:integer</spec:type>) as <spec:type>xs:string?</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$data</code> is the data to be converted.</p>
+               </item>
+               <item>
+                  <p><code>$radix</code> is the radix used to provide the conversion of $data.</p>
+               </item>               
+            </ulist>            
+         </div2>  
+      </div1>                        
    </body>
    <back>
       <div1>
