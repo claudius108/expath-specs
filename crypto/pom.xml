@@ -16,7 +16,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<expath-spec-id>crypto</expath-spec-id>
+		<expath-spec-id>${crypto-spec-id}</expath-spec-id>
+		<java-package-name>${crypto-java-package-name}</java-package-name>
 	</properties>
 
 	<build>
