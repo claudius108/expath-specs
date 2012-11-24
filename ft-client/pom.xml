@@ -4,15 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-	<groupId>org.expath.specs</groupId>
-	<artifactId>expath-specs</artifactId>
-	<version>1.0-SNAPSHOT</version>
+		<groupId>org.expath.specs</groupId>
+		<artifactId>expath-specs</artifactId>
+		<version>0.2-SNAPSHOT</version>
 	</parent>
 
-	<groupId>org.expath.specs</groupId>
 	<artifactId>expath-ft-client-spec</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>EXPath File Transfer Client specification</name>
+	<packaging>pom</packaging>
 	<url>http://expath.org</url>
 
 	<properties>
