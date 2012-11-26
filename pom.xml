@@ -11,124 +11,161 @@
 
 	<groupId>org.expath.specs</groupId>
 	<artifactId>expath-specs</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>EXPath specifications</name>
 	<url>http://expath.org</url>
 
-	<modules>
-		<module>crypto</module>
-		<module>datatype-conversion</module>
-		<module>digital-publishing</module>
-		<module>ft-client</module>
-	</modules>
-
-	<properties>
-		<web-sourceforge-specs-url>${web-sourceforge-base-url}/expath-specs</web-sourceforge-specs-url>
-		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${expath-spec-id}</web-sourceforge-spec-url>
-	</properties>
-
-
-	<build>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh</artifactId>
-				<version>2.2</version>
-			</extension>
-		</extensions>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>xml-maven-plugin</artifactId>
-				<version>1.0</version>
-				<executions>
-					<execution>
-						<id>generate-spec-in-html-format</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>transform</goal>
-						</goals>
+	<profiles>
+		<profile>
+			<activation>
+				<property>
+					<name>${project.artifactId}</name>
+					<value>!expath-specs</value>
+				</property>
+			</activation>
+			<modules>
+				<module>crypto</module>
+				<module>datatype-conversion</module>
+				<module>digital-publishing</module>
+				<module>ft-client</module>
+				<module>time</module>
+			</modules>
+			<properties>
+				<web-sourceforge-specs-url>${web-sourceforge-base-url}/expath-specs</web-sourceforge-specs-url>
+				<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${expath-spec-id}</web-sourceforge-spec-url>
+			</properties>
+			<build>
+				<!-- <extensions> -->
+				<!-- <extension> -->
+				<!-- <groupId>org.apache.maven.wagon</groupId> -->
+				<!-- <artifactId>wagon-ssh</artifactId> -->
+				<!-- <version>2.2</version> -->
+				<!-- </extension> -->
+				<!-- </extensions> -->
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>xml-maven-plugin</artifactId>
+						<version>1.0</version>
+						<executions>
+							<execution>
+								<id>generate-spec-in-html-format</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>transform</goal>
+								</goals>
+								<configuration>
+									<forceCreation>true</forceCreation>
+									<transformationSets>
+										<!-- Generate the specs index -->
+										<transformationSet>
+											<dir>..</dir>
+											<includes>
+												<include>pom.xml</include>
+											</includes>
+											<stylesheet>../utils/generate-spec/generate-specs-index.xsl</stylesheet>
+										</transformationSet>
+										<!-- Generate the spec -->
+										<transformationSet>
+											<dir>.</dir>
+											<includes>
+												<include>${expath-spec-id}.xml</include>
+											</includes>
+											<stylesheet>../utils/generate-spec/xmlspec.xsl</stylesheet>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+													<pattern>^(.*)\.xml$</pattern>
+													<replacement>../../../../${expath-spec-id}.html</replacement>
+												</fileMapper>
+											</fileMappers>
+										</transformationSet>
+										<!-- Generate some of the lib's Java classes -->
+										<transformationSet>
+											<dir>.</dir>
+											<includes>
+												<include>${expath-spec-id}.xml</include>
+											</includes>
+											<stylesheet>../utils/generate-module/generate-java-classes.xsl</stylesheet>
+											<parameters>
+												<parameter>
+													<name>java-package-name</name>
+													<value>${java-package-name}</value>
+												</parameter>
+												<parameter>
+													<name>expath-spec-id</name>
+													<value>${expath-spec-id}</value>
+												</parameter>
+											</parameters>
+										</transformationSet>
+									</transformationSets>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>net.sf.saxon</groupId>
+								<artifactId>Saxon-HE</artifactId>
+								<version>9.4</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>wagon-maven-plugin</artifactId>
+						<version>1.0-beta-3</version>
+						<executions>
+							<execution>
+								<id>upload-index-of-specs-to-sourceforge</id>
+								<phase>package</phase>
+								<goals>
+									<goal>upload-single</goal>
+								</goals>
+								<configuration>
+									<serverId>web-sourceforge</serverId>
+									<fromFile>../index.html</fromFile>
+									<toFile>index.html</toFile>
+									<url>${web-sourceforge-specs-url}</url>
+								</configuration>
+							</execution>
+							<execution>
+								<id>upload-spec-to-sourceforge</id>
+								<phase>package</phase>
+								<goals>
+									<goal>upload-single</goal>
+								</goals>
+								<configuration>
+									<serverId>web-sourceforge</serverId>
+									<fromFile>${expath-spec-id}.html</fromFile>
+									<toFile>${expath-spec-id}.html</toFile>
+									<url>${web-sourceforge-spec-url}</url>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>2.2-beta-5</version>
+						<executions>
+							<execution>
+								<id>zip-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
 						<configuration>
-							<forceCreation>true</forceCreation>
-							<transformationSets>
-								<transformationSet>
-									<dir>..</dir>
-									<includes>
-										<include>pom.xml</include>
-									</includes>
-									<stylesheet>../utils/generate-spec/generate-specs-index.xsl</stylesheet>
-								</transformationSet>
-								<transformationSet>
-									<dir>.</dir>
-									<includes>
-										<include>${expath-spec-id}.xml</include>
-									</includes>
-									<stylesheet>../utils/generate-spec/xmlspec.xsl</stylesheet>
-									<!-- <fileMappers> -->
-									<!-- <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper"> -->
-									<!-- <targetExtension>.html</targetExtension> -->
-									<!-- </fileMapper> -->
-									<!-- </fileMappers> -->
-									<fileMappers>
-										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
-											<pattern>^(.*)\.xml$</pattern>
-											<replacement>../../../../${expath-spec-id}.html</replacement>
-										</fileMapper>
-									</fileMappers>
-								</transformationSet>
-							</transformationSets>
+							<finalName>${project.artifactId}-${project.version}</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptors>
+								<descriptor>../assembly.xml</descriptor>
+							</descriptors>
 						</configuration>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>net.sf.saxon</groupId>
-						<artifactId>Saxon-HE</artifactId>
-						<version>9.4</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>wagon-maven-plugin</artifactId>
-				<version>1.0-beta-3</version>
-				<executions>
-					<execution>
-						<id>upload-index-of-specs-to-sourceforge</id>
-						<phase>package</phase>
-						<goals>
-							<goal>upload-single</goal>
-						</goals>
-						<configuration>
-							<serverId>web-sourceforge</serverId>
-							<fromFile>../index.html</fromFile>
-							<toFile>index.html</toFile>
-							<url>${web-sourceforge-specs-url}</url>
-						</configuration>
-					</execution>
-					<execution>
-						<id>upload-spec-to-sourceforge</id>
-						<phase>package</phase>
-						<goals>
-							<goal>upload-single</goal>
-						</goals>
-						<configuration>
-							<serverId>web-sourceforge</serverId>
-							<fromFile>${expath-spec-id}.html</fromFile>
-							<toFile>${expath-spec-id}.html</toFile>
-							<url>${web-sourceforge-spec-url}</url>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
-	<!-- <target name="generate-java-classes" description="Generates main Java class and error messages class of library"> -->
-	<!-- <echo message="Generate Java classes for library '${ant.project.name}'..." /> -->
-	<!-- <xslt force="true" style="${kuberam.web.specs.dir}/utils/generate-module/generate-java-classes.xsl" in="${kuberam.current.project.dir}/${ant.project.name}.xml" 
-		out="${kuberam.workspace.dir}/${ant.project.name}/src/main/java/org/expath/crypto/a.xml" /> -->
-	<!-- <delete file="${kuberam.workspace.dir}/${ant.project.name}/src/main/java/org/expath/crypto/a.xml" /> -->
-	<!-- </target> -->
 </project>

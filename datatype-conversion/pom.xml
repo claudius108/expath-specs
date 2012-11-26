@@ -8,6 +8,7 @@
 		<groupId>org.expath.specs</groupId>
 		<artifactId>expath-specs</artifactId>
 		<version>0.2-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>expath-datatype-conversion-spec</artifactId>
