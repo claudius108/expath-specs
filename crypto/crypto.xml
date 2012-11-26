@@ -170,7 +170,7 @@
             <eg>
 <spec:function>crypto:hash</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
             $hashing-algorithm as <spec:type>xs:string</spec:type>,
-            $provider as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+            $provider as <spec:type>xs:string?</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -181,8 +181,8 @@
                   is an error <bibref ref="errCX21"/>.</p>
                </item>
                <item>
-                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider does not exist,
-                  this is an error <bibref ref="errCX23"/>.</p>
+                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
+                  default provider. If the provider does not exist, this is an error <bibref ref="errCX23"/>.</p>
                </item>               
             </ulist>
          </div2>
@@ -199,7 +199,7 @@
 <spec:function>crypto:hmac</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
             $secret-key as <spec:type>xs:anyAtomicType</spec:type>,
             $hashing-algorithm as <spec:type>xs:string</spec:type>,
-            $provider as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+            $provider as <spec:type>xs:string?</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -214,8 +214,8 @@
                   is an error <bibref ref="errCX21"/>.</p>
                </item>
                <item>
-                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider does not exist,
-                  this is an error <bibref ref="errCX23"/>.</p>
+                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
+                  default provider. If the provider does not exist, this is an error <bibref ref="errCX23"/>.</p>
                </item>              
             </ulist>
          </div2>

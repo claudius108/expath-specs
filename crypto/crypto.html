@@ -156,10 +156,10 @@ B <a href="#d2e1328">Summary of Error Conditions</a><br />
 <h3><a name="hash-function" id="hash-function"></a>3.1 The <code>crypto:hash</code> function</h3><p>This function generates a "message digest" of the input, by using a cryptographic algorithm. It returns the hash value as base64 string.</p><div class="exampleInner"><pre>
 <code class="function">crypto:hash</code>($data as <code class="type">xs:anyAtomicType</code>,
             $hashing-algorithm as <code class="type">xs:string</code>,
-            $provider as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+            $provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
 </pre></div><ul><li><p><code>$data</code> is the data to be hashed. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary.</p></li><li><p><code>$algorithm</code> is the cryptographic hashing algorithm. If it is specified an unsupported algorithm, this
-                  is an error <a href="#errCX21">[err:CX21]</a>.</p></li><li><p><code>$provider</code> is the cryptographic provider for the current operation. If the provider does not exist,
-                  this is an error <a href="#errCX23">[err:CX23]</a>.</p></li></ul></div><div class="div2">
+                  is an error <a href="#errCX21">[err:CX21]</a>.</p></li><li><p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
+                  default provider. If the provider does not exist, this is an error <a href="#errCX23">[err:CX23]</a>.</p></li></ul></div><div class="div2">
 <h3><a name="hmac-function" id="hmac-function"></a>3.2 The <code>crypto:hmac</code> function</h3><p>HMAC (Keyed-Hashing for Message Authentication) is a mechanism for message authentication using
             cryptographic hash functions. HMAC can be used with any iterative cryptographic hash function, e.g.
             MD5 or SHA-1, in combination with a secret shared key. Typically, message authentication codes are
@@ -169,11 +169,11 @@ B <a href="#d2e1328">Summary of Error Conditions</a><br />
 <code class="function">crypto:hmac</code>($data as <code class="type">xs:anyAtomicType</code>,
             $secret-key as <code class="type">xs:anyAtomicType</code>,
             $hashing-algorithm as <code class="type">xs:string</code>,
-            $provider as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+            $provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
 </pre></div><ul><li><p><code>$data</code> is the data to be authenticated. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary.</p></li><li><p><code>$secret-key</code> is the secret key used for calculating the authentication code. This parameter can be of type
                   xs:string, xs:base64Binary, or xs:hexBinary.</p></li><li><p><code>$algorithm</code> is the cryptographic hashing algorithm. If it is specified an unsupported algorithm, this
-                  is an error <a href="#errCX21">[err:CX21]</a>.</p></li><li><p><code>$provider</code> is the cryptographic provider for the current operation. If the provider does not exist,
-                  this is an error <a href="#errCX23">[err:CX23]</a>.</p></li></ul></div></div><div class="div1">
+                  is an error <a href="#errCX21">[err:CX21]</a>.</p></li><li><p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
+                  default provider. If the provider does not exist, this is an error <a href="#errCX23">[err:CX23]</a>.</p></li></ul></div></div><div class="div1">
 <h2><a name="d2e327" id="d2e327"></a>4 Key Management</h2><p>TBD.</p><div class="div2">
 <h3><a name="d2e332" id="d2e332"></a>4.1 The <code>crypto:generate-key-pair</code> function</h3><p>This function generates a pair of cryptographic keys.</p></div><div class="div2">
 <h3><a name="d2e340" id="d2e340"></a>4.2 The <code>crypto:compare-keys</code> function</h3><p>This function parses a digital certificate.</p></div></div><div class="div1">
