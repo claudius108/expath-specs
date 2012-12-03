@@ -101,15 +101,15 @@
       <div1>
          <head>References</head>
          <blist>
-            <bibl id="xpath-30" key="XML Path Language (XPath) 3.0">
-               <loc href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</loc>.
-               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
-            <bibl id="xslt-30" key="XSL Transformations (XSLT) Version 3.0">                        
-               <loc href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</loc>.
-               Michael Kay, editor. W3C Working Draft, 10 July 2012.</bibl>         
-            <bibl id="xquery-30" key="XQuery 3.0: An XML Query Language">                        
-               <loc href="http://w3.org/TR/xquery-30/">XQuery 3.0: An XML Query Language</loc>.
-               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
+	            <bibl id="xpath-30" key="XPath 3.0">
+	               <loc href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</loc>.
+	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
+	            <bibl id="xslt-30" key="XSLT 3.0">                        
+	               <loc href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</loc>.
+	               Michael Kay, editor. W3C Working Draft, 10 July 2012.</bibl>         
+	            <bibl id="xquery-30" key="XQuery 3.0">                        
+	               <loc href="http://w3.org/TR/xquery-30/">XQuery 3.0: An XML Query Language</loc>.
+	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
             <bibl id="xpath-functions-30" key="XPath and XQuery Functions and Operators 3.0">
                <loc href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</loc>.
                Michael Kay, editor. W3C Working Draft, 13 December 2011.</bibl>                                

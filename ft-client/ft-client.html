@@ -88,7 +88,7 @@ B <a href="#d2e724">Summary of Error Conditions</a><br />
 <code class="function">ft-client:connect</code>($remote-host-uri as <code class="type">xs:anyURI</code>,
 		$options as <code class="type">xs:anyAtomicType</code>) as <code class="type">xs:long</code>
             </pre></div><ul><li><p>
-			    <code>$remote-host-uri</code> is the URI of the host to connect to. See <a href="#rfc3986">[Uniform Resource Identifier (URI): Generic Syntax]</a> in order to provide a correct syntax for this parameter.</p></li><li><p>
+			    <code>$remote-host-uri</code> is the URI of the host to connect to. See <a href="#rfc1738">[RFC 1738]</a> in order to provide a correct syntax for this parameter.</p></li><li><p>
 			    <code>$options</code> represents the options needed for the current operation.</p></li></ul></div><div class="div1">
 <h2><a name="d2e155" id="d2e155"></a>3 The <code>ft-client:list-resources</code> function</h2><p>This function gets the list of resources (files and directories) inside the directory indicated by $remote-directory-path.</p><div class="exampleInner"><pre>
 <code class="function">ft-client:list-resources</code>($connection-handle as <code class="type">xs:long</code>,
@@ -197,11 +197,11 @@ B <a href="#d2e724">Summary of Error Conditions</a><br />
 <code class="function">ft-client:disconnect</code>($connection-handle as <code class="type">xs:long</code>) as <code class="type">xs:boolean</code>
 		</pre></div><ul><li><p>
 					<code>$connection-handle</code> is the connection handle.</p></li></ul></div></div><div class="back"><div class="div1">
-<h2><a name="d2e670" id="d2e670"></a>A References</h2><dl><dt class="label"><a name="xpath-30" id="xpath-30"></a>XML Path Language (XPath) 3.0</dt><dd>
+<h2><a name="d2e670" id="d2e670"></a>A References</h2><dl><dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0</dt><dd>
 	               <a href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</a>.
-	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</dd><dt class="label"><a name="xslt-30" id="xslt-30"></a>XSL Transformations (XSLT) Version 3.0</dt><dd>                        
+	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</dd><dt class="label"><a name="xslt-30" id="xslt-30"></a>XSLT 3.0</dt><dd>                        
 	               <a href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</a>.
-	               Michael Kay, editor. W3C Working Draft, 10 July 2012.</dd><dt class="label"><a name="xquery-30" id="xquery-30"></a>XQuery 3.0: An XML Query Language</dt><dd>                        
+	               Michael Kay, editor. W3C Working Draft, 10 July 2012.</dd><dt class="label"><a name="xquery-30" id="xquery-30"></a>XQuery 3.0</dt><dd>                        
 	               <a href="http://w3.org/TR/xquery-30/">XQuery 3.0: An XML Query Language</a>.
 	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</dd><dt class="label"><a name="xpath-functions-30" id="xpath-functions-30"></a>XPath and XQuery Functions and Operators 3.0</dt><dd>
 	               <a href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</a>.
@@ -215,8 +215,8 @@ B <a href="#d2e724">Summary of Error Conditions</a><br />
 					<a href="http://ietf.org/rfc/rfc1738.txt">RFC 1738: Uniform Resource Locators (URL)</a>.
 					T. Berners-Lee, L. Masinter, M. McCahill editors. Network Working Group. December 1994.</dd><dt class="label"><a name="draft-yevstifeyev-ftp-uri-scheme-08" id="draft-yevstifeyev-ftp-uri-scheme-08"></a>draft-yevstifeyev-ftp-uri-scheme-08</dt><dd>
 					<a href="http://tools.ietf.org/html/draft-yevstifeyev-ftp-uri-scheme-08">The 'ftp' URI Scheme</a>.
-					M. Yevstifeyev editor. Internet Engineering Task Force. September 25, 20114.</dd><dt class="label"><a name="rfc3986" id="rfc3986"></a>Uniform Resource Identifier (URI): Generic Syntax</dt><dd>
-                    <a href="http://tools.ietf.org/html/rfc3986">Uniform Resource Identifier (URI): Generic Syntax</a>.
+					M. Yevstifeyev editor. Internet Engineering Task Force. September 25, 20114.</dd><dt class="label"><a name="rfc1738" id="rfc1738"></a>RFC 1738</dt><dd>
+                    <a href="http://tools.ietf.org/html/rfc1738">Uniform Resource Locators (URL)</a>.
 					T. Berners-Lee, R. Fielding, L. Masinter, editors. Network Working Group. January 2005.</dd></dl></div><div class="div1">
 <h2><a name="d2e724" id="d2e724"></a>B Summary of Error Conditions</h2><dl><dt class="label"><a name="errFTC001" id="errFTC001"></a>err:FTC001</dt><dd>err:FTC001: An unauthorized party initiated a data
 			    connection. The current session will be halted.</dd><dt class="label"><a name="errFTC002" id="errFTC002"></a>err:FTC002</dt><dd>err:FTC002: The connection was closed by server.</dd><dt class="label"><a name="errFTC003" id="errFTC003"></a>err:FTC003</dt><dd>err:FTC003: The resource does not exist.</dd><dt class="label"><a name="errFTC004" id="errFTC004"></a>err:FTC004</dt><dd>err:FTC004: The user has no rights to access the resource.</dd><dt class="label"><a name="errFTC005" id="errFTC005"></a>err:FTC005</dt><dd>err:FTC005: Authentication failed. The username, password, or private key is wrong.</dd><dt class="label"><a name="errFTC006" id="errFTC006"></a>err:FTC006</dt><dd>err:FTC006: The protocol is not supported.</dd><dt class="label"><a name="errFTC007" id="errFTC007"></a>err:FTC007</dt><dd>err:FTC007: The current operation failed.</dd></dl></div></div></body></html>
