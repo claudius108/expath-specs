@@ -84,8 +84,9 @@
       </div1>
       <div1>
          <head>Cryptographic Service Providers</head>
-         <p>Cryptographic providers providers contain and allow usage of cryptographic services, such as: encryption, decryption, generating
-         cryptographic keys, providing secure storage for sensitive data, etc. They can be implemented using software, hardware, or both.</p>
+         <p>Cryptographic providers provide cryptographic services, involving cryptographic operations (encryption, digital signatures, message digests, message authentication), 
+         generators and converters of cryptographic material and cryptographic objects (keystores or certificates) containing the cryptographic data. They can be implemented
+         using software, hardware, or both.</p>
           <table border="1" frame="border">
             <caption>Cryptographic services described by this specification</caption>
             <thead>
@@ -166,7 +167,7 @@
          <head>Integrity and Authentication of Data</head>
          <div2 id="hash-function">
             <head>The <code>crypto:hash</code> function</head>
-            <p>This function generates a "message digest" of the input, by using a cryptographic algorithm. It returns the hash value as base64 string.</p>
+            <p>This function generates a "message digest" of the input data, by using a cryptographic algorithm. It returns the hash value as base64 string.</p>
             <eg>
 <spec:function>crypto:hash</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
             $hashing-algorithm as <spec:type>xs:string</spec:type>,
@@ -225,12 +226,26 @@
          <p>TBD.</p>
          <div2>
             <head>The <code>crypto:generate-key-pair</code> function</head>
-            <p>This function generates a pair of cryptographic keys.</p>
+            <p>This function generates a new pair of public and private cryptographic keys, to be used with a specific cryptographic algorithm.</p>
          </div2>
          <div2>
+            <head>The <code>crypto:generate-secret-key</code> function</head>
+            <p>This function generates a new secret key, to be used with a specific cryptographic algorithm.</p>
+         </div2>         
+         <div2>
             <head>The <code>crypto:compare-keys</code> function</head>
-            <p>This function parses a digital certificate.</p>
+            <p></p>
          </div2> 
+         <div2>
+            <head>The <code>crypto:key-agrement</code> function</head>
+            <p>http://ietf.org/rfc/rfc2631.txt, http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html#KeyAgreement</p>
+         </div2>
+         <div2>
+            <head>The <code>crypto:convert-key-specification-to-key-object, crypto:convert-key-object-to-key-specification</code> function</head>
+            <p>http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html#KeyFactory,
+            http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html#SecretKeyFactory (for secret (symmetric) keys)
+            </p>
+         </div2>                    
       </div1>
       <div1>
          <head>Digital Signature</head>
@@ -692,7 +707,11 @@
          <div2>
             <head>The <code>crypto:validate-certification-request</code> function</head>
             <p>This function validates a certificate signing request.</p>
-         </div2>             
+         </div2>   
+         <div2>
+            <head>The <code>crypto:validate-certificate-revocation-list</code> function</head>
+            <p>This function validates a certificate revocation list.</p>
+         </div2>                  
       </div1>
       
       
