@@ -107,7 +107,7 @@
 							<goal>upload-single</goal>
 						</goals>
 						<configuration>
-							<serverId>web-sourceforge</serverId>
+							<serverId>web-sourceforge-extxsltforms</serverId>
 							<fromFile>../index.html</fromFile>
 							<toFile>index.html</toFile>
 							<url>${web-sourceforge-specs-url}</url>
@@ -120,7 +120,7 @@
 							<goal>upload-single</goal>
 						</goals>
 						<configuration>
-							<serverId>web-sourceforge</serverId>
+							<serverId>web-sourceforge-extxsltforms</serverId>
 							<fromFile>${expath-spec-id}.html</fromFile>
 							<toFile>${expath-spec-id}.html</toFile>
 							<url>${web-sourceforge-spec-url}</url>
