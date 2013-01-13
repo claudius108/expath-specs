@@ -16,14 +16,6 @@
 	<name>EXPath specifications</name>
 	<url>http://expath.org</url>
 
-	<modules>
-		<module>crypto</module>
-		<module>datatype-conversion</module>
-		<module>digital-publishing</module>
-		<module>ft-client</module>
-		<module>time</module>
-	</modules>
-
 	<properties>
 		<web-sourceforge-specs-url>${web-sourceforge-base-url}extxsltforms/htdocs/expath-specs</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${expath-spec-id}</web-sourceforge-spec-url>
