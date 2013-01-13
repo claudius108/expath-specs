@@ -25,7 +25,7 @@
 	</modules>
 
 	<properties>
-		<web-sourceforge-specs-url>${web-sourceforge-base-url}/expath-specs</web-sourceforge-specs-url>
+		<web-sourceforge-specs-url>${web-sourceforge-base-url}extxsltforms/htdocs/expath-specs</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${expath-spec-id}</web-sourceforge-spec-url>
 	</properties>
 	<build>
