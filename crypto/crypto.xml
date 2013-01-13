@@ -402,7 +402,9 @@
 <spec:function>crypto:encrypt</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
                $encryption-type as <spec:type>xs:string</spec:type>,
                $secret-key as <spec:type>xs:anyAtomicType</spec:type>,
-               $cryptographic-algorithm as <spec:type>xs:string</spec:type>) as <spec:type>xs:anyAtomicType</spec:type></eg>
+               $cryptographic-algorithm as <spec:type>xs:string</spec:type>,
+               $vi as <spec:type>xs:string?</spec:type>,
+               $provider as <spec:type>xs:string?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type></eg>
             <ulist>
                <item>
                   <p><code>$data</code> is the data to be encrypted. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary.
@@ -426,6 +428,13 @@
                   <p><code>$cryptographic-algorithm</code> is the cryptographic algorithm used for encryption. For symmetric encryption, a transformation name can be used.
                   If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="errCX21"/>.</p>
                </item>
+               <item>
+                  <p><code>$iv</code> is the initialization vector for symmetric encryption.</p>
+               </item>                
+               <item>
+                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
+                  default provider. If the provider does not exist, this is an error <bibref ref="errCX23"/>.</p>
+               </item>                
             </ulist>
          </div2>
          <div2>
@@ -435,7 +444,9 @@
 <spec:function>crypto:decrypt</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
                $decryption-type as <spec:type>xs:string</spec:type>,
                $secret-key as <spec:type>xs:anyAtomicType</spec:type>,
-               $cryptographic-algorithm as <spec:type>xs:string</spec:type>) as <spec:type>xs:anyAtomicType</spec:type></eg>
+               $cryptographic-algorithm as <spec:type>xs:string</spec:type>,
+               $vi as <spec:type>xs:string?</spec:type>,
+               $provider as <spec:type>xs:string?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type></eg>
             <ulist>
                <item>
                   <p><code>$data</code> is the data to be decrypted. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary.
@@ -459,6 +470,13 @@
                   If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="errCX21"/>.
                   </p>
                </item>
+               <item>
+                  <p><code>$iv</code> is the initialization vector for symmetric encryption.</p>
+               </item>                
+               <item>
+                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
+                  default provider. If the provider does not exist, this is an error <bibref ref="errCX23"/>.</p>
+               </item>               
             </ulist>
          </div2>
       </div1>
