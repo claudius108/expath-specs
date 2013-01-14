@@ -3,9 +3,11 @@
 	version="2.0">
 
 	<xsl:output method="html" />
+	
+	<xsl:param name="spec-names" />
 
 	<xsl:template match="/">
-		<xsl:variable name="spec-names" select="//element()[local-name() = 'modules']/element()" />
+<!-- 		<xsl:variable name="spec-names" select="//element()[local-name() = 'modules']/element()" /> -->
 		<!-- <xsl:variable name="specs" select="collection('.?select=*.xml;recurse=yes;on-error=warning')" /> -->
 		<!-- <xsl:variable name="spec-title"> -->
 		<!-- <xsl:copy-of select="concat('EXPath ', //element()[local-name() = 'title'])" /> -->
@@ -23,7 +25,7 @@
 				</head>
 				<body>
 					<h2>EXPath Specifications Index</h2>
-					<xsl:for-each select="$spec-names">
+					<xsl:for-each select="tokenize($spec-names, ',')">
 						<xsl:variable name="spec-name" select="." />
 						<xsl:variable name="spec-dir" select="concat('../../', $spec-name, '/')" />
 						<xsl:variable name="spec" select="document(concat($spec-dir, $spec-name, '.xml'))" />
