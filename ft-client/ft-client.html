@@ -66,7 +66,7 @@ div.exampleHeader { font-weight: bold;
 12 <a href="#d2e643">The ft-client:disconnect function</a><br />
 </p>
 <h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d2e670">References</a><br />
-B <a href="#d2e724">Summary of Error Conditions</a><br />
+B <a href="#d2e719">Summary of Error Conditions</a><br />
 </p></div><hr /><div class="body"><div class="div1">
 <h2><a name="d2e52" id="d2e52"></a>1 Introduction</h2><p>This File Transfer Client interface allows using of various file transfer protocols, including well-known ones, such as FTP, SFTP (SSH File Transfer Protocol),
 		    FTPS (FTP over implicit SSL/TLS), FTPES (FTP over explicit SSL/TLS), WebDAV (Web-based Distributed Authoring and Versioning), and WebDAVS (WebDAV encrypted via SSL),
@@ -88,7 +88,7 @@ B <a href="#d2e724">Summary of Error Conditions</a><br />
 <code class="function">ft-client:connect</code>($remote-host-uri as <code class="type">xs:anyURI</code>,
 		$options as <code class="type">xs:anyAtomicType</code>) as <code class="type">xs:long</code>
             </pre></div><ul><li><p>
-			    <code>$remote-host-uri</code> is the URI of the host to connect to. See <a href="#rfc1738">[RFC 1738]</a> in order to provide a correct syntax for this parameter.</p></li><li><p>
+			    <code>$remote-host-uri</code> is the URI of the host to connect to. See <a href="#rfc2396">[RFC 2396]</a> in order to provide a correct syntax for this parameter.</p></li><li><p>
 			    <code>$options</code> represents the options needed for the current operation.</p></li></ul></div><div class="div1">
 <h2><a name="d2e155" id="d2e155"></a>3 The <code>ft-client:list-resources</code> function</h2><p>This function gets the list of resources (files and directories) inside the directory indicated by $remote-directory-path.</p><div class="exampleInner"><pre>
 <code class="function">ft-client:list-resources</code>($connection-handle as <code class="type">xs:long</code>,
@@ -211,12 +211,10 @@ B <a href="#d2e724">Summary of Error Conditions</a><br />
                     <a href="http://ietf.org/rfc/rfc959.txt">RFC 959: FILE TRANSFER PROTOCOL (FTP)</a>.
 					J. Postel, J. Reynolds editors. Network Working Group. October 1985.</dd><dt class="label"><a name="rfc2577" id="rfc2577"></a>RFC 2577</dt><dd>
                     <a href="http://ietf.org/rfc/rfc2577.txt">RFC 2577: FTP Security Considerations</a>.
-					M. Allman, S. Ostermann editors. Network Working Group. May 1999.</dd><dt class="label"><a name="rfc1738" id="rfc1738"></a>RFC 1738</dt><dd>
-					<a href="http://ietf.org/rfc/rfc1738.txt">RFC 1738: Uniform Resource Locators (URL)</a>.
-					T. Berners-Lee, L. Masinter, M. McCahill editors. Network Working Group. December 1994.</dd><dt class="label"><a name="draft-yevstifeyev-ftp-uri-scheme-08" id="draft-yevstifeyev-ftp-uri-scheme-08"></a>draft-yevstifeyev-ftp-uri-scheme-08</dt><dd>
+					M. Allman, S. Ostermann editors. Network Working Group. May 1999.</dd><dt class="label"><a name="draft-yevstifeyev-ftp-uri-scheme-08" id="draft-yevstifeyev-ftp-uri-scheme-08"></a>draft-yevstifeyev-ftp-uri-scheme-08</dt><dd>
 					<a href="http://tools.ietf.org/html/draft-yevstifeyev-ftp-uri-scheme-08">The 'ftp' URI Scheme</a>.
-					M. Yevstifeyev editor. Internet Engineering Task Force. September 25, 20114.</dd><dt class="label"><a name="rfc1738" id="rfc1738"></a>RFC 1738</dt><dd>
-                    <a href="http://tools.ietf.org/html/rfc1738">Uniform Resource Locators (URL)</a>.
-					T. Berners-Lee, R. Fielding, L. Masinter, editors. Network Working Group. January 2005.</dd></dl></div><div class="div1">
-<h2><a name="d2e724" id="d2e724"></a>B Summary of Error Conditions</h2><dl><dt class="label"><a name="errFTC001" id="errFTC001"></a>err:FTC001</dt><dd>err:FTC001: An unauthorized party initiated a data
+					M. Yevstifeyev editor. Internet Engineering Task Force. September 25, 20114.</dd><dt class="label"><a name="rfc2396" id="rfc2396"></a>RFC 2396</dt><dd>
+                    <a href="http://tools.ietf.org/html/rfc2396">Uniform Resource Identifiers (URI): Generic Syntax</a>.
+					T. Berners-Lee, R. Fielding, L. Masinter, editors. Network Working Group. August 1998.</dd></dl></div><div class="div1">
+<h2><a name="d2e719" id="d2e719"></a>B Summary of Error Conditions</h2><dl><dt class="label"><a name="errFTC001" id="errFTC001"></a>err:FTC001</dt><dd>err:FTC001: An unauthorized party initiated a data
 			    connection. The current session will be halted.</dd><dt class="label"><a name="errFTC002" id="errFTC002"></a>err:FTC002</dt><dd>err:FTC002: The connection was closed by server.</dd><dt class="label"><a name="errFTC003" id="errFTC003"></a>err:FTC003</dt><dd>err:FTC003: The resource does not exist.</dd><dt class="label"><a name="errFTC004" id="errFTC004"></a>err:FTC004</dt><dd>err:FTC004: The user has no rights to access the resource.</dd><dt class="label"><a name="errFTC005" id="errFTC005"></a>err:FTC005</dt><dd>err:FTC005: Authentication failed. The username, password, or private key is wrong.</dd><dt class="label"><a name="errFTC006" id="errFTC006"></a>err:FTC006</dt><dd>err:FTC006: The protocol is not supported.</dd><dt class="label"><a name="errFTC007" id="errFTC007"></a>err:FTC007</dt><dd>err:FTC007: The current operation failed.</dd></dl></div></div></body></html>
