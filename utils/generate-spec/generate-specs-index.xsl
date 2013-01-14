@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml"
-	version="2.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
 
 	<xsl:output method="html" />
-	
+
 	<xsl:param name="spec-names" />
 
 	<xsl:template match="/">
-<!-- 		<xsl:variable name="spec-names" select="//element()[local-name() = 'modules']/element()" /> -->
-		<!-- <xsl:variable name="specs" select="collection('.?select=*.xml;recurse=yes;on-error=warning')" /> -->
-		<!-- <xsl:variable name="spec-title"> -->
-		<!-- <xsl:copy-of select="concat('EXPath ', //element()[local-name() = 'title'])" /> -->
-		<!-- </xsl:variable> -->
-		<!-- <xsl:variable name="module-namespace"> -->
-		<!-- <xsl:copy-of select="//element()[@id = 'module-namespace']" /> -->
-		<!-- </xsl:variable> -->
-		<!-- <xsl:variable name="module-prefix"> -->
-		<!-- <xsl:copy-of select="//element()[@id = 'module-prefix']" /> -->
-		<!-- </xsl:variable> -->
 		<xsl:result-document href="../index.html" method="html">
 			<html>
 				<head>
