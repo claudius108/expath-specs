@@ -107,7 +107,7 @@
 				<version>1.0-beta-4</version>
 				<executions>
 					<execution>
-						<id>upload-index-of-specs-to-sourceforge</id>
+						<id>upload-index-of-specs-to-kuberam.ro</id>
 						<phase>package</phase>
 						<goals>
 							<goal>upload-single</goal>
@@ -119,6 +119,19 @@
 							<url>${web-sourceforge-specs-url}</url>
 						</configuration>
 					</execution>
+					<execution>
+						<id>upload-index-of-specs-to-old-kuberam.ro</id>
+						<phase>package</phase>
+						<goals>
+							<goal>upload-single</goal>
+						</goals>
+						<configuration>
+							<serverId>web-sourceforge-extxsltforms</serverId>
+							<fromFile>../index.html</fromFile>
+							<toFile>index.html</toFile>
+							<url>${web-sourceforge-base-url}extxsltforms/htdocs/specs</url>
+						</configuration>
+					</execution>					
 					<execution>
 						<id>upload-spec-to-sourceforge</id>
 						<phase>package</phase>
