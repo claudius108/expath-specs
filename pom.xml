@@ -127,7 +127,7 @@
 							<goal>upload-single</goal>
 						</goals>
 						<configuration>
-							<serverId>web-sourceforge-extxsltforms</serverId>
+							<serverId>sourceforge</serverId>
 							<fromFile>../index.html</fromFile>
 							<toFile>index.html</toFile>
 							<url>${web-sourceforge-specs-url}</url>
