@@ -49,12 +49,11 @@ div.exampleHeader { font-weight: bold;
 <h2><a name="contents" id="contents"></a>Table of Contents</h2><p class="toc">1 <a href="#d2e48">Introduction</a><br />
     1.1 <a href="#d2e53">Namespace conventions</a><br />
     1.2 <a href="#d2e72">Error management</a><br />
-2 <a href="#d2e83">xs:base64Binary to other datatypes</a><br />
-    2.1 <a href="#d2e90">The time:milliseconds-to-dateTime() as xs:dateTime? function</a><br />
-    2.2 <a href="#d2e115">The dt-conv:base64Binary-to-string function</a><br />
+2 <a href="#d2e83">Time conversions</a><br />
+    2.1 <a href="#d2e88">The time:milliseconds-to-dateTime() as xs:dateTime? function</a><br />
 </p>
-<h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d2e159">References</a><br />
-B <a href="#d2e198">Summary of Error Conditions</a><br />
+<h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d2e114">References</a><br />
+B <a href="#d2e153">Summary of Error Conditions</a><br />
 </p></div><hr /><div class="body"><div class="div1">
 <h2><a name="d2e48" id="d2e48"></a>1 Introduction</h2><p>This module contains functions for dealing with time.</p><div class="div2">
 <h3><a name="d2e53" id="d2e53"></a>1.1 Namespace conventions</h3><p>The module defined by this document defines functions and elements in the namespace
@@ -66,18 +65,11 @@ B <a href="#d2e198">Summary of Error Conditions</a><br />
                condition is reached during the execution of the function, a dynamic error is thrown,
                with the corresponding error code (as if the standard XPath function
                   <code>error</code> had been called).</p></div></div><div class="div1">
-<h2><a name="d2e83" id="d2e83"></a>2 <code>xs:base64Binary</code> to other datatypes</h2><p>These functions provide conversion from xs:base64Binary datatype to other datatypes.</p><div class="div2">
-<h3><a name="d2e90" id="d2e90"></a>2.1 The <code>time:milliseconds-to-dateTime() as xs:dateTime?</code> function</h3><p>This function converts from milliseconds to xs:dateTime.</p><div class="exampleInner"><pre>
-<code class="function">dt-conv:base64Binary-to-byte</code>($data as <code class="type">xs:base64Binary?</code>) as <code class="type">xs:byte*</code>
-</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li></ul></div><div class="div2">
-<h3><a name="d2e115" id="d2e115"></a>2.2 The <code>dt-conv:base64Binary-to-string</code> function</h3><p>This function converts from xs:base64Binary to xs:string.</p><div class="exampleInner"><pre>
-<code class="function">dt-conv:base64Binary-to-string</code>($data as <code class="type">xs:base64Binary?</code>) as <code class="type">xs:string?</code>
-</pre></div><div class="exampleInner"><pre>
-<code class="function">dt-conv:base64Binary-to-string</code>($data as <code class="type">xs:base64Binary?</code>,
-		$encoding as xs:string) as <code class="type">xs:string?</code>
-</pre></div><ul><li><p><code>$data</code> is the data to be converted.</p></li><li><p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
-                  is an error <a href="#errDTCONV01">[err:DTCONV01]</a>.</p></li></ul></div></div></div><div class="back"><div class="div1">
-<h2><a name="d2e159" id="d2e159"></a>A References</h2><dl><dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0</dt><dd>
+<h2><a name="d2e83" id="d2e83"></a>2 Time conversions</h2><p>These functions provide conversion from milliseconds to xs:dateTime.</p><div class="div2">
+<h3><a name="d2e88" id="d2e88"></a>2.1 The <code>time:milliseconds-to-dateTime() as xs:dateTime?</code> function</h3><p>This function converts from milliseconds to xs:dateTime.</p><div class="exampleInner"><pre>
+<code class="function">time:milliseconds-to-dateTime</code>($milliseconds as <code class="type">xs:integer?</code>) as <code class="type">xs:dateTime?</code>
+</pre></div><ul><li><p><code>$milliseconds</code> is the number of millisecondsdata.</p></li></ul></div></div></div><div class="back"><div class="div1">
+<h2><a name="d2e114" id="d2e114"></a>A References</h2><dl><dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0</dt><dd>
 	               <a href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</a>.
 	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</dd><dt class="label"><a name="xslt-30" id="xslt-30"></a>XSLT 3.0</dt><dd>                        
 	               <a href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</a>.
@@ -92,4 +84,4 @@ B <a href="#d2e198">Summary of Error Conditions</a><br />
                Henry S. Thompson, Noah Mendelsohn, David Beech, Murray Maloney, editors. W3C Recommendation, 5 April 2012.</dd><dt class="label"><a name="xmlschema11-2" id="xmlschema11-2"></a>W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes</dt><dd>
                <a href="http://w3.org/TR/xmlschema11-2/">W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes</a>.
                David Peterson, Shudi (Sandy) Gao 高殊镝, Ashok Malhotra, C. M. Sperberg-McQueen, Henry S. Thompson, editors. W3C Recommendation, 5 April 2012.</dd></dl></div><div class="div1">
-<h2><a name="d2e198" id="d2e198"></a>B Summary of Error Conditions</h2><dl><dt class="label"><a name="errDTCONV01" id="errDTCONV01"></a>err:DTCONV01</dt><dd>The encoding is not supported.</dd></dl></div></div></body></html>
+<h2><a name="d2e153" id="d2e153"></a>B Summary of Error Conditions</h2><dl><dt class="label"><a name="errDTCONV01" id="errDTCONV01"></a>err:DTCONV01</dt><dd>The encoding is not supported.</dd></dl></div></div></body></html>

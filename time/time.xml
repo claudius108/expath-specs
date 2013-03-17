@@ -61,40 +61,20 @@
          </div2>
       </div1>
       <div1>
-         <head><code>xs:base64Binary</code> to other datatypes</head>
-         <p>These functions provide conversion from xs:base64Binary datatype to other datatypes.</p>
+         <head>Time conversions</head>
+         <p>These functions provide conversion from milliseconds to xs:dateTime.</p>
          <div2>
             <head>The <code>time:milliseconds-to-dateTime() as xs:dateTime?</code> function</head>
             <p>This function converts from milliseconds to xs:dateTime.</p>
             <eg>
-<spec:function>dt-conv:base64Binary-to-byte</spec:function>($data as <spec:type>xs:base64Binary?</spec:type>) as <spec:type>xs:byte*</spec:type>
+<spec:function>time:milliseconds-to-dateTime</spec:function>($milliseconds as <spec:type>xs:integer?</spec:type>) as <spec:type>xs:dateTime?</spec:type>
 </eg>
             <ulist>
                <item>
-                  <p><code>$data</code> is the data to be converted.</p>
+                  <p><code>$milliseconds</code> is the number of millisecondsdata.</p>
                </item>
             </ulist>            
          </div2>          
-         <div2>
-            <head>The <code>dt-conv:base64Binary-to-string</code> function</head>
-            <p>This function converts from xs:base64Binary to xs:string.</p>
-            <eg>
-<spec:function>dt-conv:base64Binary-to-string</spec:function>($data as <spec:type>xs:base64Binary?</spec:type>) as <spec:type>xs:string?</spec:type>
-</eg>
-            <eg>
-<spec:function>dt-conv:base64Binary-to-string</spec:function>($data as <spec:type>xs:base64Binary?</spec:type>,
-		$encoding as xs:string) as <spec:type>xs:string?</spec:type>
-</eg>
-            <ulist>
-               <item>
-                  <p><code>$data</code> is the data to be converted.</p>
-               </item>
-               <item>
-                  <p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
-                  is an error <bibref ref="errDTCONV01"/>.</p>
-               </item>
-            </ulist>            
-         </div2> 
       </div1>
    </body>
    <back>
@@ -121,7 +101,7 @@
                Henry S. Thompson, Noah Mendelsohn, David Beech, Murray Maloney, editors. W3C Recommendation, 5 April 2012.</bibl> 
             <bibl id="xmlschema11-2" key="W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes">
                <loc href="http://w3.org/TR/xmlschema11-2/">W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes</loc>.
-               David Peterson, Shudi (Sandy) Gao 高殊镝, Ashok Malhotra, C. M. Sperberg-McQueen, Henry S. Thompson, editors. W3C Recommendation, 5 April 2012.</bibl>   
+               David Peterson, Shudi (Sandy) Gao 高殊镝, Ashok Malhotra, C. M. Sperberg-McQueen, Henry S. Thompson, editors. W3C Recommendation, 5 April 2012.</bibl>
          </blist>
       </div1>
       <div1>

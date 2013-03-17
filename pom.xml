@@ -36,12 +36,40 @@
 				<executions>
 					<execution>
 						<id>generate-spec-in-html-format</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<forceCreation>true</forceCreation>
+							<!-- Generate the spec -->
+							<transformationSets>
+								<transformationSet>
+									<dir>.</dir>
+									<includes>
+										<include>${expath-spec-id}.xml</include>
+									</includes>
+									<stylesheet>../utils/generate-spec/xmlspec.xsl</stylesheet>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+											<pattern>^(.*)\.xml$</pattern>
+											<replacement>${expath-spec-id}.html</replacement>
+										</fileMapper>
+									</fileMappers>
+									<outputDir>${basedir}</outputDir>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-specs-index</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>transform</goal>
 						</goals>
 						<configuration>
 							<forceCreation>true</forceCreation>
+							<!-- Generate the spec -->
 							<transformationSets>
 								<!-- Generate the specs index -->
 								<transformationSet>
@@ -56,20 +84,6 @@
 											<value>${spec-names}</value>
 										</parameter>
 									</parameters>
-								</transformationSet>
-								<!-- Generate the spec -->
-								<transformationSet>
-									<dir>.</dir>
-									<includes>
-										<include>${expath-spec-id}.xml</include>
-									</includes>
-									<stylesheet>../utils/generate-spec/xmlspec.xsl</stylesheet>
-									<fileMappers>
-										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
-											<pattern>^(.*)\.xml$</pattern>
-											<replacement>../../../../${expath-spec-id}.html</replacement>
-										</fileMapper>
-									</fileMappers>
 								</transformationSet>
 								<!-- Generate some of the lib's Java classes -->
 								<transformationSet>
@@ -126,12 +140,12 @@
 							<goal>upload-single</goal>
 						</goals>
 						<configuration>
-							<serverId>web-sourceforge-extxsltforms</serverId>
+							<serverId>sourceforge</serverId>
 							<fromFile>../index.html</fromFile>
 							<toFile>index.html</toFile>
 							<url>${web-sourceforge-base-url}extxsltforms/htdocs/specs</url>
 						</configuration>
-					</execution>					
+					</execution>
 					<execution>
 						<id>upload-spec-to-sourceforge</id>
 						<phase>package</phase>
@@ -139,7 +153,7 @@
 							<goal>upload-single</goal>
 						</goals>
 						<configuration>
-							<serverId>web-sourceforge-extxsltforms</serverId>
+							<serverId>sourceforge</serverId>
 							<fromFile>${expath-spec-id}.html</fromFile>
 							<toFile>${expath-spec-id}.html</toFile>
 							<url>${web-sourceforge-spec-url}</url>
