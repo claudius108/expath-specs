@@ -19,6 +19,12 @@
 					<a href="https://docs.google.com/document/d/1aLoJHvzG9zFaTNM110xMjg-qMHT7vYtWpcBmYoawSJE/pub">Datatype Conversion Functions Comparison</a>.
 				</p>
 			</spec-description>
+			<spec-description spec-name="digital-publishing">
+				<p>
+					As this is a work in progress, more details about it can be found at
+					<a href="https://docs.google.com/document/d/1F4uoZ0HtQpSkIaWfTKi7oXzQYbvjaIGmxTL6RS5le3o/pub">Digital Publishing Functions Comparison</a>.
+				</p>
+			</spec-description>			
 		</spec-descriptions>
 
 
