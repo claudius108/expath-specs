@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.expath</groupId>
-		<artifactId>base</artifactId>
-		<version>0.2-SNAPSHOT</version>
+		<groupId>ro.kuberam.maven</groupId>
+		<artifactId>sourceforge</artifactId>
+		<version>0.1-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.expath.specs</groupId>
-	<artifactId>base</artifactId>
-	<version>0.3-SNAPSHOT</version>
+	<artifactId>specs-base</artifactId>
+	<version>0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>EXPath specifications</name>
 	<url>http://expath.org</url>
@@ -18,7 +18,7 @@
 	<properties>
 		<web-sourceforge-specs-url>${sourceforge-user-web-url}/expath-specs</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${expath-spec-id}</web-sourceforge-spec-url>
-		<spec-names>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image</spec-names>
+		<spec-names>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image,location</spec-names>
 	</properties>
 
 	<build>
