@@ -5,8 +5,8 @@
 
 	<parent>
 		<groupId>org.expath.specs</groupId>
-		<artifactId>base</artifactId>
-		<version>0.3-SNAPSHOT</version>
+		<artifactId>specs-base</artifactId>
+		<version>0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>expath-time-spec</artifactId>
@@ -16,8 +16,8 @@
 	<url>http://expath.org</url>
 
 	<properties>
-		<expath-spec-id>${time-spec-id}</expath-spec-id>
-		<java-package-name>${time-java-package-name}</java-package-name>
+		<expath-spec-id>time</expath-spec-id>
+		<java-package-name>time</java-package-name>
 	</properties>
 
 	<build>

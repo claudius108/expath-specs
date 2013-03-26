@@ -5,8 +5,8 @@
 
 	<parent>
 		<groupId>org.expath.specs</groupId>
-		<artifactId>base</artifactId>
-		<version>0.3-SNAPSHOT</version>
+		<artifactId>specs-base</artifactId>
+		<version>0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>pdf</artifactId>

@@ -5,8 +5,8 @@
 
 	<parent>
 		<groupId>org.expath.specs</groupId>
-		<artifactId>base</artifactId>
-		<version>0.3-SNAPSHOT</version>
+		<artifactId>specs-base</artifactId>
+		<version>0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>expath-image-spec</artifactId>
@@ -16,8 +16,8 @@
 	<url>http://expath.org</url>
 
 	<properties>
-		<expath-spec-id>${image-spec-id}</expath-spec-id>
-		<java-package-name>${image-java-package-name}</java-package-name>
+		<expath-spec-id>image</expath-spec-id>
+		<java-package-name>image</java-package-name>
 	</properties>
 
 	<build>

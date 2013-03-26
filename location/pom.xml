@@ -9,15 +9,15 @@
 		<version>0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>expath-ft-client-spec</artifactId>
+	<artifactId>expath-location-spec</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>EXPath File Transfer Client specification</name>
+	<name>EXPath Location Module specification</name>
 	<packaging>pom</packaging>
 	<url>http://expath.org</url>
 
 	<properties>
-		<expath-spec-id>ft-client</expath-spec-id>
-		<java-package-name>ftclient</java-package-name>
+		<expath-spec-id>location</expath-spec-id>
+		<java-package-name>location</java-package-name>
 	</properties>
 
 	<build>

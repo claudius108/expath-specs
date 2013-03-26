@@ -4,17 +4,17 @@
 
 <spec xmlns:spec="http://expath.org/ns/xmlspec" role="editors-copy">
    <header>
-      <title>Time Module</title>
+      <title>Location Module</title>
       <version>1.0</version>
       <w3c-designation>w3c-designation</w3c-designation>
       <w3c-doctype>EXPath Candidate Module</w3c-doctype>
       <pubdate>
-         <day>25</day>
-         <month>May</month>
-         <year>2012</year>
+         <day>12</day>
+         <month>March</month>
+         <year>2013</year>
       </pubdate>
       <latestloc>
-         <loc href="http://expath.org/spec/time"/>
+         <loc href="http://expath.org/spec/location"/>
       </latestloc>
       <authlist>
          <author>
@@ -26,7 +26,7 @@
          <p/>
       </copyright>
       <abstract>
-         <p>This proposal defines a <phrase id="module-description">module for providing functions dealing with time</phrase>.
+         <p>This proposal defines a <phrase id="module-description">module for providing functions dealing with location</phrase>.
           It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard based on XPath 3.0.</p>
       </abstract>
       <status>
@@ -42,12 +42,12 @@
    <body>
       <div1>
          <head>Introduction</head>
-         <p>This module contains functions for dealing with time.</p>
+         <p>This module contains functions for dealing with location.</p>
          <div2>
             <head>Namespace conventions</head>
             <p>The module defined by this document defines functions and elements in the namespace
-                  <code id="module-namespace">http://expath.org/ns/time</code>. In this document, the
-                  <code id="module-prefix">time</code> prefix, when used, is bound to this namespace URI.</p>
+                  <code id="module-namespace">http://expath.org/ns/location</code>. In this document, the
+                  <code id="module-prefix">loc</code> prefix, when used, is bound to this namespace URI.</p>
             <p>Error codes are defined in the namespace <code>http://expath.org/ns/error</code>. In
                this document, the <code>err</code> prefix, when used, is bound to this namespace
                URI.</p>
@@ -61,20 +61,72 @@
          </div2>
       </div1>
       <div1>
-         <head>Time conversions</head>
-         <p>These functions provide conversion from milliseconds to xs:dateTime.</p>
+         <head>Get location based on the IP address</head>
+         <p>These functions provide location details based of user agent's IP address.</p>
          <div2>
-            <head>The <code>time:milliseconds-to-dateTime()</code> function</head>
-            <p>This function converts from milliseconds to xs:dateTime.</p>
+            <head>The <code>loc:get-country-code()</code> function</head>
+            <p>This function returns the country code.</p>
             <eg>
-<spec:function>time:milliseconds-to-dateTime</spec:function>($milliseconds as <spec:type>xs:integer?</spec:type>) as <spec:type>xs:dateTime?</spec:type>
+<spec:function>time:get-country-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
-                  <p><code>$milliseconds</code> is the number of millisecondsdata.</p>
+                  <p><code>$ip-address</code> is the user agent's IP address.</p>
                </item>
             </ulist>            
-         </div2>          
+         </div2>
+         <div2>
+            <head>The <code>loc:get-country-name()</code> function</head>
+            <p>This function returns the country name.</p>
+            <eg>
+<spec:function>time:get-country-name</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$ip-address</code> is the user agent's IP address.</p>
+               </item>
+            </ulist>            
+         </div2>
+         <div2>
+            <head>The <code>loc:get-city-name()</code> function</head>
+            <p>This function returns the city name.</p>
+            <eg>
+<spec:function>time:get-city-name</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$ip-address</code> is the user agent's IP address.</p>
+               </item>
+            </ulist>            
+         </div2>
+         <div2>
+            <head>The <code>loc:get-time-zone()</code> function</head>
+            <p>This function returns the time zone.</p>
+            <eg>
+<spec:function>time:get-time-zone</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$ip-address</code> is the user agent's IP address.</p>
+               </item>
+            </ulist>            
+         </div2>
+         <div2>
+            <head>The <code>loc:get-distance()</code> function</head>
+            <p>This function returns the distance (in kilometers) between two points, based on their IP addresses.</p>
+            <eg>
+<spec:function>time:get-distance</spec:function>($first-ip-address as <spec:type>xs:string</spec:type>,
+				$second-ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$first-ip-address</code> is the first user agent's IP address.</p>
+               </item>
+               <item>
+                  <p><code>$second-ip-address</code> is the second user agent's IP address.</p>
+               </item>               
+            </ulist>            
+         </div2>
       </div1>
    </body>
    <back>
@@ -96,18 +148,12 @@
             <bibl id="xpath-datamodel-30" key="XQuery and XPath Data Model 3.0">
                <loc href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</loc>.
                Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>               
-            <bibl id="xmlschema11-1" key="W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures">
-               <loc href="http://w3.org/TR/xmlschema11-1/">W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures</loc>.
-               Henry S. Thompson, Noah Mendelsohn, David Beech, Murray Maloney, editors. W3C Recommendation, 5 April 2012.</bibl> 
-            <bibl id="xmlschema11-2" key="W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes">
-               <loc href="http://w3.org/TR/xmlschema11-2/">W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes</loc>.
-               David Peterson, Shudi (Sandy) Gao 高殊镝, Ashok Malhotra, C. M. Sperberg-McQueen, Henry S. Thompson, editors. W3C Recommendation, 5 April 2012.</bibl>
          </blist>
       </div1>
       <div1>
          <head>Summary of Error Conditions</head>
          <blist id="summary-of-error-conditions">
-            <bibl id="errDTCONV01" key="err:DTCONV01">The encoding is not supported.</bibl>
+<!--             <bibl id="errDTCONV01" key="err:DTCONV01">The encoding is not supported.</bibl> -->
          </blist>
       </div1>
    </back>

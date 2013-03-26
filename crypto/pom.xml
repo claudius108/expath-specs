@@ -5,8 +5,8 @@
 
 	<parent>
 		<groupId>org.expath.specs</groupId>
-		<artifactId>base</artifactId>
-		<version>0.3-SNAPSHOT</version>
+		<artifactId>specs-base</artifactId>
+		<version>0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>expath-crypto-spec</artifactId>
@@ -16,9 +16,8 @@
 	<url>http://expath.org</url>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<expath-spec-id>${crypto-spec-id}</expath-spec-id>
-		<java-package-name>${crypto-java-package-name}</java-package-name>
+		<expath-spec-id>crypto</expath-spec-id>
+		<java-package-name>crypto</java-package-name>
 	</properties>
 
 	<build>

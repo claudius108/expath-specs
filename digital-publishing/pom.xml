@@ -5,8 +5,8 @@
 
 	<parent>
 		<groupId>org.expath.specs</groupId>
-		<artifactId>base</artifactId>
-		<version>0.3-SNAPSHOT</version>
+		<artifactId>specs-base</artifactId>
+		<version>0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>expath-digital-publishing-spec</artifactId>
@@ -16,8 +16,8 @@
 	<url>http://expath.org</url>
 
 	<properties>
-		<expath-spec-id>${digital-publishing-spec-id}</expath-spec-id>
-		<java-package-name>${digital-publishing-java-package-name}</java-package-name>
+		<expath-spec-id>digital-publishing</expath-spec-id>
+		<java-package-name>digitalPublishing</java-package-name>
 	</properties>
 
 	<build>
