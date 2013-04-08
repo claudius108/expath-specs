@@ -42,7 +42,7 @@ div.exampleHeader { font-weight: bold;
   </style></head><body><p><a href="http://expath.org/"><img src="http://expath.org/images/expath-icon.png" alt="EXPath" height="32" width="32" /></a></p><div class="head">
 <h1><a name="title" id="title"></a>Time Module 1.0</h1>
 <h2><a name="w3c-doctype" id="w3c-doctype"></a>EXPath Candidate Module 25 May 2012</h2><dl><dt>Latest version:</dt><dd>
-         <a href="http://expath.org/spec/datatype-conversion">http://expath.org/spec/datatype-conversion</a>
+         <a href="http://expath.org/spec/time">http://expath.org/spec/time</a>
       </dd><dt>Editor:</dt><dd>Claudius Teodorescu, XML Consultant</dd></dl><p class="copyright"></p></div><hr /><div>
 <h2><a name="abstract" id="abstract"></a>Abstract</h2><p>This proposal defines a <span>module for providing functions dealing with time</span>.
           It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard based on XPath 3.0.</p></div><div class="toc">
@@ -50,7 +50,7 @@ div.exampleHeader { font-weight: bold;
     1.1 <a href="#d2e53">Namespace conventions</a><br />
     1.2 <a href="#d2e72">Error management</a><br />
 2 <a href="#d2e83">Time conversions</a><br />
-    2.1 <a href="#d2e88">The time:milliseconds-to-dateTime() as xs:dateTime? function</a><br />
+    2.1 <a href="#d2e88">The time:milliseconds-to-dateTime() function</a><br />
 </p>
 <h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d2e114">References</a><br />
 B <a href="#d2e153">Summary of Error Conditions</a><br />
@@ -66,7 +66,7 @@ B <a href="#d2e153">Summary of Error Conditions</a><br />
                with the corresponding error code (as if the standard XPath function
                   <code>error</code> had been called).</p></div></div><div class="div1">
 <h2><a name="d2e83" id="d2e83"></a>2 Time conversions</h2><p>These functions provide conversion from milliseconds to xs:dateTime.</p><div class="div2">
-<h3><a name="d2e88" id="d2e88"></a>2.1 The <code>time:milliseconds-to-dateTime() as xs:dateTime?</code> function</h3><p>This function converts from milliseconds to xs:dateTime.</p><div class="exampleInner"><pre>
+<h3><a name="d2e88" id="d2e88"></a>2.1 The <code>time:milliseconds-to-dateTime()</code> function</h3><p>This function converts from milliseconds to xs:dateTime.</p><div class="exampleInner"><pre>
 <code class="function">time:milliseconds-to-dateTime</code>($milliseconds as <code class="type">xs:integer?</code>) as <code class="type">xs:dateTime?</code>
 </pre></div><ul><li><p><code>$milliseconds</code> is the number of millisecondsdata.</p></li></ul></div></div></div><div class="back"><div class="div1">
 <h2><a name="d2e114" id="d2e114"></a>A References</h2><dl><dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0</dt><dd>

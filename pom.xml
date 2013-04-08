@@ -16,7 +16,7 @@
 	<url>http://expath.org</url>
 
 	<properties>
-		<web-sourceforge-specs-url>${sourceforge-user-web-url}/expath-specs</web-sourceforge-specs-url>
+		<web-sourceforge-specs-url>${sourceforge-user-web-url}/specs/expath</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${expath-spec-id}</web-sourceforge-spec-url>
 		<spec-names>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image,location</spec-names>
 	</properties>
