@@ -409,9 +409,9 @@
 				<bibl id="draft-yevstifeyev-ftp-uri-scheme-08" key="draft-yevstifeyev-ftp-uri-scheme-08">
 					<loc href="http://tools.ietf.org/html/draft-yevstifeyev-ftp-uri-scheme-08">The 'ftp' URI Scheme</loc>.
 					M. Yevstifeyev editor. Internet Engineering Task Force. September 25, 20114.</bibl>	
-                <bibl id="rfc2396" key="RFC 2396">
-                    <loc href="http://tools.ietf.org/html/rfc2396">Uniform Resource Identifiers (URI): Generic Syntax</loc>.
-					T. Berners-Lee, R. Fielding, L. Masinter, editors. Network Working Group. August 1998.</bibl>						
+                <bibl id="rfc3986" key="RFC 3986">
+                    <loc href="http://tools.ietf.org/html/rfc3986">Uniform Resource Identifiers (URI): Generic Syntax</loc>.
+					T. Berners-Lee, R. Fielding, L. Masinter, editors. Network Working Group. January 2005.</bibl>
             </blist>
         </div1>
         <div1>
