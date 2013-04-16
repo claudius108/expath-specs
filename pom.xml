@@ -101,18 +101,10 @@
 							</configuration>
 						</execution>
 					</executions>
-					<dependencies>
-						<dependency>
-							<groupId>net.sf.saxon</groupId>
-							<artifactId>Saxon-HE</artifactId>
-							<version>9.4</version>
-						</dependency>
-					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>wagon-maven-plugin</artifactId>
-					<version>1.0-beta-4</version>
 					<executions>
 						<execution>
 							<id>upload-index-of-specs-to-kuberam.ro</id>
@@ -144,7 +136,6 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.2-beta-5</version>
 					<executions>
 						<execution>
 							<id>zip-assembly</id>
