@@ -9,7 +9,7 @@
 		<version>0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>expath-crypto-spec</artifactId>
+	<artifactId>crypto</artifactId>
 	<version>1.1-SNAPSHOT</version>
 	<name>EXPath Cryptographic specification</name>
 	<packaging>pom</packaging>

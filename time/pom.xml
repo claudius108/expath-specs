@@ -9,7 +9,7 @@
 		<version>0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>expath-time-spec</artifactId>
+	<artifactId>time</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>EXPath Time Module specification</name>
 	<packaging>pom</packaging>

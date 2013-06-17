@@ -9,7 +9,7 @@
 		<version>0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>expath-location-spec</artifactId>
+	<artifactId>location</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>EXPath Location Module specification</name>
 	<packaging>pom</packaging>

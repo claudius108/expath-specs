@@ -9,7 +9,7 @@
 		<version>0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>expath-digital-publishing-spec</artifactId>
+	<artifactId>digital-publishing</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>EXPath Digital Publishing specification</name>
 	<packaging>pom</packaging>

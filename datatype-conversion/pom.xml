@@ -9,7 +9,7 @@
 		<version>0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>expath-datatype-conversion-spec</artifactId>
+	<artifactId>datatype-conversion</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>EXPath Datatype Conversion specification</name>
 	<packaging>pom</packaging>

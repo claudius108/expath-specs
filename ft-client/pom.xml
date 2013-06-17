@@ -9,7 +9,7 @@
 		<version>0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>expath-ft-client-spec</artifactId>
+	<artifactId>ft-client</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>EXPath File Transfer Client specification</name>
 	<packaging>pom</packaging>
