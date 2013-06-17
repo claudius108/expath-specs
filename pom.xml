@@ -9,7 +9,7 @@
 	</parent>
 
 	<groupId>org.expath.specs</groupId>
-	<artifactId>specs-base</artifactId>
+	<artifactId>base</artifactId>
 	<version>0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>EXPath specifications</name>
