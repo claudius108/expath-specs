@@ -7,7 +7,7 @@
 	<xsl:param name="expath-spec-id" />
 
 	<xsl:variable name="java-lib-dir"
-		select="concat('../../expath-libs/expath-', $expath-spec-id, '/src/main/java/org/expath/', $java-package-name, '/')" />
+		select="concat('../../expath-libs/', $expath-spec-id, '/src/main/java/org/expath/', $java-package-name, '/')" />
 	<xsl:variable name="java-package-declaration" select="concat('package org.expath.', $java-package-name, ';')" />
 
 	<xsl:variable name="java-end-of-instruction-line">

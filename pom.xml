@@ -30,7 +30,7 @@
 					<executions>
 						<execution>
 							<id>generate-spec-in-html-format</id>
-							<phase>process-sources</phase>
+							<phase>prepare-package</phase>
 							<goals>
 								<goal>transform</goal>
 							</goals>
@@ -139,7 +139,7 @@
 					<executions>
 						<execution>
 							<id>zip-assembly</id>
-							<phase>package</phase>
+							<phase>prepare-package</phase>
 							<goals>
 								<goal>single</goal>
 							</goals>
