@@ -36,8 +36,8 @@
 							</goals>
 							<configuration>
 								<forceCreation>true</forceCreation>
-								<!-- Generate the spec -->
 								<transformationSets>
+									<!-- Generate the spec -->
 									<transformationSet>
 										<dir>.</dir>
 										<includes>
@@ -63,7 +63,6 @@
 							</goals>
 							<configuration>
 								<forceCreation>true</forceCreation>
-								<!-- Generate the spec -->
 								<transformationSets>
 									<!-- Generate the specs index -->
 									<transformationSet>
