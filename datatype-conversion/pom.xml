@@ -11,9 +11,9 @@
 
 	<artifactId>datatype-conversion</artifactId>
 	<version>1.0</version>
-	<name>EXPath Datatype Conversion specification</name>
+	<name>EXPath Datatype Conversion Module Specification</name>
 	<packaging>pom</packaging>
-	<url>http://expath.org</url>
+	<url>http://kuberam.ro/specs/expath/datatype-conversion/datatype-conversion.html</url>
 
 	<properties>
 		<expath-spec-id>datatype-conversion</expath-spec-id>

@@ -11,9 +11,9 @@
 
 	<artifactId>location</artifactId>
 	<version>1.0</version>
-	<name>EXPath Location Module specification</name>
+	<name>EXPath Location Module Specification</name>
 	<packaging>pom</packaging>
-	<url>http://expath.org</url>
+	<url>http://kuberam.ro/specs/expath/location/location.html</url>
 
 	<properties>
 		<expath-spec-id>location</expath-spec-id>

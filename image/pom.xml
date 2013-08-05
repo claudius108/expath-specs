@@ -11,9 +11,9 @@
 
 	<artifactId>image</artifactId>
 	<version>1.0</version>
-	<name>EXPath Image specification</name>
+	<name>EXPath Image Module Specification</name>
 	<packaging>pom</packaging>
-	<url>http://expath.org</url>
+	<url>http://kuberam.ro/specs/expath/image/image.html</url>
 
 	<properties>
 		<expath-spec-id>image</expath-spec-id>

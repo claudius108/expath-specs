@@ -11,9 +11,9 @@
 
 	<artifactId>pdf</artifactId>
 	<version>1.0</version>
-	<name>EXPath PDF specification</name>
+	<name>EXPath PDF Module Specification</name>
 	<packaging>pom</packaging>
-	<url>http://expath.org</url>
+	<url>http://kuberam.ro/specs/expath/pdf/pdf.html</url>
 
 	<properties>
 		<expath-spec-id>pdf</expath-spec-id>
