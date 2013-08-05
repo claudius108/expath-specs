@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>time</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>EXPath Time Module specification</name>
 	<packaging>pom</packaging>
 	<url>http://expath.org</url>

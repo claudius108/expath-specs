@@ -50,24 +50,27 @@ div.exampleHeader { font-weight: bold;
     1.1 <a href="#d2e53">Namespace conventions</a><br />
     1.2 <a href="#d2e72">Error management</a><br />
 2 <a href="#d2e83">IP localization</a><br />
-    2.1 <a href="#d2e88">The loc:get-country-name() function</a><br />
-    2.2 <a href="#d2e125">The loc:get-country-2-code() function</a><br />
-    2.3 <a href="#d2e162">The loc:get-country-3-code() function</a><br />
-    2.4 <a href="#d2e199">The loc:get-city-name() function</a><br />
-    2.5 <a href="#d2e236">The loc:get-latitude() function</a><br />
-    2.6 <a href="#d2e278">The loc:get-longitude() function</a><br />
-    2.7 <a href="#d2e317">The loc:validate-latitude() function</a><br />
-    2.8 <a href="#d2e344">The loc:validate-longitude() function</a><br />
-    2.9 <a href="#d2e371">The loc:get-time-zone() function</a><br />
-    2.10 <a href="#d2e409">The loc:get-distance() function</a><br />
-    2.11 <a href="#coordinates-formats">The latitude, longitude, and altitude formats</a><br />
-        2.11.1 <a href="#d2e459">The latitude and longitude formats</a><br />
-        2.11.2 <a href="#d2e530">The altitude formats</a><br />
+    2.1 <a href="#d2e88">Location data providers</a><br />
+    2.2 <a href="#d2e95">The loc:get-country-2-code() function</a><br />
+    2.3 <a href="#d2e143">The loc:get-country-3-code() function</a><br />
+    2.4 <a href="#d2e170">The loc:get-country-name() function</a><br />
+    2.5 <a href="#d2e197">The loc:get-country-flag() function</a><br />
+    2.6 <a href="#d2e244">The loc:get-city-name() function</a><br />
+    2.7 <a href="#d2e292">The loc:get-latitude() function</a><br />
+    2.8 <a href="#d2e355">The loc:get-longitude() function</a><br />
+    2.9 <a href="#d2e420">The loc:validate-latitude() function</a><br />
+    2.10 <a href="#d2e448">The loc:validate-longitude() function</a><br />
+    2.11 <a href="#d2e475">The loc:get-time-zone() function</a><br />
+    2.12 <a href="#d2e523">The loc:get-distance() function</a><br />
+    2.13 <a href="#coordinates-formats">The latitude, longitude, and altitude formats</a><br />
+        2.13.1 <a href="#d2e587">The latitude and longitude formats</a><br />
+        2.13.2 <a href="#d2e658">The altitude formats</a><br />
 </p>
-<h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d2e560">References</a><br />
-B <a href="#d2e594">Summary of Error Conditions</a><br />
+<h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d2e688">References</a><br />
+B <a href="#d2e722">Summary of Error Conditions</a><br />
 </p></div><hr /><div class="body"><div class="div1">
-<h2><a name="d2e48" id="d2e48"></a>1 Introduction</h2><p>This module contains functions for dealing with location.</p><div class="div2">
+<h2><a name="d2e48" id="d2e48"></a>1 Introduction</h2><p>This module contains functions for dealing with location. It has been designed to be compatible with XQuery 3.0 and XSLT 3.0,
+         as well as any other standard based on XPath 3.0.</p><div class="div2">
 <h3><a name="d2e53" id="d2e53"></a>1.1 Namespace conventions</h3><p>The module defined by this document defines functions and elements in the namespace
                   <code>http://expath.org/ns/location</code>. In this document, the
                   <code>loc</code> prefix, when used, is bound to this namespace URI.</p><p>Error codes are defined in the namespace <code>http://expath.org/ns/error</code>. In
@@ -77,56 +80,78 @@ B <a href="#d2e594">Summary of Error Conditions</a><br />
                condition is reached during the execution of the function, a dynamic error is thrown,
                with the corresponding error code (as if the standard XPath function
                   <code>error</code> had been called).</p></div></div><div class="div1">
-<h2><a name="d2e83" id="d2e83"></a>2 IP localization</h2><p>These functions provide location data based upon user agent's IP address (whether is version 4 or version 6 type IP).
-         The data is provided by providers, and each implementation has to have a default provider, for the easy use of functions.</p><div class="div2">
-<h3><a name="d2e88" id="d2e88"></a>2.1 The <code>loc:get-country-name()</code> function</h3><p>This function returns the country name.</p><div class="exampleInner"><pre>
-<code class="function">time:get-country-name</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
+<h2><a name="d2e83" id="d2e83"></a>2 IP localization</h2><p>These functions provide location data based upon user agent's IP address (whether is version 4 or version 6 type IP).</p><div class="div2">
+<h3><a name="d2e88" id="d2e88"></a>2.1 Location data providers</h3><p>The location data is made available by various providers, either as databases, or as webservices. The user should be able to choose the preferred provider
+            among the ones accessible within the implementation.</p><p>Each implementation has to have a default provider, for the easy use of functions.</p></div><div class="div2">
+<h3><a name="d2e95" id="d2e95"></a>2.2 The <code>loc:get-country-2-code()</code> function</h3><p>This function returns the country code composed of 2 digits, according to ISO 3166-1.</p><div class="exampleInner"><pre>
+<code class="function">time:get-country-2-code</code>($ip-address as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+</pre></div><div class="exampleInner"><pre>
+<code class="function">time:get-country-2-code</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:anyURI</code>) as <code class="type">xs:string</code>
 </pre></div><ul><li><p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
                   default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.</p></li></ul></div><div class="div2">
-<h3><a name="d2e125" id="d2e125"></a>2.2 The <code>loc:get-country-2-code()</code> function</h3><p>This function returns the country code composed of 2 digits, according to ISO 3166-1.</p><div class="exampleInner"><pre>
-<code class="function">time:get-country-code</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
+<h3><a name="d2e143" id="d2e143"></a>2.3 The <code>loc:get-country-3-code()</code> function</h3><p>This function returns the country code composed of 3 digits, according to ISO 3166-1.</p><div class="exampleInner"><pre>
+<code class="function">time:get-country-3-code</code>($country-2-code as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+</pre></div><ul><li><p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                  If the country code is not valid, this is an error <a href="#errLOC04">[err:LOC04]</a>.</p></li></ul></div><div class="div2">
+<h3><a name="d2e170" id="d2e170"></a>2.4 The <code>loc:get-country-name()</code> function</h3><p>This function returns the country name.</p><div class="exampleInner"><pre>
+<code class="function">time:get-country-name</code>($country-2-code as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+</pre></div><ul><li><p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                  If the country code is not valid, this is an error <a href="#errLOC04">[err:LOC04]</a>.</p></li></ul></div><div class="div2">
+<h3><a name="d2e197" id="d2e197"></a>2.5 The <code>loc:get-country-flag()</code> function</h3><p>This function returns the country flag, in various formats.</p><div class="exampleInner"><pre>
+<code class="function">time:get-country-flag</code>($country-2-code as <code class="type">xs:string</code>,
+	$format as <code class="type">xs:string</code>,
+	$provider as <code class="type">xs:anyURI?</code>) as <code class="type">xs:string</code>
+</pre></div><ul><li><p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                  If the country code is not valid, this is an error <a href="#errLOC04">[err:LOC04]</a>.</p></li><li><p><code>$format</code> is the flag's format. If the format is not valid, this is an error <a href="#errLOC03">[err:LOC03]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
+                  default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.</p></li></ul></div><div class="div2">
+<h3><a name="d2e244" id="d2e244"></a>2.6 The <code>loc:get-city-name()</code> function</h3><p>This function returns the city name.</p><div class="exampleInner"><pre>
+<code class="function">time:get-city-name</code>($ip-address as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+</pre></div><div class="exampleInner"><pre>
+<code class="function">time:get-city-name</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:anyURI</code>) as <code class="type">xs:string</code>
 </pre></div><ul><li><p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
                   default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.</p></li></ul></div><div class="div2">
-<h3><a name="d2e162" id="d2e162"></a>2.3 The <code>loc:get-country-3-code()</code> function</h3><p>This function returns the country code composed of 3 digits, according to ISO 3166-1.</p><div class="exampleInner"><pre>
-<code class="function">time:get-country-code</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
-</pre></div><ul><li><p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
+<h3><a name="d2e292" id="d2e292"></a>2.7 The <code>loc:get-latitude()</code> function</h3><p>This function returns the latitude of the geographic point corresponding to the IP address.</p><div class="exampleInner"><pre>
+<code class="function">time:get-latitude</code>($ip-address as <code class="type">xs:string</code>, $format as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
+</pre></div><div class="exampleInner"><pre>
+<code class="function">time:get-latitude</code>($ip-address as <code class="type">xs:string</code>, $format as <code class="type">xs:string?</code>,
+	$provider as <code class="type">xs:anyURI</code>) as <code class="type">xs:string</code>
+</pre></div><ul><li><p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$format</code> is the format of the latitude. For latitude formats, see <a href="#coordinates-formats"><b>2.13 The latitude, longitude, and altitude formats</b></a>.
+                  If the format is not valid, this is an error <a href="#errLOC05">[err:LOC05]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
                   default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.</p></li></ul></div><div class="div2">
-<h3><a name="d2e199" id="d2e199"></a>2.4 The <code>loc:get-city-name()</code> function</h3><p>This function returns the city name.</p><div class="exampleInner"><pre>
-<code class="function">time:get-city-name</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
-</pre></div><ul><li><p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
+<h3><a name="d2e355" id="d2e355"></a>2.8 The <code>loc:get-longitude()</code> function</h3><p>This function returns the longitude of the geographic point corresponding to the IP address.
+             For longitude formats, see <a href="#coordinates-formats"><b>2.13 The latitude, longitude, and altitude formats</b></a>.</p><div class="exampleInner"><pre>
+<code class="function">time:get-longitude</code>($ip-address as <code class="type">xs:string</code>, $format as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
+</pre></div><div class="exampleInner"><pre>
+<code class="function">time:get-longitude</code>($ip-address as <code class="type">xs:string</code>, $format as <code class="type">xs:string?</code>,
+	$provider as <code class="type">xs:anyURI</code>) as <code class="type">xs:string</code>
+</pre></div><ul><li><p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$format</code> is the format of the longitude. For longitude formats, see <a href="#coordinates-formats"><b>2.13 The latitude, longitude, and altitude formats</b></a>.
+                  If the format is not valid, this is an error <a href="#errLOC06">[err:LOC06]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
                   default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.</p></li></ul></div><div class="div2">
-<h3><a name="d2e236" id="d2e236"></a>2.5 The <code>loc:get-latitude()</code> function</h3><p>This function returns the latitude of the geographic point corresponding to the IP address.
-			 For latitude formats, see <a href="#coordinates-formats"><b>2.11 The latitude, longitude, and altitude formats</b></a>.</p><div class="exampleInner"><pre>
-<code class="function">time:get-latitude</code>($ip-address as <code class="type">xs:string</code>,
-				$format as <code class="type">xs:string?</code>,
-				$provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
-</pre></div><ul><li><p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
-                  default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.</p></li></ul></div><div class="div2">
-<h3><a name="d2e278" id="d2e278"></a>2.6 The <code>loc:get-longitude()</code> function</h3><p>This function returns the longitude of the geographic point corresponding to the IP address.
-             For longitude formats, see <a href="#coordinates-formats"><b>2.11 The latitude, longitude, and altitude formats</b></a>.</p><div class="exampleInner"><pre>
-<code class="function">time:get-longitude</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
-</pre></div><ul><li><p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
-                  default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.</p></li></ul></div><div class="div2">
-<h3><a name="d2e317" id="d2e317"></a>2.7 The <code>loc:validate-latitude()</code> function</h3><p>This function validates a latitude. For latitude formats, see <a href="#coordinates-formats"><b>2.11 The latitude, longitude, and altitude formats</b></a>.</p><div class="exampleInner"><pre>
-<code class="function">time:validate-latitude</code>($latitude as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+<h3><a name="d2e420" id="d2e420"></a>2.9 The <code>loc:validate-latitude()</code> function</h3><p>This function validates a latitude. It returns true if the latitude is valid, false if not.
+            For latitude formats, see <a href="#coordinates-formats"><b>2.13 The latitude, longitude, and altitude formats</b></a>.</p><div class="exampleInner"><pre>
+<code class="function">time:validate-latitude</code>($latitude as <code class="type">xs:string</code>) as <code class="type">xs:boolean</code>
 </pre></div><ul><li><p><code>$latitude</code> is the latitude to be validated.</p></li></ul></div><div class="div2">
-<h3><a name="d2e344" id="d2e344"></a>2.8 The <code>loc:validate-longitude()</code> function</h3><p>This function validates a longitude. For longitude formats, see <a href="#coordinates-formats"><b>2.11 The latitude, longitude, and altitude formats</b></a>.</p><div class="exampleInner"><pre>
-<code class="function">time:validate-longitude</code>($longitude as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+<h3><a name="d2e448" id="d2e448"></a>2.10 The <code>loc:validate-longitude()</code> function</h3><p>This function validates a longitude. It returns true if the longitude is valid, false if not.
+            For longitude formats, see <a href="#coordinates-formats"><b>2.13 The latitude, longitude, and altitude formats</b></a>.</p><div class="exampleInner"><pre>
+<code class="function">time:validate-longitude</code>($longitude as <code class="type">xs:string</code>) as <code class="type">xs:boolean</code>
 </pre></div><ul><li><p><code>$longitude</code> is the longitude to be validated.</p></li></ul></div><div class="div2">
-<h3><a name="d2e371" id="d2e371"></a>2.9 The <code>loc:get-time-zone()</code> function</h3><p>This function returns the time zone.</p><div class="exampleInner"><pre>
-<code class="function">time:get-time-zone</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
+<h3><a name="d2e475" id="d2e475"></a>2.11 The <code>loc:get-time-zone()</code> function</h3><p>This function returns the time zone.</p><div class="exampleInner"><pre>
+<code class="function">time:get-time-zone</code>($ip-address as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+</pre></div><div class="exampleInner"><pre>
+<code class="function">time:get-time-zone</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:anyURI</code>) as <code class="type">xs:string</code>
 </pre></div><ul><li><p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
                   default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.</p></li></ul></div><div class="div2">
-<h3><a name="d2e409" id="d2e409"></a>2.10 The <code>loc:get-distance()</code> function</h3><p>This function returns the distance (in kilometers) between two points, based on their IP addresses.</p><div class="exampleInner"><pre>
-<code class="function">time:get-distance</code>($first-ip-address as <code class="type">xs:string</code>,
-				$second-ip-address as <code class="type">xs:string</code>,
-				$provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
+<h3><a name="d2e523" id="d2e523"></a>2.12 The <code>loc:get-distance()</code> function</h3><p>This function returns the distance (in kilometers) between two points, based on their IP addresses.</p><div class="exampleInner"><pre>
+<code class="function">time:get-distance</code>($first-ip-address as <code class="type">xs:string</code>, $second-ip-address as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+</pre></div><div class="exampleInner"><pre>
+<code class="function">time:get-distance</code>($first-ip-address as <code class="type">xs:string</code>, $second-ip-address as <code class="type">xs:string</code>,
+				$provider as <code class="type">xs:anyURI</code>) as <code class="type">xs:string</code>
 </pre></div><ul><li><p><code>$first-ip-address</code> is the first user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$second-ip-address</code> is the second user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.</p></li><li><p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
                   default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.</p></li></ul></div><div class="div2">
-<h3><a name="coordinates-formats" id="coordinates-formats"></a>2.11 The latitude, longitude, and altitude formats</h3><div class="div3">
-<h4><a name="d2e459" id="d2e459"></a>2.11.1 The latitude and longitude formats</h4><p>The formats are according to ISO 6709.</p><table border="1" frame="border"><caption>Formats for latitude and longitude</caption><thead><tr><th>Format description</th><th>Format for latitude</th><th>Format for longitude</th></tr></thead><tbody><tr><td>Latitude and longitude in degrees</td><td>±DD.DDDD</td><td>±DDD.DDDD</td></tr><tr><td>Latitude and longitude in degrees and minutes</td><td>±DDMM.MMMM</td><td>±DDDMM.MMMM</td></tr><tr><td>Latitude and longitude in degrees, minutes and seconds</td><td>±DDMMSS.SSSS</td><td>±DDDMMSS.SSSS</td></tr></tbody></table><p>Explanations:</p><ul><li><p>±DD = three-digit integer degrees part of latitude (through -90 ~ -00 ~ +90);</p></li><li><p>±DDD = four-digit integer degrees part of longitude (through -180 ~ -000 ~ +180);</p></li><li><p>MM = two-digit integer minutes part (00 through 59);</p></li><li><p>SS = two-digit integer seconds part (00 through 59);</p></li><li><p>.DDDD = variable-length fraction part in degrees;</p></li><li><p>.MMMM = variable-length fraction part in minutes;</p></li><li><p>.SSSS = variable-length fraction part in seconds;</p></li><li><p>The sign is always necessary for each value: latitude: North = "+", South = "-"; longitude: East = "+", West = "-";</p></li><li><p>The integer part is a fixed length, respectively, and padding character is "0";</p></li><li><p>It is variable-length below the decimal point.</p></li></ul></div><div class="div3">
-<h4><a name="d2e530" id="d2e530"></a>2.11.2 The altitude formats</h4><p>The formats are according to ISO 6709.</p><table border="1" frame="border"><caption>Formats for altitude</caption><thead><tr><th>Format description</th><th>Format for altitude</th></tr></thead><tbody><tr><td>Altitude in meters and fractions of meter</td><td>±AAA.AAA</td></tr></tbody></table><p>Explanations:</p><ul><li><p>The measuring unit for altitude is meter [m];</p></li><li><p>The integer part and the fraction part of altitude are both variable-length.</p></li></ul></div></div></div></div><div class="back"><div class="div1">
-<h2><a name="d2e560" id="d2e560"></a>A References</h2><dl><dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0</dt><dd>
+<h3><a name="coordinates-formats" id="coordinates-formats"></a>2.13 The latitude, longitude, and altitude formats</h3><div class="div3">
+<h4><a name="d2e587" id="d2e587"></a>2.13.1 The latitude and longitude formats</h4><p>The formats are according to ISO 6709.</p><table border="1" frame="border"><caption>Formats for latitude and longitude</caption><thead><tr><th>Format description</th><th>Format for latitude</th><th>Format for longitude</th></tr></thead><tbody><tr><td>Latitude and longitude in degrees</td><td>±DD.DDDD</td><td>±DDD.DDDD</td></tr><tr><td>Latitude and longitude in degrees and minutes</td><td>±DDMM.MMMM</td><td>±DDDMM.MMMM</td></tr><tr><td>Latitude and longitude in degrees, minutes and seconds</td><td>±DDMMSS.SSSS</td><td>±DDDMMSS.SSSS</td></tr></tbody></table><p>Explanations:</p><ul><li><p>±DD = three-digit integer degrees part of latitude (through -90 ~ -00 ~ +90);</p></li><li><p>±DDD = four-digit integer degrees part of longitude (through -180 ~ -000 ~ +180);</p></li><li><p>MM = two-digit integer minutes part (00 through 59);</p></li><li><p>SS = two-digit integer seconds part (00 through 59);</p></li><li><p>.DDDD = variable-length fraction part in degrees;</p></li><li><p>.MMMM = variable-length fraction part in minutes;</p></li><li><p>.SSSS = variable-length fraction part in seconds;</p></li><li><p>The sign is always necessary for each value: latitude: North = "+", South = "-"; longitude: East = "+", West = "-";</p></li><li><p>The integer part is a fixed length, respectively, and padding character is "0";</p></li><li><p>It is variable-length below the decimal point.</p></li></ul></div><div class="div3">
+<h4><a name="d2e658" id="d2e658"></a>2.13.2 The altitude formats</h4><p>The formats are according to ISO 6709.</p><table border="1" frame="border"><caption>Formats for altitude</caption><thead><tr><th>Format description</th><th>Format for altitude</th></tr></thead><tbody><tr><td>Altitude in meters and fractions of meter</td><td>±AAA.AAA</td></tr></tbody></table><p>Explanations:</p><ul><li><p>The measuring unit for altitude is meter [m];</p></li><li><p>The integer part and the fraction part of altitude are both variable-length.</p></li></ul></div></div></div></div><div class="back"><div class="div1">
+<h2><a name="d2e688" id="d2e688"></a>A References</h2><dl><dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0</dt><dd>
 	               <a href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</a>.
 	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</dd><dt class="label"><a name="xslt-30" id="xslt-30"></a>XSLT 3.0</dt><dd>                        
 	               <a href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</a>.
@@ -138,4 +163,4 @@ B <a href="#d2e594">Summary of Error Conditions</a><br />
                <a href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</a>.
                Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</dd><dt class="label"><a name="LatitudeLongitudeAltitude" id="LatitudeLongitudeAltitude"></a>Latitude, Longitude, and Altitude</dt><dd>
                <a href="http://w3.org/2005/Incubator/geo/Wiki/LatitudeLongitudeAltitude.html">Latitude, Longitude and Altitude format for geospatial information</a>.</dd></dl></div><div class="div1">
-<h2><a name="d2e594" id="d2e594"></a>B Summary of Error Conditions</h2><dl><dt class="label"><a name="errLOC01" id="errLOC01"></a>err:LOC01</dt><dd>The IP is not valid.</dd><dt class="label"><a name="errLOC02" id="errLOC02"></a>err:LOC02</dt><dd>The provider is not set.</dd></dl></div></div></body></html>
+<h2><a name="d2e722" id="d2e722"></a>B Summary of Error Conditions</h2><dl><dt class="label"><a name="errLOC01" id="errLOC01"></a>err:LOC01</dt><dd>The IP is not valid.</dd><dt class="label"><a name="errLOC02" id="errLOC02"></a>err:LOC02</dt><dd>The provider is not set.</dd><dt class="label"><a name="errLOC03" id="errLOC03"></a>err:LOC03</dt><dd>The flag format is not valid.</dd><dt class="label"><a name="errLOC04" id="errLOC04"></a>err:LOC04</dt><dd>The country code is not valid.</dd><dt class="label"><a name="errLOC05" id="errLOC05"></a>err:LOC05</dt><dd>The latitude format is not valid.</dd><dt class="label"><a name="errLOC06" id="errLOC06"></a>err:LOC06</dt><dd>The longitude format is not valid.</dd></dl></div></div></body></html>

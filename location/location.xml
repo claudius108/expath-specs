@@ -42,7 +42,8 @@
    <body>
       <div1>
          <head>Introduction</head>
-         <p>This module contains functions for dealing with location.</p>
+         <p>This module contains functions for dealing with location. It has been designed to be compatible with XQuery 3.0 and XSLT 3.0,
+         as well as any other standard based on XPath 3.0.</p>
          <div2>
             <head>Namespace conventions</head>
             <p>The module defined by this document defines functions and elements in the namespace
@@ -68,42 +69,15 @@
             <p>The location data is made available by various providers, either as databases, or as webservices. The user should be able to choose the preferred provider
             among the ones accessible within the implementation.</p>
             <p>Each implementation has to have a default provider, for the easy use of functions.</p>
-            <eg>
-<spec:function>time:get-country-name</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
-</eg>
-            <ulist>
-               <item>
-                  <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
-               </item>
-               <item>
-                  <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
-                  default provider. If the provider does not exist, this is an error <bibref ref="errLOC02"/>.</p>
-               </item>               
-            </ulist>            
          </div2>
-         
-         
-         <div2>
-            <head>The <code>loc:get-country-name()</code> function</head>
-            <p>This function returns the country name.</p>
-            <eg>
-<spec:function>time:get-country-name</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
-</eg>
-            <ulist>
-               <item>
-                  <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
-               </item>
-               <item>
-                  <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
-                  default provider. If the provider does not exist, this is an error <bibref ref="errLOC02"/>.</p>
-               </item>               
-            </ulist>            
-         </div2>         
          <div2>
             <head>The <code>loc:get-country-2-code()</code> function</head>
             <p>This function returns the country code composed of 2 digits, according to ISO 3166-1.</p>
             <eg>
-<spec:function>time:get-country-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-country-2-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <eg>
+<spec:function>time:get-country-2-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -119,23 +93,58 @@
             <head>The <code>loc:get-country-3-code()</code> function</head>
             <p>This function returns the country code composed of 3 digits, according to ISO 3166-1.</p>
             <eg>
-<spec:function>time:get-country-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-country-3-code</spec:function>($country-2-code as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
-                  <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
+                  <p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                  If the country code is not valid, this is an error <bibref ref="errLOC04"/>.</p>
                </item>
+            </ulist>            
+         </div2>
+         <div2>
+            <head>The <code>loc:get-country-name()</code> function</head>
+            <p>This function returns the country name.</p>
+            <eg>
+<spec:function>time:get-country-name</spec:function>($country-2-code as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                  If the country code is not valid, this is an error <bibref ref="errLOC04"/>.</p>
+               </item>
+            </ulist>            
+         </div2>         
+         <div2>
+            <head>The <code>loc:get-country-flag()</code> function</head>
+            <p>This function returns the country flag, in various formats.</p>
+            <eg>
+<spec:function>time:get-country-flag</spec:function>($country-2-code as <spec:type>xs:string</spec:type>,
+	$format as <spec:type>xs:string</spec:type>,
+	$provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                  If the country code is not valid, this is an error <bibref ref="errLOC04"/>.</p>
+               </item>
+               <item>
+                  <p><code>$format</code> is the flag's format. If the format is not valid, this is an error <bibref ref="errLOC03"/>.</p>
+               </item>               
                <item>
                   <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
                   default provider. If the provider does not exist, this is an error <bibref ref="errLOC02"/>.</p>
                </item>               
             </ulist>            
-         </div2>
+         </div2>         
          <div2>
             <head>The <code>loc:get-city-name()</code> function</head>
             <p>This function returns the city name.</p>
             <eg>
-<spec:function>time:get-city-name</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-city-name</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <eg>
+<spec:function>time:get-city-name</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -149,17 +158,22 @@
          </div2>
          <div2>
             <head>The <code>loc:get-latitude()</code> function</head>
-            <p>This function returns the latitude of the geographic point corresponding to the IP address.
-			 For latitude formats, see <specref ref="coordinates-formats" />.</p>
+            <p>This function returns the latitude of the geographic point corresponding to the IP address.</p>
             <eg>
-<spec:function>time:get-latitude</spec:function>($ip-address as <spec:type>xs:string</spec:type>,
-				$format as <spec:type>xs:string?</spec:type>,
-				$provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-latitude</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $format as <spec:type>xs:string?</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <eg>
+<spec:function>time:get-latitude</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $format as <spec:type>xs:string?</spec:type>,
+	$provider as <spec:type>xs:anyURI</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
                   <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
                </item>
+               <item>
+                  <p><code>$format</code> is the format of the latitude. For latitude formats, see <specref ref="coordinates-formats" />.
+                  If the format is not valid, this is an error <bibref ref="errLOC05"/>.</p>
+               </item>               
                <item>
                   <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
                   default provider. If the provider does not exist, this is an error <bibref ref="errLOC02"/>.</p>
@@ -171,12 +185,20 @@
             <p>This function returns the longitude of the geographic point corresponding to the IP address.
              For longitude formats, see <specref ref="coordinates-formats" />.</p>
             <eg>
-<spec:function>time:get-longitude</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-longitude</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $format as <spec:type>xs:string?</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <eg>
+<spec:function>time:get-longitude</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $format as <spec:type>xs:string?</spec:type>,
+	$provider as <spec:type>xs:anyURI</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
                   <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
                </item>
+               <item>
+                  <p><code>$format</code> is the format of the longitude. For longitude formats, see <specref ref="coordinates-formats" />.
+                  If the format is not valid, this is an error <bibref ref="errLOC06"/>.</p>
+               </item>               
                <item>
                   <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
                   default provider. If the provider does not exist, this is an error <bibref ref="errLOC02"/>.</p>
@@ -185,9 +207,10 @@
          </div2>
          <div2>
             <head>The <code>loc:validate-latitude()</code> function</head>
-            <p>This function validates a latitude. For latitude formats, see <specref ref="coordinates-formats" />.</p>
+            <p>This function validates a latitude. It returns true if the latitude is valid, false if not.
+            For latitude formats, see <specref ref="coordinates-formats" />.</p>
             <eg>
-<spec:function>time:validate-latitude</spec:function>($latitude as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:validate-latitude</spec:function>($latitude as <spec:type>xs:string</spec:type>) as <spec:type>xs:boolean</spec:type>
 </eg>
             <ulist>
                <item>
@@ -197,9 +220,10 @@
          </div2>
          <div2>
             <head>The <code>loc:validate-longitude()</code> function</head>
-            <p>This function validates a longitude. For longitude formats, see <specref ref="coordinates-formats" />.</p>
+            <p>This function validates a longitude. It returns true if the longitude is valid, false if not.
+            For longitude formats, see <specref ref="coordinates-formats" />.</p>
             <eg>
-<spec:function>time:validate-longitude</spec:function>($longitude as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:validate-longitude</spec:function>($longitude as <spec:type>xs:string</spec:type>) as <spec:type>xs:boolean</spec:type>
 </eg>
             <ulist>
                <item>
@@ -211,7 +235,10 @@
             <head>The <code>loc:get-time-zone()</code> function</head>
             <p>This function returns the time zone.</p>
             <eg>
-<spec:function>time:get-time-zone</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-time-zone</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <eg>
+<spec:function>time:get-time-zone</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -227,9 +254,11 @@
             <head>The <code>loc:get-distance()</code> function</head>
             <p>This function returns the distance (in kilometers) between two points, based on their IP addresses.</p>
             <eg>
-<spec:function>time:get-distance</spec:function>($first-ip-address as <spec:type>xs:string</spec:type>,
-				$second-ip-address as <spec:type>xs:string</spec:type>,
-				$provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-distance</spec:function>($first-ip-address as <spec:type>xs:string</spec:type>, $second-ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <eg>
+<spec:function>time:get-distance</spec:function>($first-ip-address as <spec:type>xs:string</spec:type>, $second-ip-address as <spec:type>xs:string</spec:type>,
+				$provider as <spec:type>xs:anyURI</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -369,6 +398,10 @@
          <blist id="summary-of-error-conditions">
          	<bibl id="errLOC01" key="err:LOC01">The IP is not valid.</bibl>
             <bibl id="errLOC02" key="err:LOC02">The provider is not set.</bibl>
+         	<bibl id="errLOC03" key="err:LOC03">The flag format is not valid.</bibl>            
+         	<bibl id="errLOC04" key="err:LOC04">The country code is not valid.</bibl>         	
+         	<bibl id="errLOC05" key="err:LOC05">The latitude format is not valid.</bibl>         	
+         	<bibl id="errLOC06" key="err:LOC06">The longitude format is not valid.</bibl>
          </blist>
       </div1>
    </back>
