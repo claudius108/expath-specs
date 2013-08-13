@@ -30,7 +30,7 @@
 					<artifactId>xml-maven-plugin</artifactId>
 					<executions>
 						<execution>
-							<id>generate-spec-in-html-format</id>
+							<id>transform-spec-to-html-format</id>
 							<phase>prepare-package</phase>
 							<goals>
 								<goal>transform</goal>
@@ -38,7 +38,7 @@
 							<configuration>
 								<forceCreation>true</forceCreation>
 								<transformationSets>
-									<!-- Generate the spec -->
+									<!-- Transform the spec to HTML format -->
 									<transformationSet>
 										<dir>.</dir>
 										<includes>
