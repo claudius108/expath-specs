@@ -19,6 +19,7 @@
 		<web-sourceforge-specs-url>${sourceforge-user-web-url}/specs/expath</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${expath-spec-id}</web-sourceforge-spec-url>
 		<spec-names>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image,location</spec-names>
+		<libDir>/home/claudius/workspaces/expath/expath-libs</libDir>
 	</properties>
 
 	<build>
@@ -78,25 +79,27 @@
 											</parameter>
 										</parameters>
 									</transformationSet>
-									<!-- Generate some of the lib's Java classes -->
-									<transformationSet>
-										<dir>.</dir>
-										<includes>
-											<include>${expath-spec-id}.xml</include>
-										</includes>
-										<stylesheet>../utils/generate-module/generate-java-classes.xsl</stylesheet>
-										<parameters>
-											<parameter>
-												<name>java-package-name</name>
-												<value>${java-package-name}</value>
-											</parameter>
-											<parameter>
-												<name>expath-spec-id</name>
-												<value>${expath-spec-id}</value>
-											</parameter>
-										</parameters>
-									</transformationSet>
 								</transformationSets>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>ro.kuberam.maven.plugins</groupId>
+					<artifactId>kuberam-expath-plugin</artifactId>
+					<version>0.2</version>
+					<executions>
+						<execution>
+							<id>generate-lib-files</id>
+							<phase>prepare-package</phase>
+							<goals>
+								<goal>generate-lib-basics</goal>
+							</goals>
+							<configuration>
+								<specId>${expath-spec-id}</specId>
+								<specDir>${basedir}</specDir>
+								<libDir>${libDir}/${expath-spec-id}</libDir>
+								<javaPackageName>${java-package-name}</javaPackageName>
 							</configuration>
 						</execution>
 					</executions>
