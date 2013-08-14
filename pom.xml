@@ -30,33 +30,6 @@
 					<artifactId>xml-maven-plugin</artifactId>
 					<executions>
 						<execution>
-							<id>transform-spec-to-html-format</id>
-							<phase>prepare-package</phase>
-							<goals>
-								<goal>transform</goal>
-							</goals>
-							<configuration>
-								<forceCreation>true</forceCreation>
-								<transformationSets>
-									<!-- Transform the spec to HTML format -->
-									<transformationSet>
-										<dir>.</dir>
-										<includes>
-											<include>${expath-spec-id}.xml</include>
-										</includes>
-										<stylesheet>../utils/generate-spec/xmlspec.xsl</stylesheet>
-										<fileMappers>
-											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
-												<pattern>^(.*)\.xml$</pattern>
-												<replacement>${expath-spec-id}.html</replacement>
-											</fileMapper>
-										</fileMappers>
-										<outputDir>${basedir}</outputDir>
-									</transformationSet>
-								</transformationSets>
-							</configuration>
-						</execution>
-						<execution>
 							<id>generate-specs-index</id>
 							<phase>prepare-package</phase>
 							<goals>
@@ -89,6 +62,18 @@
 					<artifactId>kuberam-expath-plugin</artifactId>
 					<version>0.2</version>
 					<executions>
+						<execution>
+							<id>generate-spec</id>
+							<phase>prepare-package</phase>
+							<goals>
+								<goal>transform-spec-to-html-format</goal>
+							</goals>
+							<configuration>
+								<specId>${expath-spec-id}</specId>
+								<specDir>${basedir}</specDir>
+								<outputDir>${basedir}</outputDir>
+							</configuration>
+						</execution>
 						<execution>
 							<id>generate-lib-files</id>
 							<phase>prepare-package</phase>

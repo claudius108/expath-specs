@@ -18,6 +18,7 @@
 	<properties>
 		<expath-spec-id>location</expath-spec-id>
 		<java-package-name>location</java-package-name>
+		<libName>Library for EXPath Location Module</libName>
 	</properties>
 
 	<build>

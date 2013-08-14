@@ -18,6 +18,7 @@
 	<properties>
 		<expath-spec-id>time</expath-spec-id>
 		<java-package-name>time</java-package-name>
+		<libName>Library for EXPath Time Module</libName>
 	</properties>
 
 	<build>

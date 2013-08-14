@@ -18,6 +18,7 @@
 	<properties>
 		<expath-spec-id>ft-client</expath-spec-id>
 		<java-package-name>ftclient</java-package-name>
+		<libName>Library for EXPath File Transfer Client Module</libName>
 	</properties>
 
 	<build>

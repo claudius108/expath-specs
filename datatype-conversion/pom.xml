@@ -18,6 +18,7 @@
 	<properties>
 		<expath-spec-id>datatype-conversion</expath-spec-id>
 		<java-package-name>datatypeConversion</java-package-name>
+		<libName>Library for EXPath Datatype Conversion Module</libName>
 	</properties>
 
 	<build>

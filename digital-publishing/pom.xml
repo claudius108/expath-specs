@@ -18,6 +18,7 @@
 	<properties>
 		<expath-spec-id>digital-publishing</expath-spec-id>
 		<java-package-name>digitalPublishing</java-package-name>
+		<libName>Library for EXPath Digital Publishing Module</libName>
 	</properties>
 
 	<build>

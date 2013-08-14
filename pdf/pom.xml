@@ -18,6 +18,7 @@
 	<properties>
 		<expath-spec-id>pdf</expath-spec-id>
 		<java-package-name>pdf</java-package-name>
+		<libName>Library for EXPath PDF Module</libName>
 	</properties>
 
 	<build>

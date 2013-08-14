@@ -18,7 +18,7 @@
 	<properties>
 		<expath-spec-id>crypto</expath-spec-id>
 		<java-package-name>crypto</java-package-name>
-		<libName>EXPath Cryptographic Library</libName>
+		<libName>Library for EXPath Cryptographic Module</libName>
 	</properties>
 
 	<build>
