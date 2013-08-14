@@ -11,7 +11,7 @@
 
 	<artifactId>pdf</artifactId>
 	<version>1.0</version>
-	<name>EXPath PDF Module Specification</name>
+	<name>Specification for EXPath PDF Module</name>
 	<packaging>pom</packaging>
 	<url>http://kuberam.ro/specs/expath/pdf/pdf.html</url>
 
@@ -19,6 +19,7 @@
 		<expath-spec-id>pdf</expath-spec-id>
 		<java-package-name>pdf</java-package-name>
 		<libName>Library for EXPath PDF Module</libName>
+		<libVersion>0.0.1</libVersion>
 	</properties>
 
 	<build>

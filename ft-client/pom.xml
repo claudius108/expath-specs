@@ -12,13 +12,14 @@
 	<artifactId>ft-client</artifactId>
 	<version>1.0</version>
 	<packaging>pom</packaging>
-	<name>EXPath File Transfer Client Module Specification</name>
+	<name>Specification for EXPath File Transfer Client Module</name>
 	<url>http://kuberam.ro/specs/expath/ft-client/ft-client.html</url>
 
 	<properties>
 		<expath-spec-id>ft-client</expath-spec-id>
 		<java-package-name>ftclient</java-package-name>
 		<libName>Library for EXPath File Transfer Client Module</libName>
+		<libVersion>1.1.2</libVersion>
 	</properties>
 
 	<build>

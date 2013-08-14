@@ -11,7 +11,7 @@
 
 	<artifactId>crypto</artifactId>
 	<version>1.1</version>
-	<name>EXPath Cryptographic Module Specification</name>
+	<name>Specification for EXPath Cryptographic Module</name>
 	<packaging>pom</packaging>
 	<url>http://kuberam.ro/specs/expath/crypto/crypto.html</url>
 
@@ -19,6 +19,7 @@
 		<expath-spec-id>crypto</expath-spec-id>
 		<java-package-name>crypto</java-package-name>
 		<libName>Library for EXPath Cryptographic Module</libName>
+		<libVersion>0.2.5</libVersion>
 	</properties>
 
 	<build>

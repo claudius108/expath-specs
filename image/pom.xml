@@ -11,7 +11,7 @@
 
 	<artifactId>image</artifactId>
 	<version>1.0</version>
-	<name>EXPath Image Module Specification</name>
+	<name>Specification for EXPath Image Module</name>
 	<packaging>pom</packaging>
 	<url>http://kuberam.ro/specs/expath/image/image.html</url>
 
@@ -19,6 +19,7 @@
 		<expath-spec-id>image</expath-spec-id>
 		<java-package-name>image</java-package-name>
 		<libName>Library for EXPath Image Module</libName>
+		<libVersion>0.0.1</libVersion>
 	</properties>
 
 	<build>

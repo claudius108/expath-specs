@@ -11,7 +11,7 @@
 
 	<artifactId>digital-publishing</artifactId>
 	<version>1.0</version>
-	<name>EXPath Digital Publishing Module Specification</name>
+	<name>Specification for EXPath Digital Publishing Module</name>
 	<packaging>pom</packaging>
 	<url>http://kuberam.ro/specs/expath/digital-publishing/digital-publishing.html</url>
 
@@ -19,6 +19,7 @@
 		<expath-spec-id>digital-publishing</expath-spec-id>
 		<java-package-name>digitalPublishing</java-package-name>
 		<libName>Library for EXPath Digital Publishing Module</libName>
+		<libVersion>0.0.1</libVersion>
 	</properties>
 
 	<build>
