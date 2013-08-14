@@ -18,6 +18,7 @@
 	<properties>
 		<expath-spec-id>crypto</expath-spec-id>
 		<java-package-name>crypto</java-package-name>
+		<libName>EXPath Cryptographic Library</libName>
 	</properties>
 
 	<build>
@@ -29,9 +30,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>wagon-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>ro.kuberam.maven.plugins</groupId>
