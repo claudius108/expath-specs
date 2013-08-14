@@ -19,7 +19,7 @@
 		<web-sourceforge-specs-url>${sourceforge-user-web-url}/specs/expath</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${expath-spec-id}</web-sourceforge-spec-url>
 		<spec-names>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image,location</spec-names>
-		<libDir>/home/claudius/workspaces/expath/expath-libs</libDir>
+		<libParentDir>/home/claudius/workspaces/expath/expath-libs</libParentDir>
 	</properties>
 
 	<build>
@@ -98,7 +98,10 @@
 							<configuration>
 								<specId>${expath-spec-id}</specId>
 								<specDir>${basedir}</specDir>
-								<libDir>${libDir}/${expath-spec-id}</libDir>
+								<libDir>${libParentDir}/${expath-spec-id}</libDir>
+								<libVersion>0.2.5</libVersion>
+								<libId>${expath-spec-id}</libId>
+								<libName>${libName}</libName>
 								<javaPackageName>${java-package-name}</javaPackageName>
 							</configuration>
 						</execution>
@@ -135,25 +138,6 @@
 							</configuration>
 						</execution>
 					</executions>
-				</plugin>
-				<plugin>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>zip-assembly</id>
-							<phase>prepare-package</phase>
-							<goals>
-								<goal>single</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<finalName>${project.artifactId}-${project.version}</finalName>
-						<appendAssemblyId>false</appendAssemblyId>
-						<descriptors>
-							<descriptor>../assembly.xml</descriptor>
-						</descriptors>
-					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
