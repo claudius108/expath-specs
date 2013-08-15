@@ -5,31 +5,6 @@
 
 	<xsl:param name="spec-names" />
 
-	<xsl:variable name="spec-descriptions">
-		<spec-descriptions>
-			<spec-description spec-name="time">
-				<p>
-					As this is a work in progress, more details about it can be found at
-					<a href="https://docs.google.com/document/d/11Vy3GIIpQD0UU2iCZRT-RR8nS2RYCOyF_fpjAPtQzbw/pub">Time Functions Comparison</a>.
-				</p>
-			</spec-description>
-			<spec-description spec-name="datatype-conversion">
-				<p>
-					As this is a work in progress, more details about it can be found at
-					<a href="https://docs.google.com/document/d/1aLoJHvzG9zFaTNM110xMjg-qMHT7vYtWpcBmYoawSJE/pub">Datatype Conversion Functions Comparison</a>.
-				</p>
-			</spec-description>
-			<spec-description spec-name="digital-publishing">
-				<p>
-					As this is a work in progress, more details about it can be found at
-					<a href="https://docs.google.com/document/d/1F4uoZ0HtQpSkIaWfTKi7oXzQYbvjaIGmxTL6RS5le3o/pub">Digital Publishing Functions Comparison</a>.
-				</p>
-			</spec-description>			
-		</spec-descriptions>
-
-
-	</xsl:variable>
-
 	<xsl:template match="/">
 		<xsl:result-document href="../index.html" method="html">
 			<html>
@@ -50,7 +25,6 @@
 						</h4>
 						<h5>
 							<xsl:value-of select="$spec//element()[local-name() = 'abstract']" />
-							<xsl:copy-of select="$spec-descriptions//element()[@spec-name = $spec-name]/*" />
 						</h5>
 					</xsl:for-each>
 				</body>

@@ -28,7 +28,10 @@
         </copyright>
         <abstract>
             <p>This proposal provides a Digital Publishing module for XPath 2.0. It defines extension functions for converting from one digital format to another, to
-		execute various processing operations of digital documents, etc. It has been designed to be compatible with XQuery 1.0 and XSLT 2.0, as well as any other standard based on XPath 2.0.</p>
+            execute various processing operations of digital documents, etc. It has been designed to be compatible with XQuery 1.0 and XSLT 2.0, as well as any other
+            standard based on XPath 2.0.</p>
+            <p>As this is a work in progress, more details about it can be found at
+            <a href="https://docs.google.com/document/d/1F4uoZ0HtQpSkIaWfTKi7oXzQYbvjaIGmxTL6RS5le3o/pub">Digital Publishing Functions Comparison</a>.</p>
         </abstract>
         <status>
             <p>Must be ignored, but is required by the schema...</p>

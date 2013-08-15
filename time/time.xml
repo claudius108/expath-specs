@@ -28,6 +28,8 @@
       <abstract>
          <p>This proposal defines a <phrase id="module-description">module for providing functions dealing with time</phrase>.
           It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard based on XPath 3.0.</p>
+          <p>As this is a work in progress, more details about it can be found at
+          <a href="https://docs.google.com/document/d/11Vy3GIIpQD0UU2iCZRT-RR8nS2RYCOyF_fpjAPtQzbw/pub">Time Functions Comparison</a>.</p>
       </abstract>
       <status>
          <p>Must be ignored, but is required by the schema...</p>
