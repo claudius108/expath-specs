@@ -23,11 +23,11 @@
          <loc href="http://expath.org/spec/crypto"/>
       </latestloc>
       <authlist>
-         <author>
+         <author role="editor">
             <name>Claudius Teodorescu</name>
             <affiliation>XML Consultant</affiliation>
          </author>
-         <author>
+         <author role="contrib">
             <name>Joe Wicentowski</name>
             <affiliation>U.S. Department Of State, Historian Office</affiliation>
          </author>

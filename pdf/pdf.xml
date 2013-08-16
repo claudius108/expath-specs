@@ -18,7 +18,7 @@
 		<loc href="http://expath.org/spec/pdf"/>
         </latestloc>
         <authlist>
-            <author>
+            <author role="editor">
                 <name>Claudius Teodorescu</name>
                 <affiliation>XML Consultant</affiliation>
             </author>

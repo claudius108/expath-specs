@@ -17,7 +17,7 @@
          <loc href="http://expath.org/spec/time"/>
       </latestloc>
       <authlist>
-         <author>
+         <author role="editor">
             <name id="cteodorescu">Claudius Teodorescu</name>
             <affiliation>XML Consultant</affiliation>
          </author>
