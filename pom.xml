@@ -18,45 +18,13 @@
 	<properties>
 		<web-sourceforge-specs-url>${sourceforge-user-web-url}/specs/expath</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${expath-spec-id}</web-sourceforge-spec-url>
-		<spec-names>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image,location</spec-names>
+		<includeSpecIds>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image,location</includeSpecIds>
 		<libParentDir>/home/claudius/workspaces/expath/expath-libs</libParentDir>
 	</properties>
 
 	<build>
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>xml-maven-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>generate-specs-index</id>
-							<phase>prepare-package</phase>
-							<goals>
-								<goal>transform</goal>
-							</goals>
-							<configuration>
-								<forceCreation>true</forceCreation>
-								<transformationSets>
-									<!-- Generate the specs index -->
-									<transformationSet>
-										<dir>../utils/generate-spec</dir>
-										<includes>
-											<include>generate-specs-index.xsl</include>
-										</includes>
-										<stylesheet>../utils/generate-spec/generate-specs-index.xsl</stylesheet>
-										<parameters>
-											<parameter>
-												<name>spec-names</name>
-												<value>${spec-names}</value>
-											</parameter>
-										</parameters>
-									</transformationSet>
-								</transformationSets>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
 				<plugin>
 					<groupId>ro.kuberam.maven.plugins</groupId>
 					<artifactId>kuberam-expath-plugin</artifactId>
@@ -72,6 +40,17 @@
 								<specId>${expath-spec-id}</specId>
 								<specDir>${basedir}</specDir>
 								<outputDir>${basedir}</outputDir>
+							</configuration>
+						</execution>
+						<execution>
+							<id>generate-specs-index</id>
+							<phase>prepare-package</phase>
+							<goals>
+								<goal>generate-specs-index</goal>
+							</goals>
+							<configuration>
+								<specsDir>..</specsDir>
+								<includeSpecIds>${includeSpecIds}</includeSpecIds>
 							</configuration>
 						</execution>
 						<execution>
