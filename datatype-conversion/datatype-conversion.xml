@@ -22,9 +22,32 @@
             <affiliation>XML Consultant</affiliation>
          </author>
       </authlist>
-      <copyright>
-         <p/>
-      </copyright>
+	<copyright>
+		<p>
+			Copyright © 2012-2013 Claudius Teodorescu, published by the
+			<loc href="http://w3.org/community/expath/">EXPath Community Group</loc>
+			under the
+			<loc href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor
+				License Agreement (CLA)</loc>
+			. A human-readable
+			<loc href="http://www.w3.org/community/about/agreements/cla-deed/">summary</loc>
+			is
+			available.
+		</p>
+		<p>
+			This specification was published by the
+			<loc href="http://www.w3.org/community/expath/">EXPath Community Group</loc>
+			. It is not a W3C Standard nor is it on the W3C
+			Standards Track. Please note that under the
+			<loc href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor
+				License Agreement (CLA)</loc>
+			there is a limited opt-out and other conditions apply.
+			Learn more about
+			<loc href="http://www.w3.org/community/">W3C Community and Business
+				Groups</loc>
+			.
+		</p>
+	</copyright>
       <abstract>
          <p>This proposal defines a <phrase id="module-description">module for providing conversions between various XPath Data Model datatypes</phrase>.
           It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard based on XPath 3.0.</p>

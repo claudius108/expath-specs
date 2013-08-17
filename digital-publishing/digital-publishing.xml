@@ -23,9 +23,32 @@
                 <affiliation>XML Consultant</affiliation>
             </author>
         </authlist>
-        <copyright>
-            <p/>
-        </copyright>
+	<copyright>
+		<p>
+			Copyright © 2011-2013 Claudius Teodorescu, published by the
+			<loc href="http://w3.org/community/expath/">EXPath Community Group</loc>
+			under the
+			<loc href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor
+				License Agreement (CLA)</loc>
+			. A human-readable
+			<loc href="http://www.w3.org/community/about/agreements/cla-deed/">summary</loc>
+			is
+			available.
+		</p>
+		<p>
+			This specification was published by the
+			<loc href="http://www.w3.org/community/expath/">EXPath Community Group</loc>
+			. It is not a W3C Standard nor is it on the W3C
+			Standards Track. Please note that under the
+			<loc href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor
+				License Agreement (CLA)</loc>
+			there is a limited opt-out and other conditions apply.
+			Learn more about
+			<loc href="http://www.w3.org/community/">W3C Community and Business
+				Groups</loc>
+			.
+		</p>
+	</copyright>
         <abstract>
             <p>This proposal provides a Digital Publishing module for XPath 2.0. It defines extension functions for converting from one digital format to another, to
             execute various processing operations of digital documents, etc. It has been designed to be compatible with XQuery 1.0 and XSLT 2.0, as well as any other
