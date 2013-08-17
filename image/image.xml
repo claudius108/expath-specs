@@ -7,9 +7,9 @@
         <w3c-designation>w3c-designation</w3c-designation>
         <w3c-doctype>EXPath Candidate Module</w3c-doctype>
         <pubdate>
-            <day>8</day>
-            <month>November</month>
-            <year>2011</year>
+            <day>23</day>
+            <month>may</month>
+            <year>2013</year>
         </pubdate>
         <publoc>
             <loc href="http://expath.org/spec/image/20111108"/>
@@ -25,7 +25,7 @@
         </authlist>
 	<copyright>
 		<p>
-			Copyright © 2011-2013 Claudius Teodorescu, published by the
+			Copyright © 2013 Claudius Teodorescu, published by the
 			<loc href="http://w3.org/community/expath/">EXPath Community Group</loc>
 			under the
 			<loc href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor
