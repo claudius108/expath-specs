@@ -34,7 +34,7 @@
 							<id>generate-spec</id>
 							<phase>prepare-package</phase>
 							<goals>
-								<goal>transform-spec-to-html-format</goal>
+								<goal>transform-spec-to-html</goal>
 							</goals>
 							<configuration>
 								<specId>${expath-spec-id}</specId>
