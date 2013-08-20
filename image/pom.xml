@@ -16,7 +16,6 @@
 	<url>http://kuberam.ro/specs/expath/image/image.html</url>
 
 	<properties>
-		<expath-spec-id>image</expath-spec-id>
 		<java-package-name>image</java-package-name>
 		<libName>Library for EXPath Image Module</libName>
 		<libVersion>0.0.1</libVersion>

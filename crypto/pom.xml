@@ -16,7 +16,6 @@
 	<url>http://kuberam.ro/specs/expath/crypto/crypto.html</url>
 
 	<properties>
-		<expath-spec-id>crypto</expath-spec-id>
 		<java-package-name>crypto</java-package-name>
 		<libName>Library for EXPath Cryptographic Module</libName>
 		<libVersion>0.2.5</libVersion>

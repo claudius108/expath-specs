@@ -16,7 +16,6 @@
 	<url>http://kuberam.ro/specs/expath/datatype-conversion/datatype-conversion.html</url>
 
 	<properties>
-		<expath-spec-id>datatype-conversion</expath-spec-id>
 		<java-package-name>datatypeConversion</java-package-name>
 		<libName>Library for EXPath Datatype Conversion Module</libName>
 		<libVersion>0.0.1</libVersion>
