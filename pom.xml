@@ -39,6 +39,7 @@
 							<configuration>
 								<specFile>${basedir}/${project.artifactId}.xml</specFile>
 								<outputDir>${basedir}</outputDir>
+								<googleAnalyticsAccountId>UA-43293529-1</googleAnalyticsAccountId>
 							</configuration>
 						</execution>
 						<execution>
