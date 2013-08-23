@@ -28,7 +28,7 @@
 				<plugin>
 					<groupId>ro.kuberam.maven.plugins</groupId>
 					<artifactId>kuberam-expath-plugin</artifactId>
-					<version>0.2</version>
+					<version>0.3</version>
 					<executions>
 						<execution>
 							<id>generate-spec</id>
@@ -50,7 +50,7 @@
 							</goals>
 							<configuration>
 								<specsDir>..</specsDir>
-								<includeSpecIds>${includeSpecIds}</includeSpecIds>
+								<includeSpecs>${includeSpecIds}</includeSpecs>
 							</configuration>
 						</execution>
 						<execution>
@@ -60,11 +60,10 @@
 								<goal>generate-lib-basics</goal>
 							</goals>
 							<configuration>
-								<specId>${project.artifactId}</specId>
-								<specDir>${basedir}</specDir>
+								<specFile>${basedir}/${project.artifactId}</specFile>
 								<libDir>${libParentDir}/${project.artifactId}</libDir>
 								<libVersion>0.2.5</libVersion>
-								<libId>${project.artifactId}</libId>
+								<libArtifactId>${project.artifactId}</libArtifactId>
 								<libName>${libName}</libName>
 								<javaPackageName>${java-package-name}</javaPackageName>
 							</configuration>
