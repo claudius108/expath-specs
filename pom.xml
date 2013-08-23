@@ -62,7 +62,7 @@
 							<configuration>
 								<specFile>${basedir}/${project.artifactId}</specFile>
 								<libDir>${libParentDir}/${project.artifactId}</libDir>
-								<libVersion>0.2.5</libVersion>
+								<libVersion>${project.version}</libVersion>
 								<libArtifactId>${project.artifactId}</libArtifactId>
 								<libName>${libName}</libName>
 								<javaPackageName>${java-package-name}</javaPackageName>
