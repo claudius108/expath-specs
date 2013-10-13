@@ -15,6 +15,10 @@
 	<name>EXPath specifications</name>
 	<url>http://expath.org</url>
 
+	<prerequisites>
+		<maven>3.1</maven>
+	</prerequisites>
+
 	<properties>
 		<web-sourceforge-specs-url>${sourceforge-user-web-url}/specs/expath</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${project.artifactId}</web-sourceforge-spec-url>

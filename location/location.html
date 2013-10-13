@@ -105,8 +105,8 @@ div.exampleHeader { font-weight: bold;
             1.2 <a href="#d4e93">Error management</a><br />
             2 <a href="#d4e104">IP localization</a><br />
             2.1 <a href="#d4e109">Location data providers</a><br />
-            2.2 <a href="#d4e116">The loc:get-country-2-code() function</a><br />
-            2.3 <a href="#d4e164">The loc:get-country-3-code() function</a><br />
+            2.2 <a href="#d4e116">The loc:get-country-alpha-2-code() function</a><br />
+            2.3 <a href="#d4e164">The loc:get-country-alpha-3-code() function</a><br />
             2.4 <a href="#d4e191">The loc:get-country-name() function</a><br />
             2.5 <a href="#d4e218">The loc:get-country-flag() function</a><br />
             2.6 <a href="#d4e265">The loc:get-city-name() function</a><br />
@@ -125,7 +125,7 @@ div.exampleHeader { font-weight: bold;
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
          <p class="toc">A <a href="#d4e709">References</a><br />
-            B <a href="#d4e743">Summary of Error Conditions</a><br />
+            B <a href="#d4e748">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -182,14 +182,16 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e116" id="d4e116"></a>2.2 The <code>loc:get-country-2-code()</code> function
+               <h3><a name="d4e116" id="d4e116"></a>2.2 The <code>loc:get-country-alpha-2-code()</code> function
                </h3>
-               <p>This function returns the country code composed of 2 digits, according to ISO 3166-1.</p>
+               <p>This function returns the country code composed of 2 digits, according to ISO 3166-1
+                  Alpha-2.
+               </p>
                <div class="exampleInner"><pre>
-<code class="function">time:get-country-2-code</code>($ip-address as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+<code class="function">time:get-country-alpha-2-code</code>($ip-address as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
 </pre></div>
                <div class="exampleInner"><pre>
-<code class="function">time:get-country-2-code</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:anyURI</code>) as <code class="type">xs:string</code>
+<code class="function">time:get-country-alpha-2-code</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:anyURI</code>) as <code class="type">xs:string</code>
 </pre></div>
                <ul>
                   <li>
@@ -206,15 +208,17 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e164" id="d4e164"></a>2.3 The <code>loc:get-country-3-code()</code> function
+               <h3><a name="d4e164" id="d4e164"></a>2.3 The <code>loc:get-country-alpha-3-code()</code> function
                </h3>
-               <p>This function returns the country code composed of 3 digits, according to ISO 3166-1.</p>
+               <p>This function returns the country code composed of 3 digits, according to ISO 3166-1
+                  Alpha-3.
+               </p>
                <div class="exampleInner"><pre>
-<code class="function">time:get-country-3-code</code>($country-2-code as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+<code class="function">time:get-country-alpha-3-code</code>($country-2-code as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                     <p><code>$country-alpha-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1 Alpha-2.
                         If the country code is not valid, this is an error <a href="#errLOC04">[err:LOC04]</a>.
                      </p>
                   </li>
@@ -230,7 +234,7 @@ div.exampleHeader { font-weight: bold;
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                     <p><code>$country-alpha-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1 Alpha-2.
                         If the country code is not valid, this is an error <a href="#errLOC04">[err:LOC04]</a>.
                      </p>
                   </li>
@@ -248,7 +252,7 @@ div.exampleHeader { font-weight: bold;
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                     <p><code>$country-alpha-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1 Alpha-2.
                         If the country code is not valid, this is an error <a href="#errLOC04">[err:LOC04]</a>.
                      </p>
                   </li>
@@ -578,26 +582,32 @@ div.exampleHeader { font-weight: bold;
                <dt class="label"><a name="xpath-functions-30" id="xpath-functions-30"></a>XPath and XQuery Functions and Operators 3.0
                </dt>
                <dd>
-                  <a href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</a>.
-                  Michael Kay, editor. W3C Working Draft, 13 December 2011.
+                  	               <a href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</a>.
+                  	               Michael Kay, editor. W3C Working Draft, 13 December 2011.
                </dd>
                <dt class="label"><a name="xpath-datamodel-30" id="xpath-datamodel-30"></a>XQuery and XPath Data Model 3.0
                </dt>
                <dd>
-                  <a href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</a>.
-                  Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December
+                  	               <a href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</a>.
+                  	   Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December
                   2011.
                </dd>
                <dt class="label"><a name="LatitudeLongitudeAltitude" id="LatitudeLongitudeAltitude"></a>Latitude, Longitude, and Altitude
                </dt>
                <dd>
-                  <a href="http://w3.org/2005/Incubator/geo/Wiki/LatitudeLongitudeAltitude.html">Latitude, Longitude and Altitude format for geospatial information</a>.
+                  		<a href="http://w3.org/2005/Incubator/geo/Wiki/LatitudeLongitudeAltitude.html">Latitude, Longitude and Altitude format for geospatial information</a>.
+               </dd>
+               <dt class="label"><a name="rfc4646" id="rfc4646"></a>RFC 4646
+               </dt>
+               <dd>
+                  <a href="http://tools.ietf.org/html/rfc4646">Tags for Identifying Languages</a>.
+                  					A. Phillips, M. Davis, editors. Network Working Group. September 2006.
                </dd>
             </dl>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e743" id="d4e743"></a>B Summary of Error Conditions
+            <h2><a name="d4e748" id="d4e748"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errLOC01" id="errLOC01"></a>err:LOC01

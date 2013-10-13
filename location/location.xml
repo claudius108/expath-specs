@@ -94,13 +94,13 @@
             <p>Each implementation has to have a default provider, for the easy use of functions.</p>
          </div2>
          <div2>
-            <head>The <code>loc:get-country-2-code()</code> function</head>
-            <p>This function returns the country code composed of 2 digits, according to ISO 3166-1.</p>
+            <head>The <code>loc:get-country-alpha-2-code()</code> function</head>
+            <p>This function returns the country code composed of 2 digits, according to ISO 3166-1 Alpha-2.</p>
             <eg>
-<spec:function>time:get-country-2-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-country-alpha-2-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <eg>
-<spec:function>time:get-country-2-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-country-alpha-2-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -113,14 +113,14 @@
             </ulist>            
          </div2>
          <div2>
-            <head>The <code>loc:get-country-3-code()</code> function</head>
-            <p>This function returns the country code composed of 3 digits, according to ISO 3166-1.</p>
+            <head>The <code>loc:get-country-alpha-3-code()</code> function</head>
+            <p>This function returns the country code composed of 3 digits, according to ISO 3166-1 Alpha-3.</p>
             <eg>
-<spec:function>time:get-country-3-code</spec:function>($country-2-code as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+<spec:function>time:get-country-alpha-3-code</spec:function>($country-2-code as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
-                  <p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                  <p><code>$country-alpha-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1 Alpha-2.
                   If the country code is not valid, this is an error <bibref ref="errLOC04"/>.</p>
                </item>
             </ulist>            
@@ -133,7 +133,7 @@
 </eg>
             <ulist>
                <item>
-                  <p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                  <p><code>$country-alpha-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1 Alpha-2.
                   If the country code is not valid, this is an error <bibref ref="errLOC04"/>.</p>
                </item>
             </ulist>            
@@ -148,7 +148,7 @@
 </eg>
             <ulist>
                <item>
-                  <p><code>$country-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1.
+                  <p><code>$country-alpha-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1 Alpha-2.
                   If the country code is not valid, this is an error <bibref ref="errLOC04"/>.</p>
                </item>
                <item>
@@ -406,14 +406,17 @@
 	            <bibl id="xquery-30" key="XQuery 3.0">                        
 	               <loc href="http://w3.org/TR/xquery-30/">XQuery 3.0: An XML Query Language</loc>.
 	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
-            <bibl id="xpath-functions-30" key="XPath and XQuery Functions and Operators 3.0">
-               <loc href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</loc>.
-               Michael Kay, editor. W3C Working Draft, 13 December 2011.</bibl>                                
-            <bibl id="xpath-datamodel-30" key="XQuery and XPath Data Model 3.0">
-               <loc href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</loc>.
-               Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl> 
-            <bibl id="LatitudeLongitudeAltitude" key="Latitude, Longitude, and Altitude">
-               <loc href="http://w3.org/2005/Incubator/geo/Wiki/LatitudeLongitudeAltitude.html">Latitude, Longitude and Altitude format for geospatial information</loc>.</bibl> 
+	            <bibl id="xpath-functions-30" key="XPath and XQuery Functions and Operators 3.0">
+	               <loc href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</loc>.
+	               Michael Kay, editor. W3C Working Draft, 13 December 2011.</bibl>
+	            <bibl id="xpath-datamodel-30" key="XQuery and XPath Data Model 3.0">
+	               <loc href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</loc>.
+               	   Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl> 
+            	<bibl id="LatitudeLongitudeAltitude" key="Latitude, Longitude, and Altitude">
+            		<loc href="http://w3.org/2005/Incubator/geo/Wiki/LatitudeLongitudeAltitude.html">Latitude, Longitude and Altitude format for geospatial information</loc>.</bibl>
+                <bibl id="rfc4646" key="RFC 4646">
+                    <loc href="http://tools.ietf.org/html/rfc4646">Tags for Identifying Languages</loc>.
+					A. Phillips, M. Davis, editors. Network Working Group. September 2006.</bibl>                
          </blist>
       </div1>
       <div1>
