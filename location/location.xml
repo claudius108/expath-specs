@@ -414,9 +414,9 @@
                	   Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl> 
             	<bibl id="LatitudeLongitudeAltitude" key="Latitude, Longitude, and Altitude">
             		<loc href="http://w3.org/2005/Incubator/geo/Wiki/LatitudeLongitudeAltitude.html">Latitude, Longitude and Altitude format for geospatial information</loc>.</bibl>
-                <bibl id="rfc4646" key="RFC 4646">
-                    <loc href="http://tools.ietf.org/html/rfc4646">Tags for Identifying Languages</loc>.
-					A. Phillips, M. Davis, editors. Network Working Group. September 2006.</bibl>                
+                <bibl id="rfc5646" key="RFC 5646">
+                    <loc href="http://tools.ietf.org/html/rfc5646">Tags for Identifying Languages</loc>.
+					A. Phillips, M. Davis, editors. Network Working Group. September 2009.</bibl>                
          </blist>
       </div1>
       <div1>
