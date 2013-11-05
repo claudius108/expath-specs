@@ -99,17 +99,10 @@
             <eg>
 <spec:function>time:get-country-alpha-2-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
-            <eg>
-<spec:function>time:get-country-alpha-2-code</spec:function>($ip-address as <spec:type>xs:string</spec:type>, $provider as <spec:type>xs:anyURI</spec:type>) as <spec:type>xs:string</spec:type>
-</eg>
             <ulist>
                <item>
-                  <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
+                  <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error <bibref ref="errLOC01"/>.</p>
                </item>
-               <item>
-                  <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
-                  default provider. If the provider does not exist, this is an error <bibref ref="errLOC02"/>.</p>
-               </item>               
             </ulist>            
          </div2>
          <div2>
@@ -131,19 +124,26 @@
             <eg>
 <spec:function>time:get-country-name</spec:function>($country-2-code as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
+            <eg>
+<spec:function>time:get-country-name</spec:function>($country-2-code as <spec:type>xs:string</spec:type>, $language-tag as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
             <ulist>
                <item>
                   <p><code>$country-alpha-2-code</code> is the country code composed of 2 digits, according to ISO 3166-1 Alpha-2.
                   If the country code is not valid, this is an error <bibref ref="errLOC04"/>.</p>
                </item>
+               <item>
+                  <p><code>$language-tag</code> is the language tag used to designate the language of the country name, according to <bibref ref="rfc5646"/>.
+                  The format for the language tags is .
+                  If the language tag is not valid, this is an error <bibref ref="errLOC07"/>.</p>
+               </item>	       
             </ulist>            
          </div2>         
          <div2>
             <head>The <code>loc:get-country-flag()</code> function</head>
             <p>This function returns the country flag, in various formats.</p>
             <eg>
-<spec:function>time:get-country-flag</spec:function>($country-2-code as <spec:type>xs:string</spec:type>,
-	$format as <spec:type>xs:string</spec:type>,
+<spec:function>time:get-country-flag</spec:function>($country-2-code as <spec:type>xs:string</spec:type>, $format as <spec:type>xs:string</spec:type>,
 	$provider as <spec:type>xs:anyURI?</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
@@ -171,7 +171,7 @@
 </eg>
             <ulist>
                <item>
-                  <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
+                  <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error <bibref ref="errLOC01"/>.</p>
                </item>
                <item>
                   <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
@@ -191,7 +191,7 @@
 </eg>
             <ulist>
                <item>
-                  <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
+                  <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error <bibref ref="errLOC01"/>.</p>
                </item>
                <item>
                   <p><code>$format</code> is the format of the latitude. For latitude formats, see <specref ref="coordinates-formats" />.
@@ -216,7 +216,7 @@
 </eg>
             <ulist>
                <item>
-                  <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
+                  <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error <bibref ref="errLOC01"/>.</p>
                </item>
                <item>
                   <p><code>$format</code> is the format of the longitude. For longitude formats, see <specref ref="coordinates-formats" />.
@@ -265,7 +265,7 @@
 </eg>
             <ulist>
                <item>
-                  <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
+                  <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error <bibref ref="errLOC01"/>.</p>
                </item>
                <item>
                   <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
@@ -285,10 +285,10 @@
 </eg>
             <ulist>
                <item>
-                  <p><code>$first-ip-address</code> is the first user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
+                  <p><code>$first-ip-address</code> is the first user agent's IP address. If the IP address is not valid, this is an error <bibref ref="errLOC01"/>.</p>
                </item>
                <item>
-                  <p><code>$second-ip-address</code> is the second user agent's IP address. If the IP is not valid, this is an error <bibref ref="errLOC01"/>.</p>
+                  <p><code>$second-ip-address</code> is the second user agent's IP address. If the IP address is not valid, this is an error <bibref ref="errLOC01"/>.</p>
                </item>
                <item>
                   <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the implementation will use the
@@ -422,12 +422,13 @@
       <div1>
          <head>Summary of Error Conditions</head>
          <blist id="summary-of-error-conditions">
-         	<bibl id="errLOC01" key="err:LOC01">The IP is not valid.</bibl>
+         	<bibl id="errLOC01" key="err:LOC01">The IP address is not valid.</bibl>
             <bibl id="errLOC02" key="err:LOC02">The provider is not set.</bibl>
          	<bibl id="errLOC03" key="err:LOC03">The flag format is not valid.</bibl>            
-         	<bibl id="errLOC04" key="err:LOC04">The country code is not valid.</bibl>         	
+         	<bibl id="errLOC04" key="err:LOC04">The country ISO alpha 2 code is not valid.</bibl>         	
          	<bibl id="errLOC05" key="err:LOC05">The latitude format is not valid.</bibl>         	
          	<bibl id="errLOC06" key="err:LOC06">The longitude format is not valid.</bibl>
+			<bibl id="errLOC07" key="err:LOC07">The language tag is not valid.</bibl>
          </blist>
       </div1>
    </back>

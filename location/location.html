@@ -106,26 +106,26 @@ div.exampleHeader { font-weight: bold;
             2 <a href="#d4e104">IP localization</a><br />
             2.1 <a href="#d4e109">Location data providers</a><br />
             2.2 <a href="#d4e116">The loc:get-country-alpha-2-code() function</a><br />
-            2.3 <a href="#d4e164">The loc:get-country-alpha-3-code() function</a><br />
-            2.4 <a href="#d4e191">The loc:get-country-name() function</a><br />
-            2.5 <a href="#d4e218">The loc:get-country-flag() function</a><br />
-            2.6 <a href="#d4e265">The loc:get-city-name() function</a><br />
-            2.7 <a href="#d4e313">The loc:get-latitude() function</a><br />
-            2.8 <a href="#d4e376">The loc:get-longitude() function</a><br />
-            2.9 <a href="#d4e441">The loc:validate-latitude() function</a><br />
-            2.10 <a href="#d4e469">The loc:validate-longitude() function</a><br />
-            2.11 <a href="#d4e496">The loc:get-time-zone() function</a><br />
-            2.12 <a href="#d4e544">The loc:get-distance() function</a><br />
+            2.3 <a href="#d4e143">The loc:get-country-alpha-3-code() function</a><br />
+            2.4 <a href="#d4e170">The loc:get-country-name() function</a><br />
+            2.5 <a href="#d4e220">The loc:get-country-flag() function</a><br />
+            2.6 <a href="#d4e267">The loc:get-city-name() function</a><br />
+            2.7 <a href="#d4e315">The loc:get-latitude() function</a><br />
+            2.8 <a href="#d4e378">The loc:get-longitude() function</a><br />
+            2.9 <a href="#d4e443">The loc:validate-latitude() function</a><br />
+            2.10 <a href="#d4e471">The loc:validate-longitude() function</a><br />
+            2.11 <a href="#d4e498">The loc:get-time-zone() function</a><br />
+            2.12 <a href="#d4e546">The loc:get-distance() function</a><br />
             2.13 <a href="#coordinates-formats">The latitude, longitude, and altitude formats</a><br />
-            2.13.1 <a href="#d4e608">The latitude and longitude formats</a><br />
-            2.13.2 <a href="#d4e679">The altitude formats</a><br />
+            2.13.1 <a href="#d4e610">The latitude and longitude formats</a><br />
+            2.13.2 <a href="#d4e681">The altitude formats</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e709">References</a><br />
-            B <a href="#d4e748">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e711">References</a><br />
+            B <a href="#d4e750">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -190,25 +190,17 @@ div.exampleHeader { font-weight: bold;
                <div class="exampleInner"><pre>
 <code class="function">time:get-country-alpha-2-code</code>($ip-address as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
 </pre></div>
-               <div class="exampleInner"><pre>
-<code class="function">time:get-country-alpha-2-code</code>($ip-address as <code class="type">xs:string</code>, $provider as <code class="type">xs:anyURI</code>) as <code class="type">xs:string</code>
-</pre></div>
                <ul>
                   <li>
-                     <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.
-                     </p>
-                  </li>
-                  <li>
-                     <p><code>$provider</code> is the provider for the current operation. If the provider is not specified, the
-                        implementation will use the
-                        default provider. If the provider does not exist, this is an error <a href="#errLOC02">[err:LOC02]</a>.
+                     <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error
+                        <a href="#errLOC01">[err:LOC01]</a>.
                      </p>
                   </li>
                </ul>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e164" id="d4e164"></a>2.3 The <code>loc:get-country-alpha-3-code()</code> function
+               <h3><a name="d4e143" id="d4e143"></a>2.3 The <code>loc:get-country-alpha-3-code()</code> function
                </h3>
                <p>This function returns the country code composed of 3 digits, according to ISO 3166-1
                   Alpha-3.
@@ -226,11 +218,14 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e191" id="d4e191"></a>2.4 The <code>loc:get-country-name()</code> function
+               <h3><a name="d4e170" id="d4e170"></a>2.4 The <code>loc:get-country-name()</code> function
                </h3>
                <p>This function returns the country name.</p>
                <div class="exampleInner"><pre>
 <code class="function">time:get-country-name</code>($country-2-code as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+</pre></div>
+               <div class="exampleInner"><pre>
+<code class="function">time:get-country-name</code>($country-2-code as <code class="type">xs:string</code>, $language-tag as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
 </pre></div>
                <ul>
                   <li>
@@ -238,16 +233,22 @@ div.exampleHeader { font-weight: bold;
                         If the country code is not valid, this is an error <a href="#errLOC04">[err:LOC04]</a>.
                      </p>
                   </li>
+                  <li>
+                     <p><code>$language-tag</code> is the language tag used to designate the language of the country name, according
+                        to <a href="#rfc5646">[RFC 5646]</a>.
+                        The format for the language tags is .
+                        If the language tag is not valid, this is an error <a href="#errLOC07">[err:LOC07]</a>.
+                     </p>
+                  </li>
                </ul>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e218" id="d4e218"></a>2.5 The <code>loc:get-country-flag()</code> function
+               <h3><a name="d4e220" id="d4e220"></a>2.5 The <code>loc:get-country-flag()</code> function
                </h3>
                <p>This function returns the country flag, in various formats.</p>
                <div class="exampleInner"><pre>
-<code class="function">time:get-country-flag</code>($country-2-code as <code class="type">xs:string</code>,
-	$format as <code class="type">xs:string</code>,
+<code class="function">time:get-country-flag</code>($country-2-code as <code class="type">xs:string</code>, $format as <code class="type">xs:string</code>,
 	$provider as <code class="type">xs:anyURI?</code>) as <code class="type">xs:string</code>
 </pre></div>
                <ul>
@@ -270,7 +271,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e265" id="d4e265"></a>2.6 The <code>loc:get-city-name()</code> function
+               <h3><a name="d4e267" id="d4e267"></a>2.6 The <code>loc:get-city-name()</code> function
                </h3>
                <p>This function returns the city name.</p>
                <div class="exampleInner"><pre>
@@ -281,7 +282,8 @@ div.exampleHeader { font-weight: bold;
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.
+                     <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error
+                        <a href="#errLOC01">[err:LOC01]</a>.
                      </p>
                   </li>
                   <li>
@@ -294,7 +296,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e313" id="d4e313"></a>2.7 The <code>loc:get-latitude()</code> function
+               <h3><a name="d4e315" id="d4e315"></a>2.7 The <code>loc:get-latitude()</code> function
                </h3>
                <p>This function returns the latitude of the geographic point corresponding to the IP
                   address.
@@ -308,7 +310,8 @@ div.exampleHeader { font-weight: bold;
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.
+                     <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error
+                        <a href="#errLOC01">[err:LOC01]</a>.
                      </p>
                   </li>
                   <li>
@@ -326,7 +329,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e376" id="d4e376"></a>2.8 The <code>loc:get-longitude()</code> function
+               <h3><a name="d4e378" id="d4e378"></a>2.8 The <code>loc:get-longitude()</code> function
                </h3>
                <p>This function returns the longitude of the geographic point corresponding to the IP
                   address.
@@ -341,7 +344,8 @@ div.exampleHeader { font-weight: bold;
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.
+                     <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error
+                        <a href="#errLOC01">[err:LOC01]</a>.
                      </p>
                   </li>
                   <li>
@@ -359,7 +363,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e441" id="d4e441"></a>2.9 The <code>loc:validate-latitude()</code> function
+               <h3><a name="d4e443" id="d4e443"></a>2.9 The <code>loc:validate-latitude()</code> function
                </h3>
                <p>This function validates a latitude. It returns true if the latitude is valid, false
                   if not.
@@ -377,7 +381,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e469" id="d4e469"></a>2.10 The <code>loc:validate-longitude()</code> function
+               <h3><a name="d4e471" id="d4e471"></a>2.10 The <code>loc:validate-longitude()</code> function
                </h3>
                <p>This function validates a longitude. It returns true if the longitude is valid, false
                   if not.
@@ -395,7 +399,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e496" id="d4e496"></a>2.11 The <code>loc:get-time-zone()</code> function
+               <h3><a name="d4e498" id="d4e498"></a>2.11 The <code>loc:get-time-zone()</code> function
                </h3>
                <p>This function returns the time zone.</p>
                <div class="exampleInner"><pre>
@@ -406,7 +410,8 @@ div.exampleHeader { font-weight: bold;
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$ip-address</code> is the user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.
+                     <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error
+                        <a href="#errLOC01">[err:LOC01]</a>.
                      </p>
                   </li>
                   <li>
@@ -419,7 +424,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e544" id="d4e544"></a>2.12 The <code>loc:get-distance()</code> function
+               <h3><a name="d4e546" id="d4e546"></a>2.12 The <code>loc:get-distance()</code> function
                </h3>
                <p>This function returns the distance (in kilometers) between two points, based on their
                   IP addresses.
@@ -433,11 +438,13 @@ div.exampleHeader { font-weight: bold;
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$first-ip-address</code> is the first user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.
+                     <p><code>$first-ip-address</code> is the first user agent's IP address. If the IP address is not valid, this is an
+                        error <a href="#errLOC01">[err:LOC01]</a>.
                      </p>
                   </li>
                   <li>
-                     <p><code>$second-ip-address</code> is the second user agent's IP address. If the IP is not valid, this is an error <a href="#errLOC01">[err:LOC01]</a>.
+                     <p><code>$second-ip-address</code> is the second user agent's IP address. If the IP address is not valid, this is an
+                        error <a href="#errLOC01">[err:LOC01]</a>.
                      </p>
                   </li>
                   <li>
@@ -454,7 +461,7 @@ div.exampleHeader { font-weight: bold;
                </h3>
                <div class="div3">
                   
-                  <h4><a name="d4e608" id="d4e608"></a>2.13.1 The latitude and longitude formats
+                  <h4><a name="d4e610" id="d4e610"></a>2.13.1 The latitude and longitude formats
                   </h4>
                   <p>The formats are according to ISO 6709.</p>
                   <table border="1" frame="border">
@@ -522,7 +529,7 @@ div.exampleHeader { font-weight: bold;
                </div>
                <div class="div3">
                   
-                  <h4><a name="d4e679" id="d4e679"></a>2.13.2 The altitude formats
+                  <h4><a name="d4e681" id="d4e681"></a>2.13.2 The altitude formats
                   </h4>
                   <p>The formats are according to ISO 6709.</p>
                   <table border="1" frame="border">
@@ -556,7 +563,7 @@ div.exampleHeader { font-weight: bold;
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e709" id="d4e709"></a>A References
+            <h2><a name="d4e711" id="d4e711"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -597,22 +604,22 @@ div.exampleHeader { font-weight: bold;
                <dd>
                   		<a href="http://w3.org/2005/Incubator/geo/Wiki/LatitudeLongitudeAltitude.html">Latitude, Longitude and Altitude format for geospatial information</a>.
                </dd>
-               <dt class="label"><a name="rfc4646" id="rfc4646"></a>RFC 4646
+               <dt class="label"><a name="rfc5646" id="rfc5646"></a>RFC 5646
                </dt>
                <dd>
-                  <a href="http://tools.ietf.org/html/rfc4646">Tags for Identifying Languages</a>.
-                  					A. Phillips, M. Davis, editors. Network Working Group. September 2006.
+                  <a href="http://tools.ietf.org/html/rfc5646">Tags for Identifying Languages</a>.
+                  					A. Phillips, M. Davis, editors. Network Working Group. September 2009.
                </dd>
             </dl>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e748" id="d4e748"></a>B Summary of Error Conditions
+            <h2><a name="d4e750" id="d4e750"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errLOC01" id="errLOC01"></a>err:LOC01
                </dt>
-               <dd>The IP is not valid.</dd>
+               <dd>The IP address is not valid.</dd>
                <dt class="label"><a name="errLOC02" id="errLOC02"></a>err:LOC02
                </dt>
                <dd>The provider is not set.</dd>
@@ -621,13 +628,16 @@ div.exampleHeader { font-weight: bold;
                <dd>The flag format is not valid.</dd>
                <dt class="label"><a name="errLOC04" id="errLOC04"></a>err:LOC04
                </dt>
-               <dd>The country code is not valid.</dd>
+               <dd>The country ISO alpha 2 code is not valid.</dd>
                <dt class="label"><a name="errLOC05" id="errLOC05"></a>err:LOC05
                </dt>
                <dd>The latitude format is not valid.</dd>
                <dt class="label"><a name="errLOC06" id="errLOC06"></a>err:LOC06
                </dt>
                <dd>The longitude format is not valid.</dd>
+               <dt class="label"><a name="errLOC07" id="errLOC07"></a>err:LOC07
+               </dt>
+               <dd>The language tag is not valid.</dd>
             </dl>
          </div>
       </div><script type="text/javascript">
