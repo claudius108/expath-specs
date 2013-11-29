@@ -436,6 +436,9 @@
                 <bibl id="rfc3986" key="RFC 3986">
                     <loc href="http://tools.ietf.org/html/rfc3986">Uniform Resource Identifiers (URI): Generic Syntax</loc>.
 					T. Berners-Lee, R. Fielding, L. Masinter, editors. Network Working Group. January 2005.</bibl>
+                <bibl id="rfc4918" key="RFC 4918">
+                    <loc href="http://tools.ietf.org/html/rfc4918">HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)</loc>.
+					L. Dusseault, editors. Network Working Group. June 2007.</bibl>
             </blist>
         </div1>
         <div1>
