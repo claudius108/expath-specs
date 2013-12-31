@@ -117,7 +117,7 @@
                </item>
                <item>
                   <p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
-                  is an error <bibref ref="errDTCONV01"/>.</p>
+                  is an error <bibref ref="errDTC01"/>.</p>
                </item>
             </ulist>            
          </div2> 
@@ -181,7 +181,7 @@
                </item>
                <item>
                   <p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
-                  is an error <bibref ref="errDTCONV01"/>.</p>
+                  is an error <bibref ref="errDTC01"/>.</p>
                </item>
             </ulist>            
          </div2> 
@@ -205,7 +205,7 @@
                </item>
                <item>
                   <p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
-                  is an error <bibref ref="errDTCONV01"/>.</p>
+                  is an error <bibref ref="errDTC01"/>.</p>
                </item>
             </ulist>            
          </div2> 
@@ -225,7 +225,7 @@
                </item>
                <item>
                   <p><code>$encoding</code> is the encoding used for conversion. The default value is UTF-8. If it is specified an unsupported encoding, this
-                  is an error <bibref ref="errDTCONV01"/>.</p>
+                  is an error <bibref ref="errDTC01"/>.</p>
                </item>
             </ulist>            
          </div2>  
@@ -300,7 +300,7 @@
       <div1>
          <head>Summary of Error Conditions</head>
          <blist id="summary-of-error-conditions">
-            <bibl id="errDTCONV01" key="err:DTCONV01">The encoding is not supported.</bibl>
+            <bibl id="errDTC01" key="err:DTC01">The encoding is not supported.</bibl>
          </blist>
       </div1>
    </back>
