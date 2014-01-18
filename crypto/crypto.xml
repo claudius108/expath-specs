@@ -190,11 +190,15 @@
          <head>Integrity and Authentication of Data</head>
          <div2 id="hash-function">
             <head>The <code>crypto:hash</code> function</head>
-            <p>This function generates a "message digest" of the input data, by using a cryptographic algorithm. It returns the hash value as base64 string.</p>
+            <p>This function generates a "message digest" of the input data, by using a cryptographic algorithm. It returns the hash value as a string.</p>
+            <eg>
+<spec:function>crypto:hash</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
+            $hashing-algorithm as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
             <eg>
 <spec:function>crypto:hash</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
             $hashing-algorithm as <spec:type>xs:string</spec:type>,
-            $provider as <spec:type>xs:string?</spec:type>) as <spec:type>xs:string</spec:type>
+            $format as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -205,8 +209,8 @@
                   is an error <bibref ref="errCX21"/>.</p>
                </item>
                <item>
-                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
-                  default provider. If the provider does not exist, this is an error <bibref ref="errCX23"/>.</p>
+                  <p><code>$format</code> is the format of the output. The legal values are "hex" and "base64". The default value is "base64". 
+                  If the format is not supprted, this is an error <bibref ref="errCX24"/>.</p>
                </item>               
             </ulist>
          </div2>
@@ -911,6 +915,7 @@
             <bibl id="errCX21" key="err:CX21">The algorithm or transformation is not supported.</bibl>
             <bibl id="errCX22" key="err:CX22">The decryption type is not supported.</bibl>
             <bibl id="errCX23" key="err:CX23">The provider is not set.</bibl>
+            <bibl id="errCX24" key="err:CX24">The output format is not supported.</bibl>
          </blist>
       </div1>
    </back>
