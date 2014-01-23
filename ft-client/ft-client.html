@@ -109,28 +109,28 @@ div.exampleHeader { font-weight: bold;
          <h2><a name="contents" id="contents"></a>Table of Contents
          </h2>
          <p class="toc">1 <a href="#d4e75">Introduction</a><br />
-            1.1 <a href="#d4e84">Namespace conventions</a><br />
-            1.2 <a href="#d4e103">Error management</a><br />
-            2 <a href="#d4e114">The ft-client:connect function</a><br />
-            3 <a href="#d4e178">The ft-client:list-resources function</a><br />
-            3.1 <a href="#d4e216">The ft-client:resource-list element</a><br />
-            3.2 <a href="#d4e229">The ft-client:resource element</a><br />
-            4 <a href="#d4e293">The ft-client:store-resource function</a><br />
-            5 <a href="#d4e357">The ft-client:retrieve-resource function</a><br />
-            6 <a href="#d4e398">The ft-client:rename-resource function</a><br />
-            7 <a href="#d4e445">The ft-client:copy-resource function</a><br />
-            8 <a href="#d4e492">The ft-client:move-resource function</a><br />
-            9 <a href="#d4e539">The ft-client:delete-resource function</a><br />
-            10 <a href="#d4e577">The ft-client:get-resource-metadata function</a><br />
-            11 <a href="#d4e618">The ft-client:set-resource-metadata function</a><br />
-            12 <a href="#d4e666">The ft-client:disconnect function</a><br />
+            1.1 <a href="#d4e86">Namespace conventions</a><br />
+            1.2 <a href="#d4e105">Error management</a><br />
+            2 <a href="#d4e116">The ft-client:connect function</a><br />
+            3 <a href="#d4e180">The ft-client:list-resources function</a><br />
+            3.1 <a href="#d4e218">The ft-client:resource-list element</a><br />
+            3.2 <a href="#d4e231">The ft-client:resource element</a><br />
+            4 <a href="#d4e295">The ft-client:store-resource function</a><br />
+            5 <a href="#d4e359">The ft-client:retrieve-resource function</a><br />
+            6 <a href="#d4e400">The ft-client:rename-resource function</a><br />
+            7 <a href="#d4e447">The ft-client:copy-resource function</a><br />
+            8 <a href="#d4e494">The ft-client:move-resource function</a><br />
+            9 <a href="#d4e541">The ft-client:delete-resource function</a><br />
+            10 <a href="#d4e579">The ft-client:get-resource-metadata function</a><br />
+            11 <a href="#d4e620">The ft-client:set-resource-metadata function</a><br />
+            12 <a href="#d4e668">The ft-client:disconnect function</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e693">References</a><br />
-            B <a href="#d4e747">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e695">References</a><br />
+            B <a href="#d4e749">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -154,9 +154,10 @@ div.exampleHeader { font-weight: bold;
                below, in this manner assuring a very elastic approach of the (remote) resources
                		    (files and directories) management.
             </p>
+            <p>The convention for the directory paths is that they have to end with '/'.</p>
             <div class="div2">
                
-               <h3><a name="d4e84" id="d4e84"></a>1.1 Namespace conventions
+               <h3><a name="d4e86" id="d4e86"></a>1.1 Namespace conventions
                </h3>
                <p>The module defined by this document defines functions and elements in the namespace
                   <code>http://expath.org/ns/ft-client</code>. In this document, the
@@ -169,7 +170,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e103" id="d4e103"></a>1.2 Error management
+               <h3><a name="d4e105" id="d4e105"></a>1.2 Error management
                </h3>
                <p>Error conditions are identified by a code (a <code>QName</code>). When such an error
                   condition is reached during the execution of the function, a dynamic error is thrown,
@@ -180,7 +181,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e114" id="d4e114"></a>2 The <code>ft-client:connect</code> function
+            <h2><a name="d4e116" id="d4e116"></a>2 The <code>ft-client:connect</code> function
             </h2>
             <p>This function is used to open a connection. It returns an xs:long representing the
                connection handle.
@@ -218,7 +219,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e178" id="d4e178"></a>3 The <code>ft-client:list-resources</code> function
+            <h2><a name="d4e180" id="d4e180"></a>3 The <code>ft-client:list-resources</code> function
             </h2>
             <p>This function gets the list of resources (files and directories) inside the directory
                indicated by $remote-directory-path.
@@ -234,8 +235,8 @@ div.exampleHeader { font-weight: bold;
                   </p>
                </li>
                <li>
-                  <p><code>$remote-directory-path</code> is the directory path (this path has to be an absolute path). If the path is not
-                     correct,
+                  <p><code>$remote-directory-path</code> is the directory path (this path has to be an absolute path and has to end with '/').
+                     If the path is not correct,
                      				this is an error <a href="#errFTC003">[err:FTC003]</a>. If the user has no rights
                      			to access the path, this is an error <a href="#errFTC004">[err:FTC004]</a>.
                   </p>
@@ -243,7 +244,7 @@ div.exampleHeader { font-weight: bold;
             </ul>
             <div class="div2">
                
-               <h3><a name="d4e216" id="d4e216"></a>3.1 The <code>ft-client:resource-list</code> element
+               <h3><a name="d4e218" id="d4e218"></a>3.1 The <code>ft-client:resource-list</code> element
                </h3>
                <p>The <code>ft-client:resource-list</code> element represents the data sent back by the host as response to the command of listing
                   a directory:
@@ -256,7 +257,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e229" id="d4e229"></a>3.2 The <code>ft-client:resource</code> element
+               <h3><a name="d4e231" id="d4e231"></a>3.2 The <code>ft-client:resource</code> element
                </h3>
                <p>The <code>ft-client:resource</code> element contains details about each resource (directory, file, link) one can find
                   within the directory.
@@ -323,7 +324,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e293" id="d4e293"></a>4 The <code>ft-client:store-resource</code> function
+            <h2><a name="d4e295" id="d4e295"></a>4 The <code>ft-client:store-resource</code> function
             </h2>
             <p>This function stores a resource (directory, file). It returns true if successfully
                completed, false if not.
@@ -372,7 +373,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e357" id="d4e357"></a>5 The <code>ft-client:retrieve-resource</code> function
+            <h2><a name="d4e359" id="d4e359"></a>5 The <code>ft-client:retrieve-resource</code> function
             </h2>
             <p>This function retrieves a resource from the host. It returns the resource retrieved,
                as content of the <code>ft-client:resource</code> element.
@@ -398,7 +399,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e398" id="d4e398"></a>6 The <code>ft-client:rename-resource</code> function
+            <h2><a name="d4e400" id="d4e400"></a>6 The <code>ft-client:rename-resource</code> function
             </h2>
             <p>This function renames a resource (directory, file, or link). It returns true if successfully
                completed, false if not.
@@ -430,7 +431,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e445" id="d4e445"></a>7 The <code>ft-client:copy-resource</code> function
+            <h2><a name="d4e447" id="d4e447"></a>7 The <code>ft-client:copy-resource</code> function
             </h2>
             <p>This function renames a resource (directory, file, or link). It returns true if successfully
                completed, false if not.
@@ -462,7 +463,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e492" id="d4e492"></a>8 The <code>ft-client:move-resource</code> function
+            <h2><a name="d4e494" id="d4e494"></a>8 The <code>ft-client:move-resource</code> function
             </h2>
             <p>This function renames a resource (directory, file, or link). It returns true if successfully
                completed, false if not.
@@ -494,7 +495,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e539" id="d4e539"></a>9 The <code>ft-client:delete-resource</code> function
+            <h2><a name="d4e541" id="d4e541"></a>9 The <code>ft-client:delete-resource</code> function
             </h2>
             <p>This function deletes a resource (directory (if empty), file, or link). It returns
                true if successfully completed, false if not.
@@ -520,7 +521,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e577" id="d4e577"></a>10 The <code>ft-client:get-resource-metadata</code> function
+            <h2><a name="d4e579" id="d4e579"></a>10 The <code>ft-client:get-resource-metadata</code> function
             </h2>
             <p>This function is used for getting the metadata of a resource (directory, file, or
                link). It returns the resource metadata as attributes of the <code>ft-client:resource</code> element.
@@ -546,7 +547,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e618" id="d4e618"></a>11 The <code>ft-client:set-resource-metadata</code> function
+            <h2><a name="d4e620" id="d4e620"></a>11 The <code>ft-client:set-resource-metadata</code> function
             </h2>
             <p>This function is used for setting the metadata of a resource (directory, file, or
                link). It returns true if successfully completed, false if not.
@@ -578,7 +579,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e666" id="d4e666"></a>12 The <code>ft-client:disconnect</code> function
+            <h2><a name="d4e668" id="d4e668"></a>12 The <code>ft-client:disconnect</code> function
             </h2>
             <p>This function closes an opened connection. Returns true or false indicating the success
                of closing the connection.
@@ -598,7 +599,7 @@ div.exampleHeader { font-weight: bold;
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e693" id="d4e693"></a>A References
+            <h2><a name="d4e695" id="d4e695"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -669,7 +670,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e747" id="d4e747"></a>B Summary of Error Conditions
+            <h2><a name="d4e749" id="d4e749"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errFTC001" id="errFTC001"></a>err:FTC001

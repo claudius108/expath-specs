@@ -75,6 +75,7 @@
 		    <p>The specification was made so that to cover the operations involved as to managing (remote) resources (files and directories).</p>
 		    <p>A custom protocol can make use of any number of the operations over files described below, in this manner assuring a very elastic approach of the (remote) resources
 		    (files and directories) management.</p>
+		    <p>The convention for the directory paths is that they have to end with '/'.</p>
             <div2>
                 <head>Namespace conventions</head>
                 <p>The module defined by this document defines functions and elements in the namespace
@@ -131,7 +132,7 @@
                         <code>$connection-handle</code> is the connection handle.</p>
                 </item>
                 <item>
-			<p><code>$remote-directory-path</code> is the directory path (this path has to be an absolute path). If the path is not correct,
+			<p><code>$remote-directory-path</code> is the directory path (this path has to be an absolute path and has to end with '/'). If the path is not correct,
 				this is an error <bibref ref="errFTC003"/>. If the user has no rights
 			to access the path, this is an error <bibref ref="errFTC004"/>.</p>
                 </item>
