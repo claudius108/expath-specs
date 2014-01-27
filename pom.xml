@@ -23,7 +23,7 @@
 		<web-sourceforge-specs-url>${sourceforge-user-web-url}/specs/expath</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${project.artifactId}</web-sourceforge-spec-url>
 		<includeSpecIds>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image,location</includeSpecIds>
-		<libParentDir>/home/claudius/workspaces/kuberam/kuberam/kuberam-maven-artifacts</libParentDir>
+		<libParentDir>/home/claudius/workspaces/repositories/git/expath-libs</libParentDir>
 	</properties>
 
 	<build>
@@ -64,12 +64,12 @@
 								<goal>generate-lib-basics</goal>
 							</goals>
 							<configuration>
-								<specFile>${basedir}/${project.artifactId}</specFile>
+								<specFile>${basedir}/${project.artifactId}.xml</specFile>
 								<libDir>${libParentDir}/${project.artifactId}</libDir>
 								<libVersion>${project.version}</libVersion>
 								<libArtifactId>${project.artifactId}</libArtifactId>
 								<libName>${libName}</libName>
-								<javaPackageName>${java-package-name}</javaPackageName>
+								<javaPackageName>org.expath.${java-package-name}</javaPackageName>
 							</configuration>
 						</execution>
 					</executions>
