@@ -444,15 +444,14 @@
         </div1>
         <div1>
             <head>Summary of Error Conditions</head>
-            <blist>
-                <bibl id="errFTC001" key="err:FTC001">err:FTC001: An unauthorized party initiated a data
-			    connection. The current session will be halted.</bibl>
+            <blist id="summary-of-error-conditions">
+            	<bibl id="errFTC001" key="err:FTC001">err:FTC001: An unauthorized party initiated a data connection. The current session will be halted.</bibl>
                 <bibl id="errFTC002" key="err:FTC002">err:FTC002: The connection was closed by server.</bibl>
-		<bibl id="errFTC003" key="err:FTC003">err:FTC003: The resource does not exist.</bibl>
-		<bibl id="errFTC004" key="err:FTC004">err:FTC004: The user has no rights to access the resource.</bibl>
-		<bibl id="errFTC005" key="err:FTC005">err:FTC005: Authentication failed. The username, password, or private key is wrong.</bibl>
-		<bibl id="errFTC006" key="err:FTC006">err:FTC006: The protocol is not supported.</bibl>
-        <bibl id="errFTC007" key="err:FTC007">err:FTC007: The current operation failed.</bibl>
+                <bibl id="errFTC003" key="err:FTC003">err:FTC003: The resource does not exist.</bibl>
+                <bibl id="errFTC004" key="err:FTC004">err:FTC004: The user has no rights to access the resource.</bibl>
+                <bibl id="errFTC005" key="err:FTC005">err:FTC005: Authentication failed. The username, password, or private key is wrong.</bibl>
+                <bibl id="errFTC006" key="err:FTC006">err:FTC006: The protocol is not supported.</bibl>
+                <bibl id="errFTC007" key="err:FTC007">err:FTC007: The current operation failed.</bibl>
             </blist>
         </div1>
     </back>
