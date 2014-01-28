@@ -133,8 +133,8 @@
                 </item>
                 <item>
 			<p><code>$remote-directory-path</code> is the directory path (this path has to be an absolute path and has to end with '/'). If the path is not correct,
-				this is an error <bibref ref="errFTC003"/>. If the user has no rights
-			to access the path, this is an error <bibref ref="errFTC004"/>.</p>
+				this is an error <bibref ref="errFTC003"/>. If the user has no rights to access the path, this is an error 
+				<bibref ref="errFTC004"/>. If the path does not end with '/', this is an error <bibref ref="errFTC008"/>.</p>
                 </item>
             </ulist>
 	    <div2>
@@ -447,11 +447,12 @@
             <blist id="summary-of-error-conditions">
             	<bibl id="errFTC001" key="err:FTC001">An unauthorized party initiated a data connection. The current session will be halted.</bibl>
                 <bibl id="errFTC002" key="err:FTC002">The connection was closed by server.</bibl>
-                <bibl id="errFTC003" key="err:FTC003">The resource does not exist.</bibl>
-                <bibl id="errFTC004" key="err:FTC004">The user has no rights to access the resource.</bibl>
+                <bibl id="errFTC003" key="err:FTC003">The remote resource does not exist.</bibl>
+                <bibl id="errFTC004" key="err:FTC004">The user has no rights to access the remote resource.</bibl>
                 <bibl id="errFTC005" key="err:FTC005">Authentication failed. The username, password, or private key is wrong.</bibl>
                 <bibl id="errFTC006" key="err:FTC006">The protocol is not supported.</bibl>
                 <bibl id="errFTC007" key="err:FTC007">The current operation failed.</bibl>
+                <bibl id="errFTC008" key="err:FTC008">The directory path must end with '/'.</bibl>
             </blist>
         </div1>
     </back>
