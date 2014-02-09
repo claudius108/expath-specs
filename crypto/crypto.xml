@@ -198,7 +198,7 @@
             <eg>
 <spec:function>crypto:hash</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
             $hashing-algorithm as <spec:type>xs:string</spec:type>,
-            $format as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+            $format as <spec:type>xs:string</spec:type>?) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -227,7 +227,7 @@
 <spec:function>crypto:hmac</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
             $secret-key as <spec:type>xs:anyAtomicType</spec:type>,
             $hashing-algorithm as <spec:type>xs:string</spec:type>,
-            $provider as <spec:type>xs:string?</spec:type>) as <spec:type>xs:string</spec:type>
+            $format as <spec:type>xs:string</spec:type>?) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
@@ -242,8 +242,8 @@
                   is an error <bibref ref="errCX21"/>.</p>
                </item>
                <item>
-                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
-                  default provider. If the provider does not exist, this is an error <bibref ref="errCX23"/>.</p>
+                  <p><code>$format</code> is the format of the output. The legal values are "hex" and "base64". The default value is "base64". 
+                  If the format is not supprted, this is an error <bibref ref="errCX24"/>.</p>
                </item>              
             </ulist>
          </div2>

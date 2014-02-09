@@ -347,7 +347,7 @@ div.exampleHeader { font-weight: bold;
                <div class="exampleInner"><pre>
 <code class="function">crypto:hash</code>($data as <code class="type">xs:anyAtomicType</code>,
             $hashing-algorithm as <code class="type">xs:string</code>,
-            $format as <code class="type">xs:string</code>) as <code class="type">xs:string</code>
+            $format as <code class="type">xs:string</code>?) as <code class="type">xs:string</code>
 </pre></div>
                <ul>
                   <li>
@@ -392,7 +392,7 @@ div.exampleHeader { font-weight: bold;
 <code class="function">crypto:hmac</code>($data as <code class="type">xs:anyAtomicType</code>,
             $secret-key as <code class="type">xs:anyAtomicType</code>,
             $hashing-algorithm as <code class="type">xs:string</code>,
-            $provider as <code class="type">xs:string?</code>) as <code class="type">xs:string</code>
+            $format as <code class="type">xs:string</code>?) as <code class="type">xs:string</code>
 </pre></div>
                <ul>
                   <li>
@@ -413,9 +413,9 @@ div.exampleHeader { font-weight: bold;
                      </p>
                   </li>
                   <li>
-                     <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified,
-                        the implementation will use the
-                        default provider. If the provider does not exist, this is an error <a href="#errCX23">[err:CX23]</a>.
+                     <p><code>$format</code> is the format of the output. The legal values are "hex" and "base64". The default
+                        value is "base64". 
+                        If the format is not supprted, this is an error <a href="#errCX24">[err:CX24]</a>.
                      </p>
                   </li>
                </ul>
@@ -1345,6 +1345,19 @@ div.exampleHeader { font-weight: bold;
                <dd>The output format is not supported.</dd>
             </dl>
          </div>
-      </div>
-   </body>
+      </div><script type="text/javascript">
+					var _gaq = _gaq || [];
+					_gaq.push(['_setAccount', 'UA-43293529-1']);
+					_gaq.push(['_trackPageview']);
+					(function() {
+					var ga = document.createElement('script'); ga.type =
+					'text/javascript';
+					ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
+					+
+					'.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga,
+					s);
+					})();
+				</script></body>
 </html>
