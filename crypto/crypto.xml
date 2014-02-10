@@ -226,8 +226,13 @@
             <eg>
 <spec:function>crypto:hmac</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
             $secret-key as <spec:type>xs:anyAtomicType</spec:type>,
+            $hashing-algorithm as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
+</eg>
+            <eg>
+<spec:function>crypto:hmac</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
+            $secret-key as <spec:type>xs:anyAtomicType</spec:type>,
             $hashing-algorithm as <spec:type>xs:string</spec:type>,
-            $format as <spec:type>xs:string</spec:type>?) as <spec:type>xs:string</spec:type>
+            $format as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type>
 </eg>
             <ulist>
                <item>
