@@ -19,7 +19,6 @@
 		<java-package-name>ro.kuberam.location</java-package-name>
 		<libName>Library for EXPath Location Module</libName>
 		<libVersion>0.0.1</libVersion>
-<!-- 		<libParentDir>/home/claudius/workspaces/kuberam</libParentDir> -->
 	</properties>
 
 	<build>
