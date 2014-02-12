@@ -110,4 +110,7 @@
 		</pluginManagement>
 	</build>
 
+	<modules>
+		<module>user-agent</module>
+	</modules>
 </project>
