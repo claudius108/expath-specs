@@ -270,13 +270,13 @@
          </div2> 
          <div2>
             <head>The <code>crypto:key-agrement</code> function</head>
-            <p>http://ietf.org/rfc/rfc2631.txt, http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html#KeyAgreement</p>
+<!--             <p>http://ietf.org/rfc/rfc2631.txt, http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html#KeyAgreement</p> -->
          </div2>
          <div2>
             <head>The <code>crypto:convert-key-specification-to-key-object, crypto:convert-key-object-to-key-specification</code> function</head>
-            <p>http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html#KeyFactory,
-            http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html#SecretKeyFactory (for secret (symmetric) keys)
-            </p>
+<!--             <p>http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html#KeyFactory, -->
+<!--             http://docs.oracle.com/javase/6/docs/technotes/guides/security/crypto/CryptoSpec.html#SecretKeyFactory (for secret (symmetric) keys) -->
+<!--             </p> -->
          </div2>                    
       </div1>
       <div1>
