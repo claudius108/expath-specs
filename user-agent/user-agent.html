@@ -1,0 +1,261 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>User Agent Module 1.0</title>
+      <link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/TR/base.css" /><style type="text/css">
+code           { font-family: monospace; }
+
+div.constraint,
+div.issue,
+div.note,
+div.notice     { margin-left: 2em; }
+
+ol.enumar      { list-style-type: decimal; }
+ol.enumla      { list-style-type: lower-alpha; }
+ol.enumlr      { list-style-type: lower-roman; }
+ol.enumua      { list-style-type: upper-alpha; }
+ol.enumur      { list-style-type: upper-roman; }
+
+
+div.exampleInner pre { margin-left: 1em;
+                       margin-top: 0em; margin-bottom: 0em}
+div.exampleOuter {border: 4px double gray;
+                  margin: 0em; padding: 0em}
+div.exampleInner { background-color: #d5dee3;
+                   border-top-width: 4px;
+                   border-top-style: double;
+                   border-top-color: #d3d3d3;
+                   border-bottom-width: 4px;
+                   border-bottom-style: double;
+                   border-bottom-color: #d3d3d3;
+                   padding: 4px; margin: 0em }
+div.exampleWrapper { margin: 4px }
+div.exampleHeader { font-weight: bold;
+                    margin: 4px}
+
+      code.function { font-weight: bold; }
+      code.type { font-style: italic; }
+      /* h1, h2, h3 { color: #84001C; background: white } */
+      /* a, :link, :visited, a:active { color: #84005C; background: white } */
+      body {
+        background-image: url(http://expath.org/images/logo-candidate.png);
+      }
+   </style></head>
+   <body>
+      <p><a href="http://expath.org/"><img src="http://expath.org/images/expath-icon.png" alt="EXPath" height="32" width="32" /></a></p>
+      <div class="head">
+         
+         <h1><a name="title" id="title"></a>User Agent Module 1.0
+         </h1>
+         
+         <h2><a name="w3c-doctype" id="w3c-doctype"></a>EXPath Candidate Module 12 February 2012
+         </h2>
+         <dl>
+            <dt>Latest version:</dt>
+            <dd>
+               <a href="http://expath.org/spec/location">http://expath.org/spec/location</a>
+               
+            </dd>
+            <dt>Editor:</dt>
+            <dd>Claudius Teodorescu, XML Consultant</dd>
+         </dl>
+         <p class="copyright">
+            			Copyright © 2013 Claudius Teodorescu, published by the
+            			<a href="http://w3.org/community/expath/">EXPath Community Group</a>
+            			under the
+            			<a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor
+               				License Agreement (CLA)</a>
+            			. A human-readable
+            			<a href="http://www.w3.org/community/about/agreements/cla-deed/">summary</a>
+            			is
+            			available.
+            		
+         </p>
+         <p class="copyright">
+            			This specification was published by the
+            			<a href="http://www.w3.org/community/expath/">EXPath Community Group</a>
+            			. It is not a W3C Standard nor is it on the W3C
+            			Standards Track. Please note that under the
+            			<a href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor
+               				License Agreement (CLA)</a>
+            			there is a limited opt-out and other conditions apply.
+            			Learn more about
+            			<a href="http://www.w3.org/community/">W3C Community and Business
+               				Groups</a>
+            			.
+            		
+         </p>
+      </div>
+      <hr />
+      <div>
+         
+         <h2><a name="abstract" id="abstract"></a>Abstract
+         </h2>
+         <p>This proposal defines a <span>module for providing functions dealing with actions within
+               an user agent</span>. It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any
+            other standard
+            based on XPath 3.0.
+         </p>
+      </div>
+      <div class="toc">
+         
+         <h2><a name="contents" id="contents"></a>Table of Contents
+         </h2>
+         <p class="toc">1 <a href="#d4e69">Introduction</a><br />
+            1.1 <a href="#d4e77">Namespace conventions</a><br />
+            1.2 <a href="#d4e96">Error management</a><br />
+            2 <a href="#d4e124">Actions</a><br />
+            2.1 <a href="#d4e129">The ua:action() function</a><br />
+            
+         </p>
+         
+         <h3><a name="appendices" id="appendices"></a>Appendices
+         </h3>
+         <p class="toc">A <a href="#d4e205">References</a><br />
+            B <a href="#d4e234">Summary of Error Conditions</a><br />
+            
+         </p>
+      </div>
+      <hr />
+      <div class="body">
+         <div class="div1">
+            
+            <h2><a name="d4e69" id="d4e69"></a>1 Introduction
+            </h2>
+            <p>This proposal defines a <span>module for providing functions dealing with actions within
+                  an user agent</span>. It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any
+               other standard
+               based on XPath 3.0.
+            </p>
+            <div class="div2">
+               
+               <h3><a name="d4e77" id="d4e77"></a>1.1 Namespace conventions
+               </h3>
+               <p>The module defined by this document defines functions and elements in the namespace
+                  <code>http://expath.org/spec/user-agent/</code>. In this document, the
+                  <code>ua</code> prefix, when used, is bound to this namespace URI.
+               </p>
+               <p>Error codes are defined in the namespace <code>http://expath.org/ns/error</code>. In
+                  this document, the <code>err</code> prefix, when used, is bound to this namespace
+                  URI.
+               </p>
+            </div>
+            <div class="div2">
+               
+               <h3><a name="d4e96" id="d4e96"></a>1.2 Error management
+               </h3>
+               <p>Error conditions are identified by a code (a <code>QName</code>). When such an error
+                  condition is reached during the execution of the function, a dynamic error is thrown,
+                  with the corresponding error code (as if the standard XPath function
+                  <code>error</code> had been called).
+               </p>
+            </div>
+         </div>
+         <div class="div1">
+            
+            <h2><a name="d4e124" id="d4e124"></a>2 Actions
+            </h2>
+            <p>These functions attach various events to one or more actions.</p>
+            <div class="div2">
+               
+               <h3><a name="d4e129" id="d4e129"></a>2.1 The <code>ua:action()</code> function
+               </h3>
+               <p>This function defines an action to be invoked when a DOM event occurs.</p>
+               <div class="exampleInner"><pre>
+<code class="function">ua:action</code>($id as <code class="type">xs:ID</code>,
+	$parameters as <code class="type">map(xs:QName, item()*)</code>) as <code class="type">empty()</code>
+</pre></div>
+               <div class="exampleInner"><pre>
+<code class="function">ua:action</code>($id as <code class="type">xs:ID</code>,
+	$event-name as <code class="type">xs:QName</code>,
+	$parameters as <code class="type">map(xs:QName, item()*)</code>) as <code class="type">empty()</code>
+</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$id</code> is the action's identificator. If the identificator is not unique within the script,
+                        this is an error <a href="#errUA01">[err:UA01]</a>.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$event-name</code> represents the name of the event that triggers the execution of the action.
+                        If the event does not exist, this is an error <a href="#errUA02">[err:UA02]</a>.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$parameters</code> represents the parameters passed for the execution of the action.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="back">
+         <div class="div1">
+            
+            <h2><a name="d4e205" id="d4e205"></a>A References
+            </h2>
+            <dl>
+               <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
+               </dt>
+               <dd>
+                  	               <a href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</a>.
+                  	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors.
+                  W3C Working Draft, 13 December 2011.
+               </dd>
+               <dt class="label"><a name="xslt-30" id="xslt-30"></a>XSLT 3.0
+               </dt>
+               <dd>                        
+                  	               <a href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</a>.
+                  	               Michael Kay, editor. W3C Working Draft, 10 July 2012.
+               </dd>
+               <dt class="label"><a name="xquery-30" id="xquery-30"></a>XQuery 3.0
+               </dt>
+               <dd>                        
+                  	               <a href="http://w3.org/TR/xquery-30/">XQuery 3.0: An XML Query Language</a>.
+                  	               Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors.
+                  W3C Working Draft, 13 December 2011.
+               </dd>
+               <dt class="label"><a name="xpath-functions-30" id="xpath-functions-30"></a>XPath and XQuery Functions and Operators 3.0
+               </dt>
+               <dd>
+                  	               <a href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</a>.
+                  	               Michael Kay, editor. W3C Working Draft, 13 December 2011.
+               </dd>
+               <dt class="label"><a name="xpath-datamodel-30" id="xpath-datamodel-30"></a>XQuery and XPath Data Model 3.0
+               </dt>
+               <dd>
+                  	               <a href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</a>.
+                  	   Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December
+                  2011.
+               </dd>
+            </dl>
+         </div>
+         <div class="div1">
+            
+            <h2><a name="d4e234" id="d4e234"></a>B Summary of Error Conditions
+            </h2>
+            <dl>
+               <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
+               </dt>
+               <dd>The identificator $id is not unique.</dd>
+               <dt class="label"><a name="errUA02" id="errUA02"></a>err:UA02
+               </dt>
+               <dd>The event $event-name does not exist.</dd>
+            </dl>
+         </div>
+      </div><script type="text/javascript">
+					var _gaq = _gaq || [];
+					_gaq.push(['_setAccount', 'UA-43293529-1']);
+					_gaq.push(['_trackPageview']);
+					(function() {
+					var ga = document.createElement('script'); ga.type =
+					'text/javascript';
+					ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
+					+
+					'.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga,
+					s);
+					})();
+				</script></body>
+</html>
