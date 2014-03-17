@@ -111,8 +111,8 @@ div.exampleHeader { font-weight: bold;
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e205">References</a><br />
-            B <a href="#d4e234">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e198">References</a><br />
+            B <a href="#d4e227">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -163,12 +163,8 @@ div.exampleHeader { font-weight: bold;
                <p>This function defines an action to be invoked when a DOM event occurs.</p>
                <div class="exampleInner"><pre>
 <code class="function">ua:action</code>($id as <code class="type">xs:ID</code>,
-	$parameters as <code class="type">map(xs:QName, item()*)</code>) as <code class="type">empty()</code>
-</pre></div>
-               <div class="exampleInner"><pre>
-<code class="function">ua:action</code>($id as <code class="type">xs:ID</code>,
-	$event-name as <code class="type">xs:QName</code>,
-	$parameters as <code class="type">map(xs:QName, item()*)</code>) as <code class="type">empty()</code>
+	$parameters as <code class="type">map(xs:string, xs:string)</code>,
+	$code-block as <code class="type">xs:string</code>) as <code class="type">empty()</code>
 </pre></div>
                <ul>
                   <li>
@@ -177,12 +173,11 @@ div.exampleHeader { font-weight: bold;
                      </p>
                   </li>
                   <li>
-                     <p><code>$event-name</code> represents the name of the event that triggers the execution of the action.
-                        If the event does not exist, this is an error <a href="#errUA02">[err:UA02]</a>.
+                     <p><code>$parameters</code> represents the parameters passed for the execution of the action.
                      </p>
                   </li>
                   <li>
-                     <p><code>$parameters</code> represents the parameters passed for the execution of the action.
+                     <p><code>$code-block</code> represents the code to be executed.
                      </p>
                   </li>
                </ul>
@@ -192,7 +187,7 @@ div.exampleHeader { font-weight: bold;
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e205" id="d4e205"></a>A References
+            <h2><a name="d4e198" id="d4e198"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -232,7 +227,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e234" id="d4e234"></a>B Summary of Error Conditions
+            <h2><a name="d4e227" id="d4e227"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
