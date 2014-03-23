@@ -86,46 +86,47 @@
                   <code>error</code> had been called).</p>
          </div2>
       </div1>
-<!--       <div1> -->
-<!--          <head>Events</head> -->
-<!--          <p>These functions deal with DOM events.</p> -->
-<!--          <div2> -->
-<!--             <head>The <code>ua:action()</code> function</head> -->
-<!--             <p>This function returns the country code composed of 2 digits, according to ISO 3166-1 Alpha-2.</p> -->
-<!--             <eg> -->
-<!-- <spec:function>ua:action</spec:function>($ip-address as <spec:type>xs:string</spec:type>) as <spec:type>xs:string</spec:type> -->
-<!-- </eg> -->
-<!--             <ulist> -->
-<!--                <item> -->
-<!--                   <p><code>$ip-address</code> is the user agent's IP address. If the IP address is not valid, this is an error <bibref ref="errUA01"/>.</p> -->
-<!--                </item> -->
-<!--             </ulist>             -->
-<!--          </div2> -->
-<!--       </div1>       -->
+      <div1>
+         <head>Events</head>
+         <p>These functions deal with DOM events.</p>
+         <div2>
+            <head>The <code>ua:create-event()</code> function</head>
+            <p>This function creates a custom events.</p>
+            <eg>
+<spec:function>ua:create-event</spec:function>($event-name as <spec:type>xs:QName</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$event-name</code> is the name of the custom event.</p>
+               </item>
+            </ulist>            
+         </div2>
+      </div1>      
       <div1>
          <head>Actions</head>
-         <p>These functions attach various events to one or more actions.</p>
+         <p>These functions define actions to be executed by direct invoking or when a certain event occurs.</p>
          <div2>
             <head>The <code>ua:action()</code> function</head>
             <p>This function defines an action to be invoked when a DOM event occurs.</p>
             <eg>
 <spec:function>ua:action</spec:function>($id as <spec:type>xs:ID</spec:type>,
 	$parameters as <spec:type>map(xs:string, xs:string)</spec:type>,
-	$code-block as <spec:type>xs:string</spec:type>) as <spec:type>empty()</spec:type>
+	$code-block as <spec:type>item()*</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
-<!--             <eg> -->
-<!-- <spec:function>ua:action</spec:function>($id as <spec:type>xs:ID</spec:type>, -->
-<!-- 	$event-name as <spec:type>xs:QName</spec:type>, -->
-<!-- 	$parameters as <spec:type>map(xs:string, xs:string)</spec:type>) as <spec:type>empty()</spec:type> -->
-<!-- </eg> -->
+            <eg>
+<spec:function>ua:action</spec:function>($id as <spec:type>xs:ID</spec:type>,
+	$event-name as <spec:type>xs:QName</spec:type>,
+	$parameters as <spec:type>map(xs:string, xs:string</spec:type>,
+	$code-block as <spec:type>item()*</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
             <ulist>
                <item>
                   <p><code>$id</code> is the action's identificator. If the identificator is not unique within the script, this is an error <bibref ref="errUA01"/>.</p>
                </item>
-<!--                <item> -->
-<!--                   <p><code>$event-name</code> represents the name of the event that triggers the execution of the action. -->
-<!--                    If the event does not exist, this is an error <bibref ref="errUA02"/>.</p> -->
-<!--                </item>                 -->
+               <item>
+                  <p><code>$event-name</code> represents the name of the event that triggers the execution of the action.
+                   If the event does not exist, this is an error <bibref ref="errUA02"/>.</p>
+               </item>                
                <item>
                   <p><code>$parameters</code> represents the parameters passed for the execution of the action.</p>
                </item>   

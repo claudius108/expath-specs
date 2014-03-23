@@ -104,15 +104,17 @@ div.exampleHeader { font-weight: bold;
          <p class="toc">1 <a href="#d4e69">Introduction</a><br />
             1.1 <a href="#d4e77">Namespace conventions</a><br />
             1.2 <a href="#d4e96">Error management</a><br />
-            2 <a href="#d4e124">Actions</a><br />
-            2.1 <a href="#d4e129">The ua:action() function</a><br />
+            2 <a href="#d4e107">Events</a><br />
+            2.1 <a href="#d4e112">The ua:create-event() function</a><br />
+            3 <a href="#d4e137">Actions</a><br />
+            3.1 <a href="#d4e142">The ua:action() function</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e198">References</a><br />
-            B <a href="#d4e227">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e230">References</a><br />
+            B <a href="#d4e259">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -153,23 +155,57 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e124" id="d4e124"></a>2 Actions
+            <h2><a name="d4e107" id="d4e107"></a>2 Events
             </h2>
-            <p>These functions attach various events to one or more actions.</p>
+            <p>These functions deal with DOM events.</p>
             <div class="div2">
                
-               <h3><a name="d4e129" id="d4e129"></a>2.1 The <code>ua:action()</code> function
+               <h3><a name="d4e112" id="d4e112"></a>2.1 The <code>ua:create-event()</code> function
+               </h3>
+               <p>This function creates a custom events.</p>
+               <div class="exampleInner"><pre>
+<code class="function">ua:create-event</code>($event-name as <code class="type">xs:QName</code>) as <code class="type">empty()</code>
+</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$event-name</code> is the name of the custom event.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="div1">
+            
+            <h2><a name="d4e137" id="d4e137"></a>3 Actions
+            </h2>
+            <p>These functions define actions to be executed by direct invoking or when a certain
+               event occurs.
+            </p>
+            <div class="div2">
+               
+               <h3><a name="d4e142" id="d4e142"></a>3.1 The <code>ua:action()</code> function
                </h3>
                <p>This function defines an action to be invoked when a DOM event occurs.</p>
                <div class="exampleInner"><pre>
 <code class="function">ua:action</code>($id as <code class="type">xs:ID</code>,
 	$parameters as <code class="type">map(xs:string, xs:string)</code>,
-	$code-block as <code class="type">xs:string</code>) as <code class="type">empty()</code>
+	$code-block as <code class="type">item()*</code>) as <code class="type">empty()</code>
+</pre></div>
+               <div class="exampleInner"><pre>
+<code class="function">ua:action</code>($id as <code class="type">xs:ID</code>,
+	$event-name as <code class="type">xs:QName</code>,
+	$parameters as <code class="type">map(xs:string, xs:string</code>,
+	$code-block as <code class="type">item()*</code>) as <code class="type">empty()</code>
 </pre></div>
                <ul>
                   <li>
                      <p><code>$id</code> is the action's identificator. If the identificator is not unique within the script,
                         this is an error <a href="#errUA01">[err:UA01]</a>.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$event-name</code> represents the name of the event that triggers the execution of the action.
+                        If the event does not exist, this is an error <a href="#errUA02">[err:UA02]</a>.
                      </p>
                   </li>
                   <li>
@@ -187,7 +223,7 @@ div.exampleHeader { font-weight: bold;
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e198" id="d4e198"></a>A References
+            <h2><a name="d4e230" id="d4e230"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -227,7 +263,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e227" id="d4e227"></a>B Summary of Error Conditions
+            <h2><a name="d4e259" id="d4e259"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
