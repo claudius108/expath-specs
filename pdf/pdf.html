@@ -108,26 +108,29 @@ div.exampleHeader { font-weight: bold;
          <p class="toc">1 <a href="#d4e73">Introduction</a><br />
             1.1 <a href="#d4e78">Namespace conventions</a><br />
             1.2 <a href="#d4e97">Error management</a><br />
-            2 <a href="#d4e108">Functions for Documents in PDF Format</a><br />
+            2 <a href="#d4e108">PDF form controls</a><br />
             2.1 <a href="#d4e113">The pdf:pdf-merge() Function</a><br />
-            2.2 <a href="#d4e122">The pdf:pdf-split() Function</a><br />
-            2.2.1 <a href="#d4e155">The pdf:options element</a><br />
-            2.3 <a href="#d4e172">The pdf:pdf-to-image() Function</a><br />
-            2.4 <a href="#d4e180">The pdf:pdf-stamp() Function</a><br />
-            2.5 <a href="#d4e188">The pdf:pdf-sign() Function</a><br />
-            2.6 <a href="#d4e196">The pdf:pdf-encrypt() Function</a><br />
-            2.7 <a href="#d4e204">The pdf:pdf-decrypt() Function</a><br />
-            2.8 <a href="#d4e212">The pdf:pdf-import-page() Function</a><br />
-            2.9 <a href="#d4e220">The pdf:pdf-export-page() Function</a><br />
-            2.10 <a href="#d4e229">The pdf:pdf-delete-page() Function</a><br />
-            2.11 <a href="#d4e237">The pdf:add-bookmark() Function</a><br />
+            3 <a href="#d4e122">Functions for Documents in PDF Format</a><br />
+            3.1 <a href="#d4e127">The pdf:pdf-merge() Function</a><br />
+            3.2 <a href="#d4e136">The pdf:pdf-split() Function</a><br />
+            3.2.1 <a href="#d4e169">The pdf:options element</a><br />
+            3.3 <a href="#d4e186">The pdf:pdf-stamp() Function</a><br />
+            3.4 <a href="#d4e194">The pdf:pdf-sign() Function</a><br />
+            3.5 <a href="#d4e202">The pdf:pdf-encrypt() Function</a><br />
+            3.6 <a href="#d4e210">The pdf:pdf-decrypt() Function</a><br />
+            3.7 <a href="#d4e218">The pdf:pdf-import-page() Function</a><br />
+            3.8 <a href="#d4e226">The pdf:pdf-export-page() Function</a><br />
+            3.9 <a href="#d4e234">The pdf:pdf-delete-page() Function</a><br />
+            3.10 <a href="#d4e243">The pdf:add-bookmark() Function</a><br />
+            4 <a href="#d4e251">Content rasterization</a><br />
+            4.1 <a href="#d4e256">The pdf:pdf-to-image() Function</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e246">References</a><br />
-            B <a href="#d4e275">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e265">References</a><br />
+            B <a href="#d4e304">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -164,18 +167,32 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e108" id="d4e108"></a>2 Functions for Documents in PDF Format
+            <h2><a name="d4e108" id="d4e108"></a>2 PDF form controls
             </h2>
-            <p>These functions are designated for processing the documents in PDF format.</p>
+            <p>These functions are designated for gathering information about and interacting with
+               form controls of a PDF document.
+            </p>
             <div class="div2">
                
                <h3><a name="d4e113" id="d4e113"></a>2.1 The <code>pdf:pdf-merge()</code> Function
                </h3>
                <p>This function is used for merging two or more (a collection of) PDF documents.</p>
             </div>
+         </div>
+         <div class="div1">
+            
+            <h2><a name="d4e122" id="d4e122"></a>3 Functions for Documents in PDF Format
+            </h2>
+            <p>These functions are designated for processing the documents in PDF format.</p>
             <div class="div2">
                
-               <h3><a name="d4e122" id="d4e122"></a>2.2 The <code>pdf:pdf-split()</code> Function
+               <h3><a name="d4e127" id="d4e127"></a>3.1 The <code>pdf:pdf-merge()</code> Function
+               </h3>
+               <p>This function is used for merging two or more (a collection of) PDF documents.</p>
+            </div>
+            <div class="div2">
+               
+               <h3><a name="d4e136" id="d4e136"></a>3.2 The <code>pdf:pdf-split()</code> Function
                </h3>
                <p>This function is used for splitting a PDF document into a number of other PDF documents.</p>
                <div class="exampleInner"><pre>
@@ -194,7 +211,7 @@ div.exampleHeader { font-weight: bold;
                </ul>
                <div class="div3">
                   
-                  <h4><a name="d4e155" id="d4e155"></a>2.2.1 The <code>pdf:options</code> element
+                  <h4><a name="d4e169" id="d4e169"></a>3.2.1 The <code>pdf:options</code> element
                   </h4>
                   <div class="exampleInner"><pre>
 &lt;pdf:options&gt;
@@ -213,37 +230,31 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e172" id="d4e172"></a>2.3 The <code>pdf:pdf-to-image()</code> Function
-               </h3>
-               <p>This function is used for converting a PDF document to images.</p>
-            </div>
-            <div class="div2">
-               
-               <h3><a name="d4e180" id="d4e180"></a>2.4 The <code>pdf:pdf-stamp()</code> Function
+               <h3><a name="d4e186" id="d4e186"></a>3.3 The <code>pdf:pdf-stamp()</code> Function
                </h3>
                <p>This function is used for adding a stamp to a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e188" id="d4e188"></a>2.5 The <code>pdf:pdf-sign()</code> Function
+               <h3><a name="d4e194" id="d4e194"></a>3.4 The <code>pdf:pdf-sign()</code> Function
                </h3>
                <p>This function is used for digitally sign a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e196" id="d4e196"></a>2.6 The <code>pdf:pdf-encrypt()</code> Function
+               <h3><a name="d4e202" id="d4e202"></a>3.5 The <code>pdf:pdf-encrypt()</code> Function
                </h3>
                <p>This function is used for encrypting a PDF document by using a digital certificate.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e204" id="d4e204"></a>2.7 The <code>pdf:pdf-decrypt()</code> Function
+               <h3><a name="d4e210" id="d4e210"></a>3.6 The <code>pdf:pdf-decrypt()</code> Function
                </h3>
                <p>This function is used for decrypting a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e212" id="d4e212"></a>2.8 The <code>pdf:pdf-import-page()</code> Function
+               <h3><a name="d4e218" id="d4e218"></a>3.7 The <code>pdf:pdf-import-page()</code> Function
                </h3>
                <p>This function is used for importing to a PDF document a page or more pages from a
                   PDF document.
@@ -251,28 +262,40 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e220" id="d4e220"></a>2.9 The <code>pdf:pdf-export-page()</code> Function
+               <h3><a name="d4e226" id="d4e226"></a>3.8 The <code>pdf:pdf-export-page()</code> Function
                </h3>
                <p>This function is used for removing a page or more pages from a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e229" id="d4e229"></a>2.10 The <code>pdf:pdf-delete-page()</code> Function
+               <h3><a name="d4e234" id="d4e234"></a>3.9 The <code>pdf:pdf-delete-page()</code> Function
                </h3>
                <p>This function is used for deleting a page or more pages from a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e237" id="d4e237"></a>2.11 The <code>pdf:add-bookmark()</code> Function
+               <h3><a name="d4e243" id="d4e243"></a>3.10 The <code>pdf:add-bookmark()</code> Function
                </h3>
                <p>This function is used to add bookmarks to a PDF document.</p>
+            </div>
+         </div>
+         <div class="div1">
+            
+            <h2><a name="d4e251" id="d4e251"></a>4 Content rasterization
+            </h2>
+            <p>These functions are for rendering and printing of the PDF documents.</p>
+            <div class="div2">
+               
+               <h3><a name="d4e256" id="d4e256"></a>4.1 The <code>pdf:pdf-to-image()</code> Function
+               </h3>
+               <p>This function is used for converting a PDF document to images.</p>
             </div>
          </div>
       </div>
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e246" id="d4e246"></a>A References
+            <h2><a name="d4e265" id="d4e265"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -308,25 +331,37 @@ div.exampleHeader { font-weight: bold;
                   Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December
                   2011.
                </dd>
+               <dt class="label"><a name="xfa-3.3" id="xfa-3.3"></a>XFA Specification 3.3
+               </dt>
+               <dd>
+                  <a href="https://partners.adobe.com/public/developer/en/xml/xfa_spec_3_3.pdf">XML Forms Architecture (XFA) Specification, version 3.3</a>.
+                  Adobe, 09 January 2012.
+               </dd>
+               <dt class="label"><a name="xfdf-3.0" id="xfdf-3.0"></a>XFDF Specification 3.0
+               </dt>
+               <dd>
+                  <a href="https://partners.adobe.com/public/developer/en/xml/xfa_spec_3_3.pdf">XML Forms Data Format Specification, version 3.0</a>.
+                  Adobe, August 2009.
+               </dd>
             </dl>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e275" id="d4e275"></a>B Summary of Error Conditions
+            <h2><a name="d4e304" id="d4e304"></a>B Summary of Error Conditions
             </h2>
             <dl>
-               <dt class="label"><a name="errDPUB001" id="errDPUB001"></a>err:DPUB001
+               <dt class="label"><a name="errPDF001" id="errPDF001"></a>err:PDF001
                </dt>
-               <dd>err:DPUB001: The transformation formula is not supported.</dd>
-               <dt class="label"><a name="errDPUB002" id="errDPUB002"></a>err:DPUB002
+               <dd>err:PDF001: The transformation formula is not supported.</dd>
+               <dt class="label"><a name="errPDF002" id="errPDF002"></a>err:PDF002
                </dt>
-               <dd>err:DPUB002: The remote resource does not exist.</dd>
-               <dt class="label"><a name="errDPUB003" id="errDPUB003"></a>err:DPUB003
+               <dd>err:PDF002: The remote resource does not exist.</dd>
+               <dt class="label"><a name="errPDF003" id="errPDF003"></a>err:PDF003
                </dt>
-               <dd>err:DPUB003: The user has no rights to access the remote resource.</dd>
-               <dt class="label"><a name="errDPUB004" id="errDPUB004"></a>err:DPUB004
+               <dd>err:PDF003: The user has no rights to access the remote resource.</dd>
+               <dt class="label"><a name="errPDF004" id="errPDF004"></a>err:PDF004
                </dt>
-               <dd>err:DPUB004: The syntax of the transformation formula is wrong.</dd>
+               <dd>err:PDF004: The syntax of the transformation formula is wrong.</dd>
             </dl>
          </div>
       </div><script type="text/javascript">

@@ -85,6 +85,18 @@
             </div2>
         </div1>
         <div1>
+            <head>PDF form controls</head>
+		    <p>These functions are designated for gathering information about and interacting with form controls of a PDF document.</p>
+			<div2>
+				<head>The <code>pdf:pdf-merge()</code> Function</head>
+				<p>This function is used for merging two or more (a collection of) PDF documents.</p>
+	<!--			<eg>
+	<spec:function>pdf:pdf-merge</spec:function>($document as <spec:type>xs:anyAtomicType</spec:type>,
+		$new-resource-metadata as <spec:type>element(pdf:resource-metadata</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+				</eg>-->		
+			</div2>
+        </div1>
+        <div1>
             <head>Functions for Documents in PDF Format</head>
 	    <p>These functions are designated for processing the documents in PDF format.</p>
 		<div2>
@@ -136,10 +148,6 @@
 			</div3>	
 		</div2>
 		<div2>
-			<head>The <code>pdf:pdf-to-image()</code> Function</head>
-			<p>This function is used for converting a PDF document to images.</p>
-		</div2>
-		<div2>
 			<head>The <code>pdf:pdf-stamp()</code> Function</head>
 			<p>This function is used for adding a stamp to a PDF document.</p>
 		</div2>
@@ -172,6 +180,14 @@
 			<p>This function is used to add bookmarks to a PDF document.</p>
 		</div2>		
         </div1>
+        <div1>
+            <head>Content rasterization</head>
+		    <p>These functions are for rendering the PDF documents.</p>
+			<div2>
+				<head>The <code>pdf:pdf-to-image()</code> Function</head>
+				<p>This function is used for converting a PDF document to images.</p>
+			</div2>
+        </div1>        
     </body>
     <back>
         <div1>
@@ -191,16 +207,22 @@
                Michael Kay, editor. W3C Working Draft, 13 December 2011.</bibl>                                
             <bibl id="xpath-datamodel-30" key="XQuery and XPath Data Model 3.0">
                <loc href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</loc>.
-               Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
+               Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>               
+            <bibl id="xfa-3.3" key="XFA Specification 3.3">
+               <loc href="https://partners.adobe.com/public/developer/en/xml/xfa_spec_3_3.pdf">XML Forms Architecture (XFA) Specification, version 3.3</loc>.
+               Adobe, 09 January 2012.</bibl>               
+            <bibl id="xfdf-3.0" key="XFDF Specification 3.0">
+               <loc href="https://partners.adobe.com/public/developer/en/xml/xfa_spec_3_3.pdf">XML Forms Data Format Specification, version 3.0</loc>.
+               Adobe, August 2009.</bibl>               
             </blist>
         </div1>
         <div1>
             <head>Summary of Error Conditions</head>
             <blist>
-		    <bibl id="errDPUB001" key="err:DPUB001">err:DPUB001: The transformation formula is not supported.</bibl>
-		    <bibl id="errDPUB002" key="err:DPUB002">err:DPUB002: The remote resource does not exist.</bibl>
-		    <bibl id="errDPUB003" key="err:DPUB003">err:DPUB003: The user has no rights to access the remote resource.</bibl>
-		    <bibl id="errDPUB004" key="err:DPUB004">err:DPUB004: The syntax of the transformation formula is wrong.</bibl>
+		    <bibl id="errPDF001" key="err:PDF001">err:PDF001: The transformation formula is not supported.</bibl>
+		    <bibl id="errPDF002" key="err:PDF002">err:PDF002: The remote resource does not exist.</bibl>
+		    <bibl id="errPDF003" key="err:PDF003">err:PDF003: The user has no rights to access the remote resource.</bibl>
+		    <bibl id="errPDF004" key="err:PDF004">err:PDF004: The syntax of the transformation formula is wrong.</bibl>
             </blist>
         </div1>
     </back>
