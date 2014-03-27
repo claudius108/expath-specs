@@ -96,40 +96,38 @@ div.exampleHeader { font-weight: bold;
          
          <h2><a name="abstract" id="abstract"></a>Abstract
          </h2>
-         <p>This proposal provides a PDF module for XPath 2.0. It defines extension functions
-            for converting from one digital format to another, to
-            		execute various processing operations of digital documents, etc. It has been designed
-            to be compatible with XQuery 1.0 and XSLT 2.0, as well as any other standard based
-            on XPath 2.0.
+         <p>This proposal provides a <span>set of functions for manipulation of PDF documents</span>.
+            It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any
+            other standard based on XPath 3.0.
          </p>
       </div>
       <div class="toc">
          
          <h2><a name="contents" id="contents"></a>Table of Contents
          </h2>
-         <p class="toc">1 <a href="#d4e70">Introduction</a><br />
-            1.1 <a href="#d4e75">Namespace conventions</a><br />
-            1.2 <a href="#d4e94">Error management</a><br />
-            2 <a href="#d4e105">Functions for Documents in PDF Format</a><br />
-            2.1 <a href="#d4e110">The digi-pub:pdf-merge() Function</a><br />
-            2.2 <a href="#d4e119">The digi-pub:pdf-split() Function</a><br />
-            2.2.1 <a href="#d4e152">The digi-pub:options element</a><br />
-            2.3 <a href="#d4e169">The digi-pub:pdf-to-image() Function</a><br />
-            2.4 <a href="#d4e177">The digi-pub:pdf-stamp() Function</a><br />
-            2.5 <a href="#d4e185">The digi-pub:pdf-sign() Function</a><br />
-            2.6 <a href="#d4e193">The digi-pub:pdf-encrypt() Function</a><br />
-            2.7 <a href="#d4e201">The digi-pub:pdf-decrypt() Function</a><br />
-            2.8 <a href="#d4e209">The digi-pub:pdf-import-page() Function</a><br />
-            2.9 <a href="#d4e217">The digi-pub:pdf-export-page() Function</a><br />
-            2.10 <a href="#d4e226">The digi-pub:pdf-delete-page() Function</a><br />
-            2.11 <a href="#d4e234">The digi-pub:add-bookmark() Function</a><br />
+         <p class="toc">1 <a href="#d4e73">Introduction</a><br />
+            1.1 <a href="#d4e78">Namespace conventions</a><br />
+            1.2 <a href="#d4e97">Error management</a><br />
+            2 <a href="#d4e108">Functions for Documents in PDF Format</a><br />
+            2.1 <a href="#d4e113">The pdf:pdf-merge() Function</a><br />
+            2.2 <a href="#d4e122">The pdf:pdf-split() Function</a><br />
+            2.2.1 <a href="#d4e155">The pdf:options element</a><br />
+            2.3 <a href="#d4e172">The pdf:pdf-to-image() Function</a><br />
+            2.4 <a href="#d4e180">The pdf:pdf-stamp() Function</a><br />
+            2.5 <a href="#d4e188">The pdf:pdf-sign() Function</a><br />
+            2.6 <a href="#d4e196">The pdf:pdf-encrypt() Function</a><br />
+            2.7 <a href="#d4e204">The pdf:pdf-decrypt() Function</a><br />
+            2.8 <a href="#d4e212">The pdf:pdf-import-page() Function</a><br />
+            2.9 <a href="#d4e220">The pdf:pdf-export-page() Function</a><br />
+            2.10 <a href="#d4e229">The pdf:pdf-delete-page() Function</a><br />
+            2.11 <a href="#d4e237">The pdf:add-bookmark() Function</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e243">References</a><br />
-            B <a href="#d4e272">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e246">References</a><br />
+            B <a href="#d4e275">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -137,12 +135,12 @@ div.exampleHeader { font-weight: bold;
       <div class="body">
          <div class="div1">
             
-            <h2><a name="d4e70" id="d4e70"></a>1 Introduction
+            <h2><a name="d4e73" id="d4e73"></a>1 Introduction
             </h2>
-            <p>This PDF module allows manipulation of PDF documents.</p>
+            <p>This module allows manipulation of PDF documents.</p>
             <div class="div2">
                
-               <h3><a name="d4e75" id="d4e75"></a>1.1 Namespace conventions
+               <h3><a name="d4e78" id="d4e78"></a>1.1 Namespace conventions
                </h3>
                <p>The module defined by this document defines functions and elements in the namespace
                   <code>http://expath.org/ns/pdf</code>. In this document, the
@@ -155,7 +153,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e94" id="d4e94"></a>1.2 Error management
+               <h3><a name="d4e97" id="d4e97"></a>1.2 Error management
                </h3>
                <p>Error conditions are identified by a code (a <code>QName</code>). When such an error
                   condition is reached during the execution of the function, a dynamic error is thrown,
@@ -166,23 +164,23 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e105" id="d4e105"></a>2 Functions for Documents in PDF Format
+            <h2><a name="d4e108" id="d4e108"></a>2 Functions for Documents in PDF Format
             </h2>
             <p>These functions are designated for processing the documents in PDF format.</p>
             <div class="div2">
                
-               <h3><a name="d4e110" id="d4e110"></a>2.1 The <code>digi-pub:pdf-merge()</code> Function
+               <h3><a name="d4e113" id="d4e113"></a>2.1 The <code>pdf:pdf-merge()</code> Function
                </h3>
                <p>This function is used for merging two or more (a collection of) PDF documents.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e119" id="d4e119"></a>2.2 The <code>digi-pub:pdf-split()</code> Function
+               <h3><a name="d4e122" id="d4e122"></a>2.2 The <code>pdf:pdf-split()</code> Function
                </h3>
                <p>This function is used for splitting a PDF document into a number of other PDF documents.</p>
                <div class="exampleInner"><pre>
-<code class="function">digi-pub:pdf-split</code>($document as <code class="type">xs:base64Binary</code>,
-	$options as <code class="type">element(digi-pub:options)</code>) as <code class="type">xs:base64Binary+</code>
+<code class="function">pdf:pdf-split</code>($document as <code class="type">xs:base64Binary</code>,
+	$options as <code class="type">element(pdf:options)</code>) as <code class="type">xs:base64Binary+</code>
 			</pre></div>
                <ul>
                   <li>
@@ -196,16 +194,16 @@ div.exampleHeader { font-weight: bold;
                </ul>
                <div class="div3">
                   
-                  <h4><a name="d4e152" id="d4e152"></a>2.2.1 The <code>digi-pub:options</code> element
+                  <h4><a name="d4e155" id="d4e155"></a>2.2.1 The <code>pdf:options</code> element
                   </h4>
                   <div class="exampleInner"><pre>
-&lt;digi-pub:options&gt;
-	(digi-pub:split-delimiter+)
-&lt;/digi-pub:options&gt;
+&lt;pdf:options&gt;
+	(pdf:split-delimiter+)
+&lt;/pdf:options&gt;
 				</pre></div>
                   <ul>
                      <li>
-                        <p>the <code>digi-pub:split-delimiter</code> child element
+                        <p>the <code>pdf:split-delimiter</code> child element
                            						specifies the delimiter used for splitting the input PDF
                            						document.
                         </p>
@@ -215,37 +213,37 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e169" id="d4e169"></a>2.3 The <code>digi-pub:pdf-to-image()</code> Function
+               <h3><a name="d4e172" id="d4e172"></a>2.3 The <code>pdf:pdf-to-image()</code> Function
                </h3>
                <p>This function is used for converting a PDF document to images.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e177" id="d4e177"></a>2.4 The <code>digi-pub:pdf-stamp()</code> Function
+               <h3><a name="d4e180" id="d4e180"></a>2.4 The <code>pdf:pdf-stamp()</code> Function
                </h3>
                <p>This function is used for adding a stamp to a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e185" id="d4e185"></a>2.5 The <code>digi-pub:pdf-sign()</code> Function
+               <h3><a name="d4e188" id="d4e188"></a>2.5 The <code>pdf:pdf-sign()</code> Function
                </h3>
                <p>This function is used for digitally sign a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e193" id="d4e193"></a>2.6 The <code>digi-pub:pdf-encrypt()</code> Function
+               <h3><a name="d4e196" id="d4e196"></a>2.6 The <code>pdf:pdf-encrypt()</code> Function
                </h3>
                <p>This function is used for encrypting a PDF document by using a digital certificate.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e201" id="d4e201"></a>2.7 The <code>digi-pub:pdf-decrypt()</code> Function
+               <h3><a name="d4e204" id="d4e204"></a>2.7 The <code>pdf:pdf-decrypt()</code> Function
                </h3>
                <p>This function is used for decrypting a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e209" id="d4e209"></a>2.8 The <code>digi-pub:pdf-import-page()</code> Function
+               <h3><a name="d4e212" id="d4e212"></a>2.8 The <code>pdf:pdf-import-page()</code> Function
                </h3>
                <p>This function is used for importing to a PDF document a page or more pages from a
                   PDF document.
@@ -253,19 +251,19 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e217" id="d4e217"></a>2.9 The <code>digi-pub:pdf-export-page()</code> Function
+               <h3><a name="d4e220" id="d4e220"></a>2.9 The <code>pdf:pdf-export-page()</code> Function
                </h3>
                <p>This function is used for removing a page or more pages from a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e226" id="d4e226"></a>2.10 The <code>digi-pub:pdf-delete-page()</code> Function
+               <h3><a name="d4e229" id="d4e229"></a>2.10 The <code>pdf:pdf-delete-page()</code> Function
                </h3>
                <p>This function is used for deleting a page or more pages from a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e234" id="d4e234"></a>2.11 The <code>digi-pub:add-bookmark()</code> Function
+               <h3><a name="d4e237" id="d4e237"></a>2.11 The <code>pdf:add-bookmark()</code> Function
                </h3>
                <p>This function is used to add bookmarks to a PDF document.</p>
             </div>
@@ -274,7 +272,7 @@ div.exampleHeader { font-weight: bold;
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e243" id="d4e243"></a>A References
+            <h2><a name="d4e246" id="d4e246"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -314,7 +312,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e272" id="d4e272"></a>B Summary of Error Conditions
+            <h2><a name="d4e275" id="d4e275"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errDPUB001" id="errDPUB001"></a>err:DPUB001

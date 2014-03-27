@@ -50,8 +50,8 @@
 		</p>
 	</copyright>
         <abstract>
-            <p>This proposal provides a PDF module for XPath 2.0. It defines extension functions for converting from one digital format to another, to
-		execute various processing operations of digital documents, etc. It has been designed to be compatible with XQuery 1.0 and XSLT 2.0, as well as any other standard based on XPath 2.0.</p>
+            <p>This proposal provides a <phrase id="module-description">set of functions for manipulation of PDF documents</phrase>.
+            It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard based on XPath 3.0.</p>
         </abstract>
         <status>
             <p>Must be ignored, but is required by the schema...</p>
@@ -66,7 +66,7 @@
     <body>
         <div1>
             <head>Introduction</head>
-	    <p>This PDF module allows manipulation of PDF documents.</p>
+	    <p>This module allows manipulation of PDF documents.</p>
             <div2>
                 <head>Namespace conventions</head>
                 <p>The module defined by this document defines functions and elements in the namespace
@@ -88,19 +88,19 @@
             <head>Functions for Documents in PDF Format</head>
 	    <p>These functions are designated for processing the documents in PDF format.</p>
 		<div2>
-			<head>The <code>digi-pub:pdf-merge()</code> Function</head>
+			<head>The <code>pdf:pdf-merge()</code> Function</head>
 			<p>This function is used for merging two or more (a collection of) PDF documents.</p>
 <!--			<eg>
-<spec:function>digi-pub:pdf-merge</spec:function>($document as <spec:type>xs:anyAtomicType</spec:type>,
-	$new-resource-metadata as <spec:type>element(digi-pub:resource-metadata</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+<spec:function>pdf:pdf-merge</spec:function>($document as <spec:type>xs:anyAtomicType</spec:type>,
+	$new-resource-metadata as <spec:type>element(pdf:resource-metadata</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
 			</eg>-->		
 		</div2>
 		<div2>
-			<head>The <code>digi-pub:pdf-split()</code> Function</head>
+			<head>The <code>pdf:pdf-split()</code> Function</head>
 			<p>This function is used for splitting a PDF document into a number of other PDF documents.</p>
 			<eg>
-<spec:function>digi-pub:pdf-split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>,
-	$options as <spec:type>element(digi-pub:options)</spec:type>) as <spec:type>xs:base64Binary+</spec:type>
+<spec:function>pdf:pdf-split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>,
+	$options as <spec:type>element(pdf:options)</spec:type>) as <spec:type>xs:base64Binary+</spec:type>
 			</eg>
 			<ulist>
 				<item>
@@ -111,21 +111,21 @@
 				</item>
 			</ulist>
 			<div3>
-				<head>The <code>digi-pub:options</code> element</head>
+				<head>The <code>pdf:options</code> element</head>
 				<eg>
-&lt;digi-pub:options&gt;
-	(digi-pub:split-delimiter+)
-&lt;/digi-pub:options&gt;
+&lt;pdf:options&gt;
+	(pdf:split-delimiter+)
+&lt;/pdf:options&gt;
 				</eg>
 <!--				<eg>
-&lt;digi-pub:options&gt;
-	(digi-pub:split-delimiter,
-	digi-pub:output-filename?)
-&lt;/digi-pub:options&gt;
+&lt;pdf:options&gt;
+	(pdf:split-delimiter,
+	pdf:output-filename?)
+&lt;/pdf:options&gt;
 				</eg>-->				
 				<ulist>
 					<item>
-						<p>the <code>digi-pub:split-delimiter</code> child element
+						<p>the <code>pdf:split-delimiter</code> child element
 						specifies the delimiter used for splitting the input PDF
 						document.</p>
 					</item>					
@@ -136,39 +136,39 @@
 			</div3>	
 		</div2>
 		<div2>
-			<head>The <code>digi-pub:pdf-to-image()</code> Function</head>
+			<head>The <code>pdf:pdf-to-image()</code> Function</head>
 			<p>This function is used for converting a PDF document to images.</p>
 		</div2>
 		<div2>
-			<head>The <code>digi-pub:pdf-stamp()</code> Function</head>
+			<head>The <code>pdf:pdf-stamp()</code> Function</head>
 			<p>This function is used for adding a stamp to a PDF document.</p>
 		</div2>
 		<div2>
-			<head>The <code>digi-pub:pdf-sign()</code> Function</head>
+			<head>The <code>pdf:pdf-sign()</code> Function</head>
 			<p>This function is used for digitally sign a PDF document.</p>			
 		</div2>
 		<div2>
-			<head>The <code>digi-pub:pdf-encrypt()</code> Function</head>
+			<head>The <code>pdf:pdf-encrypt()</code> Function</head>
 			<p>This function is used for encrypting a PDF document by using a digital certificate.</p>
 		</div2>
 		<div2>
-			<head>The <code>digi-pub:pdf-decrypt()</code> Function</head>
+			<head>The <code>pdf:pdf-decrypt()</code> Function</head>
 			<p>This function is used for decrypting a PDF document.</p>
 		</div2>
 		<div2>
-			<head>The <code>digi-pub:pdf-import-page()</code> Function</head>
+			<head>The <code>pdf:pdf-import-page()</code> Function</head>
 			<p>This function is used for importing to a PDF document a page or more pages from a PDF document.</p>
 		</div2>		
 		<div2>
-			<head>The <code>digi-pub:pdf-export-page()</code> Function</head>
+			<head>The <code>pdf:pdf-export-page()</code> Function</head>
 			<p>This function is used for removing a page or more pages from a PDF document.</p>
 		</div2>
 		<div2>
-			<head>The <code>digi-pub:pdf-delete-page()</code> Function</head>
+			<head>The <code>pdf:pdf-delete-page()</code> Function</head>
 			<p>This function is used for deleting a page or more pages from a PDF document.</p>
 		</div2>
 		<div2>
-			<head>The <code>digi-pub:add-bookmark()</code> Function</head>
+			<head>The <code>pdf:add-bookmark()</code> Function</head>
 			<p>This function is used to add bookmarks to a PDF document.</p>
 		</div2>		
         </div1>
