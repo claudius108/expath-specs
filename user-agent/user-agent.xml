@@ -49,7 +49,7 @@
 		</p>
 	</copyright>
       <abstract>
-         <p>This proposal defines a <phrase id="module-description">set of functions for actions within an user agent</phrase>.
+         <p>This proposal defines a <phrase id="module-description">module comprising a set of functions for actions within an user agent</phrase>.
          It has been designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard based on XPath 3.0.</p>
       </abstract>
       <status>
