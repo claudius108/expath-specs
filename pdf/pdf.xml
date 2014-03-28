@@ -85,109 +85,260 @@
             </div2>
         </div1>
         <div1>
-            <head>PDF form controls</head>
-		    <p>These functions are designated for gathering information about and interacting with form controls of a PDF document.</p>
+            <head>Creation</head>
+		    <p>These functions are for creation of PDF documents.</p>
 			<div2>
-				<head>The <code>pdf:pdf-merge()</code> Function</head>
-				<p>This function is used for merging two or more (a collection of) PDF documents.</p>
-	<!--			<eg>
-	<spec:function>pdf:pdf-merge</spec:function>($document as <spec:type>xs:anyAtomicType</spec:type>,
-		$new-resource-metadata as <spec:type>element(pdf:resource-metadata</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
-				</eg>-->		
-			</div2>
-        </div1>
-        <div1>
-            <head>Functions for Documents in PDF Format</head>
-	    <p>These functions are designated for processing the documents in PDF format.</p>
-		<div2>
-			<head>The <code>pdf:pdf-merge()</code> Function</head>
-			<p>This function is used for merging two or more (a collection of) PDF documents.</p>
-<!--			<eg>
-<spec:function>pdf:pdf-merge</spec:function>($document as <spec:type>xs:anyAtomicType</spec:type>,
-	$new-resource-metadata as <spec:type>element(pdf:resource-metadata</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
-			</eg>-->		
-		</div2>
-		<div2>
-			<head>The <code>pdf:pdf-split()</code> Function</head>
-			<p>This function is used for splitting a PDF document into a number of other PDF documents.</p>
-			<eg>
-<spec:function>pdf:pdf-split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>,
-	$options as <spec:type>element(pdf:options)</spec:type>) as <spec:type>xs:base64Binary+</spec:type>
-			</eg>
-			<ulist>
-				<item>
-					<p><code>$document</code> is the PDF document to be splitted.</p>
-				</item>
-				<item>
-					<p><code>$options</code> are the options for the current operation.</p>
-				</item>
-			</ulist>
-			<div3>
-				<head>The <code>pdf:options</code> element</head>
+				<head>The <code>pdf:create()</code> Function</head>
+				<p>This function is used for creating a PDF document.</p>
 				<eg>
-&lt;pdf:options&gt;
-	(pdf:split-delimiter+)
-&lt;/pdf:options&gt;
+<spec:function>pdf:create</spec:function>($content as <spec:type>xs:anyAtomicType*</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
 				</eg>
-<!--				<eg>
-&lt;pdf:options&gt;
-	(pdf:split-delimiter,
-	pdf:output-filename?)
-&lt;/pdf:options&gt;
-				</eg>-->				
+			</div2>
+			<div2>
+				<head>The <code>pdf:create-page()</code> Function</head>
+				<p>This function is used for creating a PDF page.</p>
+				<eg>
+<spec:function>pdf:create-page</spec:function>($content as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+				</eg>
+			</div2>
+        </div1>        
+        <div1>
+            <head>Content</head>
+		    <p>These functions are for manipulation of content of the PDF documents.</p>
+			<div2>
+				<head>The <code>pdf:merge()</code> Function</head>
+				<p>This function is used for merging multiple PDF documents or subsets of them (groups of pages).</p>
+				<eg>
+<spec:function>pdf:merge</spec:function>($document as <spec:type>xs:anyAtomicType</spec:type>,
+	$new-resource-metadata as <spec:type>element(pdf:resource-metadata</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+				</eg>		
+			</div2>
+			<div2>
+				<head>The <code>pdf:split()</code> Function</head>
+				<p>This function is used for splitting a PDF document into a number of sections. It outputs a sequence of pages (or documents? - TBD).</p>
+				<p>There can be many options for splitting: content splitting, splitting on bookmarks, extract until text.</p>
+				<eg>
+<spec:function>pdf:split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>,
+	$options as <spec:type>element(pdf:options)</spec:type>) as <spec:type>xs:base64Binary+</spec:type>
+				</eg>
 				<ulist>
 					<item>
-						<p>the <code>pdf:split-delimiter</code> child element
-						specifies the delimiter used for splitting the input PDF
-						document.</p>
-					</item>					
-<!--					<item>
-						<p>the <code>ft-client:resource-type</code> child element is the type of the remote resource.</p>
-					</item>-->
+						<p><code>$document</code> is the PDF document to be splitted.</p>
+					</item>
+					<item>
+						<p><code>$options</code> are the options for the current operation.</p>
+					</item>
 				</ulist>
-			</div3>	
-		</div2>
-		<div2>
-			<head>The <code>pdf:pdf-stamp()</code> Function</head>
-			<p>This function is used for adding a stamp to a PDF document.</p>
-		</div2>
-		<div2>
-			<head>The <code>pdf:pdf-sign()</code> Function</head>
-			<p>This function is used for digitally sign a PDF document.</p>			
-		</div2>
-		<div2>
-			<head>The <code>pdf:pdf-encrypt()</code> Function</head>
-			<p>This function is used for encrypting a PDF document by using a digital certificate.</p>
-		</div2>
-		<div2>
-			<head>The <code>pdf:pdf-decrypt()</code> Function</head>
-			<p>This function is used for decrypting a PDF document.</p>
-		</div2>
-		<div2>
-			<head>The <code>pdf:pdf-import-page()</code> Function</head>
-			<p>This function is used for importing to a PDF document a page or more pages from a PDF document.</p>
-		</div2>		
-		<div2>
-			<head>The <code>pdf:pdf-export-page()</code> Function</head>
-			<p>This function is used for removing a page or more pages from a PDF document.</p>
-		</div2>
-		<div2>
-			<head>The <code>pdf:pdf-delete-page()</code> Function</head>
-			<p>This function is used for deleting a page or more pages from a PDF document.</p>
-		</div2>
-		<div2>
-			<head>The <code>pdf:add-bookmark()</code> Function</head>
-			<p>This function is used to add bookmarks to a PDF document.</p>
-		</div2>		
+				<div3>
+					<head>The <code>pdf:options</code> element</head>
+					<eg>
+	&lt;pdf:options&gt;
+		(pdf:split-delimiter,
+		pdf:output-filename?)
+	&lt;/pdf:options&gt;
+					</eg>			
+					<ulist>
+						<item>
+							<p>the <code>pdf:split-delimiter</code> child element
+							specifies the delimiter used for splitting the input PDF
+							document.</p>
+						</item>					
+						<item>
+							<p>the <code>pdf:output-filename</code> child element is the name of the outputted PDF file.</p>
+						</item>
+					</ulist>
+				</div3>	
+			</div2>
+			<div2>
+				<head>The <code>pdf:extract-pages()</code> Function</head>
+				<p>This function is used for extracting pages from a PDF document. It has a parameter for setting the deletion of the respective pages after extraction.
+				It returns the extracted pages.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:insert-pages()</code> Function</head>
+				<p>This function is used for inserting pages into a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:delete-pages()</code> Function</head>
+				<p>This function is used for deleting pages from a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:rotate-pages()</code> Function</head>
+				<p>This function is used for rotating pages of a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:revert-pages()</code> Function</head>
+				<p>This function is used for reverting pages of a PDF document.</p>
+			</div2>	
+        </div1>
+        <div1>
+            <head>Links and bookmarks</head>
+		    <p>These functions are for manipulation of links and bookmarks of a PDF document.</p>
+			<div2>
+				<head>The <code>pdf:create-bookmark()</code> Function</head>
+				<p>This function is used to create bookmarks in a PDF document.</p>
+			</div2>	
+			<div2>
+				<head>The <code>pdf:edit-bookmark()</code> Function</head>
+				<p>This function is used to edit bookmarks of a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:delete-bookmark()</code> Function</head>
+				<p>This function is used to delete bookmarks from a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:import-bookmarks()</code> Function</head>
+				<p>This function is used to import bookmarks to a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:export-bookmarks()</code> Function</head>
+				<p>This function is used to export bookmarks from a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:create-link()</code> Function</head>
+				<p>This function is used to create links in a PDF document.</p>
+			</div2>	
+			<div2>
+				<head>The <code>pdf:edit-link()</code> Function</head>
+				<p>This function is used to edit links of a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:delete-link()</code> Function</head>
+				<p>This function is used to delete links from a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:import-links()</code> Function</head>
+				<p>This function is used to import links to a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:export-links()</code> Function</head>
+				<p>This function is used to export links from a PDF document.</p>
+			</div2>
+        </div1>        
+        <div1>
+            <head>Form controls</head>
+		    <p>These functions are designated for gathering information about and interacting with form controls of a PDF document.</p>
+			<div2>
+				<head>The <code>pdf:get-fields()</code> Function</head>
+				<p></p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:set-fields()</code> Function</head>
+				<p></p>
+			</div2>			
+        </div1>
+        <div1>
+            <head>Stamping, commenting, annotating, and marking</head>
+		    <p>These functions are associating various objects with a PDF document.</p>
+			<div2>
+				<head>The <code>pdf:stamp()</code> Function</head>
+				<p>This function is used for applying a stamp to a PDF document.</p>
+			</div2>
         </div1>
         <div1>
             <head>Content rasterization</head>
 		    <p>These functions are for rendering the PDF documents.</p>
 			<div2>
-				<head>The <code>pdf:pdf-to-image()</code> Function</head>
+				<head>The <code>pdf:to-image()</code> Function</head>
 				<p>This function is used for converting a PDF document to images.</p>
 			</div2>
+        </div1>
+        <div1>
+            <head>Validation</head>
+		    <p>These functions are designated for validating a PDF document.</p>
+			<div2>
+				<head>The <code>pdf:validate()</code> Function</head>
+				<p>This function is used for validating a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:validate-links()</code> Function</head>
+				<p>This function is used for validating the links contained by a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:validate-bookmarks()</code> Function</head>
+				<p>This function is used for validating the bookmarks contained by a PDF document.</p>
+			</div2>
+        </div1>
+        <div1>
+            <head>Optimization</head>
+		    <p>These functions are designated for optimizing a PDF document.</p>
+			<div2>
+				<head>The <code>pdf:optimize()()</code> Function</head>
+				<p>This function is used for optimizing a PDF document, by reducing the file size without affecting quality.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:linearize()</code> Function</head>
+				<p>This function is used for linearizing a PDF document, for fast delivery over a network. The first page is already visible, while the rest is downloaded in
+				background</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:compress()</code> Function</head>
+				<p>This function is used for compressing a PDF document.</p>
+			</div2>	
+			<div2>
+				<head>The <code>pdf:uncompress()</code> Function</head>
+				<p>This function is used for uncompressing a PDF document.</p>
+			</div2>
         </div1>        
+        <div1>
+            <head>Security</head>
+		    <p>These functions are for protection of the PDF documents.</p>
+			<div2>
+				<head>The <code>pdf:encrypt()</code> Function</head>
+				<p>This function is used for encrypting a PDF document by using a digital certificate.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:decrypt()</code> Function</head>
+				<p>This function is used for decrypting a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:add-signature()</code> Function</head>
+				<p>This function is used for adding an electronic signature to a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:remove-signature()</code> Function</head>
+				<p>This function is used for removing an electronic signature from a PDF document.</p>
+			</div2>
+        </div1>
+        <div1>
+            <head>Repairing</head>
+		    <p>These functions are for repairing and recovering of PDF documents.</p>
+			<div2>
+				<head>The <code>pdf:repair()</code> Function</head>
+				<p>This function is used for repairing a PDF document.</p>
+			</div2>
+        </div1>        
+        <div1>
+            <head>Scenarios of usage</head>
+		    <p>Some scenarios of usage of the functions comprised by this module.</p>
+			<div2>
+				<head>Insert a (blank) page every nth page</head>
+				<p></p>
+				<eg>pdf:insert-pages(pdf:create-page(), $pattern)</eg>				
+			</div2>
+			<div2>
+				<head>Delete broken links</head>
+				<p></p>
+				<eg>
+for $broken-link in pdf:validate-links($pdf-document)
+return if () then () else ()
+				</eg>
+			</div2>
+			<div2>
+				<head>Audit Bookmarks and Links</head>
+				<p>One can validate bookmarks and links, and export those found broken. They can be included in report and/or fixed and imported to document.</p>
+				<eg>
+				</eg>
+			</div2>
+			<div2>
+				<head>Validate PDf document</head>
+				<p>One can validate a PDf document using certain validation criteria, as such: dimensions of all/certain pages should be A4 (297 mm * 210 mm),
+				there should be no content within a certain rectangular area of a page (left margin where the print shop inserts a bar code, for instance),
+				number of pages should be less than N, PDF version used.</p>
+				<eg>
+				</eg>
+			</div2>
+        </div1>
     </body>
     <back>
         <div1>
@@ -210,10 +361,13 @@
                Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>               
             <bibl id="xfa-3.3" key="XFA Specification 3.3">
                <loc href="https://partners.adobe.com/public/developer/en/xml/xfa_spec_3_3.pdf">XML Forms Architecture (XFA) Specification, version 3.3</loc>.
-               Adobe, 09 January 2012.</bibl>               
+               Adobe Systems Incorporated, 09 January 2012.</bibl>               
             <bibl id="xfdf-3.0" key="XFDF Specification 3.0">
-               <loc href="https://partners.adobe.com/public/developer/en/xml/xfa_spec_3_3.pdf">XML Forms Data Format Specification, version 3.0</loc>.
-               Adobe, August 2009.</bibl>               
+               <loc href="https://partners.adobe.com/public/developer/en/xml/XFDF_Spec_3.0.pdf">XML Forms Data Format Specification, version 3.0</loc>.
+               Adobe Systems Incorporated, August 2009.</bibl>
+            <bibl id="pdf-reference-1.7" key="PDF Reference 1.7">
+               <loc href="http://adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/pdf_reference_1-7.pdf">Adobe® Portable Document Format, version 1.7</loc>.
+               Adobe Systems Incorporated, November 2006.</bibl>             
             </blist>
         </div1>
         <div1>
