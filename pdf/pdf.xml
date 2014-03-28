@@ -219,12 +219,35 @@
             <head>Form controls</head>
 		    <p>These functions are designated for gathering information about and interacting with form controls of a PDF document.</p>
 			<div2>
-				<head>The <code>pdf:get-fields()</code> Function</head>
-				<p></p>
+				<head>The <code>pdf:get-text-fields()</code> Function</head>
+				<p>Get all the text fields from a sequence of PDF contents. Returns a sequence of maps containing information about the text fields for each
+				content inputted.</p>
+				<p>The map containing informations about the text fields consists of pairs of fully qualified name and value for each text field.</p>
+				<eg>
+<spec:function>pdf:get-text-fields</spec:function>($content as <spec:type>xs:anyAtomicType*</spec:type>) as <spec:type>map*</spec:type>
+				</eg>
+				<ulist>
+					<item>
+						<p><code>$content</code> is the PDF content where to get the text fields from.</p>
+					</item>
+				</ulist>
 			</div2>
 			<div2>
-				<head>The <code>pdf:set-fields()</code> Function</head>
-				<p></p>
+				<head>The <code>pdf:set-text-fields()</code> Function</head>
+				<p>Set the text fields of a sequence of PDF contents. Returns the updated sequence of PDF contents.</p>
+				<eg>
+<spec:function>pdf:set-text-fields</spec:function>($content as <spec:type>xs:anyAtomicType*</spec:type>,
+$text-fields as <spec:type>map</spec:type>) as <spec:type>xs:anyAtomicType*</spec:type>
+				</eg>
+				<ulist>
+					<item>
+						<p><code>$content</code> is the PDF content where to set the text fields to.</p>
+					</item>
+					<item>
+						<p><code>$text-fields</code> are the informations about the text fields. The map containing informations
+						about the text fields consists of pairs of fully qualified name and value for each text field.</p>
+					</item>					
+				</ulist>
 			</div2>			
         </div1>
         <div1>

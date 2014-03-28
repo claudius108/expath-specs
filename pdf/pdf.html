@@ -132,40 +132,40 @@ div.exampleHeader { font-weight: bold;
             4.9 <a href="#d4e343">The pdf:import-links() Function</a><br />
             4.10 <a href="#d4e352">The pdf:export-links() Function</a><br />
             5 <a href="#d4e360">Form controls</a><br />
-            5.1 <a href="#d4e365">The pdf:get-fields() Function</a><br />
-            5.2 <a href="#d4e372">The pdf:set-fields() Function</a><br />
-            6 <a href="#d4e379">Stamping, commenting, annotating, and marking</a><br />
-            6.1 <a href="#d4e384">The pdf:stamp() Function</a><br />
-            7 <a href="#d4e392">Content rasterization</a><br />
-            7.1 <a href="#d4e397">The pdf:to-image() Function</a><br />
-            8 <a href="#d4e405">Validation</a><br />
-            8.1 <a href="#d4e410">The pdf:validate() Function</a><br />
-            8.2 <a href="#d4e418">The pdf:validate-links() Function</a><br />
-            8.3 <a href="#d4e426">The pdf:validate-bookmarks() Function</a><br />
-            9 <a href="#d4e434">Optimization</a><br />
-            9.1 <a href="#d4e439">The pdf:optimize()() Function</a><br />
-            9.2 <a href="#d4e447">The pdf:linearize() Function</a><br />
-            9.3 <a href="#d4e455">The pdf:compress() Function</a><br />
-            9.4 <a href="#d4e463">The pdf:uncompress() Function</a><br />
-            10 <a href="#d4e471">Security</a><br />
-            10.1 <a href="#d4e476">The pdf:encrypt() Function</a><br />
-            10.2 <a href="#d4e484">The pdf:decrypt() Function</a><br />
-            10.3 <a href="#d4e492">The pdf:add-signature() Function</a><br />
-            10.4 <a href="#d4e500">The pdf:remove-signature() Function</a><br />
-            11 <a href="#d4e508">Repairing</a><br />
-            11.1 <a href="#d4e513">The pdf:repair() Function</a><br />
-            12 <a href="#d4e522">Scenarios of usage</a><br />
-            12.1 <a href="#d4e527">Insert a (blank) page every nth page</a><br />
-            12.2 <a href="#d4e533">Delete broken links</a><br />
-            12.3 <a href="#d4e539">Audit Bookmarks and Links</a><br />
-            12.4 <a href="#d4e546">Validate PDf document</a><br />
+            5.1 <a href="#d4e365">The pdf:get-text-fields() Function</a><br />
+            5.2 <a href="#d4e392">The pdf:set-text-fields() Function</a><br />
+            6 <a href="#d4e425">Stamping, commenting, annotating, and marking</a><br />
+            6.1 <a href="#d4e430">The pdf:stamp() Function</a><br />
+            7 <a href="#d4e438">Content rasterization</a><br />
+            7.1 <a href="#d4e443">The pdf:to-image() Function</a><br />
+            8 <a href="#d4e451">Validation</a><br />
+            8.1 <a href="#d4e456">The pdf:validate() Function</a><br />
+            8.2 <a href="#d4e464">The pdf:validate-links() Function</a><br />
+            8.3 <a href="#d4e472">The pdf:validate-bookmarks() Function</a><br />
+            9 <a href="#d4e480">Optimization</a><br />
+            9.1 <a href="#d4e485">The pdf:optimize()() Function</a><br />
+            9.2 <a href="#d4e493">The pdf:linearize() Function</a><br />
+            9.3 <a href="#d4e501">The pdf:compress() Function</a><br />
+            9.4 <a href="#d4e509">The pdf:uncompress() Function</a><br />
+            10 <a href="#d4e517">Security</a><br />
+            10.1 <a href="#d4e522">The pdf:encrypt() Function</a><br />
+            10.2 <a href="#d4e530">The pdf:decrypt() Function</a><br />
+            10.3 <a href="#d4e538">The pdf:add-signature() Function</a><br />
+            10.4 <a href="#d4e546">The pdf:remove-signature() Function</a><br />
+            11 <a href="#d4e554">Repairing</a><br />
+            11.1 <a href="#d4e559">The pdf:repair() Function</a><br />
+            12 <a href="#d4e568">Scenarios of usage</a><br />
+            12.1 <a href="#d4e573">Insert a (blank) page every nth page</a><br />
+            12.2 <a href="#d4e579">Delete broken links</a><br />
+            12.3 <a href="#d4e585">Audit Bookmarks and Links</a><br />
+            12.4 <a href="#d4e592">Validate PDf document</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e554">References</a><br />
-            B <a href="#d4e598">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e600">References</a><br />
+            B <a href="#d4e644">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -398,73 +398,106 @@ div.exampleHeader { font-weight: bold;
             </p>
             <div class="div2">
                
-               <h3><a name="d4e365" id="d4e365"></a>5.1 The <code>pdf:get-fields()</code> Function
+               <h3><a name="d4e365" id="d4e365"></a>5.1 The <code>pdf:get-text-fields()</code> Function
                </h3>
-               <p></p>
+               <p>Get all the text fields from a sequence of PDF contents. Returns a sequence of maps
+                  containing information about the text fields for each
+                  				content inputted.
+               </p>
+               <p>The map containing informations about the text fields consists of pairs of fully qualified
+                  name and value for each text field.
+               </p>
+               <div class="exampleInner"><pre>
+<code class="function">pdf:get-text-fields</code>($content as <code class="type">xs:anyAtomicType*</code>) as <code class="type">map*</code>
+				</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$content</code> is the PDF content where to get the text fields from.
+                     </p>
+                  </li>
+               </ul>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e372" id="d4e372"></a>5.2 The <code>pdf:set-fields()</code> Function
+               <h3><a name="d4e392" id="d4e392"></a>5.2 The <code>pdf:set-text-fields()</code> Function
                </h3>
-               <p></p>
+               <p>Set the text fields of a sequence of PDF contents. Returns the updated sequence of
+                  PDF contents.
+               </p>
+               <div class="exampleInner"><pre>
+<code class="function">pdf:set-text-fields</code>($content as <code class="type">xs:anyAtomicType*</code>,
+$text-fields as <code class="type">map</code>) as <code class="type">xs:anyAtomicType*</code>
+				</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$content</code> is the PDF content where to set the text fields to.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$text-fields</code> are the informations about the text fields. The map containing informations
+                        						about the text fields consists of pairs of fully qualified name and value for
+                        each text field.
+                     </p>
+                  </li>
+               </ul>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e379" id="d4e379"></a>6 Stamping, commenting, annotating, and marking
+            <h2><a name="d4e425" id="d4e425"></a>6 Stamping, commenting, annotating, and marking
             </h2>
             <p>These functions are associating various objects with a PDF document.</p>
             <div class="div2">
                
-               <h3><a name="d4e384" id="d4e384"></a>6.1 The <code>pdf:stamp()</code> Function
+               <h3><a name="d4e430" id="d4e430"></a>6.1 The <code>pdf:stamp()</code> Function
                </h3>
                <p>This function is used for applying a stamp to a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e392" id="d4e392"></a>7 Content rasterization
+            <h2><a name="d4e438" id="d4e438"></a>7 Content rasterization
             </h2>
             <p>These functions are for rendering the PDF documents.</p>
             <div class="div2">
                
-               <h3><a name="d4e397" id="d4e397"></a>7.1 The <code>pdf:to-image()</code> Function
+               <h3><a name="d4e443" id="d4e443"></a>7.1 The <code>pdf:to-image()</code> Function
                </h3>
                <p>This function is used for converting a PDF document to images.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e405" id="d4e405"></a>8 Validation
+            <h2><a name="d4e451" id="d4e451"></a>8 Validation
             </h2>
             <p>These functions are designated for validating a PDF document.</p>
             <div class="div2">
                
-               <h3><a name="d4e410" id="d4e410"></a>8.1 The <code>pdf:validate()</code> Function
+               <h3><a name="d4e456" id="d4e456"></a>8.1 The <code>pdf:validate()</code> Function
                </h3>
                <p>This function is used for validating a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e418" id="d4e418"></a>8.2 The <code>pdf:validate-links()</code> Function
+               <h3><a name="d4e464" id="d4e464"></a>8.2 The <code>pdf:validate-links()</code> Function
                </h3>
                <p>This function is used for validating the links contained by a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e426" id="d4e426"></a>8.3 The <code>pdf:validate-bookmarks()</code> Function
+               <h3><a name="d4e472" id="d4e472"></a>8.3 The <code>pdf:validate-bookmarks()</code> Function
                </h3>
                <p>This function is used for validating the bookmarks contained by a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e434" id="d4e434"></a>9 Optimization
+            <h2><a name="d4e480" id="d4e480"></a>9 Optimization
             </h2>
             <p>These functions are designated for optimizing a PDF document.</p>
             <div class="div2">
                
-               <h3><a name="d4e439" id="d4e439"></a>9.1 The <code>pdf:optimize()()</code> Function
+               <h3><a name="d4e485" id="d4e485"></a>9.1 The <code>pdf:optimize()()</code> Function
                </h3>
                <p>This function is used for optimizing a PDF document, by reducing the file size without
                   affecting quality.
@@ -472,7 +505,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e447" id="d4e447"></a>9.2 The <code>pdf:linearize()</code> Function
+               <h3><a name="d4e493" id="d4e493"></a>9.2 The <code>pdf:linearize()</code> Function
                </h3>
                <p>This function is used for linearizing a PDF document, for fast delivery over a network.
                   The first page is already visible, while the rest is downloaded in
@@ -481,74 +514,74 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e455" id="d4e455"></a>9.3 The <code>pdf:compress()</code> Function
+               <h3><a name="d4e501" id="d4e501"></a>9.3 The <code>pdf:compress()</code> Function
                </h3>
                <p>This function is used for compressing a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e463" id="d4e463"></a>9.4 The <code>pdf:uncompress()</code> Function
+               <h3><a name="d4e509" id="d4e509"></a>9.4 The <code>pdf:uncompress()</code> Function
                </h3>
                <p>This function is used for uncompressing a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e471" id="d4e471"></a>10 Security
+            <h2><a name="d4e517" id="d4e517"></a>10 Security
             </h2>
             <p>These functions are for protection of the PDF documents.</p>
             <div class="div2">
                
-               <h3><a name="d4e476" id="d4e476"></a>10.1 The <code>pdf:encrypt()</code> Function
+               <h3><a name="d4e522" id="d4e522"></a>10.1 The <code>pdf:encrypt()</code> Function
                </h3>
                <p>This function is used for encrypting a PDF document by using a digital certificate.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e484" id="d4e484"></a>10.2 The <code>pdf:decrypt()</code> Function
+               <h3><a name="d4e530" id="d4e530"></a>10.2 The <code>pdf:decrypt()</code> Function
                </h3>
                <p>This function is used for decrypting a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e492" id="d4e492"></a>10.3 The <code>pdf:add-signature()</code> Function
+               <h3><a name="d4e538" id="d4e538"></a>10.3 The <code>pdf:add-signature()</code> Function
                </h3>
                <p>This function is used for adding an electronic signature to a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e500" id="d4e500"></a>10.4 The <code>pdf:remove-signature()</code> Function
+               <h3><a name="d4e546" id="d4e546"></a>10.4 The <code>pdf:remove-signature()</code> Function
                </h3>
                <p>This function is used for removing an electronic signature from a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e508" id="d4e508"></a>11 Repairing
+            <h2><a name="d4e554" id="d4e554"></a>11 Repairing
             </h2>
             <p>These functions are for repairing and recovering of PDF documents.</p>
             <div class="div2">
                
-               <h3><a name="d4e513" id="d4e513"></a>11.1 The <code>pdf:repair()</code> Function
+               <h3><a name="d4e559" id="d4e559"></a>11.1 The <code>pdf:repair()</code> Function
                </h3>
                <p>This function is used for repairing a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e522" id="d4e522"></a>12 Scenarios of usage
+            <h2><a name="d4e568" id="d4e568"></a>12 Scenarios of usage
             </h2>
             <p>Some scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
                
-               <h3><a name="d4e527" id="d4e527"></a>12.1 Insert a (blank) page every nth page
+               <h3><a name="d4e573" id="d4e573"></a>12.1 Insert a (blank) page every nth page
                </h3>
                <p></p>
                <div class="exampleInner"><pre>pdf:insert-pages(pdf:create-page(), $pattern)</pre></div>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e533" id="d4e533"></a>12.2 Delete broken links
+               <h3><a name="d4e579" id="d4e579"></a>12.2 Delete broken links
                </h3>
                <p></p>
                <div class="exampleInner"><pre>
@@ -558,7 +591,7 @@ return if () then () else ()
             </div>
             <div class="div2">
                
-               <h3><a name="d4e539" id="d4e539"></a>12.3 Audit Bookmarks and Links
+               <h3><a name="d4e585" id="d4e585"></a>12.3 Audit Bookmarks and Links
                </h3>
                <p>One can validate bookmarks and links, and export those found broken. They can be included
                   in report and/or fixed and imported to document.
@@ -568,7 +601,7 @@ return if () then () else ()
             </div>
             <div class="div2">
                
-               <h3><a name="d4e546" id="d4e546"></a>12.4 Validate PDf document
+               <h3><a name="d4e592" id="d4e592"></a>12.4 Validate PDf document
                </h3>
                <p>One can validate a PDf document using certain validation criteria, as such: dimensions
                   of all/certain pages should be A4 (297 mm * 210 mm),
@@ -584,7 +617,7 @@ return if () then () else ()
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e554" id="d4e554"></a>A References
+            <h2><a name="d4e600" id="d4e600"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -642,7 +675,7 @@ return if () then () else ()
          </div>
          <div class="div1">
             
-            <h2><a name="d4e598" id="d4e598"></a>B Summary of Error Conditions
+            <h2><a name="d4e644" id="d4e644"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errPDF001" id="errPDF001"></a>err:PDF001
