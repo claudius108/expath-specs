@@ -354,7 +354,7 @@ return if () then () else ()
 				</eg>
 			</div2>
 			<div2>
-				<head>Validate PDf document</head>
+				<head>Validate PDF document</head>
 				<p>One can validate a PDf document using certain validation criteria, as such: dimensions of all/certain pages should be A4 (297 mm * 210 mm),
 				there should be no content within a certain rectangular area of a page (left margin where the print shop inserts a bar code, for instance),
 				number of pages should be less than N, PDF version used.</p>
