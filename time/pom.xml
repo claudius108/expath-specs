@@ -19,6 +19,8 @@
 		<java-package-name>time</java-package-name>
 		<libName>Library for EXPath Time Module</libName>
 		<libVersion>0.0.1</libVersion>
+		<libParentDir>/home/claudius/workspaces/repositories/git/kuberam/libs/java</libParentDir>
+		<javaPackageName>ro.kuberam.libs.java.${java-package-name}</javaPackageName>		
 	</properties>
 
 	<build>
