@@ -425,8 +425,7 @@ div.exampleHeader { font-weight: bold;
                   PDF contents.
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:set-text-fields</code>($content as <code class="type">xs:anyAtomicType*</code>,
-$text-fields as <code class="type">map</code>) as <code class="type">xs:anyAtomicType*</code>
+<code class="function">pdf:set-text-fields</code>($content as <code class="type">xs:anyAtomicType*</code>, $text-fields as <code class="type">map*</code>) as <code class="type">xs:anyAtomicType*</code>
 				</pre></div>
                <ul>
                   <li>
@@ -434,7 +433,7 @@ $text-fields as <code class="type">map</code>) as <code class="type">xs:anyAtomi
                      </p>
                   </li>
                   <li>
-                     <p><code>$text-fields</code> are the informations about the text fields. The map containing informations
+                     <p><code>$text-fields</code> are the information sets about the text fields. A map contains informations
                         						about the text fields consists of pairs of fully qualified name and value for
                         each text field.
                      </p>

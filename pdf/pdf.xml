@@ -236,15 +236,14 @@
 				<head>The <code>pdf:set-text-fields()</code> Function</head>
 				<p>Set the text fields of a sequence of PDF contents. Returns the updated sequence of PDF contents.</p>
 				<eg>
-<spec:function>pdf:set-text-fields</spec:function>($content as <spec:type>xs:anyAtomicType*</spec:type>,
-$text-fields as <spec:type>map</spec:type>) as <spec:type>xs:anyAtomicType*</spec:type>
+<spec:function>pdf:set-text-fields</spec:function>($content as <spec:type>xs:anyAtomicType*</spec:type>, $text-fields as <spec:type>map*</spec:type>) as <spec:type>xs:anyAtomicType*</spec:type>
 				</eg>
 				<ulist>
 					<item>
 						<p><code>$content</code> is the PDF content where to set the text fields to.</p>
 					</item>
 					<item>
-						<p><code>$text-fields</code> are the informations about the text fields. The map containing informations
+						<p><code>$text-fields</code> are the information sets about the text fields. A map contains informations
 						about the text fields consists of pairs of fully qualified name and value for each text field.</p>
 					</item>					
 				</ulist>
