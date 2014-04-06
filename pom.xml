@@ -23,8 +23,8 @@
 		<web-sourceforge-specs-url>${sourceforge-user-web-url}/specs/expath</web-sourceforge-specs-url>
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${project.artifactId}</web-sourceforge-spec-url>
 		<includeSpecIds>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image,location,user-agent</includeSpecIds>
-		<libParentDir>/home/claudius/workspaces/repositories/git/expath-libs</libParentDir>
-		<javaPackageName>org.expath.${java-package-name}</javaPackageName>
+		<libParentDir>/home/claudius/workspaces/repositories/git/kuberam/libs/java</libParentDir>
+		<javaPackageName>ro.kuberam.libs.java.${java-package-name}</javaPackageName>		
 	</properties>
 
 	<build>
