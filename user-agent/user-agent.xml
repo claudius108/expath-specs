@@ -86,22 +86,6 @@
          </div2>
       </div1>
       <div1>
-         <head>Events</head>
-         <p>These functions deal with DOM events.</p>
-         <div2>
-            <head>The <code>ua:create-event()</code> function</head>
-            <p>This function creates a custom events.</p>
-            <eg>
-<spec:function>ua:create-event</spec:function>($event-name as <spec:type>xs:QName</spec:type>) as <spec:type>empty()</spec:type>
-</eg>
-            <ulist>
-               <item>
-                  <p><code>$event-name</code> is the name of the custom event.</p>
-               </item>
-            </ulist>            
-         </div2>
-      </div1>      
-      <div1>
          <head>Actions</head>
          <p>These functions define actions to be executed by direct invoking or when a certain event occurs.</p>
          <div2>
@@ -131,6 +115,85 @@
                </item>   
                <item>
                   <p><code>$code-block</code> represents the code to be executed.</p>
+               </item>
+            </ulist>            
+         </div2>
+      </div1>
+      <div1>
+         <head>Mutation observers</head>
+         <p>These functions deal with Mutation observers, as they are defined in <bibref ref="dom-4"/>.</p>
+         <div2>
+            <head>The <code>ua:observer()</code> function</head>
+            <p>This function creates a mutations observer. It has two signatures, one taking as second parameter a list of action handlers separated by spaces,
+            and the other one considering as second parameter a function item.</p>
+            <eg>
+<spec:function>ua:observer</spec:function>($id as <spec:type>xs:ID</spec:type>, $action-handlers as <spec:type>xs:IDREFS</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <eg>
+<spec:function>ua:observer</spec:function>($id as <spec:type>xs:ID</spec:type>, $action as <spec:type>function(*)</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$id</code> is the observer's identificator. If the identificator is not unique within the script, this is an error <bibref ref="errUA01"/>.</p>
+               </item>            
+               <item>
+                  <p><code>$action-handlers</code> is the list of action handlers separated by spaces, to be executed. If the action handler are not unique within the script,
+                  this is an error <bibref ref="errUA01"/>.</p>
+               </item>
+               <item>
+                  <p><code>$action</code> is the function item to be executed.</p>
+               </item>
+            </ulist>            
+         </div2>
+         <div2>
+            <head>The <code>ua:connect-observer()</code> function</head>
+            <p>This function connects an observer to a node, in order to observe the node mutations.</p>
+            <eg>
+<spec:function>ua:connect-observer</spec:function>($observer-handler as <spec:type>xs:IDREF</spec:type>, $node-selector as <spec:type>xs:string</spec:type>,
+	$options as <spec:type>map(xs:string, xs:string)</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$observer-handler</code> is the observer's handler. If the identificator does not exist, this is an error <bibref ref="errUA03"/>.</p>
+               </item>            
+               <item>
+                  <p><code>$node-selector</code> is the selector used to select the node to be observed. The selector can be an XPath or a CSS selector. If the
+                  selector selects multiple nodes, only the first one in document order will be observed. If the selector selects no nodes, this is an error <bibref ref="errUA04"/>.</p>
+                  <note>Details for differenciating between an XPath or CSS selector are to be given.</note>
+               </item>
+               <item>
+                  <p><code>$options</code> are the options describing the properties and values for observing the selected node. See <bibref ref="dom-4"/> for more
+                  details.</p>
+               </item>
+            </ulist>            
+         </div2>
+         <div2>
+            <head>The <code>ua:disconnect-observer()</code> function</head>
+            <p>This function disconnects an observer from a node. The observer will stop observing the node until it will be connected again to the node.</p>
+            <eg>
+<spec:function>ua:disconnect-observer</spec:function>($observer-handler as <spec:type>xs:IDREF</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$observer-handler</code> is the observer's handler. If the identificator does not exist, this is an error <bibref ref="errUA03"/>.</p>
+               </item>
+            </ulist>            
+         </div2>         
+         
+         
+      </div1>
+      <div1>
+         <head>Events</head>
+         <p>These functions deal with DOM events.</p>
+         <div2>
+            <head>The <code>ua:create-event()</code> function</head>
+            <p>This function creates a custom events.</p>
+            <eg>
+<spec:function>ua:create-event</spec:function>($event-name as <spec:type>xs:QName</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$event-name</code> is the name of the custom event.</p>
                </item>
             </ulist>            
          </div2>
@@ -170,7 +233,10 @@
 	               Michael Kay, editor. W3C Working Draft, 13 December 2011.</bibl>
 	            <bibl id="xpath-datamodel-30" key="XQuery and XPath Data Model 3.0">
 	               <loc href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</loc>.
-               	   Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>                
+               	   Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
+	            <bibl id="dom-4" key="W3C DOM4">
+	               <loc href="http://w3.org/TR/dom/">W3C DOM4</loc>.
+               	   Anne van Kesteren, Aryeh Gregor, Ms2ger, Alex Russell, Robin Berjon, editors. W3C Last Call Working Draft, 04 February 2014.</bibl>               	                   
          </blist>
       </div1>
       <div1>
@@ -178,6 +244,8 @@
          <blist id="summary-of-error-conditions">
          	<bibl id="errUA01" key="err:UA01">The identificator $id is not unique.</bibl>
          	<bibl id="errUA02" key="err:UA02">The event $event-name does not exist.</bibl>
+         	<bibl id="errUA03" key="err:UA03">The referred identificator does not exist.</bibl>
+         	<bibl id="errUA04" key="err:UA04">No node was selected.</bibl>         	
          </blist>
       </div1>
    </back>
