@@ -244,7 +244,7 @@
 					</item>
 					<item>
 						<p><code>$text-fields</code> are the information sets about the text fields. A map contains informations
-						about the text fields consists of pairs of fully qualified name and value for each text field.</p>
+						about the text fields consists of pairs of fully qualified name and value for each text field to be set.</p>
 					</item>					
 				</ulist>
 			</div2>			
