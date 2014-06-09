@@ -136,7 +136,7 @@ div.exampleHeader { font-weight: bold;
             5.2 <a href="#d4e392">The pdf:set-text-fields() Function</a><br />
             6 <a href="#d4e425">Stamping, commenting, annotating, and marking</a><br />
             6.1 <a href="#d4e430">The pdf:stamp() Function</a><br />
-            7 <a href="#d4e438">Content rasterization</a><br />
+            7 <a href="#d4e438">Contents rasterization</a><br />
             7.1 <a href="#d4e443">The pdf:to-image() Function</a><br />
             8 <a href="#d4e451">Validation</a><br />
             8.1 <a href="#d4e456">The pdf:validate() Function</a><br />
@@ -211,7 +211,7 @@ div.exampleHeader { font-weight: bold;
                </h3>
                <p>This function is used for creating a PDF document.</p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:create</code>($content as <code class="type">xs:anyAtomicType*</code>) as <code class="type">xs:anyAtomicType</code>
+<code class="function">pdf:create</code>($contents as <code class="type">xs:anyAtomicType*</code>) as <code class="type">xs:anyAtomicType</code>
 				</pre></div>
             </div>
             <div class="div2">
@@ -220,7 +220,7 @@ div.exampleHeader { font-weight: bold;
                </h3>
                <p>This function is used for creating a PDF page.</p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:create-page</code>($content as <code class="type">xs:anyAtomicType?</code>) as <code class="type">xs:anyAtomicType</code>
+<code class="function">pdf:create-page</code>($contents as <code class="type">xs:anyAtomicType?</code>) as <code class="type">xs:anyAtomicType</code>
 				</pre></div>
             </div>
          </div>
@@ -228,7 +228,7 @@ div.exampleHeader { font-weight: bold;
             
             <h2><a name="d4e151" id="d4e151"></a>3 Content
             </h2>
-            <p>These functions are for manipulation of content of the PDF documents.</p>
+            <p>These functions are for manipulation of contents of the PDF documents.</p>
             <div class="div2">
                
                <h3><a name="d4e156" id="d4e156"></a>3.1 The <code>pdf:merge()</code> Function
@@ -248,7 +248,7 @@ div.exampleHeader { font-weight: bold;
                <p>This function is used for splitting a PDF document into a number of sections. It outputs
                   a sequence of pages (or documents? - TBD).
                </p>
-               <p>There can be many options for splitting: content splitting, splitting on bookmarks,
+               <p>There can be many options for splitting: contents splitting, splitting on bookmarks,
                   extract until text.
                </p>
                <div class="exampleInner"><pre>
@@ -402,17 +402,17 @@ div.exampleHeader { font-weight: bold;
                </h3>
                <p>Get all the text fields from a sequence of PDF contents. Returns a sequence of maps
                   containing information about the text fields for each
-                  				content inputted.
+                  				contents inputted.
                </p>
                <p>The map containing informations about the text fields consists of pairs of fully qualified
                   name and value for each text field.
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:get-text-fields</code>($content as <code class="type">xs:anyAtomicType*</code>) as <code class="type">map*</code>
+<code class="function">pdf:get-text-fields</code>($contents as <code class="type">xs:anyAtomicType*</code>) as <code class="type">map*</code>
 				</pre></div>
                <ul>
                   <li>
-                     <p><code>$content</code> is the PDF content where to get the text fields from.
+                     <p><code>$contents</code> is the PDF contents where to get the text fields from.
                      </p>
                   </li>
                </ul>
@@ -425,11 +425,11 @@ div.exampleHeader { font-weight: bold;
                   PDF contents.
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:set-text-fields</code>($content as <code class="type">xs:anyAtomicType*</code>, $text-fields as <code class="type">map*</code>) as <code class="type">xs:anyAtomicType*</code>
+<code class="function">pdf:set-text-fields</code>($contents as <code class="type">xs:anyAtomicType*</code>, $text-fields as <code class="type">map*</code>) as <code class="type">xs:anyAtomicType*</code>
 				</pre></div>
                <ul>
                   <li>
-                     <p><code>$content</code> is the PDF content where to set the text fields to.
+                     <p><code>$contents</code> is the PDF contents where to set the text fields to.
                      </p>
                   </li>
                   <li>
@@ -455,7 +455,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e438" id="d4e438"></a>7 Content rasterization
+            <h2><a name="d4e438" id="d4e438"></a>7 Contents rasterization
             </h2>
             <p>These functions are for rendering the PDF documents.</p>
             <div class="div2">
@@ -604,8 +604,8 @@ return if () then () else ()
                </h3>
                <p>One can validate a PDf document using certain validation criteria, as such: dimensions
                   of all/certain pages should be A4 (297 mm * 210 mm),
-                  				there should be no content within a certain rectangular area of a page (left margin
-                  where the print shop inserts a bar code, for instance),
+                  				there should be no contents within a certain rectangular area of a page (left
+                  margin where the print shop inserts a bar code, for instance),
                   				number of pages should be less than N, PDF version used.
                </p>
                <div class="exampleInner"><pre>

@@ -91,20 +91,20 @@
 				<head>The <code>pdf:create()</code> Function</head>
 				<p>This function is used for creating a PDF document.</p>
 				<eg>
-<spec:function>pdf:create</spec:function>($content as <spec:type>xs:anyAtomicType*</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+<spec:function>pdf:create</spec:function>($contents as <spec:type>xs:anyAtomicType*</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
 				</eg>
 			</div2>
 			<div2>
 				<head>The <code>pdf:create-page()</code> Function</head>
 				<p>This function is used for creating a PDF page.</p>
 				<eg>
-<spec:function>pdf:create-page</spec:function>($content as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+<spec:function>pdf:create-page</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
 				</eg>
 			</div2>
         </div1>        
         <div1>
             <head>Content</head>
-		    <p>These functions are for manipulation of content of the PDF documents.</p>
+		    <p>These functions are for manipulation of contents of the PDF documents.</p>
 			<div2>
 				<head>The <code>pdf:merge()</code> Function</head>
 				<p>This function is used for merging multiple PDF documents or subsets of them (groups of pages).</p>
@@ -116,7 +116,7 @@
 			<div2>
 				<head>The <code>pdf:split()</code> Function</head>
 				<p>This function is used for splitting a PDF document into a number of sections. It outputs a sequence of pages (or documents? - TBD).</p>
-				<p>There can be many options for splitting: content splitting, splitting on bookmarks, extract until text.</p>
+				<p>There can be many options for splitting: contents splitting, splitting on bookmarks, extract until text.</p>
 				<eg>
 <spec:function>pdf:split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>,
 	$options as <spec:type>element(pdf:options)</spec:type>) as <spec:type>xs:base64Binary+</spec:type>
@@ -221,14 +221,14 @@
 			<div2>
 				<head>The <code>pdf:get-text-fields()</code> Function</head>
 				<p>Get all the text fields from a sequence of PDF contents. Returns a sequence of maps containing information about the text fields for each
-				content inputted.</p>
+				contents inputted.</p>
 				<p>The map containing informations about the text fields consists of pairs of fully qualified name and value for each text field.</p>
 				<eg>
-<spec:function>pdf:get-text-fields</spec:function>($content as <spec:type>xs:anyAtomicType*</spec:type>) as <spec:type>map*</spec:type>
+<spec:function>pdf:get-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType*</spec:type>) as <spec:type>map*</spec:type>
 				</eg>
 				<ulist>
 					<item>
-						<p><code>$content</code> is the PDF content where to get the text fields from.</p>
+						<p><code>$contents</code> is the PDF contents where to get the text fields from.</p>
 					</item>
 				</ulist>
 			</div2>
@@ -236,11 +236,11 @@
 				<head>The <code>pdf:set-text-fields()</code> Function</head>
 				<p>Set the text fields of a sequence of PDF contents. Returns the updated sequence of PDF contents.</p>
 				<eg>
-<spec:function>pdf:set-text-fields</spec:function>($content as <spec:type>xs:anyAtomicType*</spec:type>, $text-fields as <spec:type>map*</spec:type>) as <spec:type>xs:anyAtomicType*</spec:type>
+<spec:function>pdf:set-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType*</spec:type>, $text-fields as <spec:type>map*</spec:type>) as <spec:type>xs:anyAtomicType*</spec:type>
 				</eg>
 				<ulist>
 					<item>
-						<p><code>$content</code> is the PDF content where to set the text fields to.</p>
+						<p><code>$contents</code> is the PDF contents where to set the text fields to.</p>
 					</item>
 					<item>
 						<p><code>$text-fields</code> are the information sets about the text fields. A map contains informations
@@ -258,7 +258,7 @@
 			</div2>
         </div1>
         <div1>
-            <head>Content rasterization</head>
+            <head>Contents rasterization</head>
 		    <p>These functions are for rendering the PDF documents.</p>
 			<div2>
 				<head>The <code>pdf:to-image()</code> Function</head>
@@ -355,7 +355,7 @@ return if () then () else ()
 			<div2>
 				<head>Validate PDF document</head>
 				<p>One can validate a PDf document using certain validation criteria, as such: dimensions of all/certain pages should be A4 (297 mm * 210 mm),
-				there should be no content within a certain rectangular area of a page (left margin where the print shop inserts a bar code, for instance),
+				there should be no contents within a certain rectangular area of a page (left margin where the print shop inserts a bar code, for instance),
 				number of pages should be less than N, PDF version used.</p>
 				<eg>
 				</eg>
