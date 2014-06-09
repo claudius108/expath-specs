@@ -220,11 +220,9 @@
 		    <p>These functions are designated for gathering information about and interacting with form controls of a PDF document.</p>
 			<div2>
 				<head>The <code>pdf:get-text-fields()</code> Function</head>
-				<p>Get all the text fields from a sequence of PDF contents. Returns a sequence of maps containing information about the text fields for each
-				contents inputted.</p>
-				<p>The map containing informations about the text fields consists of pairs of fully qualified name and value for each text field.</p>
+				<p>Get all the text fields from a PDF contents. Returns a map containing pairs of fully qualified name and value for each text field.</p>
 				<eg>
-<spec:function>pdf:get-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType*</spec:type>) as <spec:type>map*</spec:type>
+<spec:function>pdf:get-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>map?</spec:type>
 				</eg>
 				<ulist>
 					<item>
@@ -234,17 +232,17 @@
 			</div2>
 			<div2>
 				<head>The <code>pdf:set-text-fields()</code> Function</head>
-				<p>Set the text fields of a sequence of PDF contents. Returns the updated sequence of PDF contents.</p>
+				<p>Set the text fields of a PDF contents. Returns the updated PDF contents.</p>
 				<eg>
-<spec:function>pdf:set-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType*</spec:type>, $text-fields as <spec:type>map*</spec:type>) as <spec:type>xs:anyAtomicType*</spec:type>
+<spec:function>pdf:set-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $text-fields as <spec:type>map?</spec:type>) as <spec:type>xs:anyAtomicType?</spec:type>
 				</eg>
 				<ulist>
 					<item>
 						<p><code>$contents</code> is the PDF contents where to set the text fields to.</p>
 					</item>
 					<item>
-						<p><code>$text-fields</code> are the information sets about the text fields. A map contains informations
-						about the text fields consists of pairs of fully qualified name and value for each text field to be set.</p>
+						<p><code>$text-fields</code> are the information sets about the text fields, namely a map containing pairs of fully qualified name
+						and value for each text field to be set.</p>
 					</item>					
 				</ulist>
 			</div2>			
