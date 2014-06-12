@@ -115,11 +115,11 @@
 			</div2>
 			<div2>
 				<head>The <code>pdf:split()</code> Function</head>
-				<p>This function is used for splitting a PDF document into a number of sections. It outputs a sequence of pages (or documents? - TBD).</p>
-				<p>There can be many options for splitting: contents splitting, splitting on bookmarks, extract until text.</p>
+				<p>This function is used for splitting a PDF document into a number of sections. It outputs a sequence of sections.</p>
+				<p>There can be many options for splitting: page splitting, bookmarks splitting, extract until text.</p>
 				<eg>
-<spec:function>pdf:split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>,
-	$options as <spec:type>element(pdf:options)</spec:type>) as <spec:type>xs:base64Binary+</spec:type>
+<spec:function>pdf:split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>?,
+	$options as <spec:type>element(pdf:options)</spec:type>) as <spec:type>xs:base64Binary*</spec:type>
 				</eg>
 				<ulist>
 					<item>
@@ -133,8 +133,7 @@
 					<head>The <code>pdf:options</code> element</head>
 					<eg>
 	&lt;pdf:options&gt;
-		(pdf:split-delimiter,
-		pdf:output-filename?)
+		(pdf:split-delimiter)
 	&lt;/pdf:options&gt;
 					</eg>			
 					<ulist>
@@ -142,9 +141,6 @@
 							<p>the <code>pdf:split-delimiter</code> child element
 							specifies the delimiter used for splitting the input PDF
 							document.</p>
-						</item>					
-						<item>
-							<p>the <code>pdf:output-filename</code> child element is the name of the outputted PDF file.</p>
 						</item>
 					</ulist>
 				</div3>	
@@ -164,7 +160,22 @@
 			</div2>
 			<div2>
 				<head>The <code>pdf:rotate-pages()</code> Function</head>
-				<p>This function is used for rotating pages of a PDF document.</p>
+				<p>This function is used for rotating indicated pages of a PDF document. The rest of the pages remain unchanged and
+				the page order is maintained. It returns the modified PDF document.</p>
+				<eg>
+<spec:function>pdf:rotate-pages</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $page-ranges-and-directions as <spec:type>map(xs:string, xs:string)?</spec:type>) as <spec:type>xs:anyAtomicType?</spec:type>
+				</eg>
+				<ulist>
+					<item>
+						<p><code>$contents</code> is the PDF contents for which certain pages has to be rotated.</p>
+					</item>
+					<item>
+						<p><code>$page-ranges-and-directions</code> is the specification of page ranges to be rotated and in which directions. This argument is a map, having as keys
+						the page ranges and as values the corresponding directions. The syntax for page range is as follows: for single page, use the page number; for a range of pages
+						use a hyphen between the start page and the end page. The legal values for rotation direction are: "right 90" (clockwise with 90 degress), "180" (rotation
+						with 180 degress), and "left 90" (counterclockwise with 90 degress). For an example of usage, see scenario <specref ref="rotate-pages-scenario" />.</p>
+					</item>
+				</ulist>				
 			</div2>
 			<div2>
 				<head>The <code>pdf:revert-pages()</code> Function</head>
@@ -222,7 +233,7 @@
 				<head>The <code>pdf:get-text-fields()</code> Function</head>
 				<p>Get all the text fields from a PDF contents. Returns a map containing pairs of fully qualified name and value for each text field.</p>
 				<eg>
-<spec:function>pdf:get-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>map?</spec:type>
+<spec:function>pdf:get-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>map(xs:string, xs:string)?</spec:type>
 				</eg>
 				<ulist>
 					<item>
@@ -234,7 +245,7 @@
 				<head>The <code>pdf:set-text-fields()</code> Function</head>
 				<p>Set the text fields of a PDF contents. Returns the updated PDF contents.</p>
 				<eg>
-<spec:function>pdf:set-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $text-fields as <spec:type>map?</spec:type>) as <spec:type>xs:anyAtomicType?</spec:type>
+<spec:function>pdf:set-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $text-fields as <spec:type>map(xs:string, xs:string)?</spec:type>) as <spec:type>xs:anyAtomicType?</spec:type>
 				</eg>
 				<ulist>
 					<item>
@@ -260,7 +271,21 @@
 		    <p>These functions are for rendering the PDF documents.</p>
 			<div2>
 				<head>The <code>pdf:to-image()</code> Function</head>
-				<p>This function is used for converting a PDF document to images.</p>
+				<p>This function is used for converting pages of a PDF document to images. Returns a sequence of the generated images.</p>
+				<eg>
+<spec:function>pdf:to-image</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $format as <spec:type>xs:string</spec:type>, $scaling as <spec:type>xs:string</spec:type>) as <spec:type>xs:anyAtomicType*</spec:type>
+				</eg>
+				<ulist>
+					<item>
+						<p><code>$contents</code> is the PDF contents whose pages are to be converted to images.</p>
+					</item>
+					<item>
+						<p><code>$format</code> is the format of the outputted images.</p>
+					</item>
+					<item>
+						<p><code>$scaling</code> is the scaling of the outputted images.</p>
+					</item>					
+				</ulist>				
 			</div2>
         </div1>
         <div1>
@@ -358,6 +383,17 @@ return if () then () else ()
 				<eg>
 				</eg>
 			</div2>
+			<div2 id="rotate-pages-scenario">
+				<head>Rotate pages</head>
+				<p></p>
+				<eg>
+pdf:rotate($pdf-document, map {
+	"3" := "right 90",
+	"5 - 7" := "180",
+	"13 - 17" := "left 90"
+})
+				</eg>
+			</div2>			
         </div1>
     </body>
     <back>
