@@ -85,6 +85,19 @@
             </div2>
         </div1>
         <div1>
+            <head>Generalities</head>
+		    <p>This section contains general information related to the functions detailed below.</p>
+			<div2 id="page-ranges-explanation">
+				<head>Page ranges</head>
+				<p>The syntax for page ranges is as follows: for single page, use the page number; for a range of pages use a hyphen between the start page and the end page.</p>
+				<eg>Single page: 17.
+				</eg>
+				<eg>Page range: 17 - 22.
+				</eg>				
+			</div2>
+        </div1>
+                
+        <div1>
             <head>Creation</head>
 		    <p>These functions are for creation of PDF documents.</p>
 			<div2>
@@ -171,9 +184,9 @@
 					</item>
 					<item>
 						<p><code>$page-ranges-and-directions</code> is the specification of page ranges to be rotated and in which directions. This argument is a map, having as keys
-						the page ranges and as values the corresponding directions. The syntax for page range is as follows: for single page, use the page number; for a range of pages
-						use a hyphen between the start page and the end page. The legal values for rotation direction are: "right 90" (clockwise with 90 degress), "180" (rotation
-						with 180 degress), and "left 90" (counterclockwise with 90 degress). For an example of usage, see scenario <specref ref="rotate-pages-scenario" />.</p>
+						the page ranges and as values the corresponding directions. The syntax for page range can be found at  <specref ref="page-ranges-explanation" />. The legal
+						values for rotation direction are: "right 90" (clockwise with 90 degress), "180" (rotation with 180 degress), and "left 90" (counterclockwise with 90 degress).
+						For an example of usage, see scenario <specref ref="rotate-pages-scenario" />.</p>
 					</item>
 				</ulist>				
 			</div2>
