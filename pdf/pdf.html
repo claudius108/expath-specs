@@ -118,7 +118,7 @@ div.exampleHeader { font-weight: bold;
             3.3 <a href="#d4e228">The pdf:extract-pages() Function</a><br />
             3.4 <a href="#d4e236">The pdf:insert-pages() Function</a><br />
             3.5 <a href="#d4e244">The pdf:delete-pages() Function</a><br />
-            3.6 <a href="#d4e252">The pdf:rotate-pages() Function</a><br />
+            3.6 <a href="#d4e252">The pdf:rotate() Function</a><br />
             3.7 <a href="#d4e287">The pdf:revert-pages() Function</a><br />
             4 <a href="#d4e295">Links and bookmarks</a><br />
             4.1 <a href="#d4e300">The pdf:create-bookmark() Function</a><br />
@@ -308,14 +308,14 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e252" id="d4e252"></a>3.6 The <code>pdf:rotate-pages()</code> Function
+               <h3><a name="d4e252" id="d4e252"></a>3.6 The <code>pdf:rotate()</code> Function
                </h3>
                <p>This function is used for rotating indicated pages of a PDF document. The rest of
                   the pages remain unchanged and
                   				the page order is maintained. It returns the modified PDF document.
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:rotate-pages</code>($contents as <code class="type">xs:anyAtomicType?</code>, $page-ranges-and-directions as <code class="type">map(xs:string, xs:string)?</code>) as <code class="type">xs:anyAtomicType?</code>
+<code class="function">pdf:rotate</code>($contents as <code class="type">xs:anyAtomicType?</code>, $page-ranges-and-directions as <code class="type">map(xs:string, xs:string)?</code>) as <code class="type">xs:anyAtomicType?</code>
 				</pre></div>
                <ul>
                   <li>

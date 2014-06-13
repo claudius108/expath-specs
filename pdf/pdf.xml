@@ -159,11 +159,11 @@
 				<p>This function is used for deleting pages from a PDF document.</p>
 			</div2>
 			<div2>
-				<head>The <code>pdf:rotate-pages()</code> Function</head>
+				<head>The <code>pdf:rotate()</code> Function</head>
 				<p>This function is used for rotating indicated pages of a PDF document. The rest of the pages remain unchanged and
 				the page order is maintained. It returns the modified PDF document.</p>
 				<eg>
-<spec:function>pdf:rotate-pages</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $page-ranges-and-directions as <spec:type>map(xs:string, xs:string)?</spec:type>) as <spec:type>xs:anyAtomicType?</spec:type>
+<spec:function>pdf:rotate</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $page-ranges-and-directions as <spec:type>map(xs:string, xs:string)?</spec:type>) as <spec:type>xs:anyAtomicType?</spec:type>
 				</eg>
 				<ulist>
 					<item>
