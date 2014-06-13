@@ -212,7 +212,7 @@ div.exampleHeader { font-weight: bold;
                </h3>
                <p>This function is used for creating a PDF document.</p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:create</code>($contents as <code class="type">xs:anyAtomicType*</code>) as <code class="type">xs:anyAtomicType</code>
+<code class="function">pdf:create</code>($contents as <code class="type">xs:base64binary*</code>) as <code class="type">xs:base64binary</code>
 				</pre></div>
             </div>
             <div class="div2">
@@ -221,7 +221,7 @@ div.exampleHeader { font-weight: bold;
                </h3>
                <p>This function is used for creating a PDF page.</p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:create-page</code>($contents as <code class="type">xs:anyAtomicType?</code>) as <code class="type">xs:anyAtomicType</code>
+<code class="function">pdf:create-page</code>($contents as <code class="type">xs:base64binary?</code>) as <code class="type">xs:base64binary</code>
 				</pre></div>
             </div>
          </div>
@@ -238,8 +238,8 @@ div.exampleHeader { font-weight: bold;
                   of pages).
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:merge</code>($document as <code class="type">xs:anyAtomicType</code>,
-	$new-resource-metadata as <code class="type">element(pdf:resource-metadata</code>) as <code class="type">xs:anyAtomicType</code>
+<code class="function">pdf:merge</code>($document as <code class="type">xs:base64binary</code>,
+	$new-resource-metadata as <code class="type">element(pdf:resource-metadata</code>) as <code class="type">xs:base64binary</code>
 				</pre></div>
             </div>
             <div class="div2">
@@ -315,7 +315,7 @@ div.exampleHeader { font-weight: bold;
                   				the page order is maintained. It returns the modified PDF document.
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:rotate</code>($contents as <code class="type">xs:anyAtomicType?</code>, $page-ranges-and-directions as <code class="type">map(xs:string, xs:string)?</code>) as <code class="type">xs:anyAtomicType?</code>
+<code class="function">pdf:rotate</code>($contents as <code class="type">xs:base64binary?</code>, $page-ranges-and-directions as <code class="type">map(xs:string, xs:string)?</code>) as <code class="type">xs:base64binary?</code>
 				</pre></div>
                <ul>
                   <li>
@@ -423,7 +423,7 @@ div.exampleHeader { font-weight: bold;
                   qualified name and value for each text field.
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:get-text-fields</code>($contents as <code class="type">xs:anyAtomicType?</code>) as <code class="type">map(xs:string, xs:string)?</code>
+<code class="function">pdf:get-text-fields</code>($contents as <code class="type">xs:base64binary?</code>) as <code class="type">map(xs:string, xs:string)?</code>
 				</pre></div>
                <ul>
                   <li>
@@ -438,7 +438,7 @@ div.exampleHeader { font-weight: bold;
                </h3>
                <p>Set the text fields of a PDF contents. Returns the updated PDF contents.</p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:set-text-fields</code>($contents as <code class="type">xs:anyAtomicType?</code>, $text-fields as <code class="type">map(xs:string, xs:string)?</code>) as <code class="type">xs:anyAtomicType?</code>
+<code class="function">pdf:set-text-fields</code>($contents as <code class="type">xs:base64binary?</code>, $text-fields as <code class="type">map(xs:string, xs:string)?</code>) as <code class="type">xs:base64binary?</code>
 				</pre></div>
                <ul>
                   <li>
@@ -479,7 +479,7 @@ div.exampleHeader { font-weight: bold;
                   sequence of the generated images.
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:to-image</code>($contents as <code class="type">xs:anyAtomicType?</code>, $format as <code class="type">xs:string</code>, $scaling as <code class="type">xs:string</code>) as <code class="type">xs:anyAtomicType*</code>
+<code class="function">pdf:to-image</code>($contents as <code class="type">xs:base64binary?</code>, $format as <code class="type">xs:string</code>, $scaling as <code class="type">xs:string</code>) as <code class="type">xs:base64binary*</code>
 				</pre></div>
                <ul>
                   <li>

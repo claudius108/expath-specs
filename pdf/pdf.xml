@@ -91,14 +91,14 @@
 				<head>The <code>pdf:create()</code> Function</head>
 				<p>This function is used for creating a PDF document.</p>
 				<eg>
-<spec:function>pdf:create</spec:function>($contents as <spec:type>xs:anyAtomicType*</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+<spec:function>pdf:create</spec:function>($contents as <spec:type>xs:base64binary*</spec:type>) as <spec:type>xs:base64binary</spec:type>
 				</eg>
 			</div2>
 			<div2>
 				<head>The <code>pdf:create-page()</code> Function</head>
 				<p>This function is used for creating a PDF page.</p>
 				<eg>
-<spec:function>pdf:create-page</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+<spec:function>pdf:create-page</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>) as <spec:type>xs:base64binary</spec:type>
 				</eg>
 			</div2>
         </div1>        
@@ -109,8 +109,8 @@
 				<head>The <code>pdf:merge()</code> Function</head>
 				<p>This function is used for merging multiple PDF documents or subsets of them (groups of pages).</p>
 				<eg>
-<spec:function>pdf:merge</spec:function>($document as <spec:type>xs:anyAtomicType</spec:type>,
-	$new-resource-metadata as <spec:type>element(pdf:resource-metadata</spec:type>) as <spec:type>xs:anyAtomicType</spec:type>
+<spec:function>pdf:merge</spec:function>($document as <spec:type>xs:base64binary</spec:type>,
+	$new-resource-metadata as <spec:type>element(pdf:resource-metadata</spec:type>) as <spec:type>xs:base64binary</spec:type>
 				</eg>		
 			</div2>
 			<div2>
@@ -163,7 +163,7 @@
 				<p>This function is used for rotating indicated pages of a PDF document. The rest of the pages remain unchanged and
 				the page order is maintained. It returns the modified PDF document.</p>
 				<eg>
-<spec:function>pdf:rotate</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $page-ranges-and-directions as <spec:type>map(xs:string, xs:string)?</spec:type>) as <spec:type>xs:anyAtomicType?</spec:type>
+<spec:function>pdf:rotate</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>, $page-ranges-and-directions as <spec:type>map(xs:string, xs:string)?</spec:type>) as <spec:type>xs:base64binary?</spec:type>
 				</eg>
 				<ulist>
 					<item>
@@ -233,7 +233,7 @@
 				<head>The <code>pdf:get-text-fields()</code> Function</head>
 				<p>Get all the text fields from a PDF contents. Returns a map containing pairs of fully qualified name and value for each text field.</p>
 				<eg>
-<spec:function>pdf:get-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>map(xs:string, xs:string)?</spec:type>
+<spec:function>pdf:get-text-fields</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>) as <spec:type>map(xs:string, xs:string)?</spec:type>
 				</eg>
 				<ulist>
 					<item>
@@ -245,7 +245,7 @@
 				<head>The <code>pdf:set-text-fields()</code> Function</head>
 				<p>Set the text fields of a PDF contents. Returns the updated PDF contents.</p>
 				<eg>
-<spec:function>pdf:set-text-fields</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $text-fields as <spec:type>map(xs:string, xs:string)?</spec:type>) as <spec:type>xs:anyAtomicType?</spec:type>
+<spec:function>pdf:set-text-fields</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>, $text-fields as <spec:type>map(xs:string, xs:string)?</spec:type>) as <spec:type>xs:base64binary?</spec:type>
 				</eg>
 				<ulist>
 					<item>
@@ -273,7 +273,7 @@
 				<head>The <code>pdf:to-image()</code> Function</head>
 				<p>This function is used for converting pages of a PDF document to images. Returns a sequence of the generated images.</p>
 				<eg>
-<spec:function>pdf:to-image</spec:function>($contents as <spec:type>xs:anyAtomicType?</spec:type>, $format as <spec:type>xs:string</spec:type>, $scaling as <spec:type>xs:string</spec:type>) as <spec:type>xs:anyAtomicType*</spec:type>
+<spec:function>pdf:to-image</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>, $format as <spec:type>xs:string</spec:type>, $scaling as <spec:type>xs:string</spec:type>) as <spec:type>xs:base64binary*</spec:type>
 				</eg>
 				<ulist>
 					<item>
