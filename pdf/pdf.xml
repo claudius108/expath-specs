@@ -178,8 +178,16 @@
 				</ulist>				
 			</div2>
 			<div2>
-				<head>The <code>pdf:revert()</code> Function</head>
-				<p>This function is used for reverting pages of a PDF document.</p>
+				<head>The <code>pdf:reverse()</code> Function</head>
+				<p>This function is used for reversing pages of a PDF document. It returns the PDF document with its pages in reverse order.</p>
+				<eg>
+<spec:function>pdf:reverse</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>) as <spec:type>xs:base64binary?</spec:type>
+				</eg>
+				<ulist>
+					<item>
+						<p><code>$contents</code> is the PDF contents for which to reverse page order.</p>
+					</item>
+				</ulist>
 			</div2>	
         </div1>
         <div1>
