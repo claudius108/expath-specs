@@ -289,6 +289,19 @@
 			</div2>
         </div1>
         <div1>
+            <head>Attachments</head>
+		    <p>These functions are for manipulation of PDF file attachments.</p>
+			<div2>
+				<head>The <code>pdf:import-attachment()</code> Function</head>
+				<p>This function is used for importing an attachment into a PDF document.</p>
+			</div2>
+			<div2>
+				<head>The <code>pdf:export-attachment()</code> Function</head>
+				<p>This function is used for exporting an attachment into a PDF document.</p>
+			</div2>			
+        </div1>        
+        
+        <div1>
             <head>Validation</head>
 		    <p>These functions are designated for validating a PDF document.</p>
 			<div2>
