@@ -116,7 +116,7 @@
 			</div2>
         </div1>        
         <div1>
-            <head>Content</head>
+            <head>Content manipulation</head>
 		    <p>These functions are for manipulation of contents of the PDF documents.</p>
 			<div2>
 				<head>The <code>pdf:merge()</code> Function</head>
@@ -128,7 +128,7 @@
 			</div2>
 			<div2>
 				<head>The <code>pdf:split()</code> Function</head>
-				<p>This function is used for splitting a PDF document into a number of sections. It outputs a sequence of sections.</p>
+				<p>This function is used for splitting a PDF document into a number of sections. It returns a sequence of sections.</p>
 				<p>There can be many options for splitting: page splitting, bookmarks splitting, extract until text.</p>
 				<eg>
 <spec:function>pdf:split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>?,
@@ -169,7 +169,19 @@
 			</div2>
 			<div2>
 				<head>The <code>pdf:delete()</code> Function</head>
-				<p>This function is used for deleting pages from a PDF document.</p>
+				<p>This function is used for deleting pages from a PDF document. It returns the PDF document having deleted the respective pages.</p>
+				<eg>
+<spec:function>pdf:delete</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>, $page-ranges as <spec:type>xs:string*</spec:type>) as <spec:type>xs:base64binary?</spec:type>
+				</eg>
+				<ulist>
+					<item>
+						<p><code>$contents</code> is the PDF contents from which certain pages has to be deleted.</p>
+					</item>
+					<item>
+						<p><code>$page-ranges</code> is the specification of page ranges to be deleted. The syntax for page range can be found at
+						<specref ref="page-ranges-explanation" />. For an example of usage, see scenario <specref ref="delete-pages-scenario" />.</p>
+					</item>
+				</ulist>
 			</div2>
 			<div2>
 				<head>The <code>pdf:rotate()</code> Function</head>
@@ -184,7 +196,7 @@
 					</item>
 					<item>
 						<p><code>$page-ranges-and-directions</code> is the specification of page ranges to be rotated and in which directions. This argument is a map, having as keys
-						the page ranges and as values the corresponding directions. The syntax for page range can be found at  <specref ref="page-ranges-explanation" />. The legal
+						the page ranges and as values the corresponding directions. The syntax for page range can be found at <specref ref="page-ranges-explanation" />. The legal
 						values for rotation direction are: "right 90" (clockwise with 90 degress), "180" (rotation with 180 degress), and "left 90" (counterclockwise with 90 degress).
 						For an example of usage, see scenario <specref ref="rotate-pages-scenario" />.</p>
 					</item>
@@ -417,6 +429,13 @@ return if () then () else ()
 				<eg>
 				</eg>
 			</div2>
+			<div2 id="delete-pages-scenario">
+				<head>Delete pages</head>
+				<p></p>
+				<eg>
+pdf:delete($pdf-document, ("3", "5 - 7", "13 - 17"))
+				</eg>
+			</div2>				
 			<div2 id="rotate-pages-scenario">
 				<head>Rotate pages</head>
 				<p></p>
