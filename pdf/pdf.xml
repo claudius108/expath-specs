@@ -96,7 +96,6 @@
 				</eg>				
 			</div2>
         </div1>
-                
         <div1>
             <head>Creation</head>
 		    <p>These functions are for creation of PDF documents.</p>
@@ -114,7 +113,15 @@
 <spec:function>pdf:create-page</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>) as <spec:type>xs:base64binary</spec:type>
 				</eg>
 			</div2>
-        </div1>        
+        </div1>
+        <div1>
+            <head>Metadata</head>
+		    <p>These functions are for getting metadata about a PDF document and its contents.</p>
+        </div1>         
+        <div1>
+            <head>Content navigation</head>
+		    <p>These functions are for navigation among the PDF objects of a PDF document.</p>
+        </div1>               
         <div1>
             <head>Content manipulation</head>
 		    <p>These functions are for manipulation of contents of the PDF documents.</p>

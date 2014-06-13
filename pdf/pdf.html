@@ -113,66 +113,68 @@ div.exampleHeader { font-weight: bold;
             3 <a href="#d4e122">Creation</a><br />
             3.1 <a href="#d4e127">The pdf:create() Function</a><br />
             3.2 <a href="#d4e146">The pdf:create-page() Function</a><br />
-            4 <a href="#d4e165">Content manipulation</a><br />
-            4.1 <a href="#d4e170">The pdf:merge() Function</a><br />
-            4.2 <a href="#d4e192">The pdf:split() Function</a><br />
-            4.2.1 <a href="#d4e227">The pdf:options element</a><br />
-            4.3 <a href="#d4e242">The pdf:extract() Function</a><br />
-            4.4 <a href="#d4e250">The pdf:insert() Function</a><br />
-            4.5 <a href="#d4e258">The pdf:delete() Function</a><br />
-            4.6 <a href="#d4e295">The pdf:rotate() Function</a><br />
-            4.7 <a href="#d4e332">The pdf:reverse() Function</a><br />
-            5 <a href="#d4e357">Links and bookmarks</a><br />
-            5.1 <a href="#d4e362">The pdf:create-bookmark() Function</a><br />
-            5.2 <a href="#d4e370">The pdf:edit-bookmark() Function</a><br />
-            5.3 <a href="#d4e378">The pdf:delete-bookmark() Function</a><br />
-            5.4 <a href="#d4e386">The pdf:import-bookmarks() Function</a><br />
-            5.5 <a href="#d4e394">The pdf:export-bookmarks() Function</a><br />
-            5.6 <a href="#d4e402">The pdf:create-link() Function</a><br />
-            5.7 <a href="#d4e410">The pdf:edit-link() Function</a><br />
-            5.8 <a href="#d4e418">The pdf:delete-link() Function</a><br />
-            5.9 <a href="#d4e426">The pdf:import-links() Function</a><br />
-            5.10 <a href="#d4e435">The pdf:export-links() Function</a><br />
-            6 <a href="#d4e443">Form controls</a><br />
-            6.1 <a href="#d4e448">The pdf:get-text-fields() Function</a><br />
-            6.2 <a href="#d4e473">The pdf:set-text-fields() Function</a><br />
-            7 <a href="#d4e506">Stamping, commenting, annotating, and marking</a><br />
-            7.1 <a href="#d4e511">The pdf:stamp() Function</a><br />
-            8 <a href="#d4e519">Contents rasterization</a><br />
-            8.1 <a href="#d4e524">The pdf:to-image() Function</a><br />
-            9 <a href="#d4e565">Attachments</a><br />
-            9.1 <a href="#d4e570">The pdf:import-attachment() Function</a><br />
-            9.2 <a href="#d4e578">The pdf:export-attachment() Function</a><br />
-            10 <a href="#d4e586">Validation</a><br />
-            10.1 <a href="#d4e591">The pdf:validate() Function</a><br />
-            10.2 <a href="#d4e599">The pdf:validate-links() Function</a><br />
-            10.3 <a href="#d4e607">The pdf:validate-bookmarks() Function</a><br />
-            11 <a href="#d4e615">Optimization</a><br />
-            11.1 <a href="#d4e620">The pdf:optimize()() Function</a><br />
-            11.2 <a href="#d4e628">The pdf:linearize() Function</a><br />
-            11.3 <a href="#d4e636">The pdf:compress() Function</a><br />
-            11.4 <a href="#d4e644">The pdf:uncompress() Function</a><br />
-            12 <a href="#d4e653">Security</a><br />
-            12.1 <a href="#d4e658">The pdf:encrypt() Function</a><br />
-            12.2 <a href="#d4e666">The pdf:decrypt() Function</a><br />
-            12.3 <a href="#d4e674">The pdf:add-signature() Function</a><br />
-            12.4 <a href="#d4e682">The pdf:remove-signature() Function</a><br />
-            13 <a href="#d4e690">Repairing</a><br />
-            13.1 <a href="#d4e695">The pdf:repair() Function</a><br />
-            14 <a href="#d4e703">Scenarios of usage</a><br />
-            14.1 <a href="#d4e708">Insert a (blank) page every nth page</a><br />
-            14.2 <a href="#d4e714">Delete broken links</a><br />
-            14.3 <a href="#d4e720">Audit Bookmarks and Links</a><br />
-            14.4 <a href="#d4e727">Validate PDF document</a><br />
-            14.5 <a href="#delete-pages-scenario">Delete pages</a><br />
-            14.6 <a href="#rotate-pages-scenario">Rotate pages</a><br />
+            4 <a href="#d4e165">Metadata</a><br />
+            5 <a href="#d4e170">Content navigation</a><br />
+            6 <a href="#d4e175">Content manipulation</a><br />
+            6.1 <a href="#d4e180">The pdf:merge() Function</a><br />
+            6.2 <a href="#d4e202">The pdf:split() Function</a><br />
+            6.2.1 <a href="#d4e237">The pdf:options element</a><br />
+            6.3 <a href="#d4e252">The pdf:extract() Function</a><br />
+            6.4 <a href="#d4e260">The pdf:insert() Function</a><br />
+            6.5 <a href="#d4e268">The pdf:delete() Function</a><br />
+            6.6 <a href="#d4e305">The pdf:rotate() Function</a><br />
+            6.7 <a href="#d4e342">The pdf:reverse() Function</a><br />
+            7 <a href="#d4e367">Links and bookmarks</a><br />
+            7.1 <a href="#d4e372">The pdf:create-bookmark() Function</a><br />
+            7.2 <a href="#d4e380">The pdf:edit-bookmark() Function</a><br />
+            7.3 <a href="#d4e388">The pdf:delete-bookmark() Function</a><br />
+            7.4 <a href="#d4e396">The pdf:import-bookmarks() Function</a><br />
+            7.5 <a href="#d4e404">The pdf:export-bookmarks() Function</a><br />
+            7.6 <a href="#d4e412">The pdf:create-link() Function</a><br />
+            7.7 <a href="#d4e420">The pdf:edit-link() Function</a><br />
+            7.8 <a href="#d4e428">The pdf:delete-link() Function</a><br />
+            7.9 <a href="#d4e436">The pdf:import-links() Function</a><br />
+            7.10 <a href="#d4e445">The pdf:export-links() Function</a><br />
+            8 <a href="#d4e453">Form controls</a><br />
+            8.1 <a href="#d4e458">The pdf:get-text-fields() Function</a><br />
+            8.2 <a href="#d4e483">The pdf:set-text-fields() Function</a><br />
+            9 <a href="#d4e516">Stamping, commenting, annotating, and marking</a><br />
+            9.1 <a href="#d4e521">The pdf:stamp() Function</a><br />
+            10 <a href="#d4e529">Contents rasterization</a><br />
+            10.1 <a href="#d4e534">The pdf:to-image() Function</a><br />
+            11 <a href="#d4e575">Attachments</a><br />
+            11.1 <a href="#d4e580">The pdf:import-attachment() Function</a><br />
+            11.2 <a href="#d4e588">The pdf:export-attachment() Function</a><br />
+            12 <a href="#d4e597">Validation</a><br />
+            12.1 <a href="#d4e602">The pdf:validate() Function</a><br />
+            12.2 <a href="#d4e610">The pdf:validate-links() Function</a><br />
+            12.3 <a href="#d4e618">The pdf:validate-bookmarks() Function</a><br />
+            13 <a href="#d4e626">Optimization</a><br />
+            13.1 <a href="#d4e631">The pdf:optimize()() Function</a><br />
+            13.2 <a href="#d4e639">The pdf:linearize() Function</a><br />
+            13.3 <a href="#d4e647">The pdf:compress() Function</a><br />
+            13.4 <a href="#d4e655">The pdf:uncompress() Function</a><br />
+            14 <a href="#d4e663">Security</a><br />
+            14.1 <a href="#d4e668">The pdf:encrypt() Function</a><br />
+            14.2 <a href="#d4e676">The pdf:decrypt() Function</a><br />
+            14.3 <a href="#d4e684">The pdf:add-signature() Function</a><br />
+            14.4 <a href="#d4e692">The pdf:remove-signature() Function</a><br />
+            15 <a href="#d4e700">Repairing</a><br />
+            15.1 <a href="#d4e705">The pdf:repair() Function</a><br />
+            16 <a href="#d4e713">Scenarios of usage</a><br />
+            16.1 <a href="#d4e718">Insert a (blank) page every nth page</a><br />
+            16.2 <a href="#d4e724">Delete broken links</a><br />
+            16.3 <a href="#d4e730">Audit Bookmarks and Links</a><br />
+            16.4 <a href="#d4e737">Validate PDF document</a><br />
+            16.5 <a href="#delete-pages-scenario">Delete pages</a><br />
+            16.6 <a href="#rotate-pages-scenario">Rotate pages</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e747">References</a><br />
-            B <a href="#d4e791">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e757">References</a><br />
+            B <a href="#d4e801">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -251,12 +253,24 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e165" id="d4e165"></a>4 Content manipulation
+            <h2><a name="d4e165" id="d4e165"></a>4 Metadata
+            </h2>
+            <p>These functions are for getting metadata about a PDF document and its contents.</p>
+         </div>
+         <div class="div1">
+            
+            <h2><a name="d4e170" id="d4e170"></a>5 Content navigation
+            </h2>
+            <p>These functions are for navigation among the PDF objects of a PDF document.</p>
+         </div>
+         <div class="div1">
+            
+            <h2><a name="d4e175" id="d4e175"></a>6 Content manipulation
             </h2>
             <p>These functions are for manipulation of contents of the PDF documents.</p>
             <div class="div2">
                
-               <h3><a name="d4e170" id="d4e170"></a>4.1 The <code>pdf:merge()</code> Function
+               <h3><a name="d4e180" id="d4e180"></a>6.1 The <code>pdf:merge()</code> Function
                </h3>
                <p>This function is used for merging multiple PDF documents or subsets of them (groups
                   of pages).
@@ -268,7 +282,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e192" id="d4e192"></a>4.2 The <code>pdf:split()</code> Function
+               <h3><a name="d4e202" id="d4e202"></a>6.2 The <code>pdf:split()</code> Function
                </h3>
                <p>This function is used for splitting a PDF document into a number of sections. It returns
                   a sequence of sections.
@@ -292,7 +306,7 @@ div.exampleHeader { font-weight: bold;
                </ul>
                <div class="div3">
                   
-                  <h4><a name="d4e227" id="d4e227"></a>4.2.1 The <code>pdf:options</code> element
+                  <h4><a name="d4e237" id="d4e237"></a>6.2.1 The <code>pdf:options</code> element
                   </h4>
                   <div class="exampleInner"><pre>
 	&lt;pdf:options&gt;
@@ -311,7 +325,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e242" id="d4e242"></a>4.3 The <code>pdf:extract()</code> Function
+               <h3><a name="d4e252" id="d4e252"></a>6.3 The <code>pdf:extract()</code> Function
                </h3>
                <p>This function is used for extracting pages from a PDF document. It has a parameter
                   for setting the deletion of the respective pages after extraction.
@@ -320,13 +334,13 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e250" id="d4e250"></a>4.4 The <code>pdf:insert()</code> Function
+               <h3><a name="d4e260" id="d4e260"></a>6.4 The <code>pdf:insert()</code> Function
                </h3>
                <p>This function is used for inserting pages into a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e258" id="d4e258"></a>4.5 The <code>pdf:delete()</code> Function
+               <h3><a name="d4e268" id="d4e268"></a>6.5 The <code>pdf:delete()</code> Function
                </h3>
                <p>This function is used for deleting pages from a PDF document. It returns the PDF document
                   having deleted the respective pages.
@@ -342,14 +356,14 @@ div.exampleHeader { font-weight: bold;
                   <li>
                      <p><code>$page-ranges</code> is the specification of page ranges to be deleted. The syntax for page range can
                         be found at
-                        						<a href="#page-ranges-explanation"><b>2.1 Page ranges</b></a>. For an example of usage, see scenario <a href="#delete-pages-scenario"><b>14.5 Delete pages</b></a>.
+                        						<a href="#page-ranges-explanation"><b>2.1 Page ranges</b></a>. For an example of usage, see scenario <a href="#delete-pages-scenario"><b>16.5 Delete pages</b></a>.
                      </p>
                   </li>
                </ul>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e295" id="d4e295"></a>4.6 The <code>pdf:rotate()</code> Function
+               <h3><a name="d4e305" id="d4e305"></a>6.6 The <code>pdf:rotate()</code> Function
                </h3>
                <p>This function is used for rotating indicated pages of a PDF document. The rest of
                   the pages remain unchanged and
@@ -370,14 +384,14 @@ div.exampleHeader { font-weight: bold;
                         range can be found at <a href="#page-ranges-explanation"><b>2.1 Page ranges</b></a>. The legal
                         						values for rotation direction are: "right 90" (clockwise with 90 degress), "180"
                         (rotation with 180 degress), and "left 90" (counterclockwise with 90 degress).
-                        						For an example of usage, see scenario <a href="#rotate-pages-scenario"><b>14.6 Rotate pages</b></a>.
+                        						For an example of usage, see scenario <a href="#rotate-pages-scenario"><b>16.6 Rotate pages</b></a>.
                      </p>
                   </li>
                </ul>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e332" id="d4e332"></a>4.7 The <code>pdf:reverse()</code> Function
+               <h3><a name="d4e342" id="d4e342"></a>6.7 The <code>pdf:reverse()</code> Function
                </h3>
                <p>This function is used for reversing pages of a PDF document. It returns the PDF document
                   with its pages in reverse order.
@@ -395,80 +409,80 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e357" id="d4e357"></a>5 Links and bookmarks
+            <h2><a name="d4e367" id="d4e367"></a>7 Links and bookmarks
             </h2>
             <p>These functions are for manipulation of links and bookmarks of a PDF document.</p>
             <div class="div2">
                
-               <h3><a name="d4e362" id="d4e362"></a>5.1 The <code>pdf:create-bookmark()</code> Function
+               <h3><a name="d4e372" id="d4e372"></a>7.1 The <code>pdf:create-bookmark()</code> Function
                </h3>
                <p>This function is used to create bookmarks in a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e370" id="d4e370"></a>5.2 The <code>pdf:edit-bookmark()</code> Function
+               <h3><a name="d4e380" id="d4e380"></a>7.2 The <code>pdf:edit-bookmark()</code> Function
                </h3>
                <p>This function is used to edit bookmarks of a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e378" id="d4e378"></a>5.3 The <code>pdf:delete-bookmark()</code> Function
+               <h3><a name="d4e388" id="d4e388"></a>7.3 The <code>pdf:delete-bookmark()</code> Function
                </h3>
                <p>This function is used to delete bookmarks from a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e386" id="d4e386"></a>5.4 The <code>pdf:import-bookmarks()</code> Function
+               <h3><a name="d4e396" id="d4e396"></a>7.4 The <code>pdf:import-bookmarks()</code> Function
                </h3>
                <p>This function is used to import bookmarks to a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e394" id="d4e394"></a>5.5 The <code>pdf:export-bookmarks()</code> Function
+               <h3><a name="d4e404" id="d4e404"></a>7.5 The <code>pdf:export-bookmarks()</code> Function
                </h3>
                <p>This function is used to export bookmarks from a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e402" id="d4e402"></a>5.6 The <code>pdf:create-link()</code> Function
+               <h3><a name="d4e412" id="d4e412"></a>7.6 The <code>pdf:create-link()</code> Function
                </h3>
                <p>This function is used to create links in a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e410" id="d4e410"></a>5.7 The <code>pdf:edit-link()</code> Function
+               <h3><a name="d4e420" id="d4e420"></a>7.7 The <code>pdf:edit-link()</code> Function
                </h3>
                <p>This function is used to edit links of a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e418" id="d4e418"></a>5.8 The <code>pdf:delete-link()</code> Function
+               <h3><a name="d4e428" id="d4e428"></a>7.8 The <code>pdf:delete-link()</code> Function
                </h3>
                <p>This function is used to delete links from a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e426" id="d4e426"></a>5.9 The <code>pdf:import-links()</code> Function
+               <h3><a name="d4e436" id="d4e436"></a>7.9 The <code>pdf:import-links()</code> Function
                </h3>
                <p>This function is used to import links to a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e435" id="d4e435"></a>5.10 The <code>pdf:export-links()</code> Function
+               <h3><a name="d4e445" id="d4e445"></a>7.10 The <code>pdf:export-links()</code> Function
                </h3>
                <p>This function is used to export links from a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e443" id="d4e443"></a>6 Form controls
+            <h2><a name="d4e453" id="d4e453"></a>8 Form controls
             </h2>
             <p>These functions are designated for gathering information about and interacting with
                form controls of a PDF document.
             </p>
             <div class="div2">
                
-               <h3><a name="d4e448" id="d4e448"></a>6.1 The <code>pdf:get-text-fields()</code> Function
+               <h3><a name="d4e458" id="d4e458"></a>8.1 The <code>pdf:get-text-fields()</code> Function
                </h3>
                <p>Get all the text fields from a PDF contents. Returns a map containing pairs of fully
                   qualified name and value for each text field.
@@ -485,7 +499,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e473" id="d4e473"></a>6.2 The <code>pdf:set-text-fields()</code> Function
+               <h3><a name="d4e483" id="d4e483"></a>8.2 The <code>pdf:set-text-fields()</code> Function
                </h3>
                <p>Set the text fields of a PDF contents. Returns the updated PDF contents.</p>
                <div class="exampleInner"><pre>
@@ -507,24 +521,24 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e506" id="d4e506"></a>7 Stamping, commenting, annotating, and marking
+            <h2><a name="d4e516" id="d4e516"></a>9 Stamping, commenting, annotating, and marking
             </h2>
             <p>These functions are associating various objects with a PDF document.</p>
             <div class="div2">
                
-               <h3><a name="d4e511" id="d4e511"></a>7.1 The <code>pdf:stamp()</code> Function
+               <h3><a name="d4e521" id="d4e521"></a>9.1 The <code>pdf:stamp()</code> Function
                </h3>
                <p>This function is used for applying a stamp to a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e519" id="d4e519"></a>8 Contents rasterization
+            <h2><a name="d4e529" id="d4e529"></a>10 Contents rasterization
             </h2>
             <p>These functions are for rendering the PDF documents.</p>
             <div class="div2">
                
-               <h3><a name="d4e524" id="d4e524"></a>8.1 The <code>pdf:to-image()</code> Function
+               <h3><a name="d4e534" id="d4e534"></a>10.1 The <code>pdf:to-image()</code> Function
                </h3>
                <p>This function is used for converting pages of a PDF document to images. Returns a
                   sequence of the generated images.
@@ -550,54 +564,54 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e565" id="d4e565"></a>9 Attachments
+            <h2><a name="d4e575" id="d4e575"></a>11 Attachments
             </h2>
             <p>These functions are for manipulation of PDF file attachments.</p>
             <div class="div2">
                
-               <h3><a name="d4e570" id="d4e570"></a>9.1 The <code>pdf:import-attachment()</code> Function
+               <h3><a name="d4e580" id="d4e580"></a>11.1 The <code>pdf:import-attachment()</code> Function
                </h3>
                <p>This function is used for importing an attachment into a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e578" id="d4e578"></a>9.2 The <code>pdf:export-attachment()</code> Function
+               <h3><a name="d4e588" id="d4e588"></a>11.2 The <code>pdf:export-attachment()</code> Function
                </h3>
                <p>This function is used for exporting an attachment into a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e586" id="d4e586"></a>10 Validation
+            <h2><a name="d4e597" id="d4e597"></a>12 Validation
             </h2>
             <p>These functions are designated for validating a PDF document.</p>
             <div class="div2">
                
-               <h3><a name="d4e591" id="d4e591"></a>10.1 The <code>pdf:validate()</code> Function
+               <h3><a name="d4e602" id="d4e602"></a>12.1 The <code>pdf:validate()</code> Function
                </h3>
                <p>This function is used for validating a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e599" id="d4e599"></a>10.2 The <code>pdf:validate-links()</code> Function
+               <h3><a name="d4e610" id="d4e610"></a>12.2 The <code>pdf:validate-links()</code> Function
                </h3>
                <p>This function is used for validating the links contained by a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e607" id="d4e607"></a>10.3 The <code>pdf:validate-bookmarks()</code> Function
+               <h3><a name="d4e618" id="d4e618"></a>12.3 The <code>pdf:validate-bookmarks()</code> Function
                </h3>
                <p>This function is used for validating the bookmarks contained by a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e615" id="d4e615"></a>11 Optimization
+            <h2><a name="d4e626" id="d4e626"></a>13 Optimization
             </h2>
             <p>These functions are designated for optimizing a PDF document.</p>
             <div class="div2">
                
-               <h3><a name="d4e620" id="d4e620"></a>11.1 The <code>pdf:optimize()()</code> Function
+               <h3><a name="d4e631" id="d4e631"></a>13.1 The <code>pdf:optimize()()</code> Function
                </h3>
                <p>This function is used for optimizing a PDF document, by reducing the file size without
                   affecting quality.
@@ -605,7 +619,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e628" id="d4e628"></a>11.2 The <code>pdf:linearize()</code> Function
+               <h3><a name="d4e639" id="d4e639"></a>13.2 The <code>pdf:linearize()</code> Function
                </h3>
                <p>This function is used for linearizing a PDF document, for fast delivery over a network.
                   The first page is already visible, while the rest is downloaded in
@@ -614,74 +628,74 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e636" id="d4e636"></a>11.3 The <code>pdf:compress()</code> Function
+               <h3><a name="d4e647" id="d4e647"></a>13.3 The <code>pdf:compress()</code> Function
                </h3>
                <p>This function is used for compressing a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e644" id="d4e644"></a>11.4 The <code>pdf:uncompress()</code> Function
+               <h3><a name="d4e655" id="d4e655"></a>13.4 The <code>pdf:uncompress()</code> Function
                </h3>
                <p>This function is used for uncompressing a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e653" id="d4e653"></a>12 Security
+            <h2><a name="d4e663" id="d4e663"></a>14 Security
             </h2>
             <p>These functions are for protection of the PDF documents.</p>
             <div class="div2">
                
-               <h3><a name="d4e658" id="d4e658"></a>12.1 The <code>pdf:encrypt()</code> Function
+               <h3><a name="d4e668" id="d4e668"></a>14.1 The <code>pdf:encrypt()</code> Function
                </h3>
                <p>This function is used for encrypting a PDF document by using a digital certificate.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e666" id="d4e666"></a>12.2 The <code>pdf:decrypt()</code> Function
+               <h3><a name="d4e676" id="d4e676"></a>14.2 The <code>pdf:decrypt()</code> Function
                </h3>
                <p>This function is used for decrypting a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e674" id="d4e674"></a>12.3 The <code>pdf:add-signature()</code> Function
+               <h3><a name="d4e684" id="d4e684"></a>14.3 The <code>pdf:add-signature()</code> Function
                </h3>
                <p>This function is used for adding an electronic signature to a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e682" id="d4e682"></a>12.4 The <code>pdf:remove-signature()</code> Function
+               <h3><a name="d4e692" id="d4e692"></a>14.4 The <code>pdf:remove-signature()</code> Function
                </h3>
                <p>This function is used for removing an electronic signature from a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e690" id="d4e690"></a>13 Repairing
+            <h2><a name="d4e700" id="d4e700"></a>15 Repairing
             </h2>
             <p>These functions are for repairing and recovering of PDF documents.</p>
             <div class="div2">
                
-               <h3><a name="d4e695" id="d4e695"></a>13.1 The <code>pdf:repair()</code> Function
+               <h3><a name="d4e705" id="d4e705"></a>15.1 The <code>pdf:repair()</code> Function
                </h3>
                <p>This function is used for repairing a PDF document.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e703" id="d4e703"></a>14 Scenarios of usage
+            <h2><a name="d4e713" id="d4e713"></a>16 Scenarios of usage
             </h2>
             <p>Some scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
                
-               <h3><a name="d4e708" id="d4e708"></a>14.1 Insert a (blank) page every nth page
+               <h3><a name="d4e718" id="d4e718"></a>16.1 Insert a (blank) page every nth page
                </h3>
                <p></p>
                <div class="exampleInner"><pre>pdf:insert(pdf:create-page(), $pattern)</pre></div>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e714" id="d4e714"></a>14.2 Delete broken links
+               <h3><a name="d4e724" id="d4e724"></a>16.2 Delete broken links
                </h3>
                <p></p>
                <div class="exampleInner"><pre>
@@ -691,7 +705,7 @@ return if () then () else ()
             </div>
             <div class="div2">
                
-               <h3><a name="d4e720" id="d4e720"></a>14.3 Audit Bookmarks and Links
+               <h3><a name="d4e730" id="d4e730"></a>16.3 Audit Bookmarks and Links
                </h3>
                <p>One can validate bookmarks and links, and export those found broken. They can be included
                   in report and/or fixed and imported to document.
@@ -701,7 +715,7 @@ return if () then () else ()
             </div>
             <div class="div2">
                
-               <h3><a name="d4e727" id="d4e727"></a>14.4 Validate PDF document
+               <h3><a name="d4e737" id="d4e737"></a>16.4 Validate PDF document
                </h3>
                <p>One can validate a PDf document using certain validation criteria, as such: dimensions
                   of all/certain pages should be A4 (297 mm * 210 mm),
@@ -714,7 +728,7 @@ return if () then () else ()
             </div>
             <div class="div2">
                
-               <h3><a name="delete-pages-scenario" id="delete-pages-scenario"></a>14.5 Delete pages
+               <h3><a name="delete-pages-scenario" id="delete-pages-scenario"></a>16.5 Delete pages
                </h3>
                <p></p>
                <div class="exampleInner"><pre>
@@ -723,7 +737,7 @@ pdf:delete($pdf-document, ("3", "5 - 7", "13 - 17"))
             </div>
             <div class="div2">
                
-               <h3><a name="rotate-pages-scenario" id="rotate-pages-scenario"></a>14.6 Rotate pages
+               <h3><a name="rotate-pages-scenario" id="rotate-pages-scenario"></a>16.6 Rotate pages
                </h3>
                <p></p>
                <div class="exampleInner"><pre>
@@ -739,7 +753,7 @@ pdf:rotate($pdf-document, map {
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e747" id="d4e747"></a>A References
+            <h2><a name="d4e757" id="d4e757"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -797,7 +811,7 @@ pdf:rotate($pdf-document, map {
          </div>
          <div class="div1">
             
-            <h2><a name="d4e791" id="d4e791"></a>B Summary of Error Conditions
+            <h2><a name="d4e801" id="d4e801"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errPDF001" id="errPDF001"></a>err:PDF001
