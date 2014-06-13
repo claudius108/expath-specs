@@ -146,16 +146,16 @@
 				</div3>	
 			</div2>
 			<div2>
-				<head>The <code>pdf:extract-pages()</code> Function</head>
+				<head>The <code>pdf:extract()</code> Function</head>
 				<p>This function is used for extracting pages from a PDF document. It has a parameter for setting the deletion of the respective pages after extraction.
 				It returns the extracted pages.</p>
 			</div2>
 			<div2>
-				<head>The <code>pdf:insert-pages()</code> Function</head>
+				<head>The <code>pdf:insert()</code> Function</head>
 				<p>This function is used for inserting pages into a PDF document.</p>
 			</div2>
 			<div2>
-				<head>The <code>pdf:delete-pages()</code> Function</head>
+				<head>The <code>pdf:delete()</code> Function</head>
 				<p>This function is used for deleting pages from a PDF document.</p>
 			</div2>
 			<div2>
@@ -178,7 +178,7 @@
 				</ulist>				
 			</div2>
 			<div2>
-				<head>The <code>pdf:revert-pages()</code> Function</head>
+				<head>The <code>pdf:revert()</code> Function</head>
 				<p>This function is used for reverting pages of a PDF document.</p>
 			</div2>	
         </div1>
@@ -359,7 +359,7 @@
 			<div2>
 				<head>Insert a (blank) page every nth page</head>
 				<p></p>
-				<eg>pdf:insert-pages(pdf:create-page(), $pattern)</eg>				
+				<eg>pdf:insert(pdf:create-page(), $pattern)</eg>				
 			</div2>
 			<div2>
 				<head>Delete broken links</head>

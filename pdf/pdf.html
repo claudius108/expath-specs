@@ -115,11 +115,11 @@ div.exampleHeader { font-weight: bold;
             3.1 <a href="#d4e156">The pdf:merge() Function</a><br />
             3.2 <a href="#d4e178">The pdf:split() Function</a><br />
             3.2.1 <a href="#d4e213">The pdf:options element</a><br />
-            3.3 <a href="#d4e228">The pdf:extract-pages() Function</a><br />
-            3.4 <a href="#d4e236">The pdf:insert-pages() Function</a><br />
-            3.5 <a href="#d4e244">The pdf:delete-pages() Function</a><br />
+            3.3 <a href="#d4e228">The pdf:extract() Function</a><br />
+            3.4 <a href="#d4e236">The pdf:insert() Function</a><br />
+            3.5 <a href="#d4e244">The pdf:delete() Function</a><br />
             3.6 <a href="#d4e252">The pdf:rotate() Function</a><br />
-            3.7 <a href="#d4e287">The pdf:revert-pages() Function</a><br />
+            3.7 <a href="#d4e287">The pdf:revert() Function</a><br />
             4 <a href="#d4e295">Links and bookmarks</a><br />
             4.1 <a href="#d4e300">The pdf:create-bookmark() Function</a><br />
             4.2 <a href="#d4e308">The pdf:edit-bookmark() Function</a><br />
@@ -287,7 +287,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e228" id="d4e228"></a>3.3 The <code>pdf:extract-pages()</code> Function
+               <h3><a name="d4e228" id="d4e228"></a>3.3 The <code>pdf:extract()</code> Function
                </h3>
                <p>This function is used for extracting pages from a PDF document. It has a parameter
                   for setting the deletion of the respective pages after extraction.
@@ -296,13 +296,13 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e236" id="d4e236"></a>3.4 The <code>pdf:insert-pages()</code> Function
+               <h3><a name="d4e236" id="d4e236"></a>3.4 The <code>pdf:insert()</code> Function
                </h3>
                <p>This function is used for inserting pages into a PDF document.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e244" id="d4e244"></a>3.5 The <code>pdf:delete-pages()</code> Function
+               <h3><a name="d4e244" id="d4e244"></a>3.5 The <code>pdf:delete()</code> Function
                </h3>
                <p>This function is used for deleting pages from a PDF document.</p>
             </div>
@@ -337,7 +337,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e287" id="d4e287"></a>3.7 The <code>pdf:revert-pages()</code> Function
+               <h3><a name="d4e287" id="d4e287"></a>3.7 The <code>pdf:revert()</code> Function
                </h3>
                <p>This function is used for reverting pages of a PDF document.</p>
             </div>
@@ -608,7 +608,7 @@ div.exampleHeader { font-weight: bold;
                <h3><a name="d4e625" id="d4e625"></a>12.1 Insert a (blank) page every nth page
                </h3>
                <p></p>
-               <div class="exampleInner"><pre>pdf:insert-pages(pdf:create-page(), $pattern)</pre></div>
+               <div class="exampleInner"><pre>pdf:insert(pdf:create-page(), $pattern)</pre></div>
             </div>
             <div class="div2">
                
