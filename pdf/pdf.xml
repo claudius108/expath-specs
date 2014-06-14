@@ -117,6 +117,12 @@
         <div1>
             <head>Metadata</head>
 		    <p>These functions are for getting metadata about a PDF document and its contents.</p>
+			<div2>
+				<head>The <code>pdf:get-document-metadata()</code> Function</head>
+				<p>This function is used to get overall metadata for a PDF document.</p>
+			</div2>
+
+
         </div1>         
         <div1>
             <head>Content navigation</head>
@@ -331,6 +337,10 @@
         <div1>
             <head>Attachments</head>
 		    <p>These functions are for manipulation of PDF file attachments.</p>
+			<div2>
+				<head>The <code>pdf:list-file-attachments()</code> Function</head>
+				<p>This function is used to list the file attachments of a PDF document.</p>
+			</div2>		    
 			<div2>
 				<head>The <code>pdf:import-attachment()</code> Function</head>
 				<p>This function is used for importing an attachment into a PDF document.</p>
