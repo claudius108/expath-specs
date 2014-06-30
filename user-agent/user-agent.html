@@ -107,19 +107,20 @@ div.exampleHeader { font-weight: bold;
             2.1 <a href="#d4e112">The ua:document variable</a><br />
             3 <a href="#d4e120">Events</a><br />
             3.1 <a href="#d4e125">The ua:create-event() function</a><br />
-            4 <a href="#d4e150">Actions</a><br />
-            4.1 <a href="#d4e155">The ua:action() function</a><br />
-            5 <a href="#d4e226">Mutation observers</a><br />
-            5.1 <a href="#d4e233">The ua:observer() function</a><br />
-            5.2 <a href="#d4e289">The ua:connect-observer() function</a><br />
-            5.3 <a href="#d4e338">The ua:disconnect-observer() function</a><br />
+            3.2 <a href="#d4e150">The ua:add-event-listener() function</a><br />
+            4 <a href="#d4e191">Actions</a><br />
+            4.1 <a href="#d4e196">The ua:action() function</a><br />
+            5 <a href="#d4e267">Mutation observers</a><br />
+            5.1 <a href="#d4e274">The ua:observer() function</a><br />
+            5.2 <a href="#d4e330">The ua:connect-observer() function</a><br />
+            5.3 <a href="#d4e379">The ua:disconnect-observer() function</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e382">References</a><br />
-            B <a href="#d4e416">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e423">References</a><br />
+            B <a href="#d4e457">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -179,7 +180,7 @@ div.exampleHeader { font-weight: bold;
                
                <h3><a name="d4e125" id="d4e125"></a>3.1 The <code>ua:create-event()</code> function
                </h3>
-               <p>This function creates a custom events.</p>
+               <p>This function creates a custom event.</p>
                <div class="exampleInner"><pre>
 <code class="function">ua:create-event</code>($event-name as <code class="type">xs:QName</code>) as <code class="type">empty()</code>
 </pre></div>
@@ -190,17 +191,41 @@ div.exampleHeader { font-weight: bold;
                   </li>
                </ul>
             </div>
+            <div class="div2">
+               
+               <h3><a name="d4e150" id="d4e150"></a>3.2 The <code>ua:add-event-listener()</code> function
+               </h3>
+               <p>This function adds a listener to an event.</p>
+               <div class="exampleInner"><pre>
+<code class="function">ua:add-event-listener</code>($event-target as <code class="type">xs:string</code>, $event-type as <code class="type">xs:string</code>,
+	$listener as <code class="type">item()</code>) as <code class="type">empty()</code>
+</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$event-target</code> is the name of the custom event.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$event-type</code> is the name of the custom event.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$listener</code> is the name of the custom event.
+                     </p>
+                  </li>
+               </ul>
+            </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e150" id="d4e150"></a>4 Actions
+            <h2><a name="d4e191" id="d4e191"></a>4 Actions
             </h2>
             <p>These functions define actions to be executed by direct invoking or when a certain
                event occurs.
             </p>
             <div class="div2">
                
-               <h3><a name="d4e155" id="d4e155"></a>4.1 The <code>ua:action()</code> function
+               <h3><a name="d4e196" id="d4e196"></a>4.1 The <code>ua:action()</code> function
                </h3>
                <p>This function defines an action to be invoked when a DOM event occurs.</p>
                <div class="exampleInner"><pre>
@@ -238,13 +263,13 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e226" id="d4e226"></a>5 Mutation observers
+            <h2><a name="d4e267" id="d4e267"></a>5 Mutation observers
             </h2>
             <p>These functions deal with Mutation observers, as they are defined in <a href="#dom-4">[W3C DOM4]</a>.
             </p>
             <div class="div2">
                
-               <h3><a name="d4e233" id="d4e233"></a>5.1 The <code>ua:observer()</code> function
+               <h3><a name="d4e274" id="d4e274"></a>5.1 The <code>ua:observer()</code> function
                </h3>
                <p>This function creates a mutations observer. It has two signatures, one taking as second
                   parameter a list of action handlers separated by spaces,
@@ -276,7 +301,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e289" id="d4e289"></a>5.2 The <code>ua:connect-observer()</code> function
+               <h3><a name="d4e330" id="d4e330"></a>5.2 The <code>ua:connect-observer()</code> function
                </h3>
                <p>This function connects an observer to a node, in order to observe the node mutations.</p>
                <div class="exampleInner"><pre>
@@ -309,7 +334,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e338" id="d4e338"></a>5.3 The <code>ua:disconnect-observer()</code> function
+               <h3><a name="d4e379" id="d4e379"></a>5.3 The <code>ua:disconnect-observer()</code> function
                </h3>
                <p>This function disconnects an observer from a node. The observer will stop observing
                   the node until it will be connected again to the node.
@@ -330,7 +355,7 @@ div.exampleHeader { font-weight: bold;
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e382" id="d4e382"></a>A References
+            <h2><a name="d4e423" id="d4e423"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -377,7 +402,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e416" id="d4e416"></a>B Summary of Error Conditions
+            <h2><a name="d4e457" id="d4e457"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01

@@ -87,7 +87,7 @@
       </div1>
        <div1>
          <head>External variables</head>
-         <p>These variables are available to the XQuery script associated with a document.</p>
+         <p>These variables are available to the XQuery scripts associated with a document.</p>
          <div2>
             <head>The <code>ua:document</code> variable</head>
             <p>This variable is bound to the document itself.</p>
@@ -98,13 +98,32 @@
          <p>These functions deal with DOM events.</p>
          <div2>
             <head>The <code>ua:create-event()</code> function</head>
-            <p>This function creates a custom events.</p>
+            <p>This function creates a custom event.</p>
             <eg>
 <spec:function>ua:create-event</spec:function>($event-name as <spec:type>xs:QName</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <ulist>
                <item>
                   <p><code>$event-name</code> is the name of the custom event.</p>
+               </item>
+            </ulist>            
+         </div2>
+         <div2>
+            <head>The <code>ua:add-event-listener()</code> function</head>
+            <p>This function adds a listener to an event.</p>
+            <eg>
+<spec:function>ua:add-event-listener</spec:function>($event-target as <spec:type>xs:string</spec:type>, $event-type as <spec:type>xs:string</spec:type>,
+	$listener as <spec:type>item()</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$event-target</code> is the name of the custom event.</p>
+               </item>
+               <item>
+                  <p><code>$event-type</code> is the name of the custom event.</p>
+               </item>
+               <item>
+                  <p><code>$listener</code> is the name of the custom event.</p>
                </item>
             </ulist>            
          </div2>
