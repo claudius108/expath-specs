@@ -93,6 +93,14 @@
             <p>This variable is bound to the document itself.</p>
          </div2>        
       </div1>
+       <div1>
+         <head>Selectors</head>
+         <p>Many functions in this specification use as parameters selectors for nodes. These selectors can be of two types, namely XPath selectors, and CSS selectors.</p>
+         <div2>
+            <head>The XPath selectors</head>
+            <p>These selectors consist of valid XPath expressions, selecting one or more nodes.</p>
+         </div2>        
+      </div1>
       <div1>
          <head>Events</head>
          <p>These functions deal with DOM events.</p>
