@@ -104,25 +104,26 @@ div.exampleHeader { font-weight: bold;
             1.1 <a href="#d4e77">Namespace conventions</a><br />
             1.2 <a href="#d4e96">Error management</a><br />
             2 <a href="#d4e107">External variables</a><br />
-            2.1 <a href="#d4e112">The ua:document variable</a><br />
-            3 <a href="#d4e120">Selectors</a><br />
-            3.1 <a href="#d4e125">The XPath selectors</a><br />
-            4 <a href="#d4e130">Events</a><br />
-            4.1 <a href="#d4e135">The ua:create-event() function</a><br />
-            4.2 <a href="#d4e160">The ua:add-event-listener() function</a><br />
-            5 <a href="#d4e201">Actions</a><br />
-            5.1 <a href="#d4e206">The ua:action() function</a><br />
-            6 <a href="#d4e277">Mutation observers</a><br />
-            6.1 <a href="#d4e284">The ua:observer() function</a><br />
-            6.2 <a href="#d4e340">The ua:connect-observer() function</a><br />
-            6.3 <a href="#d4e389">The ua:disconnect-observer() function</a><br />
+            2.1 <a href="#d4e112">The $ua:document variable</a><br />
+            3 <a href="#selectors">Selectors</a><br />
+            3.1 <a href="#d4e129">The XPath selectors</a><br />
+            3.2 <a href="#d4e136">The CSS selectors</a><br />
+            4 <a href="#d4e143">Events</a><br />
+            4.1 <a href="#d4e148">The ua:create-event() function</a><br />
+            4.2 <a href="#d4e173">The ua:add-event-listener() function</a><br />
+            5 <a href="#d4e214">Actions</a><br />
+            5.1 <a href="#d4e219">The ua:action() function</a><br />
+            6 <a href="#d4e290">Mutation observers</a><br />
+            6.1 <a href="#d4e297">The ua:observer() function</a><br />
+            6.2 <a href="#d4e353">The ua:connect-observer() function</a><br />
+            6.3 <a href="#d4e400">The ua:disconnect-observer() function</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e433">References</a><br />
-            B <a href="#d4e467">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e444">References</a><br />
+            B <a href="#d4e483">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -168,33 +169,47 @@ div.exampleHeader { font-weight: bold;
             <p>These variables are available to the XQuery scripts associated with a document.</p>
             <div class="div2">
                
-               <h3><a name="d4e112" id="d4e112"></a>2.1 The <code>ua:document</code> variable
+               <h3><a name="d4e112" id="d4e112"></a>2.1 The <code>$ua:document</code> variable
                </h3>
                <p>This variable is bound to the document itself.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e120" id="d4e120"></a>3 Selectors
+            <h2><a name="selectors" id="selectors"></a>3 Selectors
             </h2>
-            <p>Many functions in this specification use as parameters selectors for nodes. These
+            <p>Many functions in this specification use selectors for nodes as parameters. These
                selectors can be of two types, namely XPath selectors, and CSS selectors.
+            </p>
+            <p>In the context of this specification, if multiple nodes are selected, then the invoking
+               action is executed for each one of them, and if the selector selects
+               no node, this is an error <a href="#errUA04">[err:UA04]</a>.
             </p>
             <div class="div2">
                
-               <h3><a name="d4e125" id="d4e125"></a>3.1 The XPath selectors
+               <h3><a name="d4e129" id="d4e129"></a>3.1 The XPath selectors
                </h3>
-               <p>These selectors consist of valid XPath expressions, selecting one or more nodes.</p>
+               <p>These selectors consist of valid XPath expressions, see <a href="#xpath-30">[XPath 3.0]</a>. In order to supply XPath expressions as parameters, one has to use a 
+                  constructor function, namely ua:xpath-selector().
+               </p>
+            </div>
+            <div class="div2">
+               
+               <h3><a name="d4e136" id="d4e136"></a>3.2 The CSS selectors
+               </h3>
+               <p>These are valid CSS selectors, see <a href="#css-selectors">[CSS Selectors]</a>. In order to supply CSS selectors as parameters, one has to use a 
+                  constructor function, namely ua:css-selector().
+               </p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e130" id="d4e130"></a>4 Events
+            <h2><a name="d4e143" id="d4e143"></a>4 Events
             </h2>
             <p>These functions deal with DOM events.</p>
             <div class="div2">
                
-               <h3><a name="d4e135" id="d4e135"></a>4.1 The <code>ua:create-event()</code> function
+               <h3><a name="d4e148" id="d4e148"></a>4.1 The <code>ua:create-event()</code> function
                </h3>
                <p>This function creates a custom event.</p>
                <div class="exampleInner"><pre>
@@ -209,7 +224,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e160" id="d4e160"></a>4.2 The <code>ua:add-event-listener()</code> function
+               <h3><a name="d4e173" id="d4e173"></a>4.2 The <code>ua:add-event-listener()</code> function
                </h3>
                <p>This function adds a listener to an event.</p>
                <div class="exampleInner"><pre>
@@ -234,14 +249,14 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e201" id="d4e201"></a>5 Actions
+            <h2><a name="d4e214" id="d4e214"></a>5 Actions
             </h2>
             <p>These functions define actions to be executed by direct invoking or when a certain
                event occurs.
             </p>
             <div class="div2">
                
-               <h3><a name="d4e206" id="d4e206"></a>5.1 The <code>ua:action()</code> function
+               <h3><a name="d4e219" id="d4e219"></a>5.1 The <code>ua:action()</code> function
                </h3>
                <p>This function defines an action to be invoked when a DOM event occurs.</p>
                <div class="exampleInner"><pre>
@@ -279,13 +294,13 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e277" id="d4e277"></a>6 Mutation observers
+            <h2><a name="d4e290" id="d4e290"></a>6 Mutation observers
             </h2>
             <p>These functions deal with Mutation observers, as they are defined in <a href="#dom-4">[W3C DOM4]</a>.
             </p>
             <div class="div2">
                
-               <h3><a name="d4e284" id="d4e284"></a>6.1 The <code>ua:observer()</code> function
+               <h3><a name="d4e297" id="d4e297"></a>6.1 The <code>ua:observer()</code> function
                </h3>
                <p>This function creates a mutations observer. It has two signatures, one taking as second
                   parameter a list of action handlers separated by spaces,
@@ -317,7 +332,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e340" id="d4e340"></a>6.2 The <code>ua:connect-observer()</code> function
+               <h3><a name="d4e353" id="d4e353"></a>6.2 The <code>ua:connect-observer()</code> function
                </h3>
                <p>This function connects an observer to a node, in order to observe the node mutations.</p>
                <div class="exampleInner"><pre>
@@ -331,14 +346,9 @@ div.exampleHeader { font-weight: bold;
                      </p>
                   </li>
                   <li>
-                     <p><code>$node-selector</code> is the selector used to select the node to be observed. The selector can be an XPath
-                        or a CSS selector. If the
-                        selector selects multiple nodes, only the first one in document order will be observed.
-                        If the selector selects no nodes, this is an error <a href="#errUA04">[err:UA04]</a>.
+                     <p><code>$node-selector</code> is the selector used to select the nodes to be observed; see <a href="#selectors"><b>3 Selectors</b></a>. If the selector selects multiple
+                        nodes, all these nodes are observed.
                      </p>
-                     <div class="note">
-                        <p class="prefix"><b>Note:</b></p>Details for differenciating between an XPath or CSS selector are to be given.
-                     </div>
                   </li>
                   <li>
                      <p><code>$options</code> are the options describing the properties and values for observing the selected node.
@@ -350,7 +360,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e389" id="d4e389"></a>6.3 The <code>ua:disconnect-observer()</code> function
+               <h3><a name="d4e400" id="d4e400"></a>6.3 The <code>ua:disconnect-observer()</code> function
                </h3>
                <p>This function disconnects an observer from a node. The observer will stop observing
                   the node until it will be connected again to the node.
@@ -371,7 +381,7 @@ div.exampleHeader { font-weight: bold;
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e433" id="d4e433"></a>A References
+            <h2><a name="d4e444" id="d4e444"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -414,11 +424,20 @@ div.exampleHeader { font-weight: bold;
                   	   Anne van Kesteren, Aryeh Gregor, Ms2ger, Alex Russell, Robin Berjon, editors.
                   W3C Last Call Working Draft, 04 February 2014.
                </dd>
+               <dt class="label"><a name="css-selectors" id="css-selectors"></a>CSS Selectors
+               </dt>
+               <dd>
+                  	               <a href="http://w3.org/TR/selectors/">Selectors Level 3</a>.
+                  	               Tantek Çelik (Invited Expert), Elika J. Etemad (Invited Expert), Daniel
+                  Glazman (Disruptive Innovations SARL), Ian Hickson (Google),
+                  	               Peter Linss (former editor, Netscape/AOL), John Williams (former editor,
+                  Quark, Inc.), editors.W3C Recommendation, 29 September 2011.
+               </dd>
             </dl>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e467" id="d4e467"></a>B Summary of Error Conditions
+            <h2><a name="d4e483" id="d4e483"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01

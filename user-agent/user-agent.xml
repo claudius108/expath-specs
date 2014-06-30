@@ -89,17 +89,25 @@
          <head>External variables</head>
          <p>These variables are available to the XQuery scripts associated with a document.</p>
          <div2>
-            <head>The <code>ua:document</code> variable</head>
+            <head>The <code>$ua:document</code> variable</head>
             <p>This variable is bound to the document itself.</p>
          </div2>        
       </div1>
-       <div1>
+       <div1 id="selectors">
          <head>Selectors</head>
-         <p>Many functions in this specification use as parameters selectors for nodes. These selectors can be of two types, namely XPath selectors, and CSS selectors.</p>
+         <p>Many functions in this specification use selectors for nodes as parameters. These selectors can be of two types, namely XPath selectors, and CSS selectors.</p>
+         <p>In the context of this specification, if multiple nodes are selected, then the invoking action is executed for each one of them, and if the selector selects
+         no node, this is an error <bibref ref="errUA04"/>.</p>
          <div2>
             <head>The XPath selectors</head>
-            <p>These selectors consist of valid XPath expressions, selecting one or more nodes.</p>
-         </div2>        
+            <p>These selectors consist of valid XPath expressions, see <bibref ref="xpath-30"/>. In order to supply XPath expressions as parameters, one has to use a 
+            constructor function, namely ua:xpath-selector().</p>
+         </div2>
+         <div2>
+            <head>The CSS selectors</head>
+            <p>These are valid CSS selectors, see <bibref ref="css-selectors"/>. In order to supply CSS selectors as parameters, one has to use a 
+            constructor function, namely ua:css-selector().</p>
+         </div2>
       </div1>
       <div1>
          <head>Events</head>
@@ -208,9 +216,8 @@
                   <p><code>$observer-handler</code> is the observer's handler. If the identificator does not exist, this is an error <bibref ref="errUA03"/>.</p>
                </item>            
                <item>
-                  <p><code>$node-selector</code> is the selector used to select the node to be observed. The selector can be an XPath or a CSS selector. If the
-                  selector selects multiple nodes, only the first one in document order will be observed. If the selector selects no nodes, this is an error <bibref ref="errUA04"/>.</p>
-                  <note>Details for differenciating between an XPath or CSS selector are to be given.</note>
+                  <p><code>$node-selector</code> is the selector used to select the nodes to be observed; see <specref ref="selectors"/>. If the selector selects multiple
+                  nodes, all these nodes are observed.</p>
                </item>
                <item>
                   <p><code>$options</code> are the options describing the properties and values for observing the selected node. See <bibref ref="dom-4"/> for more
@@ -271,7 +278,11 @@
                	   Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
 	            <bibl id="dom-4" key="W3C DOM4">
 	               <loc href="http://w3.org/TR/dom/">W3C DOM4</loc>.
-               	   Anne van Kesteren, Aryeh Gregor, Ms2ger, Alex Russell, Robin Berjon, editors. W3C Last Call Working Draft, 04 February 2014.</bibl>               	                   
+               	   Anne van Kesteren, Aryeh Gregor, Ms2ger, Alex Russell, Robin Berjon, editors. W3C Last Call Working Draft, 04 February 2014.</bibl>               	   
+	            <bibl id="css-selectors" key="CSS Selectors">
+	               <loc href="http://w3.org/TR/selectors/">Selectors Level 3</loc>.
+	               Tantek Çelik (Invited Expert), Elika J. Etemad (Invited Expert), Daniel Glazman (Disruptive Innovations SARL), Ian Hickson (Google),
+	               Peter Linss (former editor, Netscape/AOL), John Williams (former editor, Quark, Inc.), editors.W3C Recommendation, 29 September 2011.</bibl> 
          </blist>
       </div1>
       <div1>
