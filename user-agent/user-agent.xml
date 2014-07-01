@@ -73,6 +73,9 @@
             <p>The module defined by this document defines functions and elements in the namespace
                   <code id="module-namespace">http://expath.org/ns/user-agent</code>. In this document, the
                   <code id="module-prefix">ua</code> prefix, when used, is bound to this namespace URI.</p>
+            <p>Datatypes are defined in the namespace <code>http://expath.org/ns/user-agent/datatype</code>. In
+               this document, the <code>ua-dt</code> prefix, when used, is bound to this namespace
+               URI.</p>                  
             <p>Error codes are defined in the namespace <code>http://expath.org/ns/error</code>. In
                this document, the <code>err</code> prefix, when used, is bound to this namespace
                URI.</p>
@@ -93,6 +96,14 @@
             <p>This variable is bound to the document itself.</p>
          </div2>        
       </div1>
+       <div1>
+         <head>Datatypes</head>
+         <p>These custom datatypes are defined to ease the usage of module functions.</p>
+         <div2>
+            <head>The <code>ua-dt:css-selector</code> datatype</head>
+            <p>This variable is bound to the document itself.</p>
+         </div2>        
+      </div1>      
        <div1 id="selectors">
          <head>Selectors</head>
          <p>Many functions in this specification use selectors for nodes as parameters. These selectors can be of two types, namely XPath selectors, and CSS selectors.</p>

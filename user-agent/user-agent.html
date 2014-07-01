@@ -102,28 +102,30 @@ div.exampleHeader { font-weight: bold;
          </h2>
          <p class="toc">1 <a href="#d4e69">Introduction</a><br />
             1.1 <a href="#d4e77">Namespace conventions</a><br />
-            1.2 <a href="#d4e96">Error management</a><br />
-            2 <a href="#d4e107">External variables</a><br />
-            2.1 <a href="#d4e112">The $ua:document variable</a><br />
-            3 <a href="#selectors">Selectors</a><br />
-            3.1 <a href="#d4e129">The XPath selectors</a><br />
-            3.2 <a href="#d4e136">The CSS selectors</a><br />
-            4 <a href="#d4e143">Events</a><br />
-            4.1 <a href="#d4e148">The ua:create-event() function</a><br />
-            4.2 <a href="#d4e173">The ua:add-event-listener() function</a><br />
-            5 <a href="#d4e214">Actions</a><br />
-            5.1 <a href="#d4e219">The ua:action() function</a><br />
-            6 <a href="#d4e290">Mutation observers</a><br />
-            6.1 <a href="#d4e297">The ua:observer() function</a><br />
-            6.2 <a href="#d4e353">The ua:connect-observer() function</a><br />
-            6.3 <a href="#d4e400">The ua:disconnect-observer() function</a><br />
+            1.2 <a href="#d4e104">Error management</a><br />
+            2 <a href="#d4e115">External variables</a><br />
+            2.1 <a href="#d4e120">The $ua:document variable</a><br />
+            3 <a href="#d4e128">Datatypes</a><br />
+            3.1 <a href="#d4e133">The $ua:document variable</a><br />
+            4 <a href="#selectors">Selectors</a><br />
+            4.1 <a href="#d4e150">The XPath selectors</a><br />
+            4.2 <a href="#d4e157">The CSS selectors</a><br />
+            5 <a href="#d4e164">Events</a><br />
+            5.1 <a href="#d4e169">The ua:create-event() function</a><br />
+            5.2 <a href="#d4e194">The ua:add-event-listener() function</a><br />
+            6 <a href="#d4e235">Actions</a><br />
+            6.1 <a href="#d4e240">The ua:action() function</a><br />
+            7 <a href="#d4e311">Mutation observers</a><br />
+            7.1 <a href="#d4e318">The ua:observer() function</a><br />
+            7.2 <a href="#d4e374">The ua:connect-observer() function</a><br />
+            7.3 <a href="#d4e421">The ua:disconnect-observer() function</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e444">References</a><br />
-            B <a href="#d4e483">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e465">References</a><br />
+            B <a href="#d4e504">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -146,6 +148,10 @@ div.exampleHeader { font-weight: bold;
                   <code>http://expath.org/ns/user-agent</code>. In this document, the
                   <code>ua</code> prefix, when used, is bound to this namespace URI.
                </p>
+               <p>Datatypes are defined in the namespace <code>http://expath.org/ns/user-agent/datatype</code>. In
+                  this document, the <code>ua-dt</code> prefix, when used, is bound to this namespace
+                  URI.
+               </p>
                <p>Error codes are defined in the namespace <code>http://expath.org/ns/error</code>. In
                   this document, the <code>err</code> prefix, when used, is bound to this namespace
                   URI.
@@ -153,7 +159,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e96" id="d4e96"></a>1.2 Error management
+               <h3><a name="d4e104" id="d4e104"></a>1.2 Error management
                </h3>
                <p>Error conditions are identified by a code (a <code>QName</code>). When such an error
                   condition is reached during the execution of the function, a dynamic error is thrown,
@@ -164,19 +170,31 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e107" id="d4e107"></a>2 External variables
+            <h2><a name="d4e115" id="d4e115"></a>2 External variables
             </h2>
             <p>These variables are available to the XQuery scripts associated with a document.</p>
             <div class="div2">
                
-               <h3><a name="d4e112" id="d4e112"></a>2.1 The <code>$ua:document</code> variable
+               <h3><a name="d4e120" id="d4e120"></a>2.1 The <code>$ua:document</code> variable
                </h3>
                <p>This variable is bound to the document itself.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="selectors" id="selectors"></a>3 Selectors
+            <h2><a name="d4e128" id="d4e128"></a>3 Datatypes
+            </h2>
+            <p>These custom datatypes are defined to ease the usage of module functions.</p>
+            <div class="div2">
+               
+               <h3><a name="d4e133" id="d4e133"></a>3.1 The <code>$ua:document</code> variable
+               </h3>
+               <p>This variable is bound to the document itself.</p>
+            </div>
+         </div>
+         <div class="div1">
+            
+            <h2><a name="selectors" id="selectors"></a>4 Selectors
             </h2>
             <p>Many functions in this specification use selectors for nodes as parameters. These
                selectors can be of two types, namely XPath selectors, and CSS selectors.
@@ -187,7 +205,7 @@ div.exampleHeader { font-weight: bold;
             </p>
             <div class="div2">
                
-               <h3><a name="d4e129" id="d4e129"></a>3.1 The XPath selectors
+               <h3><a name="d4e150" id="d4e150"></a>4.1 The XPath selectors
                </h3>
                <p>These selectors consist of valid XPath expressions, see <a href="#xpath-30">[XPath 3.0]</a>. In order to supply XPath expressions as parameters, one has to use a 
                   constructor function, namely ua:xpath-selector().
@@ -195,7 +213,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e136" id="d4e136"></a>3.2 The CSS selectors
+               <h3><a name="d4e157" id="d4e157"></a>4.2 The CSS selectors
                </h3>
                <p>These are valid CSS selectors, see <a href="#css-selectors">[CSS Selectors]</a>. In order to supply CSS selectors as parameters, one has to use a 
                   constructor function, namely ua:css-selector().
@@ -204,12 +222,12 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e143" id="d4e143"></a>4 Events
+            <h2><a name="d4e164" id="d4e164"></a>5 Events
             </h2>
             <p>These functions deal with DOM events.</p>
             <div class="div2">
                
-               <h3><a name="d4e148" id="d4e148"></a>4.1 The <code>ua:create-event()</code> function
+               <h3><a name="d4e169" id="d4e169"></a>5.1 The <code>ua:create-event()</code> function
                </h3>
                <p>This function creates a custom event.</p>
                <div class="exampleInner"><pre>
@@ -224,7 +242,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e173" id="d4e173"></a>4.2 The <code>ua:add-event-listener()</code> function
+               <h3><a name="d4e194" id="d4e194"></a>5.2 The <code>ua:add-event-listener()</code> function
                </h3>
                <p>This function adds a listener to an event.</p>
                <div class="exampleInner"><pre>
@@ -249,14 +267,14 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e214" id="d4e214"></a>5 Actions
+            <h2><a name="d4e235" id="d4e235"></a>6 Actions
             </h2>
             <p>These functions define actions to be executed by direct invoking or when a certain
                event occurs.
             </p>
             <div class="div2">
                
-               <h3><a name="d4e219" id="d4e219"></a>5.1 The <code>ua:action()</code> function
+               <h3><a name="d4e240" id="d4e240"></a>6.1 The <code>ua:action()</code> function
                </h3>
                <p>This function defines an action to be invoked when a DOM event occurs.</p>
                <div class="exampleInner"><pre>
@@ -294,13 +312,13 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e290" id="d4e290"></a>6 Mutation observers
+            <h2><a name="d4e311" id="d4e311"></a>7 Mutation observers
             </h2>
             <p>These functions deal with Mutation observers, as they are defined in <a href="#dom-4">[W3C DOM4]</a>.
             </p>
             <div class="div2">
                
-               <h3><a name="d4e297" id="d4e297"></a>6.1 The <code>ua:observer()</code> function
+               <h3><a name="d4e318" id="d4e318"></a>7.1 The <code>ua:observer()</code> function
                </h3>
                <p>This function creates a mutations observer. It has two signatures, one taking as second
                   parameter a list of action handlers separated by spaces,
@@ -332,7 +350,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e353" id="d4e353"></a>6.2 The <code>ua:connect-observer()</code> function
+               <h3><a name="d4e374" id="d4e374"></a>7.2 The <code>ua:connect-observer()</code> function
                </h3>
                <p>This function connects an observer to a node, in order to observe the node mutations.</p>
                <div class="exampleInner"><pre>
@@ -346,7 +364,7 @@ div.exampleHeader { font-weight: bold;
                      </p>
                   </li>
                   <li>
-                     <p><code>$node-selector</code> is the selector used to select the nodes to be observed; see <a href="#selectors"><b>3 Selectors</b></a>. If the selector selects multiple
+                     <p><code>$node-selector</code> is the selector used to select the nodes to be observed; see <a href="#selectors"><b>4 Selectors</b></a>. If the selector selects multiple
                         nodes, all these nodes are observed.
                      </p>
                   </li>
@@ -360,7 +378,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e400" id="d4e400"></a>6.3 The <code>ua:disconnect-observer()</code> function
+               <h3><a name="d4e421" id="d4e421"></a>7.3 The <code>ua:disconnect-observer()</code> function
                </h3>
                <p>This function disconnects an observer from a node. The observer will stop observing
                   the node until it will be connected again to the node.
@@ -381,7 +399,7 @@ div.exampleHeader { font-weight: bold;
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e444" id="d4e444"></a>A References
+            <h2><a name="d4e465" id="d4e465"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -437,7 +455,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e483" id="d4e483"></a>B Summary of Error Conditions
+            <h2><a name="d4e504" id="d4e504"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
