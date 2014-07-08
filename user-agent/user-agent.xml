@@ -96,15 +96,25 @@
             <p>This variable is bound to the document itself.</p>
          </div2>        
       </div1>
-       <div1>
+       <div1 id="datatypes">
          <head>Datatypes</head>
-         <p>These custom datatypes are defined to ease the usage of module functions.</p>
+         <p>These custom datatypes are defined to be used by the module functions.</p>
+         <div2>
+            <head>The <code>ua-dt:xpath-selector</code> datatype</head>
+            <p>This constructor functions casts the input to a custom datatype that provides XPath type selector to module functions to take as argument.</p>
+            <eg>
+<spec:function>ua-dt:xpath-selector</spec:function>($arg as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>ua-dt:xpath-selector?</spec:type>
+</eg>            
+         </div2>         
          <div2>
             <head>The <code>ua-dt:css-selector</code> datatype</head>
-            <p>This variable is bound to the document itself.</p>
+            <p>This constructor functions casts the input to a custom datatype that provides CSS type selector to module functions to take as argument.</p>
+            <eg>
+<spec:function>ua-dt:css-selector</spec:function>($arg as <spec:type>xs:anyAtomicType?</spec:type>) as <spec:type>ua-dt:css-selector?</spec:type>
+</eg>            
          </div2>        
       </div1>      
-       <div1 id="selectors">
+      <div1 id="selectors">
          <head>Selectors</head>
          <p>Many functions in this specification use selectors for nodes as parameters. These selectors can be of two types, namely XPath selectors, and CSS selectors.</p>
          <p>In the context of this specification, if multiple nodes are selected, then the invoking action is executed for each one of them, and if the selector selects
@@ -112,26 +122,26 @@
          <div2>
             <head>The XPath selectors</head>
             <p>These selectors consist of valid XPath expressions, see <bibref ref="xpath-30"/>. In order to supply XPath expressions as parameters, one has to use a 
-            constructor function, namely ua:xpath-selector().</p>
+            constructor function, according to <specref ref="datatypes" />.</p>
          </div2>
          <div2>
             <head>The CSS selectors</head>
-            <p>These are valid CSS selectors, see <bibref ref="css-selectors"/>. In order to supply CSS selectors as parameters, one has to use a 
-            constructor function, namely ua:css-selector().</p>
+            <p>These selectors are valid CSS selectors, see <bibref ref="css-selectors"/>. In order to supply CSS selectors as parameters, one has to use a 
+            constructor function, according to <specref ref="datatypes" />.</p>
          </div2>
       </div1>
       <div1>
          <head>Events</head>
-         <p>These functions deal with DOM events.</p>
+         <p>These functions are meant to handle DOM events.</p>
          <div2>
             <head>The <code>ua:create-event()</code> function</head>
             <p>This function creates a custom event.</p>
             <eg>
-<spec:function>ua:create-event</spec:function>($event-name as <spec:type>xs:QName</spec:type>) as <spec:type>empty()</spec:type>
+<spec:function>ua:create-event</spec:function>($type as <spec:type>xs:QName</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <ulist>
                <item>
-                  <p><code>$event-name</code> is the name of the custom event.</p>
+                  <p><code>$type</code> is the name of the event.</p>
                </item>
             </ulist>            
          </div2>
@@ -248,9 +258,51 @@
                </item>
             </ulist>            
          </div2>         
-         
-         
       </div1>
+      <div1>
+         <head>Templates</head>
+         <p>These function are for handling templates.</p>
+         <div2>
+            <head>The <code>ua:template()</code> function</head>
+            <p>This function creates a template.</p>
+            <eg>
+<spec:function>ua:template</spec:function>($id as <spec:type>xs:ID</spec:type>, $content as <spec:type>item()*</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$id</code> is the template's identificator. If the identificator is not unique within the script, this is an error <bibref ref="errUA01"/>.</p>
+               </item>            
+               <item>
+                  <p><code>$content</code> is the content of the template.</p>
+               </item>
+            </ulist>            
+         </div2>
+         <div2>
+            <head>The <code>ua:attach-template()</code> function</head>
+            <p>This function attaches a template to a node. It has two signatures, the second one attaching a template in case when an event is dispatched.</p>
+            <eg>
+<spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <eg>
+<spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>,
+	$event-type as <spec:type>xs:string</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$node-selector</code> is the selector used to select the nodes to attache the template to; see <specref ref="selectors"/>. If the selector selects multiple
+                  nodes, the template is attached to all these nodes.</p>
+               </item>            
+               <item>
+                  <p><code>$template-id</code> is the identificator of the template to be attached.</p>
+               </item>
+               <item>
+                  <p><code>$template-id</code> is the identificator of the template to be attached.</p>
+               </item>               
+            </ulist>            
+         </div2>
+      </div1>         
+         
+      
 <!--       <div1> -->
 <!--          <head>Bindings</head> -->
 <!--          <p>These functions deal with DOM events.</p> -->
