@@ -135,16 +135,38 @@
          <p>These functions are meant to handle DOM events.</p>
          <div2>
             <head>The <code>ua:create-event()</code> function</head>
-            <p>This function creates a custom event.</p>
+            <p>This function creates a custom event. It has two signatures: the first one takes as argument only the event type, while the initalization parameters are set to their default values, and the
+            second consists of a map containing the initialization parameters.</p>
             <eg>
 <spec:function>ua:create-event</spec:function>($type as <spec:type>xs:QName</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <eg>
+<spec:function>ua:create-event</spec:function>($type as <spec:type>xs:QName</spec:type>, $initialization-parameters as <spec:type>map(xs:string, item()*)</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <ulist>
                <item>
                   <p><code>$type</code> is the name of the event.</p>
                </item>
-            </ulist>            
-         </div2>
+               <item>
+                  <p><code>$initialization-parameters</code> are the parameters needed for initalization of the event. For details, see <specref ref="event-initialization-parameters"/></p>
+               </item>               
+            </ulist>
+            <div3 id="event-initialization-parameters">
+            	<head>The event initialization parameters</head>
+	            <p>There are three initialization parameters:</p>
+	            <ulist>
+	               <item>
+	                  <p><code>bubbles</code> is a boolean indicating if the event bubbles up through the DOM or not. Its default value is <code>false</code>.</p>
+	               </item>
+	               <item>
+	                  <p><code>cancelable</code> is a boolean indicating if the event is cancelable. Its default value is <code>false</code>.</p>
+	               </item>
+	               <item>
+	                  <p><code>detail</code> is the data passed when initializing the event.</p>
+	               </item>
+	            </ulist>            
+	        </div3>                        
+         </div2>         
          <div2>
             <head>The <code>ua:add-event-listener()</code> function</head>
             <p>This function adds a listener to an event.</p>
