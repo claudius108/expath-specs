@@ -156,15 +156,16 @@
 	            <p>There are three initialization parameters:</p>
 	            <ulist>
 	               <item>
-	                  <p><code>bubbles</code> is a boolean indicating if the event bubbles up through the DOM or not. Its default value is <code>false</code>.</p>
+	                  <p><code>bubbles</code> is a boolean indicating if the event bubbles up through the DOM or not. Its default value is <code>false()</code>.</p>
 	               </item>
 	               <item>
-	                  <p><code>cancelable</code> is a boolean indicating if the event is cancelable. Its default value is <code>false</code>.</p>
+	                  <p><code>cancelable</code> is a boolean indicating if the event is cancelable. Its default value is <code>false()</code>.</p>
 	               </item>
 	               <item>
 	                  <p><code>detail</code> is the data passed when initializing the event.</p>
 	               </item>
-	            </ulist>            
+	            </ulist>
+	            <p>For example of usage, see <specref ref="create-event-scenario"/>.</p>
 	        </div3>                        
          </div2>         
          <div2>
@@ -323,7 +324,29 @@
             </ulist>            
          </div2>
       </div1>         
-         
+      <div1>
+            <head>Scenarios of usage</head>
+		    <p>Scenarios of usage of the functions comprised by this module.</p>
+			<div2 id="create-event-scenario">
+				<head>Create an event</head>
+				<p>This scenario shows how to create events using both signatures of the function ua:create-event().</p>
+				<eg>
+ua:create-event('custom-event')
+				</eg>
+				<eg>
+ua:create-event('custom-event', map{"bubbles" := true(), "cancelable" := true(), "detail" := ("detail-1", "detail-2")})
+				</eg>
+				<eg>
+ua:create-event('custom-event', map{"cancelable" := true(), "detail" := ("detail-1", "detail-2")})
+				</eg>
+				<eg>
+ua:create-event('custom-event', map{"bubbles" := true()})
+				</eg>
+				<eg>
+ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
+				</eg>
+			</div2>
+        </div1>         
       
 <!--       <div1> -->
 <!--          <head>Bindings</head> -->
