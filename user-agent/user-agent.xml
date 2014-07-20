@@ -177,10 +177,11 @@
 </eg>
             <ulist>
                <item>
-                  <p><code>$event-target</code> is the name of the custom event.</p>
+                  <p><code>$event-target</code> is the target of the event. The target may be an element, the document itself, etc. See <bibref ref="dom-4"/> for more
+                  details</p>
                </item>
                <item>
-                  <p><code>$event-type</code> is the name of the custom event.</p>
+                  <p><code>$event-type</code> is the name of the event.</p>
                </item>
                <item>
                   <p><code>$listener</code> is the name of the custom event.</p>
@@ -329,7 +330,7 @@
 		    <p>Scenarios of usage of the functions comprised by this module.</p>
 			<div2 id="create-event-scenario">
 				<head>Create an event</head>
-				<p>This scenario shows how to create events using both signatures of the function ua:create-event().</p>
+				<p>This scenario presents how to create events using both signatures of the function ua:create-event(), by using default parameters or setting values to parameters.</p>
 				<eg>
 ua:create-event('custom-event')
 				</eg>
