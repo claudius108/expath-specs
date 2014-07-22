@@ -222,7 +222,23 @@
                </item>               
             </ulist>            
          </div2>
-         
+         <div2>
+            <head>The <code>ua:dispatch-event()</code> function</head>
+            <p>This function dispatches an event at the specified target, thus being invoked in the appropriate order the correspondent event listeners.</p>
+            <eg>
+<spec:function>ua:dispatch-event</spec:function>($event-name as <spec:type>xs:string</spec:type>, $event-target-selector as <spec:type>xs:anyType</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$event-name</code> is the name of event to dispatch.</p>
+               </item>            
+               <item>
+                  <p><code>$event-target-selector</code> is the selector for the target of the event. The target may be an element, the document itself, etc.
+                  See <bibref ref="dom-4"/> for more details.</p>
+               </item>              
+            </ulist>            
+         </div2>
+                  
          
       </div1>      
       <div1>
