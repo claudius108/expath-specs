@@ -395,8 +395,6 @@
                </item>               
             </ulist>            
          </div2>
-         
-         
          <div2>
             <head>The <code>ua:get-template()</code> function</head>
             <p>This function gets a template, in order to be examined, modified, etc. It returns the template as a sequence.</p>
@@ -409,7 +407,28 @@
                </item>
             </ulist>            
          </div2>
-         
+         <div2>
+            <head>The <code>ua:update-template()</code> function</head>
+            <p>This function updates a template. It has two signatures, the second one updating a template in case when an event is dispatched. All the nodes having the respective template
+            attached to them will have their view refreshened based upon the updated template.</p>
+            <eg>
+<spec:function>ua:update-template</spec:function>($template-id as <spec:type>xs:IDREF</spec:type>, $new-content as <spec:type>item()*</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <eg>
+<spec:function>ua:update-template</spec:function>($template-id as <spec:type>xs:IDREF</spec:type>, $new-content as <spec:type>item()*</spec:type>, $event-name as <spec:type>xs:string</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$template-id</code> is the identificator of the template to be updated.</p>
+               </item>
+               <item>
+                  <p><code>$content</code> is the new content of the template.</p>
+               </item>               
+               <item>
+                  <p><code>$event-name</code> is the name of the event triggering the updating of the template.</p>
+               </item>               
+            </ulist>            
+         </div2>
       </div1>         
       <div1>
             <head>Scenarios of usage</head>

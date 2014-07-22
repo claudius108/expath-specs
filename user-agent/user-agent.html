@@ -128,15 +128,16 @@ div.exampleHeader { font-weight: bold;
             8.2 <a href="#d4e711">The ua:attach-template() function</a><br />
             8.3 <a href="#d4e768">The ua:dettach-template() function</a><br />
             8.4 <a href="#d4e825">The ua:get-template() function</a><br />
-            9 <a href="#d4e850">Scenarios of usage</a><br />
+            8.5 <a href="#d4e850">The ua:update-template() function</a><br />
+            9 <a href="#d4e905">Scenarios of usage</a><br />
             9.1 <a href="#create-event-scenario">Create an event</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e887">References</a><br />
-            B <a href="#d4e926">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e942">References</a><br />
+            B <a href="#d4e981">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -624,10 +625,40 @@ div.exampleHeader { font-weight: bold;
                   </li>
                </ul>
             </div>
+            <div class="div2">
+               
+               <h3><a name="d4e850" id="d4e850"></a>8.5 The <code>ua:update-template()</code> function
+               </h3>
+               <p>This function updates a template. It has two signatures, the second one updating a
+                  template in case when an event is dispatched. All the nodes having the respective
+                  template
+                  attached to them will have their view refreshened based upon the updated template.
+               </p>
+               <div class="exampleInner"><pre>
+<code class="function">ua:update-template</code>($template-id as <code class="type">xs:IDREF</code>, $new-content as <code class="type">item()*</code>) as <code class="type">empty()</code>
+</pre></div>
+               <div class="exampleInner"><pre>
+<code class="function">ua:update-template</code>($template-id as <code class="type">xs:IDREF</code>, $new-content as <code class="type">item()*</code>, $event-name as <code class="type">xs:string</code>) as <code class="type">empty()</code>
+</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$template-id</code> is the identificator of the template to be updated.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$content</code> is the new content of the template.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$event-name</code> is the name of the event triggering the updating of the template.
+                     </p>
+                  </li>
+               </ul>
+            </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e850" id="d4e850"></a>9 Scenarios of usage
+            <h2><a name="d4e905" id="d4e905"></a>9 Scenarios of usage
             </h2>
             <p>Scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
@@ -658,7 +689,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e887" id="d4e887"></a>A References
+            <h2><a name="d4e942" id="d4e942"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -714,7 +745,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          </div>
          <div class="div1">
             
-            <h2><a name="d4e926" id="d4e926"></a>B Summary of Error Conditions
+            <h2><a name="d4e981" id="d4e981"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
