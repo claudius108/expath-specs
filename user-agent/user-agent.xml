@@ -172,7 +172,36 @@
             <head>The <code>ua:add-event-listener()</code> function</head>
             <p>This function adds a listener to an event.</p>
             <eg>
+<spec:function>ua:add-event-listener</spec:function>($event-target-selector as <spec:type>xs:anyType</spec:type>, $event-type as <spec:type>xs:string</spec:type>,
+	$listener as <spec:type>item()</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <eg>
 <spec:function>ua:add-event-listener</spec:function>($event-target as <spec:type>xs:string</spec:type>, $event-type as <spec:type>xs:string</spec:type>,
+	$listener as <spec:type>item()</spec:type>, $useCapture as <spec:type>xs:boolean</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$event-target-selector</code> is the selector for the target of the event. The target may be an element, the document itself, etc.
+                  See <bibref ref="dom-4"/> for more details.</p>
+               </item>
+               <item>
+                  <p><code>$event-type</code> is the type of the event to listen for.</p>
+               </item>
+               <item>
+                  <p><code>$listener</code> is the handler of an action, a block of code, or a function to be executed.</p>
+               </item>
+               <item>
+                  <p><code>$useCapture</code> is the indication that the user wishes to initiate capture. Its default value is <code>false()</code>.</p>
+               </item>               
+            </ulist>            
+         </div2>
+         
+         
+         <div2>
+            <head>The <code>ua:remove-event-listener()</code> function</head>
+            <p>This function adds a listener to an event.</p>
+            <eg>
+<spec:function>ua:remove-event-listener</spec:function>($event-target-selector as <spec:type>xs:anyType</spec:type>, $event-type as <spec:type>xs:string</spec:type>,
 	$listener as <spec:type>item()</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <eg>
@@ -195,6 +224,8 @@
                </item>               
             </ulist>            
          </div2>
+         
+         
       </div1>      
       <div1>
          <head>Actions</head>
