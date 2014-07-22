@@ -301,7 +301,7 @@ div.exampleHeader { font-weight: bold;
                
                <h3><a name="d4e279" id="d4e279"></a>5.2 The <code>ua:add-event-listener()</code> function
                </h3>
-               <p>This function adds a listener to an event.</p>
+               <p>This function registers an event listener.</p>
                <div class="exampleInner"><pre>
 <code class="function">ua:add-event-listener</code>($event-target-selector as <code class="type">xs:anyType</code>, $event-type as <code class="type">xs:string</code>,
 	$listener as <code class="type">item()</code>) as <code class="type">empty()</code>
@@ -336,33 +336,33 @@ div.exampleHeader { font-weight: bold;
                
                <h3><a name="d4e351" id="d4e351"></a>5.3 The <code>ua:remove-event-listener()</code> function
                </h3>
-               <p>This function adds a listener to an event.</p>
+               <p>This function removes a registered event listener.</p>
                <div class="exampleInner"><pre>
 <code class="function">ua:remove-event-listener</code>($event-target-selector as <code class="type">xs:anyType</code>, $event-type as <code class="type">xs:string</code>,
 	$listener as <code class="type">item()</code>) as <code class="type">empty()</code>
 </pre></div>
                <div class="exampleInner"><pre>
-<code class="function">ua:add-event-listener</code>($event-target as <code class="type">xs:string</code>, $event-type as <code class="type">xs:string</code>,
+<code class="function">ua:add-event-listener</code>($event-target-selector as <code class="type">xs:anyType</code>, $event-type as <code class="type">xs:string</code>,
 	$listener as <code class="type">item()</code>, $useCapture as <code class="type">xs:boolean</code>) as <code class="type">empty()</code>
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$event-target</code> is the target of the event. The target may be an element, the document itself, etc.
-                        See <a href="#dom-4">[W3C DOM4]</a> for more
-                        details
+                     <p><code>$event-target-selector</code> is the selector for the target of the event. The target may be an element, the document
+                        itself, etc.
+                        See <a href="#dom-4">[W3C DOM4]</a> for more details.
                      </p>
                   </li>
                   <li>
-                     <p><code>$event-type</code> is the name of the event.
+                     <p><code>$event-type</code> is the event type being removed.
                      </p>
                   </li>
                   <li>
-                     <p><code>$listener</code> is the handler of an action, a block of code, or a function to be executed.
+                     <p><code>$listener</code> is the handler of an action, a block of code, or a function to be removed.
                      </p>
                   </li>
                   <li>
-                     <p><code>$useCapture</code> is the indication that the user wishes to initiate capture. Its default value is
-                        <code>false()</code>.
+                     <p><code>$useCapture</code> is the indication that the current listener was registered as a capturing listener
+                        or not. Its default value is <code>false()</code>.
                      </p>
                   </li>
                </ul>
