@@ -396,6 +396,20 @@
             </ulist>            
          </div2>
          
+         
+         <div2>
+            <head>The <code>ua:get-template()</code> function</head>
+            <p>This function gets a template, in order to be examined, modified, etc. It returns the template as a sequence.</p>
+            <eg>
+<spec:function>ua:get-template</spec:function>($template-id as <spec:type>xs:IDREF</spec:type>) as <spec:type>item()*</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$template-id</code> is the identificator of the template.</p>
+               </item>
+            </ulist>            
+         </div2>
+         
       </div1>         
       <div1>
             <head>Scenarios of usage</head>

@@ -127,15 +127,16 @@ div.exampleHeader { font-weight: bold;
             8.1 <a href="#d4e676">The ua:template() function</a><br />
             8.2 <a href="#d4e711">The ua:attach-template() function</a><br />
             8.3 <a href="#d4e768">The ua:dettach-template() function</a><br />
-            9 <a href="#d4e825">Scenarios of usage</a><br />
+            8.4 <a href="#d4e825">The ua:get-template() function</a><br />
+            9 <a href="#d4e850">Scenarios of usage</a><br />
             9.1 <a href="#create-event-scenario">Create an event</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e862">References</a><br />
-            B <a href="#d4e901">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e887">References</a><br />
+            B <a href="#d4e926">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -606,10 +607,27 @@ div.exampleHeader { font-weight: bold;
                   </li>
                </ul>
             </div>
+            <div class="div2">
+               
+               <h3><a name="d4e825" id="d4e825"></a>8.4 The <code>ua:get-template()</code> function
+               </h3>
+               <p>This function gets a template, in order to be examined, modified, etc. It returns
+                  the template as a sequence.
+               </p>
+               <div class="exampleInner"><pre>
+<code class="function">ua:get-template</code>($template-id as <code class="type">xs:IDREF</code>) as <code class="type">item()*</code>
+</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$template-id</code> is the identificator of the template.
+                     </p>
+                  </li>
+               </ul>
+            </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e825" id="d4e825"></a>9 Scenarios of usage
+            <h2><a name="d4e850" id="d4e850"></a>9 Scenarios of usage
             </h2>
             <p>Scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
@@ -640,7 +658,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e862" id="d4e862"></a>A References
+            <h2><a name="d4e887" id="d4e887"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -696,7 +714,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          </div>
          <div class="div1">
             
-            <h2><a name="d4e901" id="d4e901"></a>B Summary of Error Conditions
+            <h2><a name="d4e926" id="d4e926"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
