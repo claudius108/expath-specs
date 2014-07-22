@@ -94,7 +94,15 @@
          <div2>
             <head>The <code>$ua:document</code> variable</head>
             <p>This variable is bound to the document itself.</p>
-         </div2>        
+         </div2>  
+         <div2>
+            <head>The <code>$ua:cursor-position</code> variable</head>
+            <p></p>
+         </div2>
+         <div2>
+            <head>The <code>$ua:selector</code> variable</head>
+            <p></p>
+         </div2>
       </div1>
        <div1 id="datatypes">
          <head>Datatypes</head>
