@@ -126,15 +126,16 @@ div.exampleHeader { font-weight: bold;
             8 <a href="#d4e671">Templates</a><br />
             8.1 <a href="#d4e676">The ua:template() function</a><br />
             8.2 <a href="#d4e711">The ua:attach-template() function</a><br />
-            9 <a href="#d4e768">Scenarios of usage</a><br />
+            8.3 <a href="#d4e768">The ua:dettach-template() function</a><br />
+            9 <a href="#d4e825">Scenarios of usage</a><br />
             9.1 <a href="#create-event-scenario">Create an event</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e805">References</a><br />
-            B <a href="#d4e844">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e862">References</a><br />
+            B <a href="#d4e901">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -551,8 +552,8 @@ div.exampleHeader { font-weight: bold;
                
                <h3><a name="d4e711" id="d4e711"></a>8.2 The <code>ua:attach-template()</code> function
                </h3>
-               <p>This function attaches a template to a node. It has two signatures, the second one
-                  attaching a template in case when an event is dispatched.
+               <p>This function attaches a template to one or more nodes. It has two signatures, the
+                  second one attaching a template in case when an event is dispatched.
                </p>
                <div class="exampleInner"><pre>
 <code class="function">ua:attach-template</code>($node-selector as <code class="type">xs:string</code>, $template-id as <code class="type">xs:IDREF</code>) as <code class="type">empty()</code>
@@ -576,10 +577,39 @@ div.exampleHeader { font-weight: bold;
                   </li>
                </ul>
             </div>
+            <div class="div2">
+               
+               <h3><a name="d4e768" id="d4e768"></a>8.3 The <code>ua:dettach-template()</code> function
+               </h3>
+               <p>This function dettaches a template from one or more nodes. It has two signatures,
+                  the second one dettaching a template in case when an event is dispatched.
+               </p>
+               <div class="exampleInner"><pre>
+<code class="function">ua:dettach-template</code>($node-selector as <code class="type">xs:string</code>, $template-id as <code class="type">xs:IDREF</code>) as <code class="type">empty()</code>
+</pre></div>
+               <div class="exampleInner"><pre>
+<code class="function">ua:dettach-template</code>($node-selector as <code class="type">xs:string</code>, $template-id as <code class="type">xs:IDREF</code>, $event-name as <code class="type">xs:string</code>) as <code class="type">empty()</code>
+</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$node-selector</code> is the selector used to select the nodes to dettache the template from; see <a href="#selectors"><b>4 Selectors</b></a>. If the selector selects multiple
+                        nodes, the template is dettached from all these nodes.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$template-id</code> is the identificator of the template to be dettached.
+                     </p>
+                  </li>
+                  <li>
+                     <p><code>$event-name</code> is the name of the event triggering the dettaching of the template.
+                     </p>
+                  </li>
+               </ul>
+            </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e768" id="d4e768"></a>9 Scenarios of usage
+            <h2><a name="d4e825" id="d4e825"></a>9 Scenarios of usage
             </h2>
             <p>Scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
@@ -610,7 +640,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e805" id="d4e805"></a>A References
+            <h2><a name="d4e862" id="d4e862"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -666,7 +696,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          </div>
          <div class="div1">
             
-            <h2><a name="d4e844" id="d4e844"></a>B Summary of Error Conditions
+            <h2><a name="d4e901" id="d4e901"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
