@@ -238,8 +238,6 @@
                </item>              
             </ulist>            
          </div2>
-                  
-         
       </div1>      
       <div1>
          <head>Actions</head>
@@ -355,13 +353,12 @@
          </div2>
          <div2>
             <head>The <code>ua:attach-template()</code> function</head>
-            <p>This function attaches a template to a node. It has two signatures, the second one attaching a template in case when an event is dispatched.</p>
+            <p>This function attaches a template to one or more nodes. It has two signatures, the second one attaching a template in case when an event is dispatched.</p>
             <eg>
 <spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <eg>
-<spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>,
-	$event-type as <spec:type>xs:string</spec:type>) as <spec:type>empty()</spec:type>
+<spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>, $event-name as <spec:type>xs:string</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <ulist>
                <item>
@@ -372,10 +369,34 @@
                   <p><code>$template-id</code> is the identificator of the template to be attached.</p>
                </item>
                <item>
-                  <p><code>$template-id</code> is the identificator of the template to be attached.</p>
+                  <p><code>$event-name</code> is the name of the event triggering the attaching of the template.</p>
                </item>               
             </ulist>            
          </div2>
+         
+         <div2>
+            <head>The <code>ua:dettach-template()</code> function</head>
+            <p>This function dettaches a template from a node. It has two signatures, the second one attaching a template in case when an event is dispatched.</p>
+            <eg>
+<spec:function>ua:dettach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <eg>
+<spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>, $event-name as <spec:type>xs:string</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$node-selector</code> is the selector used to select the nodes to attache the template to; see <specref ref="selectors"/>. If the selector selects multiple
+                  nodes, the template is attached to all these nodes.</p>
+               </item>            
+               <item>
+                  <p><code>$template-id</code> is the identificator of the template to be attached.</p>
+               </item>
+               <item>
+                  <p><code>$event-name</code> is the name of the event triggering the attaching of the template.</p>
+               </item>               
+            </ulist>            
+         </div2>
+         
       </div1>         
       <div1>
             <head>Scenarios of usage</head>

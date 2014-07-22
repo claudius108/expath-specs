@@ -558,8 +558,7 @@ div.exampleHeader { font-weight: bold;
 <code class="function">ua:attach-template</code>($node-selector as <code class="type">xs:string</code>, $template-id as <code class="type">xs:IDREF</code>) as <code class="type">empty()</code>
 </pre></div>
                <div class="exampleInner"><pre>
-<code class="function">ua:attach-template</code>($node-selector as <code class="type">xs:string</code>, $template-id as <code class="type">xs:IDREF</code>,
-	$event-type as <code class="type">xs:string</code>) as <code class="type">empty()</code>
+<code class="function">ua:attach-template</code>($node-selector as <code class="type">xs:string</code>, $template-id as <code class="type">xs:IDREF</code>, $event-name as <code class="type">xs:string</code>) as <code class="type">empty()</code>
 </pre></div>
                <ul>
                   <li>
@@ -572,7 +571,7 @@ div.exampleHeader { font-weight: bold;
                      </p>
                   </li>
                   <li>
-                     <p><code>$template-id</code> is the identificator of the template to be attached.
+                     <p><code>$event-name</code> is the name of the event triggering the attaching of the template.
                      </p>
                   </li>
                </ul>
