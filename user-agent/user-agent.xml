@@ -404,7 +404,32 @@
                   <p><code>$event-name</code> is the name of the event triggering the dettaching of the template.</p>
                </item>               
             </ulist>            
+         </div2>         
+         <div2>
+            <head>The <code>ua:show-template()</code> function</head>
+            <p>This function shows a template attached to one or more nodes.</p> 
+            <eg>
+<spec:function>ua:show-template</spec:function>($template-id as <spec:type>xs:IDREF</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$template-id</code> is the identificator of the template to be shown. If the indicated template does not exist, this is an error <bibref ref="errUA05"/> </p>
+               </item>
+            </ulist>            
          </div2>
+         <div2>
+            <head>The <code>ua:hide-template()</code> function</head>
+            <p>This function hides a template attached to one or more nodes.</p> 
+            <eg>
+<spec:function>ua:hide-template</spec:function>($template-id as <spec:type>xs:IDREF</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <ulist>
+               <item>
+                  <p><code>$template-id</code> is the identificator of the template to be hidden. If the indicated template does not exist, this is an error <bibref ref="errUA05"/> </p>
+               </item>
+            </ulist>            
+         </div2>         
+         
          <div2>
             <head>The <code>ua:get-template()</code> function</head>
             <p>This function gets a template, in order to be examined, modified, etc. It returns the template as a sequence.</p>
@@ -517,7 +542,8 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          	<bibl id="errUA01" key="err:UA01">The identificator $id is not unique.</bibl>
          	<bibl id="errUA02" key="err:UA02">The event $event-name does not exist.</bibl>
          	<bibl id="errUA03" key="err:UA03">The identificator $id does not exist.</bibl>
-         	<bibl id="errUA04" key="err:UA04">No node was selected.</bibl>         	
+         	<bibl id="errUA04" key="err:UA04">No node was selected.</bibl>
+         	<bibl id="errUA05" key="err:UA05">The identificator $id does not exist.</bibl>
          </blist>
       </div1>
    </back>

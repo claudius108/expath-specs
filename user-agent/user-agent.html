@@ -129,17 +129,19 @@ div.exampleHeader { font-weight: bold;
             8.1 <a href="#d4e690">The ua:template() function</a><br />
             8.2 <a href="#d4e725">The ua:attach-template() function</a><br />
             8.3 <a href="#d4e785">The ua:dettach-template() function</a><br />
-            8.4 <a href="#d4e842">The ua:get-template() function</a><br />
-            8.5 <a href="#d4e867">The ua:update-template() function</a><br />
-            9 <a href="#d4e922">Scenarios of usage</a><br />
+            8.4 <a href="#d4e842">The ua:show-template() function</a><br />
+            8.5 <a href="#d4e869">The ua:hide-template() function</a><br />
+            8.6 <a href="#d4e896">The ua:get-template() function</a><br />
+            8.7 <a href="#d4e921">The ua:update-template() function</a><br />
+            9 <a href="#d4e976">Scenarios of usage</a><br />
             9.1 <a href="#create-event-scenario">Create an event</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e959">References</a><br />
-            B <a href="#d4e1003">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e1013">References</a><br />
+            B <a href="#d4e1057">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -631,7 +633,39 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e842" id="d4e842"></a>8.4 The <code>ua:get-template()</code> function
+               <h3><a name="d4e842" id="d4e842"></a>8.4 The <code>ua:show-template()</code> function
+               </h3>
+               <p>This function shows a template attached to one or more nodes.</p>
+               <div class="exampleInner"><pre>
+<code class="function">ua:show-template</code>($template-id as <code class="type">xs:IDREF</code>) as <code class="type">empty()</code>
+</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$template-id</code> is the identificator of the template to be shown. If the indicated template does
+                        not exist, this is an error <a href="#errUA05">[err:UA05]</a> 
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <div class="div2">
+               
+               <h3><a name="d4e869" id="d4e869"></a>8.5 The <code>ua:hide-template()</code> function
+               </h3>
+               <p>This function hides a template attached to one or more nodes.</p>
+               <div class="exampleInner"><pre>
+<code class="function">ua:hide-template</code>($template-id as <code class="type">xs:IDREF</code>) as <code class="type">empty()</code>
+</pre></div>
+               <ul>
+                  <li>
+                     <p><code>$template-id</code> is the identificator of the template to be hidden. If the indicated template does
+                        not exist, this is an error <a href="#errUA05">[err:UA05]</a> 
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <div class="div2">
+               
+               <h3><a name="d4e896" id="d4e896"></a>8.6 The <code>ua:get-template()</code> function
                </h3>
                <p>This function gets a template, in order to be examined, modified, etc. It returns
                   the template as a sequence.
@@ -648,7 +682,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e867" id="d4e867"></a>8.5 The <code>ua:update-template()</code> function
+               <h3><a name="d4e921" id="d4e921"></a>8.7 The <code>ua:update-template()</code> function
                </h3>
                <p>This function updates a template. It has two signatures, the second one updating a
                   template in case when an event is dispatched. All the nodes having the respective
@@ -679,7 +713,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e922" id="d4e922"></a>9 Scenarios of usage
+            <h2><a name="d4e976" id="d4e976"></a>9 Scenarios of usage
             </h2>
             <p>Scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
@@ -710,7 +744,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e959" id="d4e959"></a>A References
+            <h2><a name="d4e1013" id="d4e1013"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -771,7 +805,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1003" id="d4e1003"></a>B Summary of Error Conditions
+            <h2><a name="d4e1057" id="d4e1057"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
@@ -786,6 +820,9 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
                <dt class="label"><a name="errUA04" id="errUA04"></a>err:UA04
                </dt>
                <dd>No node was selected.</dd>
+               <dt class="label"><a name="errUA05" id="errUA05"></a>err:UA05
+               </dt>
+               <dd>The identificator $id does not exist.</dd>
             </dl>
          </div>
       </div><script type="text/javascript">
