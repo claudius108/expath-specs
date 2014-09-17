@@ -361,11 +361,11 @@
          </div2>
          <div2>
             <head>The <code>ua:attach-template()</code> function</head>
-            <p>This function attaches a template to one or more nodes. The attached templated is immediately displayed by default. In order to not display a templed upon attaching it,
-            set the parameter $display-template to <code>false()</code>.</p> 
-            <p>It is also possible to attach a template when a certain event is dispatched, by using the parameter $event-name to specify the name of the respective event.</p>
+            <p>This function attaches a template to one or more nodes. Displaying of the attached templated depends on the value of the <code>open</code> attribute, as it is described
+            in <bibref ref="html5"/>.</p> 
+            <p>It is possible to attach a template when a certain event is dispatched, by using the parameter $event-name to specify the name of the respective event.</p>
             <eg>
-<spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>, $event-name as <spec:type>xs:string</spec:type>?, $display-template as <spec:type>xs:boolean</spec:type>?) as <spec:type>empty()</spec:type>
+<spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>, $event-name as <spec:type>xs:string</spec:type>?) as <spec:type>empty()</spec:type>
 </eg>
             <ulist>
                <item>
@@ -377,9 +377,6 @@
                </item>
                <item>
                   <p><code>$event-name</code> is the name of the event triggering the attaching of the template.</p>
-               </item>
-               <item>
-                  <p><code>$display-template</code> is a boolean indicating if the attached template is displayed or not. Its default value is <code>true()</code>.</p>
                </item>
             </ulist>            
          </div2>         
