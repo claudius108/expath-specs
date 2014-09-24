@@ -365,6 +365,9 @@
             in <bibref ref="html5"/>.</p> 
             <p>It is possible to attach a template when a certain event is dispatched, by using the parameter $event-name to specify the name of the respective event.</p>
             <eg>
+<spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>) as <spec:type>empty()</spec:type>
+</eg>            
+            <eg>
 <spec:function>ua:attach-template</spec:function>($node-selector as <spec:type>xs:string</spec:type>, $template-id as <spec:type>xs:IDREF</spec:type>, $event-name as <spec:type>xs:string</spec:type>?) as <spec:type>empty()</spec:type>
 </eg>
             <ulist>

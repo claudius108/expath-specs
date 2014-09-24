@@ -128,20 +128,20 @@ div.exampleHeader { font-weight: bold;
             8 <a href="#d4e685">Templates</a><br />
             8.1 <a href="#d4e690">The ua:template() function</a><br />
             8.2 <a href="#d4e725">The ua:attach-template() function</a><br />
-            8.3 <a href="#d4e775">The ua:dettach-template() function</a><br />
-            8.4 <a href="#d4e832">The ua:show-template() function</a><br />
-            8.5 <a href="#d4e859">The ua:hide-template() function</a><br />
-            8.6 <a href="#d4e886">The ua:get-template() function</a><br />
-            8.7 <a href="#d4e911">The ua:update-template() function</a><br />
-            9 <a href="#d4e966">Scenarios of usage</a><br />
+            8.3 <a href="#d4e789">The ua:dettach-template() function</a><br />
+            8.4 <a href="#d4e846">The ua:show-template() function</a><br />
+            8.5 <a href="#d4e873">The ua:hide-template() function</a><br />
+            8.6 <a href="#d4e900">The ua:get-template() function</a><br />
+            8.7 <a href="#d4e925">The ua:update-template() function</a><br />
+            9 <a href="#d4e980">Scenarios of usage</a><br />
             9.1 <a href="#create-event-scenario">Create an event</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e1003">References</a><br />
-            B <a href="#d4e1047">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e1017">References</a><br />
+            B <a href="#d4e1061">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -578,6 +578,9 @@ div.exampleHeader { font-weight: bold;
                   parameter $event-name to specify the name of the respective event.
                </p>
                <div class="exampleInner"><pre>
+<code class="function">ua:attach-template</code>($node-selector as <code class="type">xs:string</code>, $template-id as <code class="type">xs:IDREF</code>) as <code class="type">empty()</code>
+</pre></div>
+               <div class="exampleInner"><pre>
 <code class="function">ua:attach-template</code>($node-selector as <code class="type">xs:string</code>, $template-id as <code class="type">xs:IDREF</code>, $event-name as <code class="type">xs:string</code>?) as <code class="type">empty()</code>
 </pre></div>
                <ul>
@@ -598,7 +601,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e775" id="d4e775"></a>8.3 The <code>ua:dettach-template()</code> function
+               <h3><a name="d4e789" id="d4e789"></a>8.3 The <code>ua:dettach-template()</code> function
                </h3>
                <p>This function dettaches a template from one or more nodes. It has two signatures,
                   the second one dettaching a template in case when an event is dispatched.
@@ -627,7 +630,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e832" id="d4e832"></a>8.4 The <code>ua:show-template()</code> function
+               <h3><a name="d4e846" id="d4e846"></a>8.4 The <code>ua:show-template()</code> function
                </h3>
                <p>This function shows a template attached to one or more nodes.</p>
                <div class="exampleInner"><pre>
@@ -643,7 +646,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e859" id="d4e859"></a>8.5 The <code>ua:hide-template()</code> function
+               <h3><a name="d4e873" id="d4e873"></a>8.5 The <code>ua:hide-template()</code> function
                </h3>
                <p>This function hides a template attached to one or more nodes.</p>
                <div class="exampleInner"><pre>
@@ -659,7 +662,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e886" id="d4e886"></a>8.6 The <code>ua:get-template()</code> function
+               <h3><a name="d4e900" id="d4e900"></a>8.6 The <code>ua:get-template()</code> function
                </h3>
                <p>This function gets a template, in order to be examined, modified, etc. It returns
                   the template as a sequence.
@@ -676,7 +679,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e911" id="d4e911"></a>8.7 The <code>ua:update-template()</code> function
+               <h3><a name="d4e925" id="d4e925"></a>8.7 The <code>ua:update-template()</code> function
                </h3>
                <p>This function updates a template. It has two signatures, the second one updating a
                   template in case when an event is dispatched. All the nodes having the respective
@@ -707,7 +710,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e966" id="d4e966"></a>9 Scenarios of usage
+            <h2><a name="d4e980" id="d4e980"></a>9 Scenarios of usage
             </h2>
             <p>Scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
@@ -738,7 +741,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e1003" id="d4e1003"></a>A References
+            <h2><a name="d4e1017" id="d4e1017"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -799,7 +802,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1047" id="d4e1047"></a>B Summary of Error Conditions
+            <h2><a name="d4e1061" id="d4e1061"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
