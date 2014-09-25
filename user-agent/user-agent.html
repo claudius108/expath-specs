@@ -128,20 +128,20 @@ div.exampleHeader { font-weight: bold;
             8 <a href="#d4e685">Templates</a><br />
             8.1 <a href="#d4e690">The ua:template() function</a><br />
             8.2 <a href="#d4e725">The ua:attach-template() function</a><br />
-            8.3 <a href="#d4e789">The ua:dettach-template() function</a><br />
-            8.4 <a href="#d4e846">The ua:show-template() function</a><br />
-            8.5 <a href="#d4e873">The ua:hide-template() function</a><br />
-            8.6 <a href="#d4e900">The ua:get-template() function</a><br />
-            8.7 <a href="#d4e925">The ua:update-template() function</a><br />
-            9 <a href="#d4e980">Scenarios of usage</a><br />
+            8.3 <a href="#d4e795">The ua:dettach-template() function</a><br />
+            8.4 <a href="#d4e852">The ua:show-template() function</a><br />
+            8.5 <a href="#d4e879">The ua:hide-template() function</a><br />
+            8.6 <a href="#d4e906">The ua:get-template() function</a><br />
+            8.7 <a href="#d4e931">The ua:update-template() function</a><br />
+            9 <a href="#d4e986">Scenarios of usage</a><br />
             9.1 <a href="#create-event-scenario">Create an event</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e1017">References</a><br />
-            B <a href="#d4e1061">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e1023">References</a><br />
+            B <a href="#d4e1067">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -571,8 +571,8 @@ div.exampleHeader { font-weight: bold;
                <h3><a name="d4e725" id="d4e725"></a>8.2 The <code>ua:attach-template()</code> function
                </h3>
                <p>This function attaches a template to one or more nodes. Displaying of the attached
-                  templated depends on the value of the <code>open</code> attribute, as it is described
-                  in <a href="#html5">[HTML Living Standard]</a>.
+                  templated when the document is loaded depends on the value of the
+                  <code>open</code> attribute, as it is described in <a href="#html5">[HTML Living Standard]</a>, or on the <code>visibility</code> or <code>display</code> CSS instructions, respectively.
                </p>
                <p>It is possible to attach a template when a certain event is dispatched, by using the
                   parameter $event-name to specify the name of the respective event.
@@ -601,7 +601,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e789" id="d4e789"></a>8.3 The <code>ua:dettach-template()</code> function
+               <h3><a name="d4e795" id="d4e795"></a>8.3 The <code>ua:dettach-template()</code> function
                </h3>
                <p>This function dettaches a template from one or more nodes. It has two signatures,
                   the second one dettaching a template in case when an event is dispatched.
@@ -630,7 +630,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e846" id="d4e846"></a>8.4 The <code>ua:show-template()</code> function
+               <h3><a name="d4e852" id="d4e852"></a>8.4 The <code>ua:show-template()</code> function
                </h3>
                <p>This function shows a template attached to one or more nodes.</p>
                <div class="exampleInner"><pre>
@@ -646,7 +646,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e873" id="d4e873"></a>8.5 The <code>ua:hide-template()</code> function
+               <h3><a name="d4e879" id="d4e879"></a>8.5 The <code>ua:hide-template()</code> function
                </h3>
                <p>This function hides a template attached to one or more nodes.</p>
                <div class="exampleInner"><pre>
@@ -662,7 +662,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e900" id="d4e900"></a>8.6 The <code>ua:get-template()</code> function
+               <h3><a name="d4e906" id="d4e906"></a>8.6 The <code>ua:get-template()</code> function
                </h3>
                <p>This function gets a template, in order to be examined, modified, etc. It returns
                   the template as a sequence.
@@ -679,7 +679,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e925" id="d4e925"></a>8.7 The <code>ua:update-template()</code> function
+               <h3><a name="d4e931" id="d4e931"></a>8.7 The <code>ua:update-template()</code> function
                </h3>
                <p>This function updates a template. It has two signatures, the second one updating a
                   template in case when an event is dispatched. All the nodes having the respective
@@ -710,7 +710,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e980" id="d4e980"></a>9 Scenarios of usage
+            <h2><a name="d4e986" id="d4e986"></a>9 Scenarios of usage
             </h2>
             <p>Scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
@@ -741,7 +741,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e1017" id="d4e1017"></a>A References
+            <h2><a name="d4e1023" id="d4e1023"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -802,7 +802,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1061" id="d4e1061"></a>B Summary of Error Conditions
+            <h2><a name="d4e1067" id="d4e1067"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
