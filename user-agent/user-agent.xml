@@ -343,7 +343,11 @@
       </div1>
       <div1>
          <head>Templates</head>
-         <p>These function are for handling HTML templates to be applied to the content of the host document.</p>
+         <p>These function are for handling the HTML templates to be applied to the content of the host document or to the content of hosted
+         documents (see <specref ref="data-instances"/> for details on host / hosted document(s)). This specification is considering the HTML
+         templates as they are mentioned in <bibref ref="html5"/>.</p>
+         <p>The content model of templates can consists of native HTML elements or custom HTML elements. For details about custom HTML
+         elements, see <bibref ref="custom-elements"/>.</p>
          <div2>
             <head>Custom data attributes</head>
             <p>These attributes are <code>data-*</code> type attributes, and are meant to ease the definition and usage of templates.</p>
@@ -359,7 +363,8 @@
 	            <p>Legal values:</p>
 	            <ulist>
 	               <item>
-	                  <p><code>modal</code> or <code>modeless</code>, in case the template is a <code>dialog</code> element.</p>
+	                  <p><code>modal</code> or <code>modeless</code>, in case the template is a <code>dialog</code> element.
+	                  The default value is <code>modal</code>.</p>
 	               </item>            
 	            </ulist>            
 	         </div3>            
@@ -488,7 +493,8 @@
       
       <div1 id="data-instances">
          <head>Data instances</head>
-         <p>TBD</p>        
+         <p>TBD</p>
+         <p>details on host / hosted document(s)</p>        
       </div1>      
             
       <div1>
@@ -559,7 +565,10 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
 	               Tantek Çelik (Invited Expert), Elika J. Etemad (Invited Expert), Daniel Glazman (Disruptive Innovations SARL), Ian Hickson (Google),
 	               Peter Linss (former editor, Netscape/AOL), John Williams (former editor, Quark, Inc.), editors. W3C Recommendation, 29 September 2011.</bibl> 
 	            <bibl id="html5" key="HTML Living Standard">
-	               <loc href="http://whatwg.org/specs/web-apps/current-work/multipage/">HTML Living Standard</loc>. W3C Recommendation, 6 August 2014.</bibl> 	               
+	               <loc href="http://whatwg.org/specs/web-apps/current-work/multipage/">HTML Living Standard</loc>. W3C Recommendation, 6 August 2014.</bibl>
+	            <bibl id="custom-elements" key="Custom Elements">
+	               <loc href="http://w3.org/TR/custom-elements/">Custom Elements</loc>.
+	               Dimitri Glazkov, Google, editor. W3C Last Call Working Draft, 24 October 2013.</bibl>
          </blist>
       </div1>
       <div1>
