@@ -126,26 +126,26 @@ div.exampleHeader { font-weight: bold;
             7.2 <a href="#d4e611">The ua:connect-observer() function</a><br />
             7.3 <a href="#d4e658">The ua:disconnect-observer() function</a><br />
             8 <a href="#d4e685">Templates</a><br />
-            8.1 <a href="#d4e698">Custom data attributes</a><br />
-            8.1.1 <a href="#d4e711">Custom data attribute data-ua-ref</a><br />
-            8.1.2 <a href="#d4e720">Custom data attribute data-ua-type</a><br />
-            8.2 <a href="#d4e744">The ua:template() function</a><br />
-            8.3 <a href="#d4e779">The ua:attach-template() function</a><br />
-            8.4 <a href="#d4e849">The ua:dettach-template() function</a><br />
-            8.5 <a href="#d4e906">The ua:show-template() function</a><br />
-            8.6 <a href="#d4e933">The ua:hide-template() function</a><br />
-            8.7 <a href="#d4e960">The ua:get-template() function</a><br />
-            8.8 <a href="#d4e985">The ua:update-template() function</a><br />
+            8.1 <a href="#d4e702">Custom data attributes</a><br />
+            8.1.1 <a href="#d4e715">Custom data attribute data-ua-ref</a><br />
+            8.1.2 <a href="#d4e724">Custom data attribute data-ua-type</a><br />
+            8.2 <a href="#d4e748">The ua:template() function</a><br />
+            8.3 <a href="#d4e783">The ua:attach-template() function</a><br />
+            8.4 <a href="#d4e853">The ua:dettach-template() function</a><br />
+            8.5 <a href="#d4e910">The ua:show-template() function</a><br />
+            8.6 <a href="#d4e937">The ua:hide-template() function</a><br />
+            8.7 <a href="#d4e964">The ua:get-template() function</a><br />
+            8.8 <a href="#d4e990">The ua:update-template() function</a><br />
             9 <a href="#data-instances">Data instances</a><br />
-            10 <a href="#d4e1045">Scenarios of usage</a><br />
+            10 <a href="#d4e1052">Scenarios of usage</a><br />
             10.1 <a href="#create-event-scenario">Create an event</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e1082">References</a><br />
-            B <a href="#d4e1131">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e1089">References</a><br />
+            B <a href="#d4e1138">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -559,9 +559,13 @@ div.exampleHeader { font-weight: bold;
                elements. For details about custom HTML
                elements, see <a href="#custom-elements">[Custom Elements]</a>.
             </p>
+            <p>The implementations have to define the custom elements they are using, along with
+               the content models of the respective custom elements (if any),
+               according to the specification <a href="#custom-elements">[Custom Elements]</a>.
+            </p>
             <div class="div2">
                
-               <h3><a name="d4e698" id="d4e698"></a>8.1 Custom data attributes
+               <h3><a name="d4e702" id="d4e702"></a>8.1 Custom data attributes
                </h3>
                <p>These attributes are <code>data-*</code> type attributes, and are meant to ease the definition and usage of templates.
                </p>
@@ -569,7 +573,7 @@ div.exampleHeader { font-weight: bold;
                </p>
                <div class="div3">
                   
-                  <h4><a name="d4e711" id="d4e711"></a>8.1.1 Custom data attribute <code>data-ua-ref</code></h4>
+                  <h4><a name="d4e715" id="d4e715"></a>8.1.1 Custom data attribute <code>data-ua-ref</code></h4>
                   <p>This attribute if for defining the XPath expression that binds the respective form
                      control to a certain location (a data element) in one of the data instances.
                      	            For more details regarding these expressions and data instances, see
@@ -578,7 +582,7 @@ div.exampleHeader { font-weight: bold;
                </div>
                <div class="div3">
                   
-                  <h4><a name="d4e720" id="d4e720"></a>8.1.2 Custom data attribute <code>data-ua-type</code></h4>
+                  <h4><a name="d4e724" id="d4e724"></a>8.1.2 Custom data attribute <code>data-ua-type</code></h4>
                   <p>This attribute if for defining the type of template.</p>
                   <p>Legal values:</p>
                   <ul>
@@ -592,7 +596,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e744" id="d4e744"></a>8.2 The <code>ua:template()</code> function
+               <h3><a name="d4e748" id="d4e748"></a>8.2 The <code>ua:template()</code> function
                </h3>
                <p>This function creates a template.</p>
                <div class="exampleInner"><pre>
@@ -612,7 +616,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e779" id="d4e779"></a>8.3 The <code>ua:attach-template()</code> function
+               <h3><a name="d4e783" id="d4e783"></a>8.3 The <code>ua:attach-template()</code> function
                </h3>
                <p>This function attaches a template to one or more nodes. Displaying of the attached
                   templated when the document is loaded depends on the value of the
@@ -645,7 +649,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e849" id="d4e849"></a>8.4 The <code>ua:dettach-template()</code> function
+               <h3><a name="d4e853" id="d4e853"></a>8.4 The <code>ua:dettach-template()</code> function
                </h3>
                <p>This function dettaches a template from one or more nodes. It has two signatures,
                   the second one dettaching a template in case when an event is dispatched.
@@ -674,7 +678,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e906" id="d4e906"></a>8.5 The <code>ua:show-template()</code> function
+               <h3><a name="d4e910" id="d4e910"></a>8.5 The <code>ua:show-template()</code> function
                </h3>
                <p>This function shows a template attached to one or more nodes.</p>
                <div class="exampleInner"><pre>
@@ -690,7 +694,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e933" id="d4e933"></a>8.6 The <code>ua:hide-template()</code> function
+               <h3><a name="d4e937" id="d4e937"></a>8.6 The <code>ua:hide-template()</code> function
                </h3>
                <p>This function hides a template attached to one or more nodes.</p>
                <div class="exampleInner"><pre>
@@ -706,7 +710,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e960" id="d4e960"></a>8.7 The <code>ua:get-template()</code> function
+               <h3><a name="d4e964" id="d4e964"></a>8.7 The <code>ua:get-template()</code> function
                </h3>
                <p>This function gets a template, in order to be examined, modified, etc. It returns
                   the template as a sequence.
@@ -723,7 +727,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e985" id="d4e985"></a>8.8 The <code>ua:update-template()</code> function
+               <h3><a name="d4e990" id="d4e990"></a>8.8 The <code>ua:update-template()</code> function
                </h3>
                <p>This function updates a template. It has two signatures, the second one updating a
                   template in case when an event is dispatched. All the nodes having the respective
@@ -757,10 +761,11 @@ div.exampleHeader { font-weight: bold;
             <h2><a name="data-instances" id="data-instances"></a>9 Data instances
             </h2>
             <p>TBD</p>
+            <p>details on host / hosted document(s)</p>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1045" id="d4e1045"></a>10 Scenarios of usage
+            <h2><a name="d4e1052" id="d4e1052"></a>10 Scenarios of usage
             </h2>
             <p>Scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
@@ -791,7 +796,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e1082" id="d4e1082"></a>A References
+            <h2><a name="d4e1089" id="d4e1089"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -859,7 +864,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1131" id="d4e1131"></a>B Summary of Error Conditions
+            <h2><a name="d4e1138" id="d4e1138"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01

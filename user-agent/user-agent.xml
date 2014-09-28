@@ -348,6 +348,8 @@
          templates as they are mentioned in <bibref ref="html5"/>.</p>
          <p>The content model of templates can consists of native HTML elements or custom HTML elements. For details about custom HTML
          elements, see <bibref ref="custom-elements"/>.</p>
+         <p>The implementations have to define the custom elements they are using, along with the content models of the respective custom elements (if any),
+         according to the specification <bibref ref="custom-elements"/>.</p>
          <div2>
             <head>Custom data attributes</head>
             <p>These attributes are <code>data-*</code> type attributes, and are meant to ease the definition and usage of templates.</p>
