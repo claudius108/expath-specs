@@ -139,13 +139,14 @@ div.exampleHeader { font-weight: bold;
             9 <a href="#data-instances">Data instances</a><br />
             10 <a href="#d4e1052">Scenarios of usage</a><br />
             10.1 <a href="#create-event-scenario">Create an event</a><br />
+            10.2 <a href="#create-dialog-template">Create a dialog template</a><br />
             
          </p>
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e1089">References</a><br />
-            B <a href="#d4e1143">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e1098">References</a><br />
+            B <a href="#d4e1147">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -791,12 +792,58 @@ ua:create-event('custom-event', map{"bubbles" := true()})
 ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
 				</pre></div>
             </div>
+            <div class="div2">
+               
+               <h3><a name="create-dialog-template" id="create-dialog-template"></a>10.2 Create a dialog template
+               </h3>
+               <p>This scenario presents how to create a dialog templates, both modal and modeless.</p>
+               <div class="exampleInner"><pre>
+    &lt;template&gt;
+        &lt;dialog style="width: 600px; height: 320px;" title="Enter data for connection to server" data-ua-type="modal"&gt;
+            &lt;table&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Username&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input /&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Password&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input type="password" /&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/dialog&gt;
+    &lt;/template&gt;
+				</pre></div>
+               <div class="exampleInner"><pre>
+    &lt;template&gt;
+        &lt;dialog style="width: 600px; height: 320px;" title="Enter data for connection to server" data-ua-type="modeless"&gt;
+            &lt;table&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Username&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input /&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Password&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input type="password" /&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/dialog&gt;
+    &lt;/template&gt;
+				</pre></div>
+            </div>
          </div>
       </div>
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e1089" id="d4e1089"></a>A References
+            <h2><a name="d4e1098" id="d4e1098"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -860,18 +907,11 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
                   	               Dimitri Glazkov, Google, editor. W3C Last Call Working Draft, 24 October
                   2013.
                </dd>
-               <dt class="label"><a name="wai-aria" id="wai-aria"></a>WAI-ARIA
-               </dt>
-               <dd>
-                  	               <a href="http://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (WAI-ARIA) 1.0</a>.
-                  	               James Craig, Apple Inc., Michael Cooper, W3C, editors. W3C Recommendation,
-                  20 March 2014.
-               </dd>
             </dl>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1143" id="d4e1143"></a>B Summary of Error Conditions
+            <h2><a name="d4e1147" id="d4e1147"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01

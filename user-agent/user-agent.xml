@@ -521,6 +521,52 @@ ua:create-event('custom-event', map{"bubbles" := true()})
 ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
 				</eg>
 			</div2>
+			
+			<div2 id="create-dialog-template">
+				<head>Create a dialog template</head>
+				<p>This scenario presents how to create a dialog templates, both modal and modeless.</p>
+				<eg>
+    &lt;template&gt;
+        &lt;dialog style="width: 600px; height: 320px;" title="Enter data for connection to server" data-ua-type="modal"&gt;
+            &lt;table&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Username&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input /&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Password&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input type="password" /&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/dialog&gt;
+    &lt;/template&gt;
+				</eg>
+				<eg>
+    &lt;template&gt;
+        &lt;dialog style="width: 600px; height: 320px;" title="Enter data for connection to server" data-ua-type="modeless"&gt;
+            &lt;table&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Username&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input /&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Password&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input type="password" /&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/dialog&gt;
+    &lt;/template&gt;
+				</eg>				
+			</div2>
+						
         </div1>         
       
 <!--       <div1> -->
@@ -570,10 +616,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
 	               <loc href="http://whatwg.org/specs/web-apps/current-work/multipage/">HTML Living Standard</loc>. W3C Recommendation, 6 August 2014.</bibl>
 	            <bibl id="custom-elements" key="Custom Elements">
 	               <loc href="http://w3.org/TR/custom-elements/">Custom Elements</loc>.
-	               Dimitri Glazkov, Google, editor. W3C Last Call Working Draft, 24 October 2013.</bibl>
-	            <bibl id="wai-aria" key="WAI-ARIA">
-	               <loc href="http://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (WAI-ARIA) 1.0</loc>.
-	               James Craig, Apple Inc., Michael Cooper, W3C, editors. W3C Recommendation, 20 March 2014.</bibl>	               
+	               Dimitri Glazkov, Google, editor. W3C Last Call Working Draft, 24 October 2013.</bibl>               
          </blist>
       </div1>
       <div1>
