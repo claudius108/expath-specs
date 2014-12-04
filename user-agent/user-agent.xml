@@ -571,6 +571,9 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
 	            <bibl id="custom-elements" key="Custom Elements">
 	               <loc href="http://w3.org/TR/custom-elements/">Custom Elements</loc>.
 	               Dimitri Glazkov, Google, editor. W3C Last Call Working Draft, 24 October 2013.</bibl>
+	            <bibl id="wai-aria" key="WAI-ARIA">
+	               <loc href="http://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (WAI-ARIA) 1.0</loc>.
+	               James Craig, Apple Inc., Michael Cooper, W3C, editors. W3C Recommendation, 20 March 2014.</bibl>	               
          </blist>
       </div1>
       <div1>
