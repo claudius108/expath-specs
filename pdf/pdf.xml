@@ -119,9 +119,12 @@
 		    <p>These functions are for getting metadata about a PDF document and its contents.</p>
 			<div2>
 				<head>The <code>pdf:get-document-metadata()</code> Function</head>
-				<p>This function is used to get overall metadata for a PDF document.</p>
+				<p>This function is used to get the overall metadata for a PDF document.</p>
 			</div2>
-
+			<div2>
+				<head>The <code>pdf:set-document-metadata()</code> Function</head>
+				<p>This function is used to set the overall metadata for a PDF document.</p>
+			</div2>
 
         </div1>         
         <div1>
