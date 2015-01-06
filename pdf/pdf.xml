@@ -313,6 +313,25 @@
 			<div2>
 				<head>The <code>pdf:stamp()</code> Function</head>
 				<p>This function is used for applying a stamp to a PDF document.</p>
+				<eg>
+<spec:function>pdf:stamp</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>, $stamp as <spec:type>item()</spec:type>, $stamp-selector as <spec:type>xs:string</spec:type>, $stamp-styling as <spec:type>xs:string</spec:type>) as <spec:type>empty()</spec:type>
+				</eg>
+				<ulist>
+					<item>
+						<p><code>$contents</code> is the PDF contents whose pages are to be stamped.</p>
+					</item>
+					<item>
+						<p><code>$stamp</code> is the stamp to be applied to the PDF contents. The stamp can be either a text, an image, a PDF document,
+						a HTML + Javascript + CSS document, a SVG document, etc. (the implementations should define what formats are supported).</p>
+					</item>
+					<item>
+						<p><code>$stamp-selector</code> is the CSS selector used to match the current stamp. Such selector is needed for further operations on the stamp,
+						such as updating and deleting.</p>
+					</item>					
+					<item>
+						<p><code>$stamp-styling</code> is the CSS set of instructions needed for styling the current stamp.</p>
+					</item>					
+				</ulist>
 			</div2>
         </div1>
         <div1>
