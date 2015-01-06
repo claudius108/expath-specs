@@ -515,7 +515,10 @@ pdf:rotate($pdf-document, map {
                Adobe Systems Incorporated, August 2009.</bibl>
             <bibl id="pdf-reference-1.7" key="PDF Reference 1.7">
                <loc href="http://adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/pdf_reference_1-7.pdf">Adobe® Portable Document Format, version 1.7</loc>.
-               Adobe Systems Incorporated, November 2006.</bibl>             
+               Adobe Systems Incorporated, November 2006.</bibl>  
+            <bibl id="css-print-profile" key="CSS Print Profile">
+               <loc href="http://w3.org/TR/css-print/">CSS Print Profile</loc>.
+               Elika J. Etemad, Mozilla Corporation, and Melinda Grant, Hewlett-Packard Company, editors. W3C Working Group Note, 14 March 201.</bibl> 
             </blist>
         </div1>
         <div1>
