@@ -291,7 +291,7 @@ div.exampleHeader { font-weight: bold;
                   of pages).
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:merge</code>($document as <code class="type">xs:base64binary</code>,
+<code class="function">pdf:merge</code>($contents as <code class="type">xs:base64binary</code>,
 	$new-resource-metadata as <code class="type">element(pdf:resource-metadata</code>) as <code class="type">xs:base64binary</code>
 				</pre></div>
             </div>
@@ -306,12 +306,12 @@ div.exampleHeader { font-weight: bold;
                   until text.
                </p>
                <div class="exampleInner"><pre>
-<code class="function">pdf:split</code>($document as <code class="type">xs:base64Binary</code>?,
+<code class="function">pdf:split</code>($contents as <code class="type">xs:base64Binary</code>?,
 	$options as <code class="type">element(pdf:options)</code>) as <code class="type">xs:base64Binary*</code>
 				</pre></div>
                <ul>
                   <li>
-                     <p><code>$document</code> is the PDF document to be splitted.
+                     <p><code>$contents</code> is the PDF contents to be splitted.
                      </p>
                   </li>
                   <li>

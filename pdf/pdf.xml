@@ -138,7 +138,7 @@
 				<head>The <code>pdf:merge()</code> Function</head>
 				<p>This function is used for merging multiple PDF documents or subsets of them (groups of pages).</p>
 				<eg>
-<spec:function>pdf:merge</spec:function>($document as <spec:type>xs:base64binary</spec:type>,
+<spec:function>pdf:merge</spec:function>($contents as <spec:type>xs:base64binary</spec:type>,
 	$new-resource-metadata as <spec:type>element(pdf:resource-metadata</spec:type>) as <spec:type>xs:base64binary</spec:type>
 				</eg>		
 			</div2>
@@ -147,12 +147,12 @@
 				<p>This function is used for splitting a PDF document into a number of sections. It returns a sequence of sections.</p>
 				<p>There can be many options for splitting: page splitting, bookmarks splitting, extract until text.</p>
 				<eg>
-<spec:function>pdf:split</spec:function>($document as <spec:type>xs:base64Binary</spec:type>?,
+<spec:function>pdf:split</spec:function>($contents as <spec:type>xs:base64Binary</spec:type>?,
 	$options as <spec:type>element(pdf:options)</spec:type>) as <spec:type>xs:base64Binary*</spec:type>
 				</eg>
 				<ulist>
 					<item>
-						<p><code>$document</code> is the PDF document to be splitted.</p>
+						<p><code>$contents</code> is the PDF contents to be splitted.</p>
 					</item>
 					<item>
 						<p><code>$options</code> are the options for the current operation.</p>
