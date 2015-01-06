@@ -314,7 +314,7 @@
 				<head>The <code>pdf:stamp()</code> Function</head>
 				<p>This function is used for applying a stamp to a PDF document.</p>
 				<eg>
-<spec:function>pdf:stamp</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>, $stamp as <spec:type>item()</spec:type>, $stamp-selector as <spec:type>xs:string</spec:type>, $stamp-styling as <spec:type>xs:string</spec:type>) as <spec:type>empty()</spec:type>
+<spec:function>pdf:stamp</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>, $stamp as <spec:type>item()</spec:type>, $stamp-selector as <spec:type>xs:string</spec:type>, $stamp-styling as <spec:type>xs:string</spec:type>) as <spec:type>xs:base64binary?</spec:type>
 				</eg>
 				<ulist>
 					<item>
