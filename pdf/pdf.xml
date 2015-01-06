@@ -124,8 +124,18 @@
 			<div2>
 				<head>The <code>pdf:set-document-metadata()</code> Function</head>
 				<p>This function is used to set the overall metadata for a PDF document.</p>
+				<eg>
+<spec:function>pdf:set-document-metadata</spec:function>($contents as <spec:type>xs:base64Binary</spec:type>?, $metadata as <spec:type>item()</spec:type>) as <spec:type>xs:base64Binary*</spec:type>
+				</eg>
+				<ulist>
+					<item>
+						<p><code>$contents</code> is the PDF contents to apply the metadata to.</p>
+					</item>
+					<item>
+						<p><code>$metadata</code> is the metadata to be applied.</p>
+					</item>
+				</ulist>				
 			</div2>
-
         </div1>         
         <div1>
             <head>Content navigation</head>
