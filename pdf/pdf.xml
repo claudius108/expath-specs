@@ -322,7 +322,12 @@
 		    <p>These functions are associating various objects with a PDF document.</p>
 			<div2>
 				<head>The <code>pdf:stamp()</code> Function</head>
-				<p>This function is used for applying a stamp to a PDF document.</p>
+				<p>This function is used for applying a stamp to a PDF document. It has two signatures, the first one without a CSS selector for the stamp.</p>
+				<p>When using the first signature, the content of $stamp-styling parameter should consists of a set of CSS declarations that will only be applied to the respective stamp.
+				Also, the respective stamp will be applied on every page of the PDF contents.</p>
+				<eg>
+<spec:function>pdf:stamp</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>, $stamp as <spec:type>item()</spec:type>, $stamp-styling as <spec:type>xs:string</spec:type>) as <spec:type>xs:base64binary?</spec:type>
+				</eg>				
 				<eg>
 <spec:function>pdf:stamp</spec:function>($contents as <spec:type>xs:base64binary?</spec:type>, $stamp as <spec:type>item()</spec:type>, $stamp-selector as <spec:type>xs:string</spec:type>, $stamp-styling as <spec:type>xs:string</spec:type>) as <spec:type>xs:base64binary?</spec:type>
 				</eg>
@@ -339,7 +344,7 @@
 						such as updating and deleting.</p>
 					</item>					
 					<item>
-						<p><code>$stamp-styling</code> is the CSS set of instructions needed for styling the current stamp.</p>
+						<p><code>$stamp-styling</code> is the CSS styling for the current stamp.</p>
 					</item>					
 				</ulist>
 			</div2>
