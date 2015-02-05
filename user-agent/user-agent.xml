@@ -503,7 +503,7 @@
       <div1 id="data-instances">
          <head>Data instances</head>
          <p>TBD</p>
-         <p>details on host / hosted document(s)</p>        
+         <p>Details on host / hosted document(s).</p>        
       </div1>      
             
       <div1>
@@ -633,7 +633,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          	<bibl id="errUA02" key="err:UA02">The event $event-name does not exist.</bibl>
          	<bibl id="errUA03" key="err:UA03">The identificator $id does not exist.</bibl>
          	<bibl id="errUA04" key="err:UA04">No node was selected.</bibl>
-         	<bibl id="errUA05" key="err:UA05">The identificator $id does not exist.</bibl>
+         	<bibl id="errUA05" key="err:UA05">The template $template-id does not exist.</bibl>
          </blist>
       </div1>
    </back>
