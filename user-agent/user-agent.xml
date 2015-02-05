@@ -370,7 +370,14 @@
 	               </item>            
 	            </ulist>            
 	         </div3>            
-         </div2>         
+         </div2>
+         <div2>
+            <head>The <code>ua:context()</code> function</head>
+            <p>This function returns the node the template is applied to.</p>
+            <eg>
+<spec:function>ua:context</spec:function>() as <spec:type>node()</spec:type>
+</eg>
+         </div2>
          <div2>
             <head>The <code>ua:template()</code> function</head>
             <p>This function creates a template.</p>
