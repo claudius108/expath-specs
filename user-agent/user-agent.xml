@@ -623,7 +623,10 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
 	               <loc href="http://whatwg.org/specs/web-apps/current-work/multipage/">HTML Living Standard</loc>. W3C Recommendation, 6 August 2014.</bibl>
 	            <bibl id="custom-elements" key="Custom Elements">
 	               <loc href="http://w3.org/TR/custom-elements/">Custom Elements</loc>.
-	               Dimitri Glazkov, Google, editor. W3C Last Call Working Draft, 24 October 2013.</bibl>               
+	               Dimitri Glazkov, Google, editor. W3C Last Call Working Draft, 24 October 2013.</bibl>   
+	            <bibl id="xforms-1.1" key="XForms 1.1">
+	               <loc href="http://w3.org/TR/xforms/">XForms 1.1</loc>.
+	               John M. Boyer, IBM, editor. W3C Recommendation, 20 October 2009.</bibl>
          </blist>
       </div1>
       <div1>
