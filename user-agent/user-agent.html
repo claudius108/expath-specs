@@ -167,10 +167,10 @@ div.exampleHeader { font-weight: bold;
                <h3><a name="d4e77" id="d4e77"></a>1.1 Namespace conventions
                </h3>
                <p>The module defined by this document defines functions and elements in the namespace
-                  <code>http://expath.org/ns/user-agent</code>. In this document, the
+                  <code>http://expath.org/ns/user-agent/</code>. In this document, the
                   <code>ua</code> prefix, when used, is bound to this namespace URI.
                </p>
-               <p>Datatypes are defined in the namespace <code>http://expath.org/ns/user-agent/datatype</code>. In
+               <p>Datatypes are defined in the namespace <code>http://expath.org/ns/user-agent/datatype/</code>. In
                   this document, the <code>ua-dt</code> prefix, when used, is bound to this namespace
                   URI.
                </p>
@@ -477,7 +477,7 @@ div.exampleHeader { font-weight: bold;
                   and the other one considering as second parameter a function item.
                </p>
                <div class="exampleInner"><pre>
-<code class="function">ua:observer</code>($id as <code class="type">xs:ID</code>, $action-handlers as <code class="type">xs:IDREFS</code>) as <code class="type">empty()</code>
+<code class="function">ua:observer</code>($id as <code class="type">xs:ID</code>, $action-handlers as <code class="type">xs:IDREF+</code>) as <code class="type">empty()</code>
 </pre></div>
                <div class="exampleInner"><pre>
 <code class="function">ua:observer</code>($id as <code class="type">xs:ID</code>, $action as <code class="type">function(*)</code>) as <code class="type">empty()</code>

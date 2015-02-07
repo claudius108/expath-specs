@@ -289,7 +289,7 @@
             <p>This function creates a mutations observer. It has two signatures, one taking as second parameter a list of action handlers separated by spaces,
             and the other one considering as second parameter a function item.</p>
             <eg>
-<spec:function>ua:observer</spec:function>($id as <spec:type>xs:ID</spec:type>, $action-handlers as <spec:type>xs:IDREFS</spec:type>) as <spec:type>empty()</spec:type>
+<spec:function>ua:observer</spec:function>($id as <spec:type>xs:ID</spec:type>, $action-handlers as <spec:type>xs:IDREF+</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <eg>
 <spec:function>ua:observer</spec:function>($id as <spec:type>xs:ID</spec:type>, $action as <spec:type>function(*)</spec:type>) as <spec:type>empty()</spec:type>
