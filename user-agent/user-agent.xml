@@ -180,7 +180,7 @@
             <head>The <code>ua:add-event-listener()</code> function</head>
             <p>This function registers an event listener.</p>
             <eg>
-<spec:function>ua:add-event-listener</spec:function>($event-target-selector as <spec:type>xs:anyType</spec:type>, $event-type as <spec:type>xs:string</spec:type>,
+<spec:function>ua:add-event-listener</spec:function>($event-target-selector as <spec:type>item()</spec:type>, $event-type as <spec:type>xs:string</spec:type>,
 	$listener as <spec:type>item()</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <eg>
