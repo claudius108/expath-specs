@@ -361,17 +361,14 @@ div.exampleHeader { font-weight: bold;
                </h3>
                <p>This function removes a registered event listener.</p>
                <div class="exampleInner"><pre>
-<code class="function">ua:remove-event-listener</code>($event-target-selector as <code class="type">xs:anyType</code>, $event-type as <code class="type">xs:string</code>,
-	$listener as <code class="type">item()</code>) as <code class="type">empty()</code>
+<code class="function">ua:remove-event-listener</code>($event-target as <code class="type">item()</code>, $event-type as <code class="type">xs:string</code>, $listener as <code class="type">item()</code>) as <code class="type">empty()</code>
 </pre></div>
                <div class="exampleInner"><pre>
-<code class="function">ua:add-event-listener</code>($event-target-selector as <code class="type">xs:anyType</code>, $event-type as <code class="type">xs:string</code>,
-	$listener as <code class="type">item()</code>, $useCapture as <code class="type">xs:boolean</code>) as <code class="type">empty()</code>
+<code class="function">ua:remove-event-listener</code>($event-target as <code class="type">item()</code>, $event-type as <code class="type">xs:string</code>, $listener as <code class="type">item()</code>, $useCapture as <code class="type">xs:boolean</code>) as <code class="type">empty()</code>
 </pre></div>
                <ul>
                   <li>
-                     <p><code>$event-target-selector</code> is the selector for the target of the event. The target may be an element, the document
-                        itself, etc.
+                     <p><code>$event-target</code> is the target of the event. The target may be an element, the document itself, etc.
                         See <a href="#dom-4">[W3C DOM4]</a> for more details.
                      </p>
                   </li>
