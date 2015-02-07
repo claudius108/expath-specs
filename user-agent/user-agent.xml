@@ -180,17 +180,14 @@
             <head>The <code>ua:add-event-listener()</code> function</head>
             <p>This function registers an event listener.</p>
             <eg>
-<spec:function>ua:add-event-listener</spec:function>($event-target-selector as <spec:type>item()</spec:type>, $event-type as <spec:type>xs:string</spec:type>,
-	$listener as <spec:type>item()</spec:type>) as <spec:type>empty()</spec:type>
+<spec:function>ua:add-event-listener</spec:function>($event-target as <spec:type>item()</spec:type>, $event-type as <spec:type>xs:string</spec:type>, $listener as <spec:type>item()</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <eg>
-<spec:function>ua:add-event-listener</spec:function>($event-target as <spec:type>xs:string</spec:type>, $event-type as <spec:type>xs:string</spec:type>,
-	$listener as <spec:type>item()</spec:type>, $useCapture as <spec:type>xs:boolean</spec:type>) as <spec:type>empty()</spec:type>
+<spec:function>ua:add-event-listener</spec:function>($event-target as <spec:type>item()</spec:type>, $event-type as <spec:type>xs:string</spec:type>, $listener as <spec:type>item()</spec:type>, $useCapture as <spec:type>xs:boolean</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <ulist>
                <item>
-                  <p><code>$event-target-selector</code> is the selector for the target of the event. The target may be an element, the document itself, etc.
-                  See <bibref ref="dom-4"/> for more details.</p>
+                  <p><code>$event-target</code> is the target of the event. The target may be an element, the document itself, etc. See <bibref ref="dom-4"/> for more details.</p>
                </item>
                <item>
                   <p><code>$event-type</code> is the type of the event to listen for.</p>
