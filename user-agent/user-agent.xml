@@ -374,9 +374,14 @@
          </div2>
          <div2>
             <head>The <code>ua:template()</code> function</head>
-            <p>This function creates a template.</p>
+            <p>This function creates a template. It has two two signatures.</p>
+            <p>The first signature creates a template that will be attached when it is needed, by using the function <code>ua:template()</code>.</p>
+            <p>The second signature creates a template that will be attached automatically when the document is loaded.</p>
             <eg>
 <spec:function>ua:template</spec:function>($id as <spec:type>xs:ID</spec:type>, $content as <spec:type>item()*</spec:type>) as <spec:type>empty()</spec:type>
+</eg>
+            <eg>
+<spec:function>ua:template</spec:function>($id as <spec:type>xs:ID</spec:type>, $content as <spec:type>item()*</spec:type>, $node-selector as <spec:type>xs:string</spec:type>) as <spec:type>empty()</spec:type>
 </eg>
             <ulist>
                <item>
@@ -385,6 +390,10 @@
                <item>
                   <p><code>$content</code> is the content of the template.</p>
                </item>
+               <item>
+                  <p><code>$node-selector</code> is the selector used to select the nodes to attache the template to; see <specref ref="selectors"/>. If the selector selects multiple
+                  nodes, the template is attached to all these nodes.</p>
+               </item>               
             </ulist>            
          </div2>
          <div2>

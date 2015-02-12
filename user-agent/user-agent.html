@@ -131,14 +131,14 @@ div.exampleHeader { font-weight: bold;
             8.1.2 <a href="#d4e724">Custom data attribute data-ua-type</a><br />
             8.2 <a href="#d4e748">The ua:context() function</a><br />
             8.3 <a href="#d4e764">The ua:template() function</a><br />
-            8.4 <a href="#d4e799">The ua:attach-template() function</a><br />
-            8.5 <a href="#d4e869">The ua:dettach-template() function</a><br />
-            8.6 <a href="#d4e926">The ua:show-template() function</a><br />
-            8.7 <a href="#d4e953">The ua:hide-template() function</a><br />
-            8.8 <a href="#d4e981">The ua:get-template() function</a><br />
-            8.9 <a href="#d4e1006">The ua:update-template() function</a><br />
+            8.4 <a href="#d4e830">The ua:attach-template() function</a><br />
+            8.5 <a href="#d4e900">The ua:dettach-template() function</a><br />
+            8.6 <a href="#d4e957">The ua:show-template() function</a><br />
+            8.7 <a href="#d4e984">The ua:hide-template() function</a><br />
+            8.8 <a href="#d4e1012">The ua:get-template() function</a><br />
+            8.9 <a href="#d4e1037">The ua:update-template() function</a><br />
             9 <a href="#data-instances">Data instances</a><br />
-            10 <a href="#d4e1068">Scenarios of usage</a><br />
+            10 <a href="#d4e1099">Scenarios of usage</a><br />
             10.1 <a href="#create-event-scenario">Create an event</a><br />
             10.2 <a href="#create-dialog-template">Create a dialog template</a><br />
             
@@ -146,8 +146,8 @@ div.exampleHeader { font-weight: bold;
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e1114">References</a><br />
-            B <a href="#d4e1168">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e1145">References</a><br />
+            B <a href="#d4e1199">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -603,9 +603,18 @@ div.exampleHeader { font-weight: bold;
                
                <h3><a name="d4e764" id="d4e764"></a>8.3 The <code>ua:template()</code> function
                </h3>
-               <p>This function creates a template.</p>
+               <p>This function creates a template. It has two two signatures.</p>
+               <p>The first signature creates a template that will be attached when it is needed, by
+                  using the function <code>ua:template()</code>.
+               </p>
+               <p>The second signature creates a template that will be attached automatically when the
+                  document is loaded.
+               </p>
                <div class="exampleInner"><pre>
 <code class="function">ua:template</code>($id as <code class="type">xs:ID</code>, $content as <code class="type">item()*</code>) as <code class="type">empty()</code>
+</pre></div>
+               <div class="exampleInner"><pre>
+<code class="function">ua:template</code>($id as <code class="type">xs:ID</code>, $content as <code class="type">item()*</code>, $node-selector as <code class="type">xs:string</code>) as <code class="type">empty()</code>
 </pre></div>
                <ul>
                   <li>
@@ -617,11 +626,16 @@ div.exampleHeader { font-weight: bold;
                      <p><code>$content</code> is the content of the template.
                      </p>
                   </li>
+                  <li>
+                     <p><code>$node-selector</code> is the selector used to select the nodes to attache the template to; see <a href="#selectors"><b>4 Selectors</b></a>. If the selector selects multiple
+                        nodes, the template is attached to all these nodes.
+                     </p>
+                  </li>
                </ul>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e799" id="d4e799"></a>8.4 The <code>ua:attach-template()</code> function
+               <h3><a name="d4e830" id="d4e830"></a>8.4 The <code>ua:attach-template()</code> function
                </h3>
                <p>This function attaches a template to one or more nodes. Displaying of the attached
                   templated when the document is loaded depends on the value of the
@@ -654,7 +668,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e869" id="d4e869"></a>8.5 The <code>ua:dettach-template()</code> function
+               <h3><a name="d4e900" id="d4e900"></a>8.5 The <code>ua:dettach-template()</code> function
                </h3>
                <p>This function dettaches a template from one or more nodes. It has two signatures,
                   the second one dettaching a template in case when an event is dispatched.
@@ -683,7 +697,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e926" id="d4e926"></a>8.6 The <code>ua:show-template()</code> function
+               <h3><a name="d4e957" id="d4e957"></a>8.6 The <code>ua:show-template()</code> function
                </h3>
                <p>This function shows a template attached to one or more nodes.</p>
                <div class="exampleInner"><pre>
@@ -699,7 +713,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e953" id="d4e953"></a>8.7 The <code>ua:hide-template()</code> function
+               <h3><a name="d4e984" id="d4e984"></a>8.7 The <code>ua:hide-template()</code> function
                </h3>
                <p>This function hides a template attached to one or more nodes.</p>
                <div class="exampleInner"><pre>
@@ -715,7 +729,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e981" id="d4e981"></a>8.8 The <code>ua:get-template()</code> function
+               <h3><a name="d4e1012" id="d4e1012"></a>8.8 The <code>ua:get-template()</code> function
                </h3>
                <p>This function gets a template, in order to be examined, modified, etc. It returns
                   the template as a sequence.
@@ -732,7 +746,7 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e1006" id="d4e1006"></a>8.9 The <code>ua:update-template()</code> function
+               <h3><a name="d4e1037" id="d4e1037"></a>8.9 The <code>ua:update-template()</code> function
                </h3>
                <p>This function updates a template. It has two signatures, the second one updating a
                   template in case when an event is dispatched. All the nodes having the respective
@@ -770,7 +784,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1068" id="d4e1068"></a>10 Scenarios of usage
+            <h2><a name="d4e1099" id="d4e1099"></a>10 Scenarios of usage
             </h2>
             <p>Scenarios of usage of the functions comprised by this module.</p>
             <div class="div2">
@@ -847,7 +861,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e1114" id="d4e1114"></a>A References
+            <h2><a name="d4e1145" id="d4e1145"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -921,7 +935,7 @@ ua:create-event('custom-event', map{"detail" := ("detail-1", "detail-2")})
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1168" id="d4e1168"></a>B Summary of Error Conditions
+            <h2><a name="d4e1199" id="d4e1199"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errUA01" id="errUA01"></a>err:UA01
