@@ -253,11 +253,6 @@
                </item>
             </ulist>
          </div2>
-         <div2>
-            <head>The <code>crypto:generate-self-signed-certificate</code> function</head>
-            <p>This function generates, for development purposes, a self signed digital certificate.
-               TODO: To be developed, if such function is of any use.</p>
-         </div2>
       </div1>
       <div1>
          <head>Encryption and decryption</head>
