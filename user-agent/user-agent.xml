@@ -346,20 +346,20 @@
          according to the specification <bibref ref="custom-elements"/>.</p>
          <div2>
             <head>Custom data attributes</head>
-            <p>These attributes are <code>data-*</code> type attributes, and are meant to ease the definition and usage of templates.</p>
+            <p>These attributes are <code>data-*</code> type attributes, and are meant to ease the definition and usage of the HTML templates.</p>
             <p>The attributes are "namespaced" by using the prefix <code>ua</code> of this module.</p>
 	         <div3>
 	            <head>Custom data attribute <code>data-ua-ref</code></head>
-	            <p>This attribute if for defining the XPath expression that binds the respective form control to a certain location (a data element) in one of the data instances.
+	            <p>This attribute if for defining the expression that selects the item the respective form control is bound to, in one of the data instances.
 	            For more details regarding these expressions and data instances, see <specref ref="data-instances"/>.</p>	            
 	         </div3>            
 	         <div3>
 	            <head>Custom data attribute <code>data-ua-type</code></head>
-	            <p>This attribute if for defining the type of template.</p>
+	            <p>This attribute if for defining the type of the HTML template.</p>
 	            <p>Legal values:</p>
 	            <ulist>
 	               <item>
-	                  <p><code>modal</code> or <code>modeless</code>, in case the template is a <code>dialog</code> element.
+	                  <p><code>modal</code> or <code>modeless</code>, in case the template is a HTML <code>dialog</code> element.
 	                  The default value is <code>modal</code>.</p>
 	               </item>            
 	            </ulist>            
@@ -367,16 +367,16 @@
          </div2>
          <div2>
             <head>The <code>ua:context()</code> function</head>
-            <p>This function returns the node the template is applied to.</p>
+            <p>This function returns the item the template is applied to.</p>
             <eg>
 <spec:function>ua:context</spec:function>() as <spec:type>node()</spec:type>
 </eg>
          </div2>
          <div2>
             <head>The <code>ua:template()</code> function</head>
-            <p>This function creates a template. It has two two signatures.</p>
-            <p>The first signature creates a template that will be attached when it is needed, by using the function <code>ua:template()</code>.</p>
-            <p>The second signature creates a template that will be attached automatically when the document is loaded.</p>
+            <p>This function creates a HTML template and tt has two two signatures.</p>
+            <p>The first signature creates a HTML template that will be attached automatically when the document is loaded.</p>
+            <p>The second signature creates a HTML template that will be attached when it is needed, by using the function <code>ua:template()</code>.</p>
             <eg>
 <spec:function>ua:template</spec:function>($id as <spec:type>xs:ID</spec:type>, $content as <spec:type>item()*</spec:type>) as <spec:type>empty()</spec:type>
 </eg>

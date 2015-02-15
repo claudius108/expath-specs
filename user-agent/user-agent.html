@@ -563,15 +563,15 @@ div.exampleHeader { font-weight: bold;
                
                <h3><a name="d4e702" id="d4e702"></a>8.1 Custom data attributes
                </h3>
-               <p>These attributes are <code>data-*</code> type attributes, and are meant to ease the definition and usage of templates.
+               <p>These attributes are <code>data-*</code> type attributes, and are meant to ease the definition and usage of the HTML templates.
                </p>
                <p>The attributes are "namespaced" by using the prefix <code>ua</code> of this module.
                </p>
                <div class="div3">
                   
                   <h4><a name="d4e715" id="d4e715"></a>8.1.1 Custom data attribute <code>data-ua-ref</code></h4>
-                  <p>This attribute if for defining the XPath expression that binds the respective form
-                     control to a certain location (a data element) in one of the data instances.
+                  <p>This attribute if for defining the expression that selects the item the respective
+                     form control is bound to, in one of the data instances.
                      	            For more details regarding these expressions and data instances, see
                      <a href="#data-instances"><b>9 Data instances</b></a>.
                   </p>
@@ -579,11 +579,11 @@ div.exampleHeader { font-weight: bold;
                <div class="div3">
                   
                   <h4><a name="d4e724" id="d4e724"></a>8.1.2 Custom data attribute <code>data-ua-type</code></h4>
-                  <p>This attribute if for defining the type of template.</p>
+                  <p>This attribute if for defining the type of the HTML template.</p>
                   <p>Legal values:</p>
                   <ul>
                      <li>
-                        <p><code>modal</code> or <code>modeless</code>, in case the template is a <code>dialog</code> element.
+                        <p><code>modal</code> or <code>modeless</code>, in case the template is a HTML <code>dialog</code> element.
                            	                  The default value is <code>modal</code>.
                         </p>
                      </li>
@@ -594,7 +594,7 @@ div.exampleHeader { font-weight: bold;
                
                <h3><a name="d4e748" id="d4e748"></a>8.2 The <code>ua:context()</code> function
                </h3>
-               <p>This function returns the node the template is applied to.</p>
+               <p>This function returns the item the template is applied to.</p>
                <div class="exampleInner"><pre>
 <code class="function">ua:context</code>() as <code class="type">node()</code>
 </pre></div>
@@ -603,12 +603,12 @@ div.exampleHeader { font-weight: bold;
                
                <h3><a name="d4e764" id="d4e764"></a>8.3 The <code>ua:template()</code> function
                </h3>
-               <p>This function creates a template. It has two two signatures.</p>
-               <p>The first signature creates a template that will be attached when it is needed, by
-                  using the function <code>ua:template()</code>.
+               <p>This function creates a HTML template and tt has two two signatures.</p>
+               <p>The first signature creates a HTML template that will be attached automatically when
+                  the document is loaded.
                </p>
-               <p>The second signature creates a template that will be attached automatically when the
-                  document is loaded.
+               <p>The second signature creates a HTML template that will be attached when it is needed,
+                  by using the function <code>ua:template()</code>.
                </p>
                <div class="exampleInner"><pre>
 <code class="function">ua:template</code>($id as <code class="type">xs:ID</code>, $content as <code class="type">item()*</code>) as <code class="type">empty()</code>
