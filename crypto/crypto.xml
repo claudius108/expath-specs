@@ -59,10 +59,11 @@
 		</p>
 	</copyright>
       <abstract>
-         <p>This proposal defines a <phrase id="module-description">module for providing cryptographic services</phrase>,
-         which consists of a set of XPath 2.0 extension functions related to XML Digital Signature, encryption and decryption, and
-         checking of integrity and authentication of data. It has been designed to be compatible with XQuery 1.0
-         and XSLT 2.0, as well as any other standard based on XPath 2.0.</p>
+         <p>This proposal defines a set of XPath 3.0 extension functions to perform cryptographic
+            operations. It defines extension functions related to XML Digital Signature, to
+            encryption and decryption, and to hash and digest messages. It has been designed to be
+            compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard based on XPath
+            3.0.</p>
       </abstract>
       <status>
          <p>Must be ignored, but is required by the schema...</p>
@@ -356,19 +357,19 @@
                      Possible values are: "exclusive", "exclusive-with-comments", "inclusive", and
                      "inclusive-with-comments". The default value is "inclusive-with-comments". If
                      the parameter specifies an unsupported algorithm, this is an error <bibref
-                        ref="errCX01"/>.</p>
+                        ref="error.canonAlg"/>.</p>
                </item>
                <item>
                   <p><code>$digest-algorithm</code> is the digest algorithm to be applied to the
                      signed object. Possible values are: "SHA1", "SHA256", and "SHA512". The default
                      value is "SHA1". If the parameter specifies an unsupported algorithm, this is
-                     an error <bibref ref="errCX02"/>.</p>
+                     an error <bibref ref="error.digestAlg"/>.</p>
                </item>
                <item>
                   <p><code>$signature-algorithm</code> is the algorithm used for signature
                      generation and validation. Possible values are: "DSA_SHA1", and "RSA_SHA1". The
                      default value is "RSA_SHA1". If the parameter specifies an unsupported
-                     algorithm, this is an error <bibref ref="errCX03"/>.</p>
+                     algorithm, this is an error <bibref ref="error.sigAlg"/>.</p>
                </item>
                <item>
                   <p><code>$signature-namespace-prefix</code> is the namespace prefix for
@@ -382,7 +383,7 @@
                <item>
                   <p><code>$xpath-expression</code> is the XPath expression used for selecting the
                      subset to be signed. If the XPath expression is invalid, this is an error
-                        <bibref ref="errCX04"/>.</p>
+                        <bibref ref="error.xpathExpr"/>.</p>
                </item>
                <item>
                   <p><code>$digital-certificate</code> is the digital certificate to be used for
@@ -807,7 +808,7 @@
             <head>The <code>canonicalization-algorithm</code> option</head>
             <p>This option represents the canonicalization algorithm applied to the <code>SignedInfo</code> element prior to performing
             signature calculations. The default value is "inclusive-with-comments". If the parameter specifies an unsupported algorithm,
-            this is an error <bibref ref="errCX01"/>.</p>
+            this is an error <bibref ref="error.canonAlg"/>.</p>
             <eg>
 &lt;crypto:option name = "canonicalization-algorithm"
     value = "exclusive" | "exclusive-with-comments" | "inclusive" | "inclusive-with-comments" /&gt; ?
@@ -816,7 +817,7 @@
          <div2 id="digest-algorithm">
             <head>The <code>digest-algorithm</code> option</head>
             <p>This option represents the digest algorithm to be applied to the signed object. If the parameter specifies an unsupported
-            algorithm, this is an error <bibref ref="errCX02"/>.</p>
+            algorithm, this is an error <bibref ref="error.digestAlg"/>.</p>
             <eg>
 &lt;crypto:option name = "digest-algorithm" value = xs:string /&gt;
 </eg>            
@@ -824,7 +825,7 @@
          <div2 id="signature-algorithm">
             <head>The <code>signature-algorithm</code> option</head>
             <p>This option represents the algorithm used for signature generation and validation. If the parameter specifies an
-            unsupported algorithm, this is an error <bibref ref="errCX03"/>.</p>
+            unsupported algorithm, this is an error <bibref ref="error.sigAlg"/>.</p>
             <eg>
 &lt;crypto:option name = "signature-algorithm" value = xs:string /&gt;
 </eg>            
@@ -905,10 +906,10 @@
       <div1>
          <head>Summary of Error Conditions</head>
          <blist id="summary-of-error-conditions">
-            <bibl id="errCX01" key="err:CX01">The canonicalization algorithm is not supported.</bibl>
-            <bibl id="errCX02" key="err:CX02">The digest algorithm is not supported.</bibl>
-            <bibl id="errCX03" key="err:CX03">The signature algorithm is not supported.</bibl>
-            <bibl id="errCX04" key="err:CX04">The XPath expression is invalid.</bibl>
+            <bibl id="error.canonAlg" key="err:CX01">The canonicalization algorithm is not supported.</bibl>
+            <bibl id="error.digestAlg" key="err:CX02">The digest algorithm is not supported.</bibl>
+            <bibl id="error.sigAlg" key="err:CX03">The signature algorithm is not supported.</bibl>
+            <bibl id="error.xpathExpr" key="err:CX04">The XPath expression is invalid.</bibl>
             <bibl id="errCX05" key="err:CX05">Argument $digital-certificate does not conform to its schema.</bibl>
             <bibl id="errCX07" key="err:CX07">The keystore is null.</bibl>
             <bibl id="errCX08" key="err:CX08">I/O error while reading keystore.</bibl>
