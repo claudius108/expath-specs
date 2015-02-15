@@ -32,6 +32,20 @@
 			<plugin>
 				<groupId>ro.kuberam.maven.plugins</groupId>
 				<artifactId>kuberam-expath-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-first-spec</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>transform-spec-to-html</goal>
+						</goals>
+						<configuration>
+							<specFile>${basedir}/20110810.xml</specFile>
+							<outputDir>${basedir}</outputDir>
+							<googleAnalyticsAccountId>UA-43293529-1</googleAnalyticsAccountId>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -2,31 +2,35 @@
 
 <?oxygen RNGSchema="http://expath.org/ns/xmlspec/xmlspec.rnc" type="compact"?>
 
-<spec xmlns:spec="http://expath.org/ns/xmlspec" role="editors-copy">
+<spec xmlns:spec="http://expath.org/ns/xmlspec" role="editors-copy" spec:w3c="true">
    <header>
       <title>Cryptographic Module</title>
       <w3c-designation>w3c-designation</w3c-designation>
       <w3c-doctype>EXPath Candidate Module</w3c-doctype>
       <pubdate>
-         <day>10</day>
-         <month>August</month>
-         <year>2011</year>
+         <day>14</day>
+         <month>February</month>
+         <year>2015</year>
       </pubdate>
       <publoc>
-         <loc href="http://expath.org/spec/crypto/20110810"/>
+         <loc href="http://expath.org/spec/crypto/20150214"/>
       </publoc>
       <altlocs>
-         <loc href="http://expath.org/spec/crypto/20110810.xml">XML</loc>
+         <loc href="http://expath.org/spec/crypto/20150214.xml">XML</loc>
+         <loc href="http://expath.org/spec/crypto/20150214/diff">Revision markup</loc>
       </altlocs>
       <latestloc>
          <loc href="http://expath.org/spec/crypto"/>
       </latestloc>
+      <prevlocs>
+         <loc href="http://expath.org/spec/crypto/20110810"/>
+      </prevlocs>
       <authlist>
-         <author>
+         <author role="editor">
             <name>Claudius Teodorescu</name>
             <affiliation>XML Consultant</affiliation>
          </author>
-         <author>
+         <author role="contrib">
             <name>Joe Wicentowski</name>
             <affiliation>U.S. Department Of State, Historian Office</affiliation>
          </author>
@@ -35,11 +39,11 @@
          <p/>
       </copyright>
       <abstract>
-         <p>This proposal defines a set of XPath 2.0 extension functions to perform cryptographic
+         <p>This proposal defines a set of XPath 3.0 extension functions to perform cryptographic
             operations. It defines extension functions related to XML Digital Signature, to
             encryption and decryption, and to hash and digest messages. It has been designed to be
-            compatible with XQuery 1.0 and XSLT 2.0, as well as any other standard based on XPath
-            2.0.</p>
+            compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard based on XPath
+            3.0.</p>
       </abstract>
       <status>
          <p>Must be ignored, but is required by the schema...</p>
@@ -65,19 +69,18 @@
          <p>A related technique of cryptography is to apply a one-way hash or digest function to
             data; replicating the operation with the same data and function can ensure the integrity
             of the data.</p>
-         <p>This proposal defines a set of XPath 2.0 extension functions to perform these
+         <p>This proposal defines a set of XPath 3.0 extension functions to perform these
             cryptographic operations. It defines extension functions related to XML Digital
             Signature, to encryption and decryption, and to hash and digest messages. It has been
-            designed to be compatible with XQuery 1.0 and XSLT 2.0, as well as any other standard
-            based on XPath 2.0.</p>
+            designed to be compatible with XQuery 3.0 and XSLT 3.0, as well as any other standard
+            based on XPath 3.0.</p>
          <div2>
             <head>Namespace conventions</head>
             <p>The module defined by this document defines functions and elements in the namespace
                   <code>http://expath.org/ns/crypto</code>. In this document, the
                   <code>crypto</code> prefix, when used, is bound to this namespace URI.</p>
-            <p>Error codes are defined in the namespace <code>http://expath.org/ns/error</code>. In
-               this document, the <code>err</code> prefix, when used, is bound to this namespace
-               URI.</p>
+            <p>Error codes are defined in the same namespace (<code>http://expath.org/ns/crypto</code>),
+            and in this document are displayed with the same prefix, <code>crypto</code>.</p>               
          </div2>
          <div2>
             <head>Error management</head>
@@ -118,12 +121,12 @@
                <item>
                   <p><code>$algorithm</code> is the cryptographic hashing algorithm. If the
                      parameter specifies an unsupported algorithm, this is an error <bibref
-                        ref="errCX13"/>.</p>
+                        ref="error.hashAlg"/>.</p>
                </item>
                <item>
                   <p><code>$encoding</code> is the method used for encoding of the authentication
                      code. Default value: "base64". If the parameter specifies an unsupported
-                     method, this is an error <bibref ref="errCX14"/>.</p>
+                     method, this is an error <bibref ref="error.encMethod"/>.</p>
                </item>
             </ulist>
          </div2>
@@ -193,19 +196,19 @@
                      Possible values are: "exclusive", "exclusive-with-comments", "inclusive", and
                      "inclusive-with-comments". The default value is "inclusive-with-comments". If
                      the parameter specifies an unsupported algorithm, this is an error <bibref
-                        ref="errCX01"/>.</p>
+                        ref="error.canonAlg"/>.</p>
                </item>
                <item>
                   <p><code>$digest-algorithm</code> is the digest algorithm to be applied to the
                      signed object. Possible values are: "SHA1", "SHA256", and "SHA512". The default
                      value is "SHA1". If the parameter specifies an unsupported algorithm, this is
-                     an error <bibref ref="errCX02"/>.</p>
+                     an error <bibref ref="error.digestAlg"/>.</p>
                </item>
                <item>
                   <p><code>$signature-algorithm</code> is the algorithm used for signature
                      generation and validation. Possible values are: "DSA_SHA1", and "RSA_SHA1". The
                      default value is "RSA_SHA1". If the parameter specifies an unsupported
-                     algorithm, this is an error <bibref ref="errCX03"/>.</p>
+                     algorithm, this is an error <bibref ref="error.sigAlg"/>.</p>
                </item>
                <item>
                   <p><code>$signature-namespace-prefix</code> is the namespace prefix for
@@ -219,7 +222,7 @@
                <item>
                   <p><code>$xpath-expression</code> is the XPath expression used for selecting the
                      subset to be signed. If the XPath expression is invalid, this is an error
-                        <bibref ref="errCX04"/>.</p>
+                        <bibref ref="error.xpathExpr"/>.</p>
                </item>
                <item>
                   <p><code>$digital-certificate</code> is the digital certificate to be used for
@@ -234,9 +237,9 @@
    &lt;keystore-uri&gt;/db/mykeystoreEXist&lt;/keystore-uri&gt;
 &lt;/digital-certificate&gt;</eg>
                   <p>The following errors can be raised relative to the structure and content of
-                     $digital-certificate parameter: <bibref ref="errCX05"/>, <bibref ref="errCX06"
-                     />, <bibref ref="errCX07"/>, <bibref ref="errCX08"/>, <bibref ref="errCX09"/>,
-                        <bibref ref="errCX10"/>, <bibref ref="errCX11"/>, and <bibref ref="errCX12"
+                     $digital-certificate parameter: <bibref ref="error.rootElem"/>, <bibref ref="error.childElem"
+                     />, <bibref ref="error.nullKeystore"/>, <bibref ref="error.readKeystore"/>, <bibref ref="error.deniedKeystore"/>,
+                        <bibref ref="error.keystoreUrl"/>, <bibref ref="error.keystoreType"/>, and <bibref ref="error.aliasKey"
                      />.</p>
                </item>
             </ulist>
@@ -249,7 +252,7 @@
             <ulist>
                <item>
                   <p><code>$input-doc</code> is the enveloped, enveloping, or detached signature. If
-                     the Signature element cannot be found, this is an error <bibref ref="errCX15"/>.</p>
+                     the Signature element cannot be found, this is an error <bibref ref="error.sigElem"/>.</p>
                </item>
             </ulist>
          </div2>
@@ -278,25 +281,25 @@
                <item>
                   <p><code>$input-string</code> is the string to be encrypted. When a particular
                      padding mechanism is requested, but is not available, this is an error <bibref
-                        ref="errCX16"/>. Also, when a particular padding mechanism is expected, but
-                     the data is not padded properly, this is an error <bibref ref="errCX17"/>.</p>
+                        ref="error.noPadding"/>. Also, when a particular padding mechanism is expected, but
+                     the data is not padded properly, this is an error <bibref ref="error.incorrectPadding"/>.</p>
                </item>
                <item>
                   <p>
                      <code>$encryption-type</code> is the type of encryption. Legal values:
                      "symmetric", and "asymmetric". If the parameter has an illegal value, this is
-                     an error <bibref ref="errCX18"/>.</p>
+                     an error <bibref ref="error.encType"/>.</p>
                </item>
                <item>
                   <p><code>$secret-key</code> is the secret key used for encryption, as string. If
-                     the key is invalid, this is an error <bibref ref="errCX19"/>. If the length of
+                     the key is invalid, this is an error <bibref ref="error.secretKey"/>. If the length of
                      data provided to the block cipher is incorrect, this is an error <bibref
-                        ref="errCX20"/>.</p>
+                        ref="error.blockSize"/>.</p>
                </item>
                <item>
                   <p><code>$cryptographic-algorithm</code> is the cryptographic algorithm used for
                      encryption. If the parameter specifies an unsupported algorithm, this is an
-                     error <bibref ref="errCX21"/>.</p>
+                     error <bibref ref="error.algorithm"/>.</p>
                </item>
             </ulist>
          </div2>
@@ -312,24 +315,24 @@
                <item>
                   <p><code>$input-string</code> is the string to be decrypted. When a particular
                      padding mechanism is requested, but is not available, this is an error <bibref
-                        ref="errCX16"/>. Also, when a particular padding mechanism is expected, but
-                     the data is not padded properly, this is an error <bibref ref="errCX17"/>.</p>
+                        ref="error.noPadding"/>. Also, when a particular padding mechanism is expected, but
+                     the data is not padded properly, this is an error <bibref ref="error.incorrectPadding"/>.</p>
                </item>
                <item>
                   <p><code>$encryption-type</code> is the type of encryption. Legal values:
                      "symmetric", and "asymmetric". If the parameter has an illegal value, this is
-                     an error <bibref ref="errCX22"/>.</p>
+                     an error <bibref ref="error.decryptionType"/>.</p>
                </item>
                <item>
                   <p><code>$secret-key</code> is the secret key used for encryption, as string. If
-                     the key is invalid, this is an error <bibref ref="errCX19"/>. If the length of
+                     the key is invalid, this is an error <bibref ref="error.secretKey"/>. If the length of
                      data provided to the block cipher is incorrect, this is an error <bibref
-                        ref="errCX20"/>.</p>
+                        ref="error.blockSize"/>.</p>
                </item>
                <item>
                   <p><code>$cryptographic-algorithm</code> is the cryptographic algorithm used for
                      encryption. If the parameter specifies an unsupported algorithm, this is an
-                     error <bibref ref="errCX21"/>
+                     error <bibref ref="error.algorithm"/>
                   </p>
                </item>
             </ulist>
@@ -340,59 +343,68 @@
       <div1>
          <head>References</head>
          <blist>
+         	<bibl id="xpath-30" key="XPath 3.0">
+	        	<loc href="http://w3.org/TR/xpath-30/">XML Path Language (XPath) 3.0</loc>.
+	            Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>         
+	        <bibl id="xslt-30" key="XSLT 3.0">                        
+	            <loc href="http://w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</loc>.
+	            Michael Kay, editor. W3C Working Draft, 10 July 2012.</bibl>         
+	        <bibl id="xquery-30" key="XQuery 3.0">                        
+	            <loc href="http://w3.org/TR/xquery-30/">XQuery 3.0: An XML Query Language</loc>.
+	            Jonathan Robie, Don Chamberlin, Michael Dyck, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>
+	        <bibl id="xpath-functions-30" key="XPath and XQuery Functions and Operators 3.0">
+	            <loc href="http://w3.org/TR/xpath-functions-30/">XPath and XQuery Functions and Operators 3.0</loc>.
+	            Michael Kay, editor. W3C Working Draft, 13 December 2011.</bibl>
+	        <bibl id="xpath-datamodel-30" key="XQuery and XPath Data Model 3.0">
+	            <loc href="http://w3.org/TR/xpath-datamodel-30/">XQuery and XPath Data Model 3.0</loc>.
+               	Norman Walsh, Anders Berglund, John Snelson, editors. W3C Working Draft, 13 December 2011.</bibl>               	   	                        
             <bibl id="rfc2104" key="RFC 2104">
-               <loc href="http://ietf.org/rfc/rfc2104.txt">RFC 2104: HMAC: Keyed-Hashing for Message
-                  Authentication</loc>. H. Krawczyk, M. Bellare, R. Canetti, editors. Network
-               Working Group. February, 1997. </bibl>
+                <loc href="http://ietf.org/rfc/rfc2104.txt">RFC 2104: HMAC: Keyed-Hashing for Message
+                Authentication</loc>. H. Krawczyk, M. Bellare, R. Canetti, editors. Network
+                Working Group. February, 1997. </bibl>
             <bibl id="rfc2617" key="RFC 2617">
-               <loc href="http://ietf.org/rfc/rfc2617.txt">RFC 2617: HTTP Authentication: Basic and
-                  Digest Access Authentication</loc>. J. Franks, P. Hallam-Baker, J. Hostetler, S.
-               Lawrence, P. Leach, A. Luotonen, L. Stewart. June, 1999. </bibl>
-            <bibl id="fo11" key="F&amp;O 1.1">
-               <loc href="http://w3.org/TR/xpath-functions-11/">XPath and XQuery Functions and
-                  Operators 1.1</loc>. Michael Kay, editor. W3C Working Draft. 15 January 2009. </bibl>
-            <bibl id="xslt20" key="XSLT 2.0">
-               <loc href="http://w3.org/TR/xslt20/">XSL Transformations (XSLT) Version 2.0</loc>.
-               Michael Kay, editor. W3C Recommendation. 23 January 2007. </bibl>
+                <loc href="http://ietf.org/rfc/rfc2617.txt">RFC 2617: HTTP Authentication: Basic and
+                Digest Access Authentication</loc>. J. Franks, P. Hallam-Baker, J. Hostetler, S.
+                Lawrence, P. Leach, A. Luotonen, L. Stewart. June, 1999. </bibl>
             <bibl id="xml-dig-sig-core" key="XML Signature">
-               <loc href="http://w3.org/TR/xmldsig-core/">XML Signature Syntax and Processing
+                <loc href="http://w3.org/TR/xmldsig-core/">XML Signature Syntax and Processing
                   (Second Edition)</loc>. Donald Eastlake, Joseph Reagle, David Solo, Frederick
-               Hirsch, Thomas Roessler, editors. Mark Bartel, John Boyer, Barb Fox, Brian LaMacchia,
-               Ed Simon, authors. W3C Recommendation, 10 June 2008. </bibl>
+                 Hirsch, Thomas Roessler, editors. Mark Bartel, John Boyer, Barb Fox, Brian LaMacchia,
+                 Ed Simon, authors. W3C Recommendation, 10 June 2008. </bibl>
             <bibl id="xml-dig-sig-xpath-filer20" key="XML-Signature XPath Filter 2.0">
-               <loc href="http://w3.org/TR/xmldsig-filter2/">XML-Signature XPath Filter 2.0</loc>.
-               John Boyer, Merlin Hughes, Joseph Reagle, authors/editors. W3C Recommendation, 08
+                <loc href="http://w3.org/TR/xmldsig-filter2/">XML-Signature XPath Filter 2.0</loc>.
+                John Boyer, Merlin Hughes, Joseph Reagle, authors/editors. W3C Recommendation, 08
                November 2002. </bibl>
          </blist>
       </div1>
       <div1>
          <head>Summary of Error Conditions</head>
          <blist>
-            <bibl id="errCX01" key="err:CX01">The canonicalization algorithm is not
+            <bibl id="error.canonAlg" key="crypto:canonicalization-algorithm-error">The canonicalization algorithm is not
                supported.</bibl>
-            <bibl id="errCX02" key="err:CX02">The digest algorithm is not supported.</bibl>
-            <bibl id="errCX03" key="err:CX03">The signature algorithm is not supported.</bibl>
-            <bibl id="errCX04" key="err:CX04">The XPath expression is invalid.</bibl>
-            <bibl id="errCX05" key="err:CX05">The root element of argument $digital-certificate must
+            <bibl id="error.digestAlg" key="crypto:digest-algorithm-error">The digest algorithm is not supported.</bibl>
+            <bibl id="error.sigAlg" key="crypto:signature-algorithm-error">The signature algorithm is not supported.</bibl>
+            <bibl id="error.xpathExpr" key="crypto:invalid-xpath-expression">The XPath expression is invalid.</bibl>
+            <bibl id="error.rootElem" key="crypto:invalid-root-element">The root element of argument $digital-certificate must
                have the name 'digital-certificate'.</bibl>
-            <bibl id="errCX06" key="err:CX06">The child element of argument $digital-certificate
+            <bibl id="error.childElem" key="crypto:invalid-child-element">The child element of argument $digital-certificate
                having position $position must have the name $child-element-name.</bibl>
-            <bibl id="errCX07" key="err:CX07">The keystore is null.</bibl>
-            <bibl id="errCX08" key="err:CX08">I/O error while reading keystore.</bibl>
-            <bibl id="errCX09" key="err:CX09">Permission denied to read keystore.</bibl>
-            <bibl id="errCX10" key="err:CX10">The keystore URL is invalid.</bibl>
-            <bibl id="errCX11" key="err:CX11">The keystore type is not supported.</bibl>
-            <bibl id="errCX12" key="err:CX12">Cannot find key for alias in given keystore.</bibl>
-            <bibl id="errCX13" key="err:CX13">The hashing algorithm is not supported.</bibl>
-            <bibl id="errCX14" key="err:CX14">The encoding method is not supported.</bibl>
-            <bibl id="errCX15" key="err:CX15">Cannot find Signature element.</bibl>
-            <bibl id="errCX16" key="err:CX16">No such padding.</bibl>
-            <bibl id="errCX17" key="err:CX17">Incorrect padding.</bibl>
-            <bibl id="errCX18" key="err:CX18">The encryption type is not supported.</bibl>
-            <bibl id="errCX19" key="err:CX19">The secret key is invalid.</bibl>
-            <bibl id="errCX20" key="err:CX20">Illegal block size.</bibl>
-            <bibl id="errCX21" key="err:CX21">The algorithm is not supported.</bibl>
-            <bibl id="errCX22" key="err:CX22">The decryption type is not supported.</bibl>
+            <bibl id="error.nullKeystore" key="crypto:null-keystore">The keystore is null.</bibl>
+            <bibl id="error.readKeystore" key="crypto:error-reading-keystore">I/O error while reading keystore.</bibl>
+            <bibl id="error.deniedKeystore" key="crypto:denied-reading-keystore">Permission denied to read keystore.</bibl>
+            <bibl id="error.keystoreUrl" key="crypto:invalid-keystore-url">The keystore URL is invalid.</bibl>
+            <bibl id="error.keystoreType" key="crypto:keystore-type-error">The keystore type is not supported.</bibl>
+            <bibl id="error.aliasKey" key="crypto:no-key-for-alias">Cannot find key for alias in given keystore.</bibl>
+            <bibl id="error.hashAlg" key="crypto:hashing-algorithm-error">The hashing algorithm is not supported.</bibl>
+            <bibl id="error.encMethod" key="crypto:encoding-method-error">The encoding method is not supported.</bibl>
+            <bibl id="error.sigElem" key="crypto:signature-element-error">Cannot find Signature element.</bibl>
+            <bibl id="error.noPadding" key="crypto:padding-error">No such padding.</bibl>
+            <bibl id="error.incorrectPadding" key="crypto:incorrect-padding">Incorrect padding.</bibl>
+            <bibl id="error.encType" key="crypto:encryption-type-error">The encryption type is not supported.</bibl>
+            <bibl id="error.secretKey" key="crypto:invalid-secret-key">The secret key is invalid.</bibl>
+            <bibl id="error.blockSize" key="crypto:block-size-error">Illegal block size.</bibl>
+            <bibl id="error.algorithm" key="crypto:algorithm-error">The algorithm is not supported.</bibl>
+            <bibl id="error.decryptionType" key="crypto:decryption-type-error">The decryption type is not supported.</bibl>
          </blist>
       </div1>
    </back>

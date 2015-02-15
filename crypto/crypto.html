@@ -1,7 +1,7 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <title>Cryptographic Module 1.1</title>
+      <title>Cryptographic Module 1.0</title>
       <link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/TR/base.css" /><style type="text/css">
 code           { font-family: monospace; }
 
@@ -42,10 +42,10 @@ div.exampleHeader { font-weight: bold;
       }
    </style></head>
    <body>
-      <p><a href="http://expath.org/"><img src="http://expath.org/images/expath-icon.png" alt="EXPath" height="32" width="32" /></a></p>
+      <p><a href="http://w3.org/"><img src="http://w3.org/Icons/w3c_home" alt="W3C" height="48" width="72" /></a></p>
       <div class="head">
          
-         <h1><a name="title" id="title"></a>Cryptographic Module 1.1
+         <h1><a name="title" id="title"></a>Cryptographic Module 1.0
          </h1>
          
          <h2><a name="w3c-doctype" id="w3c-doctype"></a>EXPath Candidate Module 15 August 2012
@@ -152,17 +152,17 @@ div.exampleHeader { font-weight: bold;
             7.9 <a href="#d4e1192">The crypto:list-trusted-certificate-authorities function</a><br />
             8 <a href="#d4e1200">Digital Certificates</a><br />
             8.1 <a href="#d4e1205">The crypto:generate-certificate function</a><br />
-            8.2 <a href="#d4e1213">The crypto:validate-certificate function</a><br />
-            8.3 <a href="#d4e1221">The crypto:parse-certificate function</a><br />
-            8.4 <a href="#d4e1229">The crypto:generate-certification-path function</a><br />
-            8.5 <a href="#d4e1237">The crypto:validate-certification-path function</a><br />
-            8.6 <a href="#d4e1245">The crypto:generate-certification-request function</a><br />
-            8.7 <a href="#d4e1253">The crypto:validate-certification-request function</a><br />
-            8.8 <a href="#d4e1261">The crypto:validate-certificate-revocation-list function</a><br />
-            9 <a href="#d4e1269">Cryptographic Hardware</a><br />
-            10 <a href="#d4e1274">Random Sequences Generation</a><br />
-            10.1 <a href="#d4e1279">The crypto:generate-random-number function</a><br />
-            11 <a href="#d4e1287">The crypto:options element</a><br />
+            8.2 <a href="#d4e1218">The crypto:validate-certificate function</a><br />
+            8.3 <a href="#d4e1226">The crypto:parse-certificate function</a><br />
+            8.4 <a href="#d4e1234">The crypto:generate-certification-path function</a><br />
+            8.5 <a href="#d4e1243">The crypto:validate-certification-path function</a><br />
+            8.6 <a href="#d4e1251">The crypto:generate-certification-request function</a><br />
+            8.7 <a href="#d4e1259">The crypto:validate-certification-request function</a><br />
+            8.8 <a href="#d4e1267">The crypto:validate-certificate-revocation-list function</a><br />
+            9 <a href="#d4e1275">Cryptographic Hardware</a><br />
+            10 <a href="#d4e1280">Random Sequences Generation</a><br />
+            10.1 <a href="#d4e1285">The crypto:generate-random-number function</a><br />
+            11 <a href="#d4e1293">The crypto:options element</a><br />
             11.1 <a href="#provider-option">The provider option</a><br />
             11.2 <a href="#canonicalization-algorithm">The canonicalization-algorithm option</a><br />
             11.3 <a href="#digest-algorithm">The digest-algorithm option</a><br />
@@ -173,8 +173,8 @@ div.exampleHeader { font-weight: bold;
          
          <h3><a name="appendices" id="appendices"></a>Appendices
          </h3>
-         <p class="toc">A <a href="#d4e1362">References</a><br />
-            B <a href="#d4e1447">Summary of Error Conditions</a><br />
+         <p class="toc">A <a href="#d4e1368">References</a><br />
+            B <a href="#d4e1453">Summary of Error Conditions</a><br />
             
          </p>
       </div>
@@ -1021,31 +1021,31 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e1213" id="d4e1213"></a>8.2 The <code>crypto:validate-certificate</code> function
+               <h3><a name="d4e1218" id="d4e1218"></a>8.2 The <code>crypto:validate-certificate</code> function
                </h3>
                <p>This function validates a digital certificate.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e1221" id="d4e1221"></a>8.3 The <code>crypto:parse-certificate</code> function
+               <h3><a name="d4e1226" id="d4e1226"></a>8.3 The <code>crypto:parse-certificate</code> function
                </h3>
                <p>This function parses a digital certificate.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e1229" id="d4e1229"></a>8.4 The <code>crypto:generate-certification-path</code> function
+               <h3><a name="d4e1234" id="d4e1234"></a>8.4 The <code>crypto:generate-certification-path</code> function
                </h3>
                <p>This function validates the certification path for a digital certificate.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e1237" id="d4e1237"></a>8.5 The <code>crypto:validate-certification-path</code> function
+               <h3><a name="d4e1243" id="d4e1243"></a>8.5 The <code>crypto:validate-certification-path</code> function
                </h3>
                <p>This function validates the certification path for a digital certificate.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e1245" id="d4e1245"></a>8.6 The <code>crypto:generate-certification-request</code> function
+               <h3><a name="d4e1251" id="d4e1251"></a>8.6 The <code>crypto:generate-certification-request</code> function
                </h3>
                <p>This function generates a certificate signing request, in order to apply for a digital
                   identity certificate, which is to be issued by a Certificate Authority .
@@ -1053,38 +1053,38 @@ div.exampleHeader { font-weight: bold;
             </div>
             <div class="div2">
                
-               <h3><a name="d4e1253" id="d4e1253"></a>8.7 The <code>crypto:validate-certification-request</code> function
+               <h3><a name="d4e1259" id="d4e1259"></a>8.7 The <code>crypto:validate-certification-request</code> function
                </h3>
                <p>This function validates a certificate signing request.</p>
             </div>
             <div class="div2">
                
-               <h3><a name="d4e1261" id="d4e1261"></a>8.8 The <code>crypto:validate-certificate-revocation-list</code> function
+               <h3><a name="d4e1267" id="d4e1267"></a>8.8 The <code>crypto:validate-certificate-revocation-list</code> function
                </h3>
                <p>This function validates a certificate revocation list.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1269" id="d4e1269"></a>9 Cryptographic Hardware
+            <h2><a name="d4e1275" id="d4e1275"></a>9 Cryptographic Hardware
             </h2>
             <p>TBD.</p>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1274" id="d4e1274"></a>10 Random Sequences Generation
+            <h2><a name="d4e1280" id="d4e1280"></a>10 Random Sequences Generation
             </h2>
             <p>TBD.</p>
             <div class="div2">
                
-               <h3><a name="d4e1279" id="d4e1279"></a>10.1 The <code>crypto:generate-random-number</code> function
+               <h3><a name="d4e1285" id="d4e1285"></a>10.1 The <code>crypto:generate-random-number</code> function
                </h3>
                <p>This function generates a random number that is cryptographically strong.</p>
             </div>
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1287" id="d4e1287"></a>11 The <code>crypto:options</code> element
+            <h2><a name="d4e1293" id="d4e1293"></a>11 The <code>crypto:options</code> element
             </h2>
             <p>The <code>crypto:options</code> element represents the options needed for the functions included in this module.
                Users will specify for a certain functions only the options mentioned in function's
@@ -1162,7 +1162,7 @@ div.exampleHeader { font-weight: bold;
       <div class="back">
          <div class="div1">
             
-            <h2><a name="d4e1362" id="d4e1362"></a>A References
+            <h2><a name="d4e1368" id="d4e1368"></a>A References
             </h2>
             <dl>
                <dt class="label"><a name="xpath-30" id="xpath-30"></a>XPath 3.0
@@ -1276,7 +1276,7 @@ div.exampleHeader { font-weight: bold;
          </div>
          <div class="div1">
             
-            <h2><a name="d4e1447" id="d4e1447"></a>B Summary of Error Conditions
+            <h2><a name="d4e1453" id="d4e1453"></a>B Summary of Error Conditions
             </h2>
             <dl>
                <dt class="label"><a name="errCX01" id="errCX01"></a>err:CX01
