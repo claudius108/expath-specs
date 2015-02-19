@@ -290,7 +290,7 @@
          <div2>
             <head>The <code>crypto:generate-signature</code> function</head>
             <p>The function has its parameters passed as a <spec:type>map(xs:string, item())</spec:type>. If any of these parameters is missing, a default value will be used
-            instead. After the function's signature, an example of parameters is given.</p>
+            instead. After the function's signature, an example of parameters is given. The syntax for the <code>$references</code> parameter is inspired by <bibref ref="xml-dig-sig-core"/>.</p>
             <eg>
 <spec:function>crypto:generate-signature</spec:function>($data as <spec:type>node()*</spec:type>,
     $parameters as <spec:type>map(xs:string, item())?</spec:type>) as <spec:type>node()</spec:type> 
@@ -303,16 +303,23 @@ map {
  	"signature-algorithm" := "RSA_SHA1",
  	"signature-namespace-prefix" := "dsig",
  	"signature-type" := "enveloped",
- 	"references" := 
-		&lt;Reference xmlns="http://www.w3.org/2000/09/xmldsig#" URI=""&gt;
-			&lt;Transforms&gt;
-				&lt;Transform Algorithm="http://www.w3.org/2002/06/xmldsig-filter2"&gt;
-					&lt;XPath Filter="intersect"&gt;//ToBeSigned&lt;/XPath&gt;
-					&lt;XPath Filter="subtract"&gt;//NotToBeSigned&lt;/XPath&gt;
-					&lt;XPath Filter="union"&gt;//ReallyToBeSigned&lt;/XPath&gt;
-				&lt;/Transform&gt;
-			&lt;/Transforms&gt;
-		&lt;/Reference&gt;,
+ 	"references" :=
+ 		( 
+			&lt;Reference xmlns="http://www.w3.org/2000/09/xmldsig#" URI=""&gt;
+				&lt;Transforms&gt;
+					&lt;Transform Algorithm="http://www.w3.org/2002/06/xmldsig-filter2"&gt;
+						&lt;XPath Filter="intersect"&gt;//ToBeSigned&lt;/XPath&gt;
+						&lt;XPath Filter="subtract"&gt;//NotToBeSigned&lt;/XPath&gt;
+						&lt;XPath Filter="union"&gt;//ReallyToBeSigned&lt;/XPath&gt;
+					&lt;/Transform&gt;
+				&lt;/Transforms&gt;
+			&lt;/Reference&gt;,
+			&lt;Reference xmlns="http://www.w3.org/2000/09/xmldsig#" URI="#id"&gt;
+				&lt;Transforms&gt;
+					&lt;Transform Algorithm="http://www.w3.org/TR/2001/10/xml-exc-c14n" /&gt;
+				&lt;/Transforms&gt;
+			&lt;/Reference&gt;
+		)			
  	"digital-certificate" :=
  		map {
  			"keystore-type" := "JKS",
