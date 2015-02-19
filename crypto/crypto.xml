@@ -289,67 +289,44 @@
             then digested and cryptographically signed.</p>
          <div2>
             <head>The <code>crypto:generate-signature</code> function</head>
-            <p>This function has four signatures, as one have to consider that some applications
-               require the ability to specify a subset of a given XML document as the information
-               content to be signed (this is done by using XPath to indicate the subset), and also
-               the ability to use a digital certificate to obtain the key pair, instead of an
-               auto-generated key pair.</p>
-            <p>The first signature considers the case of auto-generated key pair, and signature for
-               the whole document.</p>
-            <p>The second signature considers the case of auto-generated key pair, and signature for
-               a subset of the document.</p>
-            <p>The third signature considers the case of key pair generated from an digital
-               certificate, and signature for the whole document.</p>
-            <p> The fourth signature considers the case of key pair generated from an digital
-               certificate, and signature for a subset of the document. </p>
+            <p>The function has its parameters passed as a <spec:type>map(xs:string, item())</spec:type>. If any of these parameters is missing, a default value will be used
+            instead. After the function's signature an example of parameters is given.</p>
             <eg>
-<spec:function>crypto:generate-signature</spec:function>($data as <spec:type>node()</spec:type>,
-    $canonicalization-algorithm as <spec:type>xs:string</spec:type>,
-    $digest-algorithm as <spec:type>xs:string</spec:type>,
-    $signature-algorithm as <spec:type>xs:string</spec:type>,
-    $signature-namespace-prefix as <spec:type>xs:string</spec:type>,
-    $signature-type as <spec:type>xs:string</spec:type>) as <spec:type>node()</spec:type>
-
-<spec:function>crypto:generate-signature</spec:function>($data as <spec:type>node()</spec:type>,
-    $canonicalization-algorithm as <spec:type>xs:string</spec:type>,
-    $digest-algorithm as <spec:type>xs:string</spec:type>,
-    $signature-algorithm as <spec:type>xs:string</spec:type>,
-    $signature-namespace-prefix as <spec:type>xs:string</spec:type>,
-    $signature-type as <spec:type>xs:string</spec:type>,
-    $xpath-expression as <spec:type>xs:string</spec:type>) as <spec:type>node()</spec:type>
-
-<spec:function>crypto:generate-signature</spec:function>($data as <spec:type>node()</spec:type>,
-    $canonicalization-algorithm as <spec:type>xs:string</spec:type>,
-    $digest-algorithm as <spec:type>xs:string</spec:type>,
-    $signature-algorithm as <spec:type>xs:string</spec:type>,
-    $signature-namespace-prefix as <spec:type>xs:string</spec:type>,
-    $signature-type as <spec:type>xs:string</spec:type>,
-    $digital-certificate as <spec:type>node()</spec:type>) as <spec:type>node()</spec:type>
-
-<spec:function>crypto:generate-signature</spec:function>($data as <spec:type>node()</spec:type>,
-    $canonicalization-algorithm as <spec:type>xs:string</spec:type>,
-    $digest-algorithm as <spec:type>xs:string</spec:type>,
-    $signature-algorithm as <spec:type>xs:string</spec:type>,
-    $signature-namespace-prefix as <spec:type>xs:string</spec:type>,
-    $signature-type as <spec:type>xs:string</spec:type>,
-    $xpath-expression as <spec:type>xs:string</spec:type>,
-    $digital-certificate as <spec:type>node()</spec:type>) as <spec:type>node()</spec:type>            
-</eg>      
-<!-- <spec:function>crypto:generate-signature</spec:function>($data as <spec:type>node()</spec:type>, -->
-<!--             $options as <spec:type>element(crypto:options)</spec:type>) as <spec:type>node()</spec:type> -->
+<spec:function>crypto:generate-signature</spec:function>($data as <spec:type>node()*</spec:type>,
+    $parameters as <spec:type>map(xs:string, item())?</spec:type>) as <spec:type>node()</spec:type> 
+</eg>
+            <p>Example of parameters:</p>    
+        <eg xml:space="preserve">
+map {
+	"canonicalization-algorithm" := "inclusive-with-comments",
+ 	"digest-algorithm" := "SHA1",
+ 	"signature-algorithm" := "RSA_SHA1",
+ 	"signature-namespace-prefix" := "dsig",
+ 	"signature-type" := "enveloped",
+ 	"references" := 
+		&lt;Reference xmlns="http://www.w3.org/2000/09/xmldsig#" URI=""&gt;
+			&lt;Transforms&gt;
+				&lt;Transform Algorithm="http://www.w3.org/2002/06/xmldsig-filter2"&gt;
+					&lt;XPath Filter="intersect"&gt;//ToBeSigned&lt;/XPath&gt;
+					&lt;XPath Filter="subtract"&gt;//NotToBeSigned&lt;/XPath&gt;
+					&lt;XPath Filter="union"&gt;//ReallyToBeSigned&lt;/XPath&gt;
+				&lt;/Transform&gt;
+			&lt;/Transforms&gt;
+		&lt;/Reference&gt;,
+ 	"digital-certificate" :=
+		&lt;digital-certificate&gt;
+		   &lt;keystore-type&gt;JKS&lt;/keystore-type&gt;
+		   &lt;keystore-password&gt;password&lt;/keystore-password&gt;
+		   &lt;key-alias&gt;alias&lt;/key-alias&gt;
+		   &lt;private-key-password&gt;password&lt;/private-key-password&gt;
+		   &lt;keystore-uri&gt;/db/mykeystore&lt;/keystore-uri&gt;
+		&lt;/digital-certificate&gt; 	
+}
+</eg>
             <ulist>
                <item>
                   <p><code>$data</code> is the data to be signed.</p>
                </item>
-<!--                <item> -->
-<!--                   <p><code>$options</code> represents the options needed for the current operation, namely the options -->
-<!--                   <code>canonicalization-algorithm</code> (<specref ref="canonicalization-algorithm" />), -->
-<!--                   <code>digest-algorithm</code> (<specref ref="digest-algorithm" />), -->
-<!--                   <code>signature-algorithm</code> (<specref ref="signature-algorithm" />), -->
-<!--                   <code>signature-namespace-prefix</code> (<specref ref="signature-namespace-prefix" />), -->
-<!--                    and -->
-<!--                   <code>hashing-algorithm</code> (<specref ref="hashing-algorithm" />).</p> -->
-<!--                </item>                 -->
                <item>
                   <p><code>$canonicalization-algorithm</code> is the canonicalization algorithm
                      applied to the SignedInfo element prior to performing signature calculations.
@@ -380,13 +357,11 @@
                      default value is 'enveloped'.</p>
                </item>
                <item>
-                  <p><code>$xpath-expression</code> is the XPath expression used for selecting the
-                     subset to be signed. If the XPath expression is invalid, this is an error
-                        <bibref ref="error.xpathExpr"/>.</p>
+                  <p><code>$references</code> represents the resources to be signed. If this parameter is missing, the whole input document will be signed.</p>
                </item>
                <item>
-                  <p><code>$digital-certificate</code> is the digital certificate to be used for
-                     signing the input document or document subset. The structure of this parameter
+                  <p><code>$digital-certificate</code> is the digital certificate to be used for signing the references. If this parameter is missing, an
+                  auto-generated key pair will be used. The structure of this parameter
                      is as follows (this is an example):</p>
                   <eg>
 &lt;digital-certificate&gt;
@@ -908,7 +883,6 @@
             <bibl id="error.canonAlg" key="crypto:canonicalization-algorithm-error">The canonicalization algorithm is not supported.</bibl>
             <bibl id="error.digestAlg" key="crypto:digest-algorithm-error">The digest algorithm is not supported.</bibl>
             <bibl id="error.sigAlg" key="crypto:signature-algorithm-error">The signature algorithm is not supported.</bibl>
-            <bibl id="error.xpathExpr" key="crypto:invalid-xpath-expression">The XPath expression is invalid.</bibl>
             <bibl id="error.digCert" key="crypto:digital-certificate-error">Argument $digital-certificate does not conform to its schema.</bibl>
             <bibl id="error.nullKeystore" key="crypto:null-keystore">The keystore is null.</bibl>
             <bibl id="error.readKeystore" key="crypto:error-reading-keystore">I/O error while reading keystore.</bibl>
