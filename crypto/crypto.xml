@@ -290,7 +290,7 @@
          <div2>
             <head>The <code>crypto:generate-signature</code> function</head>
             <p>The function has its parameters passed as a <spec:type>map(xs:string, item())</spec:type>. If any of these parameters is missing, a default value will be used
-            instead. After the function's signature an example of parameters is given.</p>
+            instead. After the function's signature, an example of parameters is given.</p>
             <eg>
 <spec:function>crypto:generate-signature</spec:function>($data as <spec:type>node()*</spec:type>,
     $parameters as <spec:type>map(xs:string, item())?</spec:type>) as <spec:type>node()</spec:type> 
@@ -314,13 +314,13 @@ map {
 			&lt;/Transforms&gt;
 		&lt;/Reference&gt;,
  	"digital-certificate" :=
-		&lt;digital-certificate&gt;
-		   &lt;keystore-type&gt;JKS&lt;/keystore-type&gt;
-		   &lt;keystore-password&gt;password&lt;/keystore-password&gt;
-		   &lt;key-alias&gt;alias&lt;/key-alias&gt;
-		   &lt;private-key-password&gt;password&lt;/private-key-password&gt;
-		   &lt;keystore-uri&gt;/db/mykeystore&lt;/keystore-uri&gt;
-		&lt;/digital-certificate&gt; 	
+ 		map {
+ 			"keystore-type" := "JKS",
+ 			"keystore-password" := "password",
+ 			"key-alias" := "alias",
+ 			"private-key-password" := "password",
+ 			"keystore-uri" := "/db/mykeystore"
+ 		} 	
 }
 </eg>
             <ulist>
