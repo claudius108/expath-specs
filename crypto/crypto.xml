@@ -371,20 +371,20 @@ map {
                   will be used. The components of this parameter are:</p>
 		            <ulist>
 		               <item>
-		                  <p><code>$keystore-type</code> is the keystore type. If the type is not supported, this is an error <bibref ref="error.keystoreType" />.</p>
+		                  <p><code>keystore-type</code> is the keystore type. If the type is not supported, this is an error <bibref ref="error.keystoreType" />.</p>
 		               </item>
 		               <item>
-		                  <p><code>$keystore-password</code> is the keystore's password. If the keystore cannot be loaded or the password is incorrect, this is an error
+		                  <p><code>keystore-password</code> is the keystore's password. If the keystore cannot be loaded or the password is incorrect, this is an error
 		                  <bibref ref="error.readKeystore" />.</p>
 		               </item>
 		               <item>
-		                  <p><code>$key-alias</code> is the alias for the key pair used for signing. If no key pair exists for this alias, this is an error <bibref ref="error.aliasKey"/>.</p>
+		                  <p><code>key-alias</code> is the alias for the key pair used for signing. If no key pair exists for this alias, this is an error <bibref ref="error.aliasKey"/>.</p>
 		               </item>
 		               <item>
-		                  <p><code>$private-key-password</code> is the password for the selected key.</p>
+		                  <p><code>private-key-password</code> is the password for the selected key.</p>
 		               </item>               
 		               <item>
-		                  <p><code>$keystore-url</code> is the URL of the keystore. If the URL is not correct, this is an error <bibref ref="error.keystoreUrl"/>. If the user has no
+		                  <p><code>keystore-url</code> is the URL of the keystore. If the URL is not correct, this is an error <bibref ref="error.keystoreUrl"/>. If the user has no
 		                  acces to the keystore, this is an error <bibref ref="error.deniedKeystore" />. 
 		                  </p>
 		               </item>
@@ -407,56 +407,52 @@ map {
       </div1>
       <div1>
          <head>Encryption and Decryption</head>
-         <p>Encryption represents the process of conversion of data, by using a secret key (a
-            cipher), in a form (called cipher text) that cannot be understood by unautorized
+         <p>Encryption represents the process of conversion of data, by using a secret key (a cipher), in a form (called cipher text) that cannot be understood by unautorized
             persons.</p>
-         <p>The decryption represents the reverse process, of converting encrypted data back to
-            plain text (original text).</p>
-         <p>There are two main types of encryption: symmetric encryption, when both parties, the
-            sender and the receiver, use the same secret key, previously exchanged, and asymmetric
-            encryption, when a key pair, consisting of a private key and a private key, is used, of
-            which the public key is used by sender to encrypt a message that can only be decrypted
-            by the receiver, who holds the private key of that key pair.</p>
+         <p>The decryption represents the reverse process, of converting encrypted data back to plain text (original text).</p>
+         <p>There are two main types of encryption: symmetric encryption, when both parties, the sender and the receiver, use the same secret key, previously exchanged,
+         and asymmetric encryption, when a key pair, consisting of a private key and a private key, is used, of which the public key is used by sender to encrypt a message that
+         can only be decrypted by the receiver, who holds the private key of that key pair.</p>
          <div2>
             <head>The <code>crypto:encrypt</code> function</head>
             <p>This function encrypts data.</p>
             <eg>
 <spec:function>crypto:encrypt</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
                $encryption-type as <spec:type>xs:string</spec:type>,
-               $secret-key as <spec:type>xs:anyAtomicType</spec:type>,
-               $cryptographic-algorithm as <spec:type>xs:string</spec:type>,
-               $vi as <spec:type>xs:string?</spec:type>,
-               $provider as <spec:type>xs:string?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type></eg>
+               $parameters as <spec:type>map(xs:string, item())?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type></eg>
             <ulist>
                <item>
-                  <p><code>$data</code> is the data to be encrypted. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary.
-                  When a particular padding mechanism is requested, but is not available, this is an error <bibref
-                        ref="error.noPadding"/>. Also, when a particular padding mechanism is expected, but
-                     the data is not padded properly, this is an error <bibref ref="error.incorrectPadding"/>.</p>
+                  <p><code>$data</code> is the data to be encrypted. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary. When a particular padding mechanism
+                  is requested, but is not available, this is an error <bibref ref="error.noPadding"/>. Also, when a particular padding mechanism is expected, but the data is not
+                  padded properly, this is an error <bibref ref="error.incorrectPadding"/>.</p>
                </item>
                <item>
                   <p>
-                     <code>$encryption-type</code> is the type of encryption. Legal values:
-                     "symmetric", and "asymmetric". If the parameter has an illegal value, this is
-                     an error <bibref ref="error.encType"/>.</p>
+                     <code>$encryption-type</code> is the type of encryption. Legal values: "symmetric", and "asymmetric". If the parameter has an illegal value, this is an error
+                     <bibref ref="error.encType"/>.</p>
                </item>
                <item>
-                  <p><code>$secret-key</code> is the secret key used for encryption. This parameter can be of type xs:string,
-                  xs:base64Binary, or xs:hexBinary. If the key is invalid, this is an error <bibref ref="error.secretKey"/>. If the length of
-                     data provided to the block cipher is incorrect, this is an error <bibref
-                        ref="error.blockSize"/>.</p>
+                  <p><code>$parameters</code> represents the parameters needed for the current operation. The parameters are the following:</p>
+		            <ulist>
+		               <item>
+		                  <p><code>cryptographic-key</code> as <spec:type>xs:anyAtomicType</spec:type> is the cryptographic key used for encryption. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary.
+		                  If the key is invalid, this is an error <bibref ref="error.secretKey"/>. If the length of data provided to the block cipher is incorrect, this is an error
+		                  <bibref ref="error.blockSize"/>.</p>
+		               </item>
+		               <item>
+		                  <p><code>cryptographic-algorithm</code> as <spec:type>xs:string</spec:type> is the cryptographic algorithm used for encryption. For symmetric encryption, a transformation name can be used.
+		                  If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="error.algOrTransf"/>.</p>
+		               </item>
+		               <item>
+		                  <p><code>iv</code> as <spec:type>xs:string</spec:type> is the initialization vector for symmetric encryption.</p>
+		               </item>                
+		               <item>
+		                  <p><code>provider</code> as <spec:type>xs:string?</spec:type> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
+		                  default provider. If the provider does not exist, this is an error <bibref ref="error.noProvider"/>.</p>
+		               </item>                
+		            </ulist>                  
+                  
                </item>
-               <item>
-                  <p><code>$cryptographic-algorithm</code> is the cryptographic algorithm used for encryption. For symmetric encryption, a transformation name can be used.
-                  If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="error.algOrTransf"/>.</p>
-               </item>
-               <item>
-                  <p><code>$iv</code> is the initialization vector for symmetric encryption.</p>
-               </item>                
-               <item>
-                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
-                  default provider. If the provider does not exist, this is an error <bibref ref="error.noProvider"/>.</p>
-               </item>                
             </ulist>
          </div2>
          <div2>
@@ -465,40 +461,39 @@ map {
             <eg>
 <spec:function>crypto:decrypt</spec:function>($data as <spec:type>xs:anyAtomicType</spec:type>,
                $decryption-type as <spec:type>xs:string</spec:type>,
-               $secret-key as <spec:type>xs:anyAtomicType</spec:type>,
-               $cryptographic-algorithm as <spec:type>xs:string</spec:type>,
-               $vi as <spec:type>xs:string?</spec:type>,
-               $provider as <spec:type>xs:string?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type></eg>
+               $parameters as <spec:type>map(xs:string, item())?</spec:type>) as <spec:type>xs:anyAtomicType</spec:type></eg>
             <ulist>
                <item>
-                  <p><code>$data</code> is the data to be decrypted. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary.
-                  When a particular padding mechanism is requested, but is not available, this is an error <bibref
-                        ref="error.noPadding"/>. Also, when a particular padding mechanism is expected, but
-                     the data is not padded properly, this is an error <bibref ref="error.incorrectPadding"/>.</p>
+                  <p><code>$data</code> is the data to be decrypted. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary. When a particular padding mechanism
+                  is requested, but is not available, this is an error <bibref ref="error.noPadding"/>. Also, when a particular padding mechanism is expected, but the data is not
+                  padded properly, this is an error <bibref ref="error.incorrectPadding"/>.</p>
                </item>
                <item>
-                  <p><code>$decryption-type</code> is the type of decryption. Legal values:
-                     "symmetric", and "asymmetric". If the parameter has an illegal value, this is
-                     an error <bibref ref="error.decryptionType"/>.</p>
+                  <p><code>$decryption-type</code> is the type of decryption. Legal values: "symmetric", and "asymmetric". If the parameter has an illegal value, this is an error
+                  <bibref ref="error.decryptionType"/>.</p>
                </item>
                <item>
-                  <p><code>$secret-key</code> is the secret key used for decryption. This parameter can be of type xs:string,
-                  xs:base64Binary, or xs:hexBinary. If the key is invalid, this is an error <bibref ref="error.secretKey"/>. If the length of
-                     data provided to the block cipher is incorrect, this is an error <bibref
-                        ref="error.blockSize"/>.</p>
+                  <p><code>$parameters</code> represents the parameters needed for the current operation. The parameters are the following:</p>
+		            <ulist>
+		               <item>
+		                  <p><code>cryptographic-key</code> as <spec:type>xs:anyAtomicType</spec:type> is the cryptographic key used for decryption. This parameter can be of type xs:string, xs:base64Binary, or xs:hexBinary.
+		                  If the key is invalid, this is an error <bibref ref="error.secretKey"/>. If the length of data provided to the block cipher is incorrect, this is an error
+		                  <bibref ref="error.blockSize"/>.</p>
+		               </item>
+		               <item>
+		                  <p><code>cryptographic-algorithm</code> as <spec:type>xs:string</spec:type> is the cryptographic algorithm used for decryption. For symmetric decryption, a transformation name can be used.
+		                  If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="error.algOrTransf"/>.
+		                  </p>
+		               </item>
+		               <item>
+		                  <p><code>iv</code> as <spec:type>xs:string?</spec:type> is the initialization vector for symmetric encryption.</p>
+		               </item>                
+		               <item>
+		                  <p><code>provider</code> as <spec:type>xs:string?</spec:type> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
+		                  default provider. If the provider does not exist, this is an error <bibref ref="error.noProvider"/>.</p>
+		               </item>               
+		            </ulist>                  
                </item>
-               <item>
-                  <p><code>$cryptographic-algorithm</code> is the cryptographic algorithm used for decryption. For symmetric decryption, a transformation name can be used.
-                  If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="error.algOrTransf"/>.
-                  </p>
-               </item>
-               <item>
-                  <p><code>$iv</code> is the initialization vector for symmetric encryption.</p>
-               </item>                
-               <item>
-                  <p><code>$provider</code> is the cryptographic provider for the current operation. If the provider is not specified, the implementation will use the
-                  default provider. If the provider does not exist, this is an error <bibref ref="error.noProvider"/>.</p>
-               </item>               
             </ulist>
          </div2>
       </div1>
