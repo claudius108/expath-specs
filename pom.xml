@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -24,7 +25,7 @@
 		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${project.artifactId}</web-sourceforge-spec-url>
 		<includeSpecIds>crypto,datatype-conversion,ft-client,time,digital-publishing,pdf,image,location,user-agent</includeSpecIds>
 		<libParentDir>/home/claudius/workspaces/repositories/git/kuberam/libs/java</libParentDir>
-		<javaPackageName>ro.kuberam.libs.java.${java-package-name}</javaPackageName>		
+		<javaPackageName>ro.kuberam.libs.java.${java-package-name}</javaPackageName>
 	</properties>
 
 	<build>
@@ -33,7 +34,7 @@
 				<plugin>
 					<groupId>ro.kuberam.maven.plugins</groupId>
 					<artifactId>kuberam-expath-plugin</artifactId>
-					<version>0.4.1</version>
+					<version>0.4.2</version>
 					<executions>
 						<execution>
 							<id>generate-spec</id>
@@ -110,8 +111,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
-	<modules>
-		<module>user-agent</module>
-	</modules>
 </project>
