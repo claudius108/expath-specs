@@ -206,7 +206,7 @@
                </item>
                <item>
                   <p><code>$algorithm</code> is the cryptographic hashing algorithm. If it is specified an unsupported algorithm, this
-                  is an error <bibref ref="error.unknown-algorithm"/>.</p>
+                  is an error <bibref ref="error.unknownAlgorithm"/>.</p>
                </item>
                <item>
                   <p><code>$format</code> is the format of the output. The legal values are "hex" and "base64". The default value is "base64". 
@@ -244,7 +244,7 @@
                </item>               
                <item>
                   <p><code>$algorithm</code> is the cryptographic hashing algorithm. If it is specified an unsupported algorithm, this
-                  is an error <bibref ref="error.unknown-algorithm"/>.</p>
+                  is an error <bibref ref="error.unknownAlgorithm"/>.</p>
                </item>
                <item>
                   <p><code>$format</code> is the format of the output. The legal values are "hex" and "base64". The default value is "base64". 
@@ -340,19 +340,19 @@ map {
                      Possible values are: "exclusive", "exclusive-with-comments", "inclusive", and
                      "inclusive-with-comments". The default value is "inclusive-with-comments". If
                      the parameter specifies an unsupported algorithm, this is an error <bibref
-                        ref="error.unknown-algorithm"/>.</p>
+                        ref="error.unknownAlgorithm"/>.</p>
                </item>
                <item>
                   <p><code>$digest-algorithm</code> is the digest algorithm to be applied to the
                      signed object. Possible values are: "SHA1", "SHA256", and "SHA512". The default
                      value is "SHA1". If the parameter specifies an unsupported algorithm, this is
-                     an error <bibref ref="error.unknown-algorithm"/>.</p>
+                     an error <bibref ref="error.unknownAlgorithm"/>.</p>
                </item>
                <item>
                   <p><code>$signature-algorithm</code> is the algorithm used for signature
                      generation and validation. Possible values are: "DSA_SHA1", and "RSA_SHA1". The
                      default value is "RSA_SHA1". If the parameter specifies an unsupported
-                     algorithm, this is an error <bibref ref="error.unknown-algorithm"/>.</p>
+                     algorithm, this is an error <bibref ref="error.unknownAlgorithm"/>.</p>
                </item>
                <item>
                   <p><code>$signature-namespace-prefix</code> is the namespace prefix for signature.</p>
@@ -439,7 +439,7 @@ map {
 		               </item>
 		               <item>
 		                  <p><code>algorithm</code> as <spec:type>xs:string</spec:type> is the cryptographic algorithm used for encryption. For symmetric encryption, a transformation name can be used.
-		                  If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="error.unknown-algorithm"/>.</p>
+		                  If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="error.unknownAlgorithm"/>.</p>
 		               </item>
 		               <item>
 		                  <p><code>iv</code> as <spec:type>xs:string</spec:type> is the initialization vector for symmetric encryption.</p>
@@ -480,7 +480,7 @@ map {
 		               </item>
 		               <item>
 		                  <p><code>algorithm</code> as <spec:type>xs:string</spec:type> is the cryptographic algorithm used for decryption. For symmetric decryption, a transformation name can be used.
-		                  If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="error.unknown-algorithm"/>.
+		                  If the parameter specifies an unsupported algorithm or transformation name, this is an error <bibref ref="error.unknownAlgorithm"/>.
 		                  </p>
 		               </item>
 		               <item>
@@ -790,7 +790,7 @@ map {
             <head>The <code>canonicalization-algorithm</code> option</head>
             <p>This option represents the canonicalization algorithm applied to the <code>SignedInfo</code> element prior to performing
             signature calculations. The default value is "inclusive-with-comments". If the parameter specifies an unsupported algorithm,
-            this is an error <bibref ref="error.unknown-algorithm"/>.</p>
+            this is an error <bibref ref="error.unknownAlgorithm"/>.</p>
             <eg>
 &lt;crypto:option name = "canonicalization-algorithm"
     value = "exclusive" | "exclusive-with-comments" | "inclusive" | "inclusive-with-comments" /&gt; ?
@@ -799,7 +799,7 @@ map {
          <div2 id="digest-algorithm">
             <head>The <code>digest-algorithm</code> option</head>
             <p>This option represents the digest algorithm to be applied to the signed object. If the parameter specifies an unsupported
-            algorithm, this is an error <bibref ref="error.unknown-algorithm"/>.</p>
+            algorithm, this is an error <bibref ref="error.unknownAlgorithm"/>.</p>
             <eg>
 &lt;crypto:option name = "digest-algorithm" value = xs:string /&gt;
 </eg>            
@@ -807,7 +807,7 @@ map {
          <div2 id="signature-algorithm">
             <head>The <code>signature-algorithm</code> option</head>
             <p>This option represents the algorithm used for signature generation and validation. If the parameter specifies an
-            unsupported algorithm, this is an error <bibref ref="error.unknown-algorithm"/>.</p>
+            unsupported algorithm, this is an error <bibref ref="error.unknownAlgorithm"/>.</p>
             <eg>
 &lt;crypto:option name = "signature-algorithm" value = xs:string /&gt;
 </eg>            
@@ -885,7 +885,7 @@ map {
       <div1>
          <head>Summary of Error Conditions</head>
          <blist id="summary-of-error-conditions">
-            <bibl id="error.unknown-algorithm" key="crypto:unknown-algorithm">The specified algorithm is not supported.</bibl>
+            <bibl id="error.unknownAlgorithm" key="crypto:unknown-algorithm">The specified algorithm is not supported.</bibl>
             <bibl id="error.signatureType" key="crypto:signature-type">The specified signature type is not supported.</bibl>
             <bibl id="error.readKeystore" key="crypto:unreadable-keystore">I/O error while reading keystore, or the password is incorrect.</bibl>
             <bibl id="error.deniedKeystore" key="crypto:denied-keystore">Permission denied to read keystore.</bibl>
