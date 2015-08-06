@@ -501,7 +501,13 @@
                </item>               
             </ulist>            
          </div2>
-      </div1>   
+      </div1>
+      
+      <div1 id="selection">
+         <head>Selection</head>
+         <p>TBD</p>
+         <p>Details on host / hosted document(s).</p>        
+      </div1>         
       
       <div1 id="data-instances">
          <head>Data instances</head>
