@@ -3,29 +3,22 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>ro.kuberam.maven</groupId>
-		<artifactId>sourceforge</artifactId>
-		<version>0.1-SNAPSHOT</version>
-	</parent>
-
 	<groupId>org.expath.specs</groupId>
 	<artifactId>base</artifactId>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.2</version>
 	<packaging>pom</packaging>
 	<name>EXPath specifications</name>
 	<url>http://expath.org</url>
 
 	<prerequisites>
-		<maven>3.1</maven>
+		<maven>3.3.3</maven>
 	</prerequisites>
 
 	<properties>
-		<web-sourceforge-specs-url>${sourceforge-user-web-url}/specs/expath</web-sourceforge-specs-url>
-		<web-sourceforge-spec-url>${web-sourceforge-specs-url}/${project.artifactId}</web-sourceforge-spec-url>
 		<includeSpecIds>datatype-conversion,ft-client,time,digital-publishing,pdf,image,location,user-agent</includeSpecIds>
 		<libParentDir>/home/claudius/workspaces/repositories/git/kuberam/libs/java</libParentDir>
 		<javaPackageName>ro.kuberam.libs.java.${java-package-name}</javaPackageName>
+		<github.global.server>github</github.global.server>
 	</properties>
 
 	<build>
@@ -34,7 +27,7 @@
 				<plugin>
 					<groupId>ro.kuberam.maven.plugins</groupId>
 					<artifactId>kuberam-expath-plugin</artifactId>
-					<version>0.4.2</version>
+					<version>0.4.6</version>
 					<executions>
 						<execution>
 							<id>generate-spec</id>
@@ -59,56 +52,91 @@
 								<includeSpecs>${includeSpecIds}</includeSpecs>
 							</configuration>
 						</execution>
-<!-- 						<execution> -->
-<!-- 							<id>generate-lib-files</id> -->
-<!-- 							<phase>prepare-package</phase> -->
-<!-- 							<goals> -->
-<!-- 								<goal>generate-lib-basics</goal> -->
-<!-- 							</goals> -->
-<!-- 							<configuration> -->
-<!-- 								<specFile>${basedir}/${project.artifactId}.xml</specFile> -->
-<!-- 								<libDir>${libParentDir}/${project.artifactId}</libDir> -->
-<!-- 								<libVersion>${project.version}</libVersion> -->
-<!-- 								<libArtifactId>${project.artifactId}</libArtifactId> -->
-<!-- 								<libName>${libName}</libName> -->
-<!-- 								<javaPackageName>${javaPackageName}</javaPackageName> -->
-<!-- 							</configuration> -->
-<!-- 						</execution> -->
+						<!-- <execution> -->
+						<!-- <id>generate-lib-files</id> -->
+						<!-- <phase>prepare-package</phase> -->
+						<!-- <goals> -->
+						<!-- <goal>generate-lib-basics</goal> -->
+						<!-- </goals> -->
+						<!-- <configuration> -->
+						<!-- <specFile>${basedir}/${project.artifactId}.xml</specFile> -->
+						<!-- <libDir>${libParentDir}/${project.artifactId}</libDir> -->
+						<!-- <libVersion>${project.version}</libVersion> -->
+						<!-- <libArtifactId>${project.artifactId}</libArtifactId> -->
+						<!-- <libName>${libName}</libName> -->
+						<!-- <javaPackageName>${javaPackageName}</javaPackageName> -->
+						<!-- </configuration> -->
+						<!-- </execution> -->
 					</executions>
 				</plugin>
 				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>wagon-maven-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>upload-index-of-specs-to-kuberam.ro</id>
-							<phase>package</phase>
-							<goals>
-								<goal>upload-single</goal>
-							</goals>
-							<configuration>
-								<serverId>sourceforge</serverId>
-								<fromFile>../index.html</fromFile>
-								<toFile>index.html</toFile>
-								<url>${web-sourceforge-specs-url}</url>
-							</configuration>
-						</execution>
-						<execution>
-							<id>upload-spec-to-sourceforge</id>
-							<phase>package</phase>
-							<goals>
-								<goal>upload-single</goal>
-							</goals>
-							<configuration>
-								<serverId>sourceforge</serverId>
-								<fromFile>${project.artifactId}.html</fromFile>
-								<toFile>${project.artifactId}.html</toFile>
-								<url>${web-sourceforge-spec-url}</url>
-							</configuration>
-						</execution>
-					</executions>
+					<groupId>com.github.github</groupId>
+					<artifactId>site-maven-plugin</artifactId>
+					<version>0.12</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+
+
+	<profiles>
+		<profile>
+			<id>deploy-spec</id>
+			<distributionManagement>
+				<repository>
+					<id>internal.repo</id>
+					<name>Temporary Staging Repository</name>
+					<url>file://${project.build.directory}</url>
+				</repository>
+			</distributionManagement>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.github</groupId>
+						<artifactId>site-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>release-index.html</id>
+								<configuration>
+									<message>Updated the index file for the EXPath specs.</message>
+									<outputDirectory>${basedir}/..</outputDirectory>
+									<branch>refs/heads/master</branch>
+									<merge>true</merge>
+									<includes>
+										<include>index.html</include>
+									</includes>
+									<repositoryName>claudius108.github.com</repositoryName>
+									<repositoryOwner>claudius108</repositoryOwner>
+									<path>specs/expath</path>
+								</configuration>
+								<goals>
+									<goal>site</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+							<execution>
+								<id>release-spec-html</id>
+								<configuration>
+									<message>'${project.artifactId}' v. ${project.version}</message>
+									<outputDirectory>${basedir}</outputDirectory>
+									<branch>refs/heads/master</branch>
+									<merge>true</merge>
+									<includes>
+										<include>${project.artifactId}.html</include>
+									</includes>
+									<repositoryName>claudius108.github.com</repositoryName>
+									<repositoryOwner>claudius108</repositoryOwner>
+									<path>specs/expath/${project.artifactId}</path>
+								</configuration>
+								<goals>
+									<goal>site</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
