@@ -15,6 +15,7 @@
 	</prerequisites>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<includeSpecIds>datatype-conversion,ft-client,time,digital-publishing,pdf,image,location,user-agent</includeSpecIds>
 		<libParentDir>/home/claudius/workspaces/repositories/git/kuberam/libs/java</libParentDir>
 		<javaPackageName>ro.kuberam.libs.java.${java-package-name}</javaPackageName>
