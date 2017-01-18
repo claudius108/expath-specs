@@ -13,8 +13,8 @@
 
 	<artifactId>datatype-conversion</artifactId>
 	<version>1.0</version>
-	<name>Specification for EXPath Datatype Conversion Module</name>
 	<packaging>pom</packaging>
+	<name>Specification for EXPath Datatype Conversion Module</name>
 	<url>http://kuberam.ro/specs/expath/datatype-conversion/datatype-conversion.html</url>
 
 	<properties>
