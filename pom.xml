@@ -16,7 +16,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<includeSpecIds>datatype-conversion,ft-client,time,digital-publishing,pdf,image,location,user-agent</includeSpecIds>
+		<includeSpecs></includeSpecs>
 		<libParentDir>/home/claudius/workspaces/repositories/git/kuberam/libs/java</libParentDir>
 		<javaPackageName>ro.kuberam.libs.java.${java-package-name}</javaPackageName>
 		<github.global.server>github</github.global.server>
@@ -49,8 +49,22 @@
 								<goal>generate-specs-index</goal>
 							</goals>
 							<configuration>
-								<specsDir>..</specsDir>
-								<includeSpecs>${includeSpecIds}</includeSpecs>
+								<outputDir>${project.build.directory}</outputDir>
+								<filesets>
+									<fileset>
+										<directory>${basedir}/..</directory>
+										<includes>
+											<include>expath-datatypes-spec/datatypes.html</include>
+											<include>expath-ft-client-spec/ft-client.html</include>
+											<include>expath-time-spec/time.html</include>
+											<include>expath-digital-publishing-spec/digital-publishing.html</include>
+											<include>expath-pdf-spec/pdf.html</include>
+											<include>expath-image-spec/image.html</include>
+											<include>expath-location-spec/location.html</include>
+											<include>expath-user-agent-spec/user-agent.html</include>
+										</includes>
+									</fileset>
+								</filesets>
 							</configuration>
 						</execution>
 						<!-- <execution> -->
@@ -100,7 +114,7 @@
 								<id>release-index.html</id>
 								<configuration>
 									<message>Updated the index file for the EXPath specs.</message>
-									<outputDirectory>${basedir}/..</outputDirectory>
+									<outputDirectory>${project.build.directory}</outputDirectory>
 									<branch>refs/heads/master</branch>
 									<merge>true</merge>
 									<includes>
